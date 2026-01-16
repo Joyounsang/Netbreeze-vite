@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+static/
+
+# Generated files
+*.min.js
+*.min.css
+
+# Lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Logs
+*.log
+
+cache
+.cache
+public
+
+.yarn
+build
+**/dist/**
+
+.github
+.git
+ui-debug.log
+
+**/types/api/*d.ts
+**/types/generated/**

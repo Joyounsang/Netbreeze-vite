@@ -1,0 +1,41 @@
+@media (max-width: 1600px) {
+  .viewport {
+    .container {
+      .contents {
+        .panel {
+          width: calc(100% - 360px);
+
+          &.side {
+            width: 330px;
+          }
+
+          >.row {
+            flex-direction: column;
+
+            >.column {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .query {
+    // flex-wrap: wrap;
+    overflow: auto;
+  }
+
+  .login {
+    justify-content: center;
+
+    .area {
+      position: fixed;
+    }
+
+    .form {
+      min-width: 606px;
+      height: 90%;
+    }
+  }
+}

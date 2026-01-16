@@ -1,0 +1,32 @@
+/*
+    Animation Component
+*/
+.el-zoom {
+  transform: scale(0.5);
+  opacity: 0;
+
+  &.active {
+    animation: elZoom 1s .1s forwards;
+
+    &.ani02 {
+      animation: elZoom 1s 1s forwards;
+    }
+  }
+}
+
+@keyframes elZoom {
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes dung {
+  0% {
+    transform: translate(0, 10px);
+  }
+
+  100% {
+    transform: translate(0, -10px);
+  }
+}

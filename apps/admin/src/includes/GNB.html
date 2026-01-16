@@ -1,0 +1,210 @@
+<div id="gnb">
+
+    <div class="top">
+        <h1 class="logo">
+            <a href="index.html">
+                <div class="symbol">
+                    <img src="assets/images/admin-logo.png" alt="">
+                </div>
+                <div class="textType">
+                    <div class="tit">플랫아파트</div>
+                    <div class="sub">공동주택 통합관리 시스템</div>
+                </div>
+            </a>
+        </h1>
+        <!-- 스크롤 라이브러리를 위한 scrollbar 클래스 추가 -->
+        <div class="nav-item scrollbar">
+
+            <nav class="menu-group">
+                <ul class="menu-group-depth1">
+                    <li class="menu-item active open">
+                        <a href="#" class="arrow">
+                            <img src="assets/images/gnb-ico-favorite.png" alt="">
+                            즐겨찾기(active, open)</a>
+                        <ul class="menu-group-depth2">
+                            <li class="menu-item"><a href="index.html" class="active">퍼블리싱가이드(active)</a></li>
+                            <li class="menu-item"><a href="vote.html" class="active">설문·투표 결과확인</a></li>
+
+                            <li class="menu-item"><a href="EditBoard.html">게시물관리</a></li>
+                            <li class="menu-item"><a href="Login.html">로그인</a></li>
+                            <li class="menu-item"><a href="Dashboard.html">대시보드(아파트)</a></li>
+                            <li class="menu-item"><a href="Dashboard-schooltalk.html">대시보드(스쿨톡)</a></li>
+                            <li class="menu-item"><a href="Dashboard-schooltalkDataNull.html">대시보드(스쿨톡 Data Null)</a>
+                            </li>
+                            <li class="menu-item"><a href="index.html" class="active">퍼블리싱가이드(active)</a></li>
+                            <li class="menu-item"><a href="ListRows.html">다중 목록 공통</a></li>
+                            <li class="menu-item"><a href="ListCols.html">다중 목록 공통2</a></li>
+                            <li class="menu-item"><a href="View.html">목록 상세 공통(View)</a></li>
+                            <li class="menu-item"><a href="Input.html">설정 및 입력 공통(input)</a></li>
+                            <li class="menu-item"><a href="Modal.html">모달과 알럿(modal)</a></li>
+                            <li class="menu-item"><a href="Error.html">에러페이지</a></li>
+                            <li class="menu-item"><a href="Loading.html">로딩</a></li>
+                            <!-- 800,600부분이 가로,세로 입니다 -->
+                            <li class="menu-item"><a href="WindowPopupBasic.html"
+                                    onclick="openPopup('WindowPopupBasic.html', 800, 800); return false;">윈도우팝업</a></li>
+                            <li class="menu-item"><a href="WindowPopup.html"
+                                    onclick="openPopup('WindowPopup.html', 600, 600); return false;">윈도우팝업(응용)</a></li>
+                            <script type="text/javascript">
+                                // 이부분은 팝업 띄울 때 공통으로 적용할 옵션입니다.
+                                function openPopup(url, width, height) {
+                                    var options = "menubar=no,toolbar=no,location=no,status=no,resizable=yes,scrollbars=yes";
+                                    var popupOptions = "width=" + width + ",height=" + height + "," + options;
+                                    window.open(url, "popupWindow", popupOptions);
+                                }
+                            </script>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="Dashboard.html">
+                            <img src="assets/images/gnb-ico-dashboard.png" alt="">
+                            대시보드</a>
+                    </li>
+
+                    <h2 class="nav-side-title"><span>주소록</span></h2>
+                    <li class="menu-item">
+                        <a href="#" class="arrow">
+                            <img src="assets/images/gnb-ico-citizen.png" alt="">
+                            입주민 관리</a>
+                        <ul class="menu-group-depth2">
+                            <li class="menu-item"><a href="List.html">입주민 정보</a></li>
+                            <li class="menu-item"><a href="List.html">입주민 승인</a></li>
+                            <li class="menu-item"><a href="List.html">세대별 종합정보</a></li>
+                            <li class="menu-item"><a href="ListRows.html">개별세대 상세정보</a></li>
+                            <li class="menu-item"><a href="List.html">소유자 정보</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#" class="arrow">
+                            <img src="assets/images/gnb-ico-message.png" alt="">
+                            메시지 관리</a>
+                        <ul class="menu-group-depth2">
+                            <li class="menu-item"><a href="Panel.html">메시지 발송</a></li>
+                            <li class="menu-item"><a href="Panel.html">엑셀이용 발송</a></li>
+                            <li class="menu-item"><a href="List.html">설문·투표·전자신청서</a></li>
+                            <li class="menu-item"><a href="List.html">전송대기·예약</a></li>
+                            <li class="menu-item"><a href="List.html">전송 결과확인</a></li>
+                        </ul>
+                    </li>
+
+                    <h2 class="nav-side-title"><span>단지</span></h2>
+                    <li class="menu-item">
+                        <a href="#" class="arrow">
+                            <img src="assets/images/gnb-ico-parking.png" alt="">
+                            주차 관리</a>
+                        <ul class="menu-group-depth2">
+                            <li class="menu-item"><a href="List.html">세대별 주차정보</a></li>
+                            <li class="menu-item"><a href="Panel2.html">세대 방문주차 상세</a></li>
+                            <li class="menu-item"><a href="List.html">정기 차량관리</a></li>
+                            <li class="menu-item"><a href="List.html">방문 차량관리</a></li>
+                            <li class="menu-item"><a href="List.html">방문주차 시간 초과세대</a></li>
+                            <li class="menu-item"><a href="List.html">차량 출입정보</a></li>
+                            <li class="menu-item"><a href="List.html">블랙리스트</a></li>
+                            <li class="menu-item"><a href="List.html">주차 공간관리</a></li>
+                            <li class="menu-item"><a href="List.html">주차 게이트관리</a></li>
+                            <li class="menu-item"><a href="List.html">주차 위치모니터링</a></li>
+                            <li class="menu-item"><a href="Input.html">주차 설정</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="#" class="arrow">
+                            <img src="assets/images/gnb-ico-apt.png" alt="">
+                            단지 업무</a>
+                        <ul class="menu-group-depth2">
+                            <li class="menu-item"><a href="List.html">아파트 게시판</a></li>
+                            <li class="menu-item"><a href="List.html">아파트 일정</a></li>
+                            <li class="menu-item"><a href="List.html">지역 소식</a></li>
+                            <li class="menu-item"><a href="List.html">스마트 방송시스템</a></li>
+                            <li class="menu-item"><a href="List.html">민원·수리·신고</a></li>
+                            <li class="menu-item"><a href="List.html">세대 통합예약</a></li>
+                            <li class="menu-item"><a href="List.html">의무공개</a></li>
+                            <li class="menu-item"><a href="List.html">관리비</a></li>
+                            <li class="menu-item"><a href="List.html">초소 모바일 안심전화</a></li>
+                            <li class="menu-item"><a href="List.html">단지 점검이력</a></li>
+                            <li class="menu-item"><a href="List.html">동네 연락처</a></li>
+                            <li class="menu-item"><a href="List.html">세대 창고정보</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="#" class="arrow">
+                            <img src="assets/images/gnb-ico-facility.png" alt="">
+                            장비 및 시설물 연동</a>
+                        <ul class="menu-group-depth2">
+                            <li class="menu-item"><a href="ListRows.html">전기차 충전소</a></li>
+                            <li class="menu-item"><a href="List.html">엘레베이터</a></li>
+                            <li class="menu-item"><a href="ListRows.html">원격검침</a></li>
+                            <li class="menu-item"><a href="ListRows.html">음식물쓰레기</a></li>
+                            <li class="menu-item"><a href="List.html">주차관리시스템</a></li>
+                            <li class="menu-item"><a href="List.html">주차유도기</a></li>
+                            <li class="menu-item"><a href="List.html">출입관리기기</a></li>
+                            <li class="menu-item"><a href="List.html">원패스</a></li>
+                            <li class="menu-item"><a href="List.html">로비폰</a></li>
+                            <li class="menu-item"><a href="List.html">키오스크</a></li>
+                            <li class="menu-item"><a href="ListRows.html">골프타석기</a></li>
+                            <li class="menu-item"><a href="List.html">화재·방범·기타알림</a></li>
+                        </ul>
+                    </li>
+
+                    <h2 class="nav-side-title"><span>편의</span></h2>
+                    <li class="menu-item">
+                        <a href="#" class="arrow">
+                            <img src="assets/images/gnb-ico-community.png" alt="">
+                            커뮤니티 시설</a>
+                        <ul class="menu-group-depth2">
+                            <li class="menu-item"><a href="List.html">시설 예약</a></li>
+                            <li class="menu-item"><a href="List.html">세대 예약현황</a></li>
+                            <li class="menu-item"><a href="List.html">출입기록</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="#" class="arrow">
+                            <img src="assets/images/gnb-ico-cafe.png" alt="">
+                            카페</a>
+                        <ul class="menu-group-depth2">
+                            <li class="menu-item"><a href="List.html">메뉴관리</a></li>
+                            <li class="menu-item"><a href="List.html">주문이력</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="#" class="arrow">
+                            <img src="assets/images/gnb-ico-concierge.png" alt="">
+                            컨시어지</a>
+                        <ul class="menu-group-depth2">
+                            <li class="menu-item"><a href="List.html">컨시어지 관리</a></li>
+                            <li class="menu-item"><a href="List.html">세대 예약현황</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="#" class="arrow">
+                            <img src="assets/images/gnb-ico-work.png" alt="">
+                            업무 관리</a>
+                        <ul class="menu-group-depth2">
+                            <li class="menu-item"><a href="List.html">업무일지</a></li>
+                            <li class="menu-item"><a href="List.html">관리부 주소록</a></li>
+                            <li class="menu-item"><a href="List.html">업체·일반·주소록</a></li>
+                        </ul>
+                    </li>
+
+                    <h2 class="nav-side-title"><span>설정</span></h2>
+                    <li class="menu-item">
+                        <a href="#" class="arrow">
+                            <img src="assets/images/gnb-ico-system.png" alt="">
+                            시스템관리</a>
+                        <ul class="menu-group-depth2">
+                            <li class="menu-item"><a href="Input.html">아파트 일반정보</a></li>
+                            <li class="menu-item"><a href="List.html">앱 메뉴 설정</a></li>
+                            <li class="menu-item"><a href="List.html">온라인 소모임 관리</a></li>
+                            <li class="menu-item"><a href="Input.html">계정 정보 변경</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!--=include footer.html -->
+</div>

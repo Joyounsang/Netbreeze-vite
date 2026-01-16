@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+$max-width: 1210px !default;
+
+@import "@repo/styles/abstracts/variables";
+@import "@repo/styles/abstracts/functions";
+@import "@repo/styles/abstracts/mixins";
+@import "@repo/styles/reset";
+
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/css-variables";
+
+@import "vendors/font";
+
+@import "base/base";
+@import "base/animations";
+@import "base/lib";
+
+@import "app";
+
+
+@import "contents/main";
+@import "contents/landing";
+@import "contents/가격안내";
+
+@import "app_responsive";

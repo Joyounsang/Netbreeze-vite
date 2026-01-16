@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<include src="src/includes/head.html"></include>
+
+<body>
+	<div class="viewport">
+		<include src="src/includes/GNB-APT.html"></include>
+		<div class="container">
+			<include src="src/includes/header.html"></include>
+			<div class="contents">
+				<div class="panel">
+					<div class="row">
+						<div class="column">
+							<article>
+								<div class="content-header justify">
+									<div class="title">
+										선거인단 관리
+									</div>
+									<nav class="location">
+										<ol>
+											<li><a href="#">홈</a></li>
+											<li><a href="#">메시지관리</a></li>
+											<li><a href="#">설문·투표·전자신청서</a></li>
+										</ol>
+									</nav>
+								</div>
+								<div class="query">
+									<div class="input-item">
+										<select class="white">
+											<option value="" selected>전체</option>
+											<option value="">참여자</option>
+											<option value="">미참여자</option>
+										</select>
+									</div>
+									<div class="input-item">
+										<select class="white">
+											<option value="" selected>동</option>
+										</select>
+									</div>
+									<div class="input-item responsive">
+										<div class="iptDiv input-item fit" style="width: 260px;">
+											<label class="radio block min white">
+												<input type="radio" name="st" checked="" value="all"><span>전체</span>
+											</label>
+											<label class="radio block min white">
+												<input type="radio" name="st" value="subject"><span>호</span>
+											</label>
+											<label class="radio block min white">
+												<input type="radio" name="st" value="content"><span>이름</span>
+											</label>
+											<label class="radio block min white">
+												<input type="radio" name="st" value="content"><span>전화번호</span>
+											</label>
+										</div>
+									</div>
+
+									<div class="input-item" style="width: 400px;">
+										<div class="input-item-inner" style="width: 100%;">
+											<input type="text" name="sv" placeholder="검색어 입력" value="" class="white">
+										</div>
+									</div>
+
+									<button type="submit" class="btn medium positive fill"><span><img
+												src="/assets/images/admin-ico-query.png" alt="">조회</span></button>
+								</div>
+							</article>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="column">
+							<article>
+								<div class="content-header">
+									<div class="title lv2">목록</div>
+									<div class="command">
+										<div class="input-item">
+											<!-- <select class="white">
+												<option value="" selected>투표완료일시 전체</option>
+												<option value="">완료</option>
+												<option value="">투표전</option>
+											</select> -->
+											<a href="C030201.html" onclick="openPopup('C030201.html', 950, 600);"
+												class="btn medium fill positive"><span>+
+													추가하기</span></a>
+										</div>
+									</div>
+								</div>
+								<div class="tbl type-list">
+									<div class="tmain ">
+										<table>
+											<colgroup>
+												<col style="width:54px;">
+												<col style="width:auto;">
+												<col style="width:auto;">
+												<col style="width:auto;">
+												<col style="width:auto;">
+												<col style="width:auto;">
+												<col style="width:90px;">
+											</colgroup>
+											<thead>
+												<tr>
+													<th class="center">
+														<label class="checkbox single">
+															<input type="checkbox" value="selectall" onclick="selectAll(this)"><span>&nbsp;</span>
+														</label>
+													</th>
+													<th class="center">동</th>
+													<th class="center">호</th>
+													<th class="center">이름</th>
+													<th class="center">전화번호</th>
+													<th class="center">
+														<div class="include-filter">
+															투표완료일시
+															<select class="min">
+																<option value="" selected>전체</option>
+																<option value="">완료</option>
+																<option value="">투표전</option>
+															</select>
+														</div>
+													</th>
+													<th class="center">정보수정</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="center">
+														<label class="checkbox single">
+															<input type="checkbox" name="chk[]" value="0" id="chk"><span>&nbsp;</span>
+															<input type="hidden" name="idx[0]" value="2850">
+															<input type="hidden" name="ap_msg_group[0]" value="">
+														</label>
+													</td>
+													<td class="center">
+													</td>
+													<td class="center">
+													</td>
+													<td class="center">
+													</td>
+													<td class="center">
+													</td>
+													<td class="center">
+													</td>
+
+													<td class="center">
+														<a onclick="openPopup('vote_candidate_pop?vote_number=F123456781748399970&amp;idx=2850>&amp;w=u', 770, 600)"
+															style="width:100%;cursor:pointer" class="btn medium positive line">
+															수정
+														</a>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<div class="tfoot justify">
+										<div class="pagistatus">
+											<!-- <button type="submit" name="action_type" value="update" class="btn medium positive line" title="선택 수정"><span><img src="/assets/images/crud-modify.png"> 선택 수정</span></button> -->
+											<button type="submit" name="action_type" value="group_delete" class="btn medium negative line"
+												title="선택 삭제"><span><img src="/assets/images/crud-remove.png"> 선택 삭제</span></button>
+										</div>
+
+
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

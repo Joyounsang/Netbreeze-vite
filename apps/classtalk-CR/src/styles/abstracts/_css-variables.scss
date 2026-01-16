@@ -1,0 +1,20 @@
+// CSS 변수 정의 (다른 파일에서 사용하기 위해 먼저 import되어야 함)
+:root {
+  --white: #ffffff;
+
+  --rec-primary: #6980EA;
+  --rec-primary-bg: #E4ECFB;
+
+  --rec-red: #E55765;
+  --rec-red-bg: #FFE2E5;
+
+  --bg-gray: #F4F5F9;
+
+  --border: #D1DBEA;
+  --border-light: #E9EBEE;
+
+  --text: #000;
+  --text-gray: #9FA2B4;
+  --text-light: #666F7B;
+  --full-height: calc(var(--vh, 1vh) * 100);
+}

@@ -1,0 +1,80 @@
+/*
+    Library Component
+*/
+.singleSwiper {
+
+  .slider-next,
+  .slider-prev {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 2;
+  }
+
+  .slider-next {
+    right: 0;
+
+  }
+
+  .slider-prev {
+    left: 0;
+  }
+
+  .slider-pagination {
+    text-align: center;
+    display: inline-block;
+    margin-top: 10px;
+
+    .swiper-pagination-bullet {
+      opacity: 0.5;
+
+      &.swiper-pagination-bullet-active {
+        opacity: 1;
+        background: var(--rec-primary);
+      }
+    }
+  }
+}
+
+.slider-next,
+.slider-prev {
+  opacity: 0.5;
+  width: 24px;
+  height: 38px;
+  text-indent: -999rem;
+  display: block;
+  background: url('../images/ico-arrow.png') no-repeat;
+  background-size: contain;
+
+  // transition: transform .4s;
+  &:hover {
+    opacity: 1;
+  }
+
+  &:active {
+    // transform: scale(0.8);
+  }
+}
+
+.swiper-pagination {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+
+  .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: #6980EA;
+    transition: all .3s;
+  }
+
+  .swiper-pagination-bullet-active {
+    width: 20px;
+  }
+}
+
+.slider-prev {
+  transform: rotate(180deg);
+}

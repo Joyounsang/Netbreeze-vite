@@ -1,0 +1,51 @@
+@media (max-width: 1024px) {
+  html {
+    &.bg-paatern {
+      background-size: cover;
+      background-repeat: repeat;
+
+      &:after {
+        filter: blur(25px);
+      }
+    }
+  }
+}
+
+@media (max-width: 719px) {
+  .only-mo {
+    display: block;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  .error-message {
+    .tit {
+      font-size: 2rem;
+    }
+  }
+
+  .tbl {
+    overflow: auto;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

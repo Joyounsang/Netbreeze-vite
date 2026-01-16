@@ -1,0 +1,1706 @@
+<!DOCTYPE html>
+<html lang="ko">
+<include src="src/includes/head.html"></include>
+
+<body>
+	<div class="viewport">
+		<include src="src/includes/GNB.html"></include>
+		<div class="container">
+			<include src="src/includes/header.html"></include>
+			<div class="contents">
+				<div class="panel">
+					<div class="row">
+						<div class="column">
+							<article>
+								<div class="content-header">
+									<div class="title">Modal : 기본적으로 해상도에 따라 자동 너비및 높이지정 모달 닫는 클래스는 modalClose</div>
+								</div>
+								<a href="#modalDemo" class="btn modalLoad">Modal</a>
+								<a href="#alertDemo" class="btn modalLoad">Alert</a>
+								<a href="#sample01" class="btn modalLoad">정보입력</a>
+
+								<a href="#sample02" class="btn modalLoad">출입기록</a>
+							</article>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="sample02" class="modal">
+		<div class="modal-inner">
+			<div class="modal-header">
+				Title
+				<a href="#" class="modalClose" title="닫기">닫기</a>
+			</div>
+			<div class="content-header white">
+				<div class="justify right">
+					<a href="#" class="btn positive fill medium"><span>일시열림</span></a>
+					<a href="#" class="btn natural line medium"><span>재부팅</span></a>
+					<a href="#" class="btn negative line medium"><span>삭제</span></a>
+				</div>
+			</div>
+			<div class="content-header">
+				<div class="inner-tab">
+					<ul>
+						<li rel="modalTab2_1" class="on">
+							<a href="#">출입기록</a>
+						</li>
+						<li rel="modalTab2_2">
+							<a href="#">설정</a>
+						</li>
+						<li rel="modalTab2_3">
+							<a href="#">재등록</a>
+						</li>
+						<li rel="modalTab2_4">
+							<a href="#">교체</a>
+						</li>
+						<!-- <li rel="modalTab2_5">
+							<a href="#">제어</a>
+						</li> -->
+					</ul>
+				</div>
+
+			</div>
+			<div class="modal-body">
+				<!-- 탭이동시 크기가 달라지지 않는게 좋다면 아래 inline으로 높이및 너비를 자유롭게 설정해주세요 -->
+				<div id="panelTab" class="tab-component" style="width:600px;">
+					<div class="modalTab2_1 tab-content">
+						<div class="row">
+							<div class="column">
+
+								<article>
+									<div class="tbl type-list">
+										<!-- 스크롤 라이브러리를 위한 scrollbar 클래스 추가 -->
+										<div class="tmain scrollbar min">
+											<table>
+												<colgroup>
+													<col style="width:52px;">
+													<col style="width:auto">
+													<col style="width:100px;">
+													<col style="width:100px;">
+													<col style="width:auto;">
+												</colgroup>
+												<thead>
+													<tr>
+														<th scope="col" class="center">
+															캡쳐사진
+														</th>
+														<th scope="col" class="center">
+															시설명
+														</th>
+														<th scope="col" class="center">
+															출입방법
+														</th>
+														<th scope="col" class="center">
+															시간
+														</th>
+														<th scope="col" class="center">
+															출입자 정보
+														</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="center">
+															<div class="preview">
+																<img src="assets/images/admin-default.png" alt="">
+															</div>
+														</td>
+														<td class="center">
+															String
+														</td>
+														<td class="center">
+															<b class="status"><em class="blue">Positive</em></b>
+														</td>
+														<td class="center">
+															HH:MM:SS
+														</td>
+														<td class="center">
+															String
+														</td>
+													</tr>
+													<tr>
+														<td class="center">
+															<div class="preview">
+																<img src="assets/images/admin-default.png" alt="">
+															</div>
+														</td>
+														<td class="center">
+															String
+														</td>
+														<td class="center">
+															<b class="status"><em class="blue">Positive</em></b>
+														</td>
+														<td class="center">
+															HH:MM:SS
+														</td>
+														<td class="center">
+															String
+														</td>
+													</tr>
+													<tr>
+														<td class="center">
+															<div class="preview">
+																<img src="assets/images/admin-default.png" alt="">
+															</div>
+														</td>
+														<td class="center">
+															String
+														</td>
+														<td class="center">
+															<b class="status"><em class="blue">Positive</em></b>
+														</td>
+														<td class="center">
+															HH:MM:SS
+														</td>
+														<td class="center">
+															String
+														</td>
+													</tr>
+													<tr>
+														<td class="center">
+															<div class="preview">
+																<img src="assets/images/admin-default.png" alt="">
+															</div>
+														</td>
+														<td class="center">
+															String
+														</td>
+														<td class="center">
+															<b class="status"><em class="blue">Positive</em></b>
+														</td>
+														<td class="center">
+															HH:MM:SS
+														</td>
+														<td class="center">
+															String
+														</td>
+													</tr>
+													<tr>
+														<td class="center">
+															<div class="preview">
+																<img src="assets/images/admin-default.png" alt="">
+															</div>
+														</td>
+														<td class="center">
+															String
+														</td>
+														<td class="center">
+															<b class="status"><em class="blue">Positive</em></b>
+														</td>
+														<td class="center">
+															HH:MM:SS
+														</td>
+														<td class="center">
+															String
+														</td>
+													</tr>
+													<tr>
+														<td class="center">
+															<div class="preview">
+																<img src="assets/images/admin-default.png" alt="">
+															</div>
+														</td>
+														<td class="center">
+															String
+														</td>
+														<td class="center">
+															<b class="status"><em class="blue">Positive</em></b>
+														</td>
+														<td class="center">
+															HH:MM:SS
+														</td>
+														<td class="center">
+															String
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div class="tfoot justify">
+											<div class="pagination">
+												<ol>
+													<li class="first">
+														<a href="#">처음</a>
+													</li>
+													<li class="prev">
+														<a href="#">이전</a>
+													</li>
+													<li class="on">
+														<a href="#">1</a>
+													</li>
+													<li>
+														<a href="#">2</a>
+													</li>
+													<li>
+														<a href="#">3</a>
+													</li>
+													<li>
+														<a href="#">4</a>
+													</li>
+													<li>
+														<a href="#">5</a>
+													</li>
+													<li class="next">
+														<a href="#">다음</a>
+													</li>
+													<li class="last">
+														<a href="#">마지막</a>
+													</li>
+												</ol>
+											</div>
+										</div>
+									</div>
+									<!-- 각탭에 개별 버튼으로쓰려면 이곳에 modal-footer -->
+									<div class="modal-footer">
+										<div class="justify center">
+											<a href="#" class="btn natural modalClose"><span>확인</span></a>
+										</div>
+									</div>
+								</article>
+							</div>
+						</div>
+					</div>
+					<div class="modalTab2_2 tab-content">
+						<div class="row">
+							<div class="column">
+
+								<article>
+									<div class="tbl type-input">
+										<table>
+											<colgroup>
+												<col style="width:140px">
+												<col style="width: auto;">
+											</colgroup>
+											<tbody>
+												<tr>
+													<th>
+														문열림 시간
+													</th>
+													<td>
+														<div class="input-item">
+															<input type="text" placeholder="HH:MM:SS">
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<th>
+														안면인식 정확도
+													</th>
+													<td>
+														<div class="input-item">
+															<input type="text" placeholder="%">
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<th>
+														비밀번호
+													</th>
+													<td>
+														<div class="input-item">
+															<input type="password">
+														</div>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<!-- 각탭에 개별 버튼으로쓰려면 이곳에 modal-footer -->
+									<div class="modal-footer">
+										<div class="justify center">
+											<a href="#" class="btn positive fill"><span>설정 적용</span></a>
+										</div>
+									</div>
+
+								</article>
+							</div>
+						</div>
+					</div>
+					<div class="modalTab2_3 tab-content">
+						<div class="row">
+							<div class="column">
+
+								<article>
+									<div class="tbl type-input">
+										<table>
+											<colgroup>
+												<col style="width:140px">
+												<col style="width: auto;">
+											</colgroup>
+											<tbody>
+												<tr>
+													<th>
+														시리얼번호
+													</th>
+													<td>
+														<div class="input-item">
+															<input type="text" value="1717837238">
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<th>
+														시설명
+													</th>
+													<td>
+														<div class="input-item">
+															<input type="text" value="타석기 #2">
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<th>
+														동
+													</th>
+													<td>
+														<div class="input-item">
+															<select name="" id="">
+																<option value="" selected>커뮤니티</option>
+															</select>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<th>
+														라인
+													</th>
+													<td>
+														<div class="input-item">
+															<select name="" id="">
+																<option value="" selected>1라인</option>
+															</select>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<th>
+														층
+													</th>
+													<td>
+														<div class="input-item">
+															<select name="" id="">
+																<option value="" selected>1층</option>
+															</select>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<th>
+														조건
+													</th>
+													<td>
+														<div class="input-item">
+															<select name="" id="">
+																<option value="" selected>동/커뮤니티 등록자만 출입</option>
+															</select>
+														</div>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<!-- 각탭에 개별 버튼으로쓰려면 이곳에 modal-footer -->
+									<div class="modal-footer">
+										<div class="justify center">
+											<a href="#" class="btn positive fill"><span>재등록</span></a>
+										</div>
+									</div>
+
+								</article>
+							</div>
+						</div>
+					</div>
+					<div class="modalTab2_4 tab-content">
+						<div class="row">
+							<div class="column">
+
+								<article>
+									<div class="tbl type-input">
+										<table>
+											<colgroup>
+												<col style="width:140px">
+												<col style="width: auto;">
+											</colgroup>
+											<tbody>
+												<tr>
+													<th>
+														장비
+													</th>
+													<td>
+														<div class="input-item">
+															<input type="text" value="1717837238" readonly>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<th>
+														신규 장비번호
+													</th>
+													<td>
+														<div class="input-item">
+															<input type="text">
+														</div>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<!-- 각탭에 개별 버튼으로쓰려면 이곳에 modal-footer -->
+									<div class="modal-footer">
+										<div class="justify center">
+											<a href="#" class="btn positive fill"><span>교체 적용</span></a>
+										</div>
+									</div>
+
+								</article>
+							</div>
+						</div>
+					</div>
+					<!-- <div class="modalTab2_5 tab-content">
+						<div class="row">
+							<div class="column">
+
+								<article>
+									<div class="modal-footer">
+										<div class="justify center">
+											<a href="#" class="btn positive fill"><span>일시열림</span></a>
+											<a href="#" class="btn natural fill"><span>재부팅</span></a>
+											<a href="#" class="btn negative fill"><span>삭제</span></a>
+										</div>
+									</div>
+
+								</article>
+							</div>
+						</div>
+					</div> -->
+				</div>
+			</div>
+
+		</div>
+		<div class="modal-dim"></div>
+	</div>
+
+	<div id="sample01" class="modal">
+		<div class="modal-inner">
+			<div class="modal-header">
+				Title
+				<a href="#" class="modalClose" title="닫기">닫기</a>
+			</div>
+			<div class="content-header">
+				<div class="inner-tab">
+					<ul>
+						<li rel="modalTab_1" class="on">
+							<a href="#">엑셀업로드</a>
+						</li>
+						<li rel="modalTab_2">
+							<a href="#">기타정보</a>
+						</li>
+						<li rel="modalTab_3">
+							<a href="#">그룹생성</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div id="panelTab" class="tab-component">
+					<div class="modalTab_1 tab-content">
+						<div class="row">
+							<div class="column">
+
+								<article>
+									<div class="content-header">
+										<p class="desc"><small><em class="gray">*.xls로 저장된 문서만 업로드 됩니다.</em></small></p>
+										<div class="command">
+											<div class="input-item">
+												<a href="#" class="btn medium line positive"><span>
+														<img src="assets/images/gnb-ico-work-on.png">
+														샘플 양식 다운로드
+													</span></a>
+											</div>
+										</div>
+									</div>
+									<div class="tbl type-input">
+										<table>
+											<tbody>
+												<tr>
+													<td>
+														<div class="input-item file-input-group">
+															<input type="text" class="file-path" readonly>
+															<div class="file" style="width: 100px;">
+																<input type="file" name="" id="fileIdDefault" />
+																<label class="btn medium fill natural" for="fileIdDefault"><span>파일찾기</span></label>
+															</div>
+														</div>
+													</td>
+												</tr>
+												<!-- <tr>
+													<td>
+														<div class="input-item file-input-group">
+															<input type="text" class="file-path" readonly>
+															<div class="file" style="width: 100px;">
+																<input type="file" name="" id="fileIdDefault2" />
+																<label class="btn medium fill natural" for="fileIdDefault2"><span>파일찾기</span></label>
+															</div>
+														</div>
+													</td>
+												</tr> -->
+											</tbody>
+										</table>
+									</div>
+									<!-- 각탭에 개별 버튼으로쓰려면 이곳에 modal-footer -->
+									<div class="modal-footer">
+										<div class="justify center">
+											<a href="#" class="btn positive fill"><span>업로드</span></a>
+										</div>
+									</div>
+
+								</article>
+							</div>
+						</div>
+					</div>
+					<div class="modalTab_2 tab-content">
+						<div class="row">
+							<div class="column">
+								<article>
+									<div class="content-header">
+										<p class="desc"><small><em class="gray">*.xls로 저장된 문서만 업로드 됩니다.</em></small></p>
+										<div class="command">
+											<div class="input-item">
+												<a href="#" class="btn medium line positive"><span>
+														<img src="assets/images/gnb-ico-work-on.png">
+														샘플 양식 다운로드
+													</span></a>
+											</div>
+										</div>
+									</div>
+									<div class="tbl type-input">
+										<table>
+											<tbody>
+												<tr>
+													<td>
+														<div class="input-item file-input-group">
+															<input type="text" class="file-path" readonly>
+															<div class="file" style="width: 100px;">
+																<input type="file" name="" id="fileIdDefault2" />
+																<label class="btn medium fill natural" for="fileIdDefault2"><span>파일찾기</span></label>
+															</div>
+														</div>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<!-- 각탭에 개별 버튼으로쓰려면 이곳에 modal-footer -->
+									<div class="modal-footer">
+										<div class="justify center">
+											<a href="#" class="btn positive fill"><span>업로드</span></a>
+										</div>
+									</div>
+
+								</article>
+							</div>
+						</div>
+					</div>
+					<div class="modalTab_3 tab-content">
+						<div class="row">
+							<div class="column">
+								<article>
+									<div class="tbl type-input">
+										<table>
+											<tbody>
+												<tr>
+													<td>
+														<div class="input-item">
+															<input type="text">
+														</div>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<!-- 각탭에 개별 버튼으로쓰려면 이곳에 modal-footer -->
+									<div class="modal-footer">
+										<div class="justify center">
+											<a href="#" class="btn positive fill"><span>제출하기</span></a>
+										</div>
+									</div>
+
+								</article>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="modal-dim"></div>
+	</div>
+
+	<div id="modalDemo" class="modal">
+		<div class="modal-inner">
+			<div class="modal-header">
+				Title
+				<a href="#" class="modalClose" title="닫기">닫기</a>
+			</div>
+			<div class="content-header">
+				<div class="inner-tab">
+					<ul>
+						<li rel="modalTab_1" class="on">
+							<a href="#">Tab1</a>
+						</li>
+						<li rel="modalTab_2">
+							<a href="#">Tab2</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div id="panelTab" class="tab-component">
+					<div class="modalTab_1 tab-content">
+						<div class="row">
+							<div class="column">
+								<article>
+									<div class="content-header">
+										<div class="title lv2">${제목}</div>
+										<div class="command">
+											<div class="input-item">
+												<a href="#" class="btn medium line positive"><span>
+														<img src="assets/images/gnb-ico-system-on.png">
+														Button
+													</span></a>
+
+												<a href="#" class="btn medium line positive"><span>
+														<img src="assets/images/gnb-ico-parking-on.png">
+														다양한 아이콘 응용
+													</span></a>
+											</div>
+										</div>
+									</div>
+									<include src="src/includes/Table-Row.html"></include>
+								</article>
+							</div>
+						</div>
+						<div class="row">
+							<div class="column">
+								<article>
+									<div class="content-header">
+										<div class="title lv2">${제목}</div>
+										<div class="command">
+											<div class="input-item">
+												<a href="#" class="btn medium line positive"><span>
+														<img src="assets/images/gnb-ico-system-on.png">
+														Button
+													</span></a>
+
+												<a href="#" class="btn medium line positive"><span>
+														<img src="assets/images/gnb-ico-parking-on.png">
+														다양한 아이콘 응용
+													</span></a>
+											</div>
+										</div>
+									</div>
+									<include src="src/includes/Table-Row.html"></include>
+								</article>
+							</div>
+						</div>
+					</div>
+					<div class="modalTab_2 tab-content">
+						<div class="row">
+							<div class="column">
+								<article>
+									<div class="content-header">
+										<div class="title lv2">Title</div>
+										<div class="command">
+											<div class="input-item">
+												<a href="#" class="btn medium" title="엑셀파일로 다운로드"><span>
+														<img src="assets/images/crud-excel.png">
+													</span></a>
+												<a href="#" class="btn medium negative" title="선택 삭제"><span>
+														<img src="assets/images/crud-remove.png">
+													</span></a>
+												<a href="#" class="btn medium negative"><span>Negative</span></a>
+												<a href="#" class="btn medium normal"><span>Normal</span></a>
+												<a href="#" class="btn medium positive"><span>Positive</span></a>
+												<a href="#" class="btn medium natural"><span>Natural</span></a>
+												<select class="white">
+													<option value="">정렬</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="tbl type-list">
+										<!-- 스크롤되는 높이를 유동적으로 쓰는경우 이곳에 height 지정 -->
+										<div class="tmain" style="height: 400px;">
+											<table>
+												<colgroup>
+													<col style="width:52px;">
+													<col style="width:52px">
+													<col style="width:52px;">
+													<col style="width:160px;">
+													<col style="width:auto;">
+													<col style="width:auto;">
+													<col style="width:158px;">
+													<col style="width:158px;">
+													<col style="width:158px;">
+													<col style="width:158px;">
+													<col style="width:80px;">
+												</colgroup>
+												<thead>
+													<tr>
+														<th scope="col" class="center">
+															<label class="checkbox single">
+																<input type="checkbox"><span>&nbsp;</span>
+															</label>
+														</th>
+														<th scope="col" class="center">
+															IMG
+														</th>
+														<th scope="col" class="center">
+															Sign
+														</th>
+														<th scope="col" class="center">
+															Input
+														</th>
+														<th scope="col" class="center">
+															Text
+														</th>
+														<th scope="col" class="center">
+															Text 2 Rows
+														</th>
+														<th scope="col" class="center">
+															Status
+														</th>
+														<th scope="col" class="center">
+															Number
+														</th>
+														<th scope="col" class="center">
+															Date
+														</th>
+														<th scope="col" class="center">
+															Option
+														</th>
+														<th scope="col" class="center">
+															Button
+														</th>
+
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="center">
+															<label class="checkbox single">
+																<input type="checkbox"><span>&nbsp;</span>
+															</label>
+														</td>
+														<td class="center">
+															<div class="sign positive"><span></span></div>
+														</td>
+														<td class="center">
+															<div class="preview">
+																<img src="assets/images/admin-default.png" alt="">
+															</div>
+														</td>
+														<td class="center">
+															<div class="input-item">
+																<select>
+																	<option value="" selected>선택</option>
+																</select>
+															</div>
+														</td>
+														<td class="center">
+															String
+														</td>
+														<td class="center">
+															text<br><small>01041237236</small>
+														</td>
+														<td class="center">
+															<b class="status"><em class="blue">Positive</em></b>
+														</td>
+														<td class="center">
+															10,000
+														</td>
+														<td class="center">
+															2024-07-30
+														</td>
+														<td class="center">
+															<div class="iptDiv input-item fit" style="width: 100%;">
+																<label class="radio block min white">
+																	<input type="radio" name="range" checked><span>오늘</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>1주일</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>1개월</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>전체</span>
+																</label>
+															</div>
+														</td>
+														<td class="center">
+															<a href="#" class="btn medium positive line"><span>Button</span></a>
+														</td>
+
+													</tr>
+
+													<tr>
+														<td class="center">
+															<label class="checkbox single">
+																<input type="checkbox"><span>&nbsp;</span>
+															</label>
+														</td>
+														<td class="center">
+															<div class="sign negative"><span></span></div>
+														</td>
+														<td class="center">
+															<div class="preview">
+																<img src="assets/images/admin-default.png" alt="">
+															</div>
+														</td>
+														<td class="center">
+															<div class="input-item">
+																<input type="text" placeholder="내용 입력">
+															</div>
+														</td>
+														<td class="left">
+															<b>Left</b>
+														</td>
+														<td class="center">
+															text<br><small>01041237236</small>
+														</td>
+														<td class="center">
+															<b class="status"><em class="red">Negative</em></b>
+														</td>
+														<td class="center">
+															10,000
+														</td>
+														<td class="center">
+															2024-07-30
+														</td>
+														<td class="center">
+															<div class="iptDiv input-item fit" style="width: 100%;">
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>오늘</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>1주일</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>1개월</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>전체</span>
+																</label>
+															</div>
+														</td>
+														<td class="center">
+															<a href="#" class="btn medium negative line"><span>Button</span></a>
+														</td>
+
+													</tr>
+
+													<tr>
+														<td class="center">
+															<label class="checkbox single">
+																<input type="checkbox"><span>&nbsp;</span>
+															</label>
+														</td>
+														<td class="center">
+															<div class="sign natural"><span></span></div>
+														</td>
+														<td class="center">
+															<div class="preview">
+																<img src="assets/images/admin-default.png" alt="">
+															</div>
+														</td>
+														<td class="center">
+															<div class="input-item">
+																<input type="text" value="readonly" readonly>
+															</div>
+														</td>
+														<td class="right">
+															<b>Right</b>
+														</td>
+														<td class="center">
+															text<br><small>01041237236</small>
+														</td>
+														<td class="center">
+															<b class="status"><em class="gray">Natural</em></b>
+														</td>
+														<td class="center">
+															10,000
+														</td>
+														<td class="center">
+															2024-07-30
+														</td>
+														<td class="center">
+															<div class="iptDiv input-item fit" style="width: 100%;">
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>오늘</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>1주일</span>
+																</label>
+															</div>
+														</td>
+														<td class="center">
+															<a href="#" class="btn medium natural line"><span>Button</span></a>
+														</td>
+													</tr>
+
+													<tr>
+														<td class="center">
+															<label class="checkbox single">
+																<input type="checkbox"><span>&nbsp;</span>
+															</label>
+														</td>
+														<td class="center">
+															<div class="sign"><span></span></div>
+														</td>
+														<td class="center">
+															<div class="preview">
+																<img src="assets/images/admin-default.png" alt="">
+															</div>
+														</td>
+														<td class="center">
+															<div class="input-item">
+																<input type="text" value="readonly" readonly>
+															</div>
+														</td>
+														<td class="center">
+															<b>Center</b>
+														</td>
+														<td class="center">
+															text<br><small>01041237236</small>
+														</td>
+														<td class="center">
+															<b class="status"><em class="mint">ETC</em></b>
+														</td>
+														<td class="center">
+															10,000
+														</td>
+														<td class="center">
+															2024-07-30
+														</td>
+														<td class="center">
+															<div class="iptDiv input-item fit" style="width: 100%;">
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>오늘</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>1주일</span>
+																</label>
+															</div>
+														</td>
+														<td class="center">
+															<a href="#" class="btn medium normal line"><span>Button</span></a>
+														</td>
+													</tr>
+
+													<tr>
+														<td class="center">
+															<label class="checkbox single">
+																<input type="checkbox" disabled><span>&nbsp;</span>
+															</label>
+														</td>
+														<td class="center">
+															<div class="sign disabled"><span></span></div>
+														</td>
+														<td class="center">
+															<div class="preview">
+																<img src="assets/images/admin-default.png" alt="">
+															</div>
+														</td>
+														<td class="center">
+															<div class="input-item">
+																<input type="text" value="disabled" disabled>
+															</div>
+														</td>
+														<td class="center">
+															<b><em class="gray">Strong</em></b>
+														</td>
+														<td class="center">
+															<em class="gray"> text<br><small>01041237236</small></em>
+														</td>
+														<td class="center">
+															<b class="status"><em class="gray">Natural</em></b>
+														</td>
+														<td class="center">
+															10,000
+														</td>
+														<td class="center">
+															2024-07-30
+														</td>
+														<td class="center">
+															<div class="iptDiv input-item fit" style="width: 100%;">
+																<label class="radio block min white">
+																	<input type="radio" name="range" disabled><span>오늘</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range" disabled><span>1주일</span>
+																</label>
+															</div>
+														</td>
+														<td class="center">
+															<a href="#" class="btn medium normal line disabled"><span>Button</span></a>
+														</td>
+													</tr>
+
+													<tr>
+														<td class="center">
+															<label class="checkbox single">
+																<input type="checkbox"><span>&nbsp;</span>
+															</label>
+														</td>
+														<td class="center">
+															<div class="sign positive"><span></span></div>
+														</td>
+														<td class="center">
+															<div class="preview">
+																<img src="assets/images/admin-default.png" alt="">
+															</div>
+														</td>
+														<td class="center">
+															<div class="input-item">
+																<select>
+																	<option value="" selected>선택</option>
+																</select>
+															</div>
+														</td>
+														<td class="center">
+															String
+														</td>
+														<td class="center">
+															text<br><small>01041237236</small>
+														</td>
+														<td class="center">
+															<b class="status"><em class="blue">Positive</em></b>
+														</td>
+														<td class="center">
+															10,000
+														</td>
+														<td class="center">
+															2024-07-30
+														</td>
+														<td class="center">
+															<div class="iptDiv input-item fit" style="width: 100%;">
+																<label class="radio block min white">
+																	<input type="radio" name="range" checked><span>오늘</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>1주일</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>1개월</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>전체</span>
+																</label>
+															</div>
+														</td>
+														<td class="center">
+															<a href="#" class="btn medium positive line"><span>Button</span></a>
+														</td>
+
+													</tr>
+
+													<tr>
+														<td class="center">
+															<label class="checkbox single">
+																<input type="checkbox"><span>&nbsp;</span>
+															</label>
+														</td>
+														<td class="center">
+															<div class="sign positive"><span></span></div>
+														</td>
+														<td class="center">
+															<div class="preview">
+																<img src="assets/images/admin-default.png" alt="">
+															</div>
+														</td>
+														<td class="center">
+															<div class="input-item">
+																<select>
+																	<option value="" selected>선택</option>
+																</select>
+															</div>
+														</td>
+														<td class="center">
+															String
+														</td>
+														<td class="center">
+															text<br><small>01041237236</small>
+														</td>
+														<td class="center">
+															<b class="status"><em class="blue">Positive</em></b>
+														</td>
+														<td class="center">
+															10,000
+														</td>
+														<td class="center">
+															2024-07-30
+														</td>
+														<td class="center">
+															<div class="iptDiv input-item fit" style="width: 100%;">
+																<label class="radio block min white">
+																	<input type="radio" name="range" checked><span>오늘</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>1주일</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>1개월</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>전체</span>
+																</label>
+															</div>
+														</td>
+														<td class="center">
+															<a href="#" class="btn medium positive line"><span>Button</span></a>
+														</td>
+
+													</tr>
+
+													<tr>
+														<td class="center">
+															<label class="checkbox single">
+																<input type="checkbox"><span>&nbsp;</span>
+															</label>
+														</td>
+														<td class="center">
+															<div class="sign positive"><span></span></div>
+														</td>
+														<td class="center">
+															<div class="preview">
+																<img src="assets/images/admin-default.png" alt="">
+															</div>
+														</td>
+														<td class="center">
+															<div class="input-item">
+																<select>
+																	<option value="" selected>선택</option>
+																</select>
+															</div>
+														</td>
+														<td class="center">
+															String
+														</td>
+														<td class="center">
+															text<br><small>01041237236</small>
+														</td>
+														<td class="center">
+															<b class="status"><em class="blue">Positive</em></b>
+														</td>
+														<td class="center">
+															10,000
+														</td>
+														<td class="center">
+															2024-07-30
+														</td>
+														<td class="center">
+															<div class="iptDiv input-item fit" style="width: 100%;">
+																<label class="radio block min white">
+																	<input type="radio" name="range" checked><span>오늘</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>1주일</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>1개월</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>전체</span>
+																</label>
+															</div>
+														</td>
+														<td class="center">
+															<a href="#" class="btn medium positive line"><span>Button</span></a>
+														</td>
+
+													</tr>
+
+													<tr>
+														<td class="center">
+															<label class="checkbox single">
+																<input type="checkbox"><span>&nbsp;</span>
+															</label>
+														</td>
+														<td class="center">
+															<div class="sign positive"><span></span></div>
+														</td>
+														<td class="center">
+															<div class="preview">
+																<img src="assets/images/admin-default.png" alt="">
+															</div>
+														</td>
+														<td class="center">
+															<div class="input-item">
+																<select>
+																	<option value="" selected>선택</option>
+																</select>
+															</div>
+														</td>
+														<td class="center">
+															String
+														</td>
+														<td class="center">
+															text<br><small>01041237236</small>
+														</td>
+														<td class="center">
+															<b class="status"><em class="blue">Positive</em></b>
+														</td>
+														<td class="center">
+															10,000
+														</td>
+														<td class="center">
+															2024-07-30
+														</td>
+														<td class="center">
+															<div class="iptDiv input-item fit" style="width: 100%;">
+																<label class="radio block min white">
+																	<input type="radio" name="range" checked><span>오늘</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>1주일</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>1개월</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>전체</span>
+																</label>
+															</div>
+														</td>
+														<td class="center">
+															<a href="#" class="btn medium positive line"><span>Button</span></a>
+														</td>
+
+													</tr>
+
+													<tr>
+														<td class="center">
+															<label class="checkbox single">
+																<input type="checkbox"><span>&nbsp;</span>
+															</label>
+														</td>
+														<td class="center">
+															<div class="sign positive"><span></span></div>
+														</td>
+														<td class="center">
+															<div class="preview">
+																<img src="assets/images/admin-default.png" alt="">
+															</div>
+														</td>
+														<td class="center">
+															<div class="input-item">
+																<select>
+																	<option value="" selected>선택</option>
+																</select>
+															</div>
+														</td>
+														<td class="center">
+															String
+														</td>
+														<td class="center">
+															text<br><small>01041237236</small>
+														</td>
+														<td class="center">
+															<b class="status"><em class="blue">Positive</em></b>
+														</td>
+														<td class="center">
+															10,000
+														</td>
+														<td class="center">
+															2024-07-30
+														</td>
+														<td class="center">
+															<div class="iptDiv input-item fit" style="width: 100%;">
+																<label class="radio block min white">
+																	<input type="radio" name="range" checked><span>오늘</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>1주일</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>1개월</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>전체</span>
+																</label>
+															</div>
+														</td>
+														<td class="center">
+															<a href="#" class="btn medium positive line"><span>Button</span></a>
+														</td>
+
+													</tr>
+
+													<tr>
+														<td class="center">
+															<label class="checkbox single">
+																<input type="checkbox"><span>&nbsp;</span>
+															</label>
+														</td>
+														<td class="center">
+															<div class="sign positive"><span></span></div>
+														</td>
+														<td class="center">
+															<div class="preview">
+																<img src="assets/images/admin-default.png" alt="">
+															</div>
+														</td>
+														<td class="center">
+															<div class="input-item">
+																<select>
+																	<option value="" selected>선택</option>
+																</select>
+															</div>
+														</td>
+														<td class="center">
+															String
+														</td>
+														<td class="center">
+															text<br><small>01041237236</small>
+														</td>
+														<td class="center">
+															<b class="status"><em class="blue">Positive</em></b>
+														</td>
+														<td class="center">
+															10,000
+														</td>
+														<td class="center">
+															2024-07-30
+														</td>
+														<td class="center">
+															<div class="iptDiv input-item fit" style="width: 100%;">
+																<label class="radio block min white">
+																	<input type="radio" name="range" checked><span>오늘</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>1주일</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>1개월</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>전체</span>
+																</label>
+															</div>
+														</td>
+														<td class="center">
+															<a href="#" class="btn medium positive line"><span>Button</span></a>
+														</td>
+
+													</tr>
+													<tr>
+														<td class="center">
+															<label class="checkbox single">
+																<input type="checkbox"><span>&nbsp;</span>
+															</label>
+														</td>
+														<td class="center">
+															<div class="sign positive"><span></span></div>
+														</td>
+														<td class="center">
+															<div class="preview">
+																<img src="assets/images/admin-default.png" alt="">
+															</div>
+														</td>
+														<td class="center">
+															<div class="input-item">
+																<select>
+																	<option value="" selected>선택</option>
+																</select>
+															</div>
+														</td>
+														<td class="center">
+															String
+														</td>
+														<td class="center">
+															text<br><small>01041237236</small>
+														</td>
+														<td class="center">
+															<b class="status"><em class="blue">Positive</em></b>
+														</td>
+														<td class="center">
+															10,000
+														</td>
+														<td class="center">
+															2024-07-30
+														</td>
+														<td class="center">
+															<div class="iptDiv input-item fit" style="width: 100%;">
+																<label class="radio block min white">
+																	<input type="radio" name="range" checked><span>오늘</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>1주일</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>1개월</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>전체</span>
+																</label>
+															</div>
+														</td>
+														<td class="center">
+															<a href="#" class="btn medium positive line"><span>Button</span></a>
+														</td>
+
+													</tr>
+													<tr>
+														<td class="center">
+															<label class="checkbox single">
+																<input type="checkbox"><span>&nbsp;</span>
+															</label>
+														</td>
+														<td class="center">
+															<div class="sign positive"><span></span></div>
+														</td>
+														<td class="center">
+															<div class="preview">
+																<img src="assets/images/admin-default.png" alt="">
+															</div>
+														</td>
+														<td class="center">
+															<div class="input-item">
+																<select>
+																	<option value="" selected>선택</option>
+																</select>
+															</div>
+														</td>
+														<td class="center">
+															String
+														</td>
+														<td class="center">
+															text<br><small>01041237236</small>
+														</td>
+														<td class="center">
+															<b class="status"><em class="blue">Positive</em></b>
+														</td>
+														<td class="center">
+															10,000
+														</td>
+														<td class="center">
+															2024-07-30
+														</td>
+														<td class="center">
+															<div class="iptDiv input-item fit" style="width: 100%;">
+																<label class="radio block min white">
+																	<input type="radio" name="range" checked><span>오늘</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>1주일</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>1개월</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>전체</span>
+																</label>
+															</div>
+														</td>
+														<td class="center">
+															<a href="#" class="btn medium positive line"><span>Button</span></a>
+														</td>
+
+													</tr>
+													<tr>
+														<td class="center">
+															<label class="checkbox single">
+																<input type="checkbox"><span>&nbsp;</span>
+															</label>
+														</td>
+														<td class="center">
+															<div class="sign positive"><span></span></div>
+														</td>
+														<td class="center">
+															<div class="preview">
+																<img src="assets/images/admin-default.png" alt="">
+															</div>
+														</td>
+														<td class="center">
+															<div class="input-item">
+																<select>
+																	<option value="" selected>선택</option>
+																</select>
+															</div>
+														</td>
+														<td class="center">
+															String
+														</td>
+														<td class="center">
+															text<br><small>01041237236</small>
+														</td>
+														<td class="center">
+															<b class="status"><em class="blue">Positive</em></b>
+														</td>
+														<td class="center">
+															10,000
+														</td>
+														<td class="center">
+															2024-07-30
+														</td>
+														<td class="center">
+															<div class="iptDiv input-item fit" style="width: 100%;">
+																<label class="radio block min white">
+																	<input type="radio" name="range" checked><span>오늘</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>1주일</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>1개월</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>전체</span>
+																</label>
+															</div>
+														</td>
+														<td class="center">
+															<a href="#" class="btn medium positive line"><span>Button</span></a>
+														</td>
+
+													</tr>
+													<tr>
+														<td class="center">
+															<label class="checkbox single">
+																<input type="checkbox"><span>&nbsp;</span>
+															</label>
+														</td>
+														<td class="center">
+															<div class="sign positive"><span></span></div>
+														</td>
+														<td class="center">
+															<div class="preview">
+																<img src="assets/images/admin-default.png" alt="">
+															</div>
+														</td>
+														<td class="center">
+															<div class="input-item">
+																<select>
+																	<option value="" selected>선택</option>
+																</select>
+															</div>
+														</td>
+														<td class="center">
+															String
+														</td>
+														<td class="center">
+															text<br><small>01041237236</small>
+														</td>
+														<td class="center">
+															<b class="status"><em class="blue">Positive</em></b>
+														</td>
+														<td class="center">
+															10,000
+														</td>
+														<td class="center">
+															2024-07-30
+														</td>
+														<td class="center">
+															<div class="iptDiv input-item fit" style="width: 100%;">
+																<label class="radio block min white">
+																	<input type="radio" name="range" checked><span>오늘</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>1주일</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>1개월</span>
+																</label>
+																<label class="radio block min white">
+																	<input type="radio" name="range"><span>전체</span>
+																</label>
+															</div>
+														</td>
+														<td class="center">
+															<a href="#" class="btn medium positive line"><span>Button</span></a>
+														</td>
+
+													</tr>
+
+												</tbody>
+											</table>
+										</div>
+										<div class="tfoot justify">
+											<div class="pagistatus">
+												<span class="now">1</span>
+												<span class="total"><em class="gray">/20</em></span>
+											</div>
+											<div class="pagination">
+												<ol>
+													<li class="first">
+														<a href="#">처음</a>
+													</li>
+													<li class="prev">
+														<a href="#">이전</a>
+													</li>
+													<li class="on">
+														<a href="#">1</a>
+													</li>
+													<li>
+														<a href="#">2</a>
+													</li>
+													<li>
+														<a href="#">3</a>
+													</li>
+													<li>
+														<a href="#">4</a>
+													</li>
+													<li>
+														<a href="#">5</a>
+													</li>
+													<li class="next">
+														<a href="#">다음</a>
+													</li>
+													<li class="last">
+														<a href="#">마지막</a>
+													</li>
+												</ol>
+											</div>
+										</div>
+									</div>
+								</article>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<div class="justify center">
+					<a href="#" class="btn white modalClose"><span>Cancel</span></a>
+					<a href="#" class="btn positive fill"><span>OK</span></a>
+				</div>
+			</div>
+
+		</div>
+		<div class="modal-dim"></div>
+	</div>
+
+	<div id="alertDemo" class="modal alert center">
+		<div class="modal-inner">
+			<div class="modal-body">
+				<div class="alert-title">제목</div>
+
+				<p class="desc">
+					Alert 내용
+				</p>
+			</div>
+			<div class="modal-footer">
+				<div class="justify right">
+					<a href="#" class="btn-text modalClose"><em class="gray">Cancel</em></a>
+					<a href="#" class="btn-text"><em class="blue">OK</em></a>
+				</div>
+			</div>
+		</div>
+		<div class="modal-dim"></div>
+	</div>
+</body>
+
+</html>

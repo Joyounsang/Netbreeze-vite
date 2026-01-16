@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<include src="src/includes/head.html"></include>
+
+<body>
+	<div class="viewport">
+		<include src="src/includes/GNB.html"></include>
+		<div class="container">
+			<include src="src/includes/header.html"></include>
+			<div class="contents">
+				<div class="panel">
+					<div class="row">
+						<div class="column">
+							<article>
+								<include src="src/includes/PageHead.html"></include>
+								<include src="src/includes/Query.html"></include>
+							</article>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="column">
+							<article>
+								<div class="content-header">
+									<div class="title lv2">${목록명}</div>
+									<include src="src/includes/Command.html"></include>
+								</div>
+								<include src="src/includes/Table.html"></include>
+							</article>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

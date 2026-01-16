@@ -1,0 +1,27 @@
+:root {
+  --white: #ffffff;
+
+  --rec-primary: #62bbc9;
+  --rec-primary-border: #c5d7d9;
+  --rec-primary-bg: #f3fbfc;
+
+  --rec-secondary: #5680eb;
+  --rec-secondary-border: #bed3ff;
+  --rec-secondary-bg: #eff4ff;
+
+  --rec-negative: #ff495e;
+  --rec-negative-border: #ffd7db;
+  --rec-negative-bg: #fffbfb;
+
+  --text: #484a51;
+  --text-gray: #595f76;
+  --text-light: #9fa2b4;
+  --text-dark: #1c1c1c;
+
+  --border: #ebecf2;
+
+  --gray: #f5f6f8;
+  --gray-light: #f3f5f8;
+
+  --full-height: calc(var(--vh, 1vh) * 100);
+}

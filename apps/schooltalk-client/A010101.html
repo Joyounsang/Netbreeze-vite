@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="ko" class="intro">
+<include src="src/includes/head_SEO.html"></include>
+
+<body>
+    <div class="viewport">
+        <include src="src/includes/header.html"></include>
+
+        <div class="container">
+            <main class="main">
+                <div class="mainSwiper swiper-container">
+                    <ul class="swiper-wrapper">
+                        <li class="swiper-slide classtalk-app">
+                            <div class="app-inner">
+
+                                <h2 style="color: #61C0A7;">클래스톡</h2>
+                                <p class="desc">
+                                    학교알림, 클래스톡이 모두 다 해결합니다
+                                </p>
+                                <div class="button-group">
+                                    <a href="B040101.html" class="btn arrow">자세히 보기</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="swiper-slide shoolMessage-plus bg">
+                            <div class="app-inner">
+
+                                <h2>학교문자 Plus<sup>+</sup></h2>
+                                <p class="desc">
+                                    단순한 문자 소통을 넘어선 <br class="only-mo"> 그 이상의 가치
+                                </p>
+                                <div class="button-group">
+                                    <a href="B040101.html" class="btn arrow">자세히 보기</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="swiper-slide safe-number bg">
+                            <div class="app-inner">
+                                <h2>교원안심번호</h2>
+                                <p class="desc">
+                                    소중한 개인정보는 지키고, 소통은 더 자유롭게<br>
+                                    교원안심번호 서비스로 안심하고 소통하세요.
+                                </p>
+                                <div class="button-group">
+                                    <a href="B010101.html" class="btn arrow">자세히 보기</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="swiper-slide cloud-recording bg">
+                            <div class="app-inner">
+                                <p class="desc">
+                                    학교를 위한 완벽한 통화 녹음 솔루션
+                                </p>
+                                <h2>Cloud 보안 <br class="only-mo">녹음 서비스</h2>
+                                <div class="button-group">
+                                    <a href="B020101.html" class="btn arrow">자세히 보기</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="swiper-slide visit-reservation">
+                            <div class="app-inner">
+                                <p class="desc">
+                                    더 안전한 학교를 위한 선택
+                                </p>
+                                <h2>방문자 예약 시스템</h2>
+                                <div class="button-group">
+                                    <a href="B030101.html" class="btn arrow">자세히 보기</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="swiper-slide attendance-management bg">
+                            <div class="app-inner">
+                                <p class="desc">
+                                    학생 출결 체크를 더욱 간편하게, <br class="only-mo">관리도 완벽하게!
+                                </p>
+                                <h2>출결 관리 시스템</h2>
+                                <div class="button-group">
+                                    <a href="B040101.html" class="btn arrow">자세히 보기</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="swiper-command">
+                        <div class="swiper-pagination"></div>
+                        <button id="swiperPlay" class="btn-cmd stop">정지 및 재생</button>
+                    </div>
+                </div>
+                <script>
+                    $(document).ready(function () {
+                        swiperMain();
+                    });
+                    function swiperMain() {
+                        const options = {
+                            loop: true,
+                            speed: 1200,
+                            // direction: 'vertical',
+                            autoplay: {
+                                delay: 5000,
+                                disableOnInteraction: false,
+
+                            },
+                            // allowTouchMove: false,
+                            autoHeight: false,
+                            slidesPerView: 1,
+                            pagination: {
+                                el: '.swiper-pagination',
+                                clickable: true,
+                                type: 'fraction', // 👉 추가: 1/2처럼 보이게
+                            },
+                            // pagination: {
+                            //     el: '.swiper-pagination', // 페이지네이션 활성화
+                            //     clickable: true,
+                            // },
+                        };
+
+                        const singleSwiper = new Swiper('.mainSwiper', options);
+
+                        // 재생/정지 버튼 이벤트 처리
+                        $('#swiperPlay').on('click', function () {
+                            const $button = $(this); // 버튼 객체
+                            if ($button.hasClass('play')) {
+                                singleSwiper.autoplay.start();
+                                $button.removeClass('play').addClass('stop'); // 'play' -> 'stop'으로 변경
+                            } else {
+                                singleSwiper.autoplay.stop();
+                                $button.removeClass('stop').addClass('play'); // 'stop' -> 'play'으로 변경
+                            }
+                        });
+
+                        // 활성 슬라이드에 따라 swiper-command 클래스 업데이트
+                        // singleSwiper.on('slideChangeTransitionEnd', function () {
+                        //     const $activeSlide = $('.mainSwiper .swiper-slide.swiper-slide-active');
+                        //     const $command = $('.swiper-command');
+
+                        //     if ($activeSlide.hasClass('bg')) {
+                        //         $command.addClass('white');
+                        //     } else {
+                        //         $command.removeClass('white');
+                        //     }
+                        // });
+
+                        // 초기 상태 설정
+                        // const $initialActiveSlide = $('.mainSwiper .swiper-slide.swiper-slide-active');
+                        // if ($initialActiveSlide.hasClass('bg')) {
+                        //     $('.swiper-command').addClass('white');
+                        // }
+                    }
+                </script>
+            </main>
+
+            <section class="app-section about">
+                <div class="app-inner">
+                    <div class="row">
+                        <div class="column">
+                            <div class="main-graphic">
+                                <img src="assets/images/img-visual.png" alt="" />
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="mockup-article">
+                                <div class="cont">
+                                    <div class="headline">
+                                        <h3 class="title-lv1">
+                                            학생과 교원 모두가 안전한 학교 생활 <br>
+                                            스쿨톡이 함께합니다.
+                                        </h3>
+                                    </div>
+                                    <div class="copyline">
+                                        <p class="desc">
+                                            교사의 업무 부담을 줄이고, 학생의 안전을 지키는 <br>
+                                            맞춤화 서비스를 제공하고 있어요.
+                                        </p>
+                                        <p class="desc">
+                                            더욱 안전하고 편리한 학교를 위해 지금 바로 시작해 보세요!
+                                        </p>
+                                        <p class="desc">
+                                            전국 <b>2,000개</b>의 학교와 교육 기관이 사용하는 <br>
+                                            <b>교원안심 스쿨톡 서비스</b>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="app-section product">
+                <div class="app-inner">
+                    <div class="headline center">
+                        <h3 class="title-lv1">
+                            교원 안심 통합 서비스
+                        </h3>
+                        <p class="desc">
+                            스쿨톡을 사용하면 어떤 변화를 경험하게 될까요?<br>
+                            더욱 자세히 확인해 보세요.
+                        </p>
+                    </div>
+
+
+                    <!-- <ul class="list-product">
+                        <li class="card black schoolMessage-plus odd" data-aos="fade-up" data-aos-duration="700">
+                            <div class="row">
+
+                                <div class="column copy">
+                                    <div class="info">
+                                        <div class="head">
+                                            <h4 class="title-lv2">
+                                                학교문자 Plus<sup>+</sup>
+                                                <span>
+                                                    단순한 문자 소통을 넘어선 <br>
+                                                    그 이상의 가치
+                                                </span>
+                                            </h4>
+
+                                        </div>
+                                        <p class="desc">
+                                            하나의 문자 서비스로 <br>
+                                            스마트한 학교 생활을 완성하세요.
+                                        </p>
+                                        <a href="B010101.html" class="btn arrow">자세히 보기</a>
+                                    </div>
+                                </div>
+                                <div class="column img">
+                                    <div class="product-img safe-number">
+                                        <img src="assets/images/schoolMessage-plus.png" alt="">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </li>
+                    </ul> -->
+                    <ul class="list-product half">
+                        <li class="card " data-aos="fade-up" data-aos-duration="700">
+                            <div class="row">
+                                <div class="column img">
+                                    <div class="product-img safe-number">
+                                        <img src="assets/images/classtalk.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="column copy">
+                                    <div class="info">
+                                        <div class="head">
+                                            <h4 class="title-lv2">
+                                                클래스톡
+                                                <span>
+                                                    학교알림, 클래스톡이<br>
+                                                    모두 다 해결합니다
+                                                </span>
+                                            </h4>
+
+                                        </div>
+                                        <p class="desc">
+                                            학급 알림장부터 설문, 신청, 상담까지 <br>
+                                            지금 바로 경험해보세요.
+                                        </p>
+                                        <a href="B060101.html" class="btn arrow">자세히 보기</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </li>
+
+                        <li class="card black schoolMessage-plus" data-aos="fade-up" data-aos-duration="700">
+                            <div class="row">
+                                <div class="column img">
+                                    <div class="product-img safe-number">
+                                        <img src="assets/images/schoolMessage-plus.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="column copy">
+                                    <div class="info">
+                                        <div class="head">
+                                            <h4 class="title-lv2">
+                                                학교문자 Plus<sup>+</sup>
+                                                <span>
+                                                    단순한 문자 소통을 넘어선 <br>
+                                                    그 이상의 가치
+                                                </span>
+                                            </h4>
+
+                                        </div>
+                                        <p class="desc">
+                                            하나의 문자 서비스로 <br>
+                                            스마트한 학교 생활을 완성하세요.
+                                        </p>
+                                        <a href="B010101.html" class="btn arrow">자세히 보기</a>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </li>
+
+                        <li class="card black " data-aos="fade-up" data-aos-duration="700">
+                            <div class="row">
+                                <div class="column img">
+                                    <div class="product-img cloud-recording">
+                                        <img src="assets/images/cloud-recording.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="column copy">
+                                    <div class="info">
+                                        <div class="head">
+                                            <h4 class="title-lv2">
+                                                Cloud 보안 녹음
+                                                <span>
+                                                    단일 장비 설치로 학교의 모든 <br>
+                                                    내선 전화가 녹음됩니다.
+                                                </span>
+                                            </h4>
+                                        </div>
+                                        <p class="desc">
+                                            사용 중인 인터넷 통신사 관계없이 <br>
+                                            녹음 서비스를 이용할 수 있습니다.
+                                        </p>
+                                        <a href="B020101.html" class="btn arrow">자세히 보기</a>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </li>
+
+                        <li class="card " data-aos="fade-up" data-aos-duration="700">
+                            <div class="row">
+                                <div class="column img">
+                                    <div class="product-img safe-number">
+                                        <img src="assets/images/safe-number-basic.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="column copy">
+                                    <div class="info">
+                                        <div class="head">
+                                            <h4 class="title-lv2">
+                                                교원안심번호
+                                                <span>
+                                                    소중한 개인정보는 지키고 <br>
+                                                    소통은 더 자유롭게
+                                                </span>
+                                            </h4>
+
+                                        </div>
+                                        <p class="desc">
+                                            개인 휴대폰 번호 노출 없이 <br>
+                                            언제든 안전하게 소통할 수 있습니다.
+                                        </p>
+                                        <a href="B010101.html" class="btn arrow">자세히 보기</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </li>
+
+
+
+                        <li class="card " data-aos="fade-up" data-aos-duration="700">
+                            <div class="row">
+                                <div class="column img">
+                                    <div class="product-img visit-reservation">
+                                        <img src="assets/images/visit-reservation.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="column copy">
+                                    <div class="info">
+                                        <div class="head">
+                                            <h4 class="title-lv2">
+                                                <span>
+                                                    체계적인 우리 학교 방문자 관리
+                                                </span>
+                                                방문자 예약 관리
+
+                                            </h4>
+                                        </div>
+                                        <p class="desc">
+                                            안전한 학교 환경을 위한 첫걸음 <br>
+                                            예약 시스템으로 방문 관리의 <br class="only-mo"> 효율성을 확보해 보세요.
+                                        </p>
+                                        <a href="B030101.html" class="btn arrow">자세히 보기</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </li>
+
+                        <li class="card black " data-aos="fade-up" data-aos-duration="700">
+                            <div class="row">
+                                <div class="column img">
+                                    <div class="product-img attendance-management extend">
+                                        <img src="assets/images/attendance-management.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="column copy">
+                                    <div class="info">
+                                        <div class="head">
+                                            <h4 class="title-lv2">
+                                                <span>
+                                                    우리 학교에 꼭 맞는 출결 관리
+                                                </span>
+                                                출결 관리 시스템
+
+                                            </h4>
+                                        </div>
+                                        <p class="desc">
+                                            번거로운 출결 체크를 <br>
+                                            간편하고, 완벽하게
+                                        </p>
+                                        <a href="B040101.html" class="btn arrow">자세히 보기</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+
+            <section class="app-section security">
+                <div class="app-inner">
+                    <article>
+                        <div class="headline center">
+                            <h3 class="title-lv1 sm">
+                                스쿨톡과 함께라면 학교의 <br class="only-mo">운영 방식을 개선하고<br>
+                                <b>효율적인 업무 환경을 <br class="only-mo">경험할 수 있습니다.</b>
+                            </h3>
+                        </div>
+                        <ul class="list-features">
+                            <li>
+                                <img src="assets/images/ico-work.png" alt="" class="icon">
+                                <div class="tit">효율적인 업무 방식</div>
+                                <p class="desc">
+                                    반복적인 행정 업무를 손쉽게 처리하도록<br>
+                                    도와주는 고도화 기능들을 웹 · 모바일에서<br>
+                                    경험할 수 있어 언제나 편리하고, 효율적인<br>
+                                    사용 경험을 제공합니다.
+                                </p>
+                            </li>
+                            <li>
+                                <img src="assets/images/ico-security.png" alt="" class="icon">
+                                <div class="tit">학교 안전 및 보안 강화</div>
+                                <p class="desc">
+                                    안전한 교육 환경 조성에 도움을 주며<br>
+                                    교권 침해 방어 및 책임 소개 규명에 <br>
+                                    도움 받을 수 있어 학교의 고유한 보호 <br>
+                                    수단으로 활용할 수 있습니다.
+                                </p>
+                            </li>
+                            <li>
+                                <img src="assets/images/ico-integration.png" alt="" class="icon">
+                                <div class="tit">시스템 통합 활용 지원</div>
+                                <p class="desc">
+                                    서비스에 저장된 학교 · 교직원 · 학부모/학생 <br>
+                                    등 모든 데이터는 서로 연계되어 <br>
+                                    사용할 수 있으며 교육 품질 및 학교 규정에 <br>
+                                    따른 개별 맞춤 설정을 지원합니다.
+                                </p>
+                            </li>
+                        </ul>
+                    </article>
+                    <article>
+                        <div class="headline center">
+                            <h3 class="title-lv1">
+                                스쿨톡<i>의 모든 데이터는</i> <br>
+                                안전<i>하게 보호됩니다.</i>
+                            </h3>
+                        </div>
+
+                        <div class="diagram-security">
+
+                            <div class="row">
+                                <div class="column">
+                                    <div class="tit blue">지속적인 정보 보안 테스트</div>
+                                    <p class="desc">
+                                        안심하고 서비스를 이용할 수 있도록 <br>
+                                        높은 보안 수준을 유지하고 있으며 <br>
+                                        지속적인 보안 능력 강화를 위해 <br>
+                                        노력하고 있습니다.
+                                    </p>
+                                </div>
+                                <img src="assets/images/img-security.png" alt="" data-aos="fade-up"
+                                    data-aos-duration="1500">
+                                <div class="column">
+                                    <div class="tit purple">2차 암호화 알고리즘 적용</div>
+                                    <p class="desc">
+                                        사용자 개인 정보 보호를 위해 <br>
+                                        모든 데이터는 암호화 과정을 진행하여 <br>
+                                        유실 및 외부 접근으로부터 <br>
+                                        정보를 보호합니다.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </article>
+                </div>
+            </section>
+
+            <section class="app-section review">
+                <div class="headline center">
+                    <h3 class="title-lv1">
+                        작은 학교부터 큰 학교까지, 다양한 학교의 후기를 <br class="only-mo">확인해 보세요.
+                    </h3>
+                </div>
+
+                <div class="group-review">
+                    <img src="assets/images/img-school.png" alt="" class="school">
+                    <div class="inner">
+                        <ul class="list-review">
+                            <li>
+                                <div class="head">
+                                    <div class="tit">교원안심번호</div>
+                                    <div class="side">무X초등학교 교직원</div>
+                                </div>
+                                <div class="body">
+                                    <p class="desc">
+                                        우리 아이들이 스쿨톡 안심번호 서비스를 통해 선생님과 더욱 친근하게 소통하고 있어요. 덕분에 아이들의 학교생활 적응도 더욱 원활해진 것
+                                        같습니다.
+                                        스쿨톡은 우리 학교의 소통 창구 역할을 톡톡히 해내고 있습니다.
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="head">
+                                    <div class="tit">녹음 서비스</div>
+                                    <div class="side">송X초등학교 교직원</div>
+                                </div>
+                                <div class="body">
+                                    <p class="desc">
+                                        스쿨톡의 전화 녹음 서비스는 교사의 업무 책임을 보호하는 데도 도움이 됩니다. 학생들의 불만이나 의견을 녹음해두면 객관적인 자료로 활용해 문제
+                                        해결
+                                        과정에서 도움 받을 수 있어요.
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="head">
+                                    <div class="tit">교원안심번호</div>
+                                    <div class="side">예X중학교 교직원</div>
+                                </div>
+                                <div class="body">
+                                    <p class="desc">
+                                        스쿨톡 안심번호 서비스는 학생 상담 시에도 큰 도움이 됩니다. 개인 번호 노출에 대한 부담 없이 학생들과 진솔한 대화를 나눌 수 있고,
+                                        학부모님과의
+                                        소통도 원활해져서 학생 관리에 더욱 집중할 수 있게 되었어요.
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="head">
+                                    <div class="tit">녹음 서비스</div>
+                                    <div class="side">국X고등학교 교직원</div>
+                                </div>
+                                <div class="body">
+                                    <p class="desc">
+                                        학부모님과의 통화 내용을 녹음해두니 오해를 방지할 수 있어 좋습니다. 특히, 중요한 결정을 내려야 할 때 녹음 내용을 다시 확인하며 신중하게
+                                        판단할 수
+                                        있어 만족스럽습니다.
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="head">
+                                    <div class="tit">교원안심번호</div>
+                                    <div class="side">공공기관 공무직</div>
+                                </div>
+                                <div class="body">
+                                    <p class="desc">
+                                        스쿨톡 안심번호 서비스 덕분에 민원인들과의 소통이 한층 원활해졌습니다. 개인 번호 노출에 대한 부담 없이 민원인들의 질문에 답변하고, 업무를
+                                        처리할 수
+                                        있어 매우 만족합니다.
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="head">
+                                    <div class="tit">녹음 서비스</div>
+                                    <div class="side">한X고등학교 교직원</div>
+                                </div>
+                                <div class="body">
+                                    <p class="desc">
+                                        학부모님과의 통화 내용을 녹음해두니 오해를 방지할 수 있어 좋습니다. 특히, 중요한 결정을 내려야 할 때 녹음 내용을 다시 확인하며 신중하게
+                                        판단할 수
+                                        있어 만족스럽습니다.
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+                <script>
+                    document.addEventListener("DOMContentLoaded", () => {
+                        const reviewInner = document.querySelector(".list-review");
+                        const listItems = document.querySelectorAll(".list-review li");
+
+                        // 전체 리스트 복제
+                        const listClone = Array.from(listItems).map(item => item.cloneNode(true));
+                        listClone.forEach(clone => reviewInner.appendChild(clone));
+
+                        // 리스트 총 너비 계산
+                        const listWidth = Array.from(listItems).reduce((total, item) => total + item.offsetWidth + 30, 0); // gap 포함
+                        reviewInner.style.width = `${listWidth * 2}px`;
+
+                        // 스크롤 애니메이션
+                        let scrollPosition = 0;
+                        const scrollSpeed = 0.6;
+
+                        function scrollAnimation() {
+                            scrollPosition -= scrollSpeed;
+                            if (Math.abs(scrollPosition) >= listWidth) {
+                                scrollPosition = 0;
+                            }
+                            reviewInner.style.transform = `translateX(${scrollPosition}px)`;
+                            requestAnimationFrame(scrollAnimation);
+                        }
+
+                        scrollAnimation();
+                    });
+
+                </script>
+
+            </section>
+
+            <section class="app-section update">
+                <span class="icons" data-aos="zoom-in" data-aos-duration="1500"></span>
+                <div class="headline center">
+                    <h3 class="title-lv1">
+                        스쿨톡의 모든 서비스는<br class="only-mo"> 복잡한 절차 없이 <br>
+                        간편하게 사용할 수 있습니다.
+                    </h3>
+                    <p class="desc">
+                        다양한 기능을 활용하여 더욱 풍부한<br class="only-mo"> 교육 환경을 만들어 보세요
+                    </p>
+                </div>
+            </section>
+
+            <section class="app-section banner">
+                <div class="headline center">
+                    <span>
+                        교사의 업무 부담을 줄이고,<br class="only-mo"> 학생의 안전을 지키는 스마트 솔루션
+                    </span>
+                    <h3 class="title-lv1">
+                        SchoolTalk
+                    </h3>
+                    <p class="desc">
+                        지금 경험해 보세요!
+                    </p>
+                    <a href="#" class="btn arrow white">서비스 신청</a>
+                </div>
+
+            </section>
+
+        </div>
+        <include src="src/includes/footer.html"></include>
+    </div>
+</body>
+
+</html>

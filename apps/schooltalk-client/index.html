@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<include src="src/includes/head_SEO.html"></include>
+<style type="text/css">
+    body {
+        padding: 60px;
+        background: #fff;
+    }
+
+    .blue {
+        color: #337AFF;
+    }
+
+    .red {
+        color: #FF337A
+    }
+
+    .gray {
+        color: #A6ACAF;
+    }
+
+    .del,
+    .del a {
+        color: #e7e7e7 !important;
+        text-decoration: line-through;
+    }
+
+    h1 {
+        margin-bottom: 10px;
+        font-size: 30px;
+        font-weight: 800;
+    }
+
+    .tbl td,
+    .tbl th {
+        color: #666 !important;
+    }
+
+    article {
+        margin: 0;
+    }
+
+    article+article {
+        padding: 0;
+    }
+
+    .tbl,
+    .tbl thead,
+    .tbl tfoot,
+    .tbl tbody,
+    .tbl tr,
+    .tbl th,
+    .tbl td {
+        font-size: 13px;
+    }
+
+    .tbl {
+        width: 100%;
+        margin-bottom: 40px;
+        border: 1px solid #e7e7e7 !important;
+        border-top: 0;
+        border-right: 0;
+    }
+
+    .tbl table {
+        width: 100%;
+    }
+
+    .tbl table th,
+    .tbl table td {
+        border-right: 1px solid #e7e7e7 !important;
+        font-size: 15px;
+    }
+
+    .tbl table th:first-child,
+    .tbl table td:first-child {
+        border-left: 0;
+    }
+
+    .tbl tbody tr {
+        border-bottom: 1px solid #e7e7e7 !important;
+    }
+
+    .tbl thead th {
+        padding: 10px 5px;
+        background: #f3f3f3;
+        border-top: 1px solid #e7e7e7;
+        font-weight: 600;
+    }
+
+    .tbl tbody th {
+        font-weight: 600;
+    }
+
+    .tbl tbody td {
+        padding: 10px 5px;
+        text-align: center;
+    }
+
+    .tbl tbody a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 0 15px;
+        color: #333;
+        text-align: left;
+    }
+
+    /* .tbl tbody .view-img a,.tbl tbody .view-img-m a{display: inline;text-align: center;background: #A6ACAF;color: #fff;border-radius: 50px;padding: 5px;font-size: 15px;} */
+    .tbl tbody .view-url a {
+        text-align: center;
+        background: #fff;
+        color: #333;
+        border: 1px solid #bbb;
+        border-radius: 50px;
+        padding: 5px;
+        font-size: 15px;
+        background: #fafafa;
+        color: #666;
+    }
+
+    /* .tbl tbody .link-url a{text-align: center;background: #fff;color: #333;border: 1px solid #A6ACAF; border-radius: 50px;padding: 5px;font-size: 12px;} */
+    .tbl tbody .view-img a:hover,
+    .tbl tbody .view-img-m a:hover,
+    .tbl tbody .view-url a:hover {
+        opacity: 0.5;
+    }
+
+    .tbl tbody tr:hover td {
+        background-color: #fafafa;
+    }
+
+    .tbl.top {
+        margin-top: 50px;
+    }
+
+    .tbl.top th,
+    .tbl.top td {
+        padding: 12px 20px;
+        text-align: left;
+    }
+
+    .tbl.top th {
+        background-color: #f3f3f3;
+    }
+
+    .tbl.top tbody td {
+        padding: 12px 20px;
+    }
+</style>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <section id="content" class="section">
+                <article class="article">
+                    <div id="information">
+                        <h1 class="project-name">INDEX</h1>
+                    </div>
+                </article>
+
+                <article class="article">
+
+                    <div class="tbl">
+                        <table class="cdList">
+                            <colgroup>
+                                <col style="width: 8%;" />
+                                <col style="width: 15%;" />
+                                <col style="width: 15%;" />
+                                <col style="width: auto;" />
+                                <col style="width: 90px;" />
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Group</th>
+                                    <th scope="col">Depth</th>
+                                    <th scope="col" class="center">URL</th>
+                                    <th scope="col">ETC</th>
+                                    <th scope="col" class="center">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="sum">
+
+                                <tr>
+                                    <th scope="row">공통</th>
+                                    <td class="left">팝업</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">alert</a>
+                                    </td>
+                                    <td>필요한 부분에 사용</td>
+                                    <td><span class="blue">●</span></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td class="left">에러페이지</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">errorPage</a>
+                                    </td>
+                                    <td>404 500 등</td>
+                                    <td><span class="blue">●</span></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td class="left">로딩</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">loading</a>
+                                    </td>
+                                    <td>필요한 부분에 사용</td>
+                                    <td><span class="blue">●</span></td>
+                                </tr>
+
+
+                                <!-- <tr>
+                                    <th scope="row"></th>
+                                    <td class="left">이용약관 샘플</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">terms</a>
+                                    </td>
+                                    <td></td>
+                                    <td><span class="blue">●</span></td>
+                                </tr> -->
+
+
+
+                                <tr>
+                                    <th scope="row">메인</th>
+                                    <td class="left"></td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">A010101</a>
+                                    </td>
+                                    <td></td>
+                                    <td><span class="blue">●</span></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">스쿨톡</th>
+                                    <td class="left">교원안심번호</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">B010101</a>
+                                    </td>
+                                    <td></td>
+                                    <td><span class="blue">●</span></td>
+                                </tr>
+
+
+
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td class="left">Cloud 보안 녹음 서비스</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">B020101</a>
+                                    </td>
+                                    <td></td>
+                                    <td><span class="blue">●</span></td>
+                                </tr>
+
+
+
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td class="left">방문자 예약 시스템</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">B030101</a>
+                                    </td>
+                                    <td></td>
+                                    <td><span class="blue">●</span></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td class="left">출결 관리 시스템</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">B040101</a>
+                                    </td>
+                                    <td></td>
+                                    <td><span class="blue">●</span></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td class="left">학교문자플러스</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">B050101</a>
+                                    </td>
+                                    <td></td>
+                                    <td><span class="blue">●</span></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">클래스톡</th>
+                                    <td class="left">클래스톡</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">B060101</a>
+                                    </td>
+                                    <td></td>
+                                    <td><span class="blue">●</span></td>
+                                </tr>
+
+
+
+                                <tr>
+                                    <th scope="row">가격 안내</th>
+                                    <td class="left">교원안심번호</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">C010101</a>
+                                    </td>
+                                    <td></td>
+                                    <td><span class="blue">●</span></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td class="left">Cloud 보안 녹음</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">C020101</a>
+                                    </td>
+                                    <td></td>
+                                    <td><span class="blue">●</span></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td class="left">방문자 예약 시스템</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">C030101</a>
+                                    </td>
+                                    <td></td>
+                                    <td><span class="blue">●</span></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td class="left">출결 관리 시스템</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">C040101</a>
+                                    </td>
+                                    <td></td>
+                                    <td><span class="blue">●</span></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td class="left">학교문자플러스</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">C050101</a>
+                                    </td>
+                                    <td></td>
+                                    <td><span class="blue">●</span></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td class="left">클래스톡</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">C060101</a>
+                                    </td>
+                                    <td></td>
+                                    <td><span class="blue">●</span></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">블로그</th>
+                                    <td class="left"></td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">D010101</a>
+                                    </td>
+                                    <td></td>
+                                    <td><span class="blue">●</span></td>
+                                </tr>
+
+
+                                <tr>
+                                    <th scope="row">서비스 신청</th>
+                                    <td class="left">학교검색</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">E010101</a>
+                                    </td>
+                                    <td></td>
+                                    <td><span class="blue">●</span></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td class="left">교원안심번호</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">E020101</a>
+                                    </td>
+                                    <td></td>
+                                    <td><span class="blue">●</span></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td class="left">교원안심번호/Basic</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">E020102</a>
+                                    </td>
+                                    <td></td>
+                                    <td><span class="blue">●</span></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td class="left">교원안심번호/Standard</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">E020103</a>
+                                    </td>
+                                    <td></td>
+                                    <td><span class="blue">●</span></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td class="left">교원안심번호/Premium</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">E020104</a>
+                                    </td>
+                                    <td></td>
+                                    <td><span class="blue">●</span></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td class="left">Cloud 보안 녹음</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">E020201</a>
+                                    </td>
+                                    <td></td>
+                                    <td><span class="blue">●</span></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td class="left">방문자 예약 시스템</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">E020301</a>
+                                    </td>
+                                    <td></td>
+                                    <td><span class="blue">●</span></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td class="left">출결 관리 시스템</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">E020401</a>
+                                    </td>
+                                    <td></td>
+                                    <td><span class="blue">●</span></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td class="left">학교문자플러스/1단계</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">E020501</a>
+                                    </td>
+                                    <td></td>
+                                    <td><span class="blue">●</span></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td class="left">학교문자플러스/2단계</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">E020502</a>
+                                    </td>
+                                    <td></td>
+                                    <td><span class="blue">●</span></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td class="left">학교문자플러스/3단계</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">E020503</a>
+                                    </td>
+                                    <td></td>
+                                    <td><span class="blue">●</span></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td class="left">클래스톡</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">E020601</a>
+                                    </td>
+                                    <td></td>
+                                    <td><span class="blue">●</span></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td class="left">신청서</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">E030101</a>
+                                    </td>
+                                    <td></td>
+                                    <td><span class="blue">●</span></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td class="left">신청완료</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">E040101</a>
+                                    </td>
+                                    <td></td>
+                                    <td><span class="blue">●</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+            </section>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+
+            $('.cdList').find('tr').each(function () {
+                var link = $(this).find('.view-url a').text();
+                $(this).find('.view-url a').attr('href', link + '.html');
+                $(this).find('.view-img a').attr('href', 'png/' + link + '.png');
+                $(this).find('.view-img-m a').attr('href', 'png/mo/M_' + link + '.png');
+            });
+
+
+            $(function () {
+                var total = $('#sum tr').size();
+                var ok = $('#sum td span.blue').size();
+                var persent = parseInt((ok / total) * 100);
+                $('#total-page').text(total);
+                $('#ok-page').text(ok);
+                $('#persent').text(+persent + '%');
+            });
+        });
+    </script>
+    <script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>

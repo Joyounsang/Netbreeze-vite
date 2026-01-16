@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ko">
+<include src="src/includes/head.html"></include>
+
+<body>
+	<div class="viewport type-window">
+		<div class="window-header">
+			투표·설문 작성
+		</div>
+		<div class="container">
+			<div class="window-body">
+				<div class="row">
+					<div class="column">
+						<article>
+							<div class="content-header">
+								<div class="title lv2">기본 정보</div>
+							</div>
+							<div class="tbl type-input">
+								<table>
+									<colgroup>
+										<col style="width:5%">
+										<col style="width:33%">
+									</colgroup>
+									<tbody>
+
+										<tr>
+											<th scope="row">제목</th>
+											<td class="left">
+												<div class="input-item">
+													<input name="vo_title" type="text" value="" placeholder="제목을 입력하세요.">
+												</div>
+											</td>
+
+
+										</tr>
+										<tr>
+											<th scope="row">내용</th>
+											<td class="left">
+												<div class="textarea-option-area">
+													<textarea placeholder="내용을 입력하세요." name="vo_content" rows="20"></textarea>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row" rowspan="4" class="bd-r">첨부파일</th>
+											<td class="left">
+												<div class="input-item file-input-group">
+													<div class="file" style="width:100px">
+														<input type="file" name="up_file[]" id="fileIdDefault">
+														<label class="btn medium fill natural" for="fileIdDefault"><span>파일찾기</span></label>
+													</div>
+
+
+													<input type="text" class="file-path" readonly="" value="파일1,파일2,파일3">
+
+													<a href="#" class="btn medium fill positive" style="width:100px">파일확인</a>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td class="left">
+												<div class="input-item file-input-group">
+													<div class="file" style="width:100px">
+														<input type="file" name="up_file[]" id="fileIdDefault">
+														<label class="btn medium fill natural" for="fileIdDefault"><span>파일찾기</span></label>
+													</div>
+													<input type="text" class="file-path" readonly="" value="파일1">
+
+													<a href="#" class="btn medium" title="삭제" style="width:40px"><span>
+															<img src="assets/images/crud-remove.png">
+														</span></a>
+													<a href="#" class="btn medium" title="다운로드" style="width: 50px;"><span>
+															<img src="assets/images/ico-down.png">
+														</span></a>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td class="left">
+												<div class="input-item file-input-group">
+													<div class="file" style="width:100px">
+														<input type="file" name="up_file[]" id="fileIdDefault">
+														<label class="btn medium fill natural" for="fileIdDefault"><span>파일찾기</span></label>
+													</div>
+													<input type="text" class="file-path" readonly="" value="파일2">
+
+													<a href="#" class="btn medium" title="삭제" style="width:40px"><span>
+															<img src="assets/images/crud-remove.png">
+														</span></a>
+													<a href="#" class="btn medium" title="다운로드" style="width: 50px;"><span>
+															<img src="assets/images/ico-down.png">
+														</span></a>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td class="left">
+												<div class="input-item file-input-group">
+													<div class="file" style="width:100px">
+														<input type="file" name="up_file[]" id="fileIdDefault">
+														<label class="btn medium fill natural" for="fileIdDefault"><span>파일찾기</span></label>
+													</div>
+
+													<input type="text" class="file-path" readonly="" value="파일3">
+
+													<a href="#" class="btn medium" title="삭제" style="width:40px"><span>
+															<img src="assets/images/crud-remove.png">
+														</span></a>
+													<a href="#" class="btn medium" title="다운로드" style="width: 50px;"><span>
+															<img src="assets/images/ico-down.png">
+														</span></a>
+
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row">답변가능 기간</th>
+											<td class="left">
+												<div class="input-item ">
+													<input type="text" id="vo_start" name="vo_start" value="" placeholder="시작일시를 선택하세요."> 부터
+													<input type="text" id="vo_end" name="vo_end" value="" placeholder="마감일시를 선택하세요."> 까지
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row">질문 내용</th>
+											<td class="left">
+												<div class="input-item ">
+													<input type="text" id="" name="" value="" placeholder="질문 내용을 입력하세요.">
+												</div>
+											</td>
+										</tr>
+
+										<tr>
+											<th scope="row">질문 유형</th>
+											<td class="left">
+												<div class="input-item">
+													<div class="iptDiv input-item fit" style="width: 180px;">
+														<label class="radio block min">
+															<input type="radio" name="1" checked="" value=""><span>선택형</span>
+														</label>
+														<label class="radio block min">
+															<input type="radio" name="1" value=""><span>서술형</span>
+														</label>
+													</div>
+												</div>
+											</td>
+										</tr>
+
+										<tr>
+											<th scope="row">중복선택 가능 여부</th>
+											<td class="left">
+												<div class="input-item">
+													<div class="iptDiv input-item fit" style="width: 180px;">
+														<label class="radio block min">
+															<input type="radio" name="2" checked="" value=""><span>가능</span>
+														</label>
+														<label class="radio block min">
+															<input type="radio" name="2" value=""><span>불가능</span>
+														</label>
+													</div>
+												</div>
+											</td>
+										</tr>
+
+										<tr>
+											<th scope="row">선택지</th>
+											<td class="left">
+												<div class="input-item ">
+													<input type="text" id="" name="" value="" placeholder="질문 내용을 입력하세요.">
+												</div>
+											</td>
+										</tr>
+
+									</tbody>
+								</table>
+							</div>
+						</article>
+						<article>
+							<div class="content-header">
+								<div class="title lv2">파일첨부</div>
+								<div class="command">
+									<div class="input-item">
+										<a href="#" class="btn medium fill positive">모두다운</a>
+									</div>
+								</div>
+							</div>
+							<div class="tbl type-input">
+								<table>
+									<tbody>
+
+										<tr>
+											<td class="left">
+												<div class="input-item file-input-group">
+													<div class="file" style="width:100px">
+														<input type="file" name="up_file[]" id="fileIdDefault">
+														<label class="btn medium fill natural" for="fileIdDefault"><span>파일찾기</span></label>
+													</div>
+
+
+													<input type="text" class="file-path" readonly="" value="파일1,파일2,파일3">
+													<a href="#" class="btn medium" title="삭제" style="width:40px"><span>
+															<img src="assets/images/crud-remove.png">
+														</span></a>
+													<a href="#" class="btn medium" title="다운로드" style="width: 50px;"><span>
+															<img src="assets/images/ico-down.png">
+														</span></a>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td class="left">
+												<div class="input-item file-input-group">
+													<div class="file" style="width:100px">
+														<input type="file" name="up_file[]" id="fileIdDefault">
+														<label class="btn medium fill natural" for="fileIdDefault"><span>파일찾기</span></label>
+													</div>
+													<input type="text" class="file-path" readonly="" value="파일1">
+
+													<a href="#" class="btn medium" title="삭제" style="width:40px"><span>
+															<img src="assets/images/crud-remove.png">
+														</span></a>
+													<a href="#" class="btn medium" title="다운로드" style="width: 50px;"><span>
+															<img src="assets/images/ico-down.png">
+														</span></a>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td class="left">
+												<div class="input-item file-input-group">
+													<div class="file" style="width:100px">
+														<input type="file" name="up_file[]" id="fileIdDefault">
+														<label class="btn medium fill natural" for="fileIdDefault"><span>파일찾기</span></label>
+													</div>
+													<input type="text" class="file-path" readonly="" value="파일2">
+
+													<a href="#" class="btn medium" title="삭제" style="width:40px"><span>
+															<img src="assets/images/crud-remove.png">
+														</span></a>
+													<a href="#" class="btn medium" title="다운로드" style="width: 50px;"><span>
+															<img src="assets/images/ico-down.png">
+														</span></a>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td class="left">
+												<div class="input-item file-input-group">
+													<div class="file" style="width:100px">
+														<input type="file" name="up_file[]" id="fileIdDefault">
+														<label class="btn medium fill natural" for="fileIdDefault"><span>파일찾기</span></label>
+													</div>
+
+													<input type="text" class="file-path" readonly="" value="파일3">
+
+													<a href="#" class="btn medium" title="삭제" style="width:40px"><span>
+															<img src="assets/images/crud-remove.png">
+														</span></a>
+													<a href="#" class="btn medium" title="다운로드" style="width: 50px;"><span>
+															<img src="assets/images/ico-down.png">
+														</span></a>
+
+												</div>
+											</td>
+										</tr>
+
+									</tbody>
+								</table>
+							</div>
+						</article>
+					</div>
+				</div>
+			</div>
+			<div class="window-footer">
+				<div class="justify center">
+					<a href="#" class="btn fill positive"><span>저장</span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

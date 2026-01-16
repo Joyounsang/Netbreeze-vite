@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ko">
+<include src="src/includes/head.html"></include>
+
+<body>
+	<style>
+		.menu-group .menu-group-depth1 .menu-item>a.arrow-r:after {
+			transform: rotate(-90deg);
+			content: "";
+			display: block;
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			top: 0;
+			margin: auto;
+			background: url(assets/images/selected-arrow.png) no-repeat;
+			background-size: contain;
+			opacity: 0.3;
+		}
+
+		.nav-side-title {
+			margin-top: 20px;
+		}
+	</style>
+	<div class="viewport">
+		<div id="gnb">
+
+			<div class="top">
+				<h1 class="logo">
+					<a href="index.html" style="display: block;">
+						<img src="assets/images/demo/logo.png" alt="" style="width: 180px;">
+						<div class="textType" style="margin-top: 10px;">
+							<div class="sub" style="margin-top: -13px;
+							margin-left: 57px;
+							font-size: 1.2rem;
+							font-weight: 700;
+							color: #333;">학교무선인터넷(와이파이) 장애접수</div>
+						</div>
+					</a>
+				</h1>
+				<!-- 스크롤 라이브러리를 위한 scrollbar 클래스 추가 -->
+				<div class="nav-item scrollbar">
+
+					<nav class="menu-group">
+						<ul class="menu-group-depth1">
+
+							<h2 class="nav-side-title"><span>캠퍼스</span></h2>
+							<li class="menu-item">
+								<a href="#" class="arrow-r">승학</a>
+							</li>
+							<li class="menu-item">
+								<a href="#" class="arrow-r">부민</a>
+							</li>
+							<li class="menu-item">
+								<a href="#" class="arrow-r">구덕</a>
+							</li>
+
+							<h2 class="nav-side-title"><span>장비 현황</span></h2>
+							<li class="menu-item">
+								<a href="#" class="arrow-r">설치 장비</a>
+							</li>
+
+							<h2 class="nav-side-title"><span>장애 현황</span></h2>
+							<li class="menu-item">
+								<a href="#" class="arrow-r">처리 상태</a>
+							</li>
+
+							<li class="menu-item">
+								<a href="#" class="arrow-r">유형 분석</a>
+							</li>
+
+							<h2 class="nav-side-title"><span>설정</span></h2>
+							<li class="menu-item">
+								<a href="sk_Input.html" class="arrow-r">양식 변경</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+			<img src="assets/images/demo/logo-sk.png" alt="" style="position: absolute;left: 20px;bottom: 20px;width: 100px;">
+		</div>
+		<div class="container">
+			<header>
+				<div class="header-inner">
+					<div class="head">
+						<a href="#" class="panel-ico closeGnb" title="메뉴닫기"></a>
+					</div>
+					<nav class="snb">
+						<ul>
+							<li>
+								<span class="userinfo"><b>User</b> 님</span>
+							</li>
+							<li>
+								<a href=" #" class="snb-btn" title="로그아웃">
+									로그아웃
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</header>
+			<div class="contents">
+				<div class="panel">
+					<div class="row">
+						<div class="column">
+							<article>
+								<div class="content-header">
+									<div class="title lv2">양식 변경</div>
+									<div class="command">
+										<div class="input-item">
+											<a href="#" class="btn medium positive fill"><span>
+													+ 폼 추가
+												</span></a>
+										</div>
+									</div>
+								</div>
+								<style>
+									.create-table {
+										width: 100%;
+									}
+
+									.create-table ul {
+										width: 100%;
+										display: flex;
+										flex-direction: column;
+										align-items: center;
+										justify-content: center;
+										gap: 20px;
+									}
+
+									.create-table ul li {
+										width: 100%;
+										background-color: #fff;
+										border-radius: 14px;
+										border: 2px solid #ededed;
+										padding: 20px;
+
+
+									}
+
+									.create-table ul li .items .input-item-inner {
+										position: relative;
+										flex: 1;
+									}
+
+									.create-table ul li .items .input-item-inner a {
+										position: absolute;
+										right: 14px;
+										top: 6px;
+										margin: auto;
+									}
+
+									.create-table ul li .items {
+										display: flex;
+										gap: 14px;
+										align-items: center;
+									}
+								</style>
+								<div class="create-table">
+									<ul>
+										<li>
+											<div class="content-header">
+												<div class="title lv2">양식1</div>
+												<div class="command">
+													<div class="input-item">
+														<a href="#" class="btn medium positive line"><span>
+																+ 항목 추가
+															</span></a>
+													</div>
+												</div>
+											</div>
+											<input type="text" placeholder="제목 입력"
+												style="width: 100%;height: 50px;font-size: 1.8rem;margin-bottom: 10px;">
+											<div class="items">
+												<div class="input-item-inner" style="display: flex; gap: 4px;">
+													<input type="text" placeholder="항목 입력">
+													<a href="#"><img src="assets/images/crud-remove.png" style="width: 18px;"></a>
+												</div>
+												<div class="input-item-inner" style="display: flex; gap: 4px;">
+													<input type="text" placeholder="항목 입력">
+													<a href="#"><img src="assets/images/crud-remove.png" style="width: 18px;"></a>
+												</div>
+												<div class="input-item-inner" style="display: flex; gap: 4px;">
+													<input type="text" placeholder="항목 입력">
+													<a href="#"><img src="assets/images/crud-remove.png" style="width: 18px;"></a>
+												</div>
+												<div class="input-item-inner" style="display: flex; gap: 4px;">
+													<input type="text" placeholder="항목 입력">
+													<a href="#"><img src="assets/images/crud-remove.png" style="width: 18px;"></a>
+												</div>
+											</div>
+										</li>
+
+										<li>
+											<div class="content-header">
+												<div class="title lv2">양식1</div>
+												<div class="command">
+													<div class="input-item">
+														<a href="#" class="btn medium positive line"><span>
+																+ 항목 추가
+															</span></a>
+													</div>
+												</div>
+											</div>
+											<input type="text" placeholder="제목 입력"
+												style="width: 100%;height: 50px;font-size: 1.8rem;margin-bottom: 10px;">
+											<div class="items">
+												<div class="input-item-inner" style="display: flex; gap: 4px;">
+													<input type="text" placeholder="항목 입력">
+													<a href="#"><img src="assets/images/crud-remove.png" style="width: 18px;"></a>
+												</div>
+												<div class="input-item-inner" style="display: flex; gap: 4px;">
+													<input type="text" placeholder="항목 입력">
+													<a href="#"><img src="assets/images/crud-remove.png" style="width: 18px;"></a>
+												</div>
+												<div class="input-item-inner" style="display: flex; gap: 4px;">
+													<input type="text" placeholder="항목 입력">
+													<a href="#"><img src="assets/images/crud-remove.png" style="width: 18px;"></a>
+												</div>
+												<div class="input-item-inner" style="display: flex; gap: 4px;">
+													<input type="text" placeholder="항목 입력">
+													<a href="#"><img src="assets/images/crud-remove.png" style="width: 18px;"></a>
+												</div>
+											</div>
+										</li>
+
+										<li>
+											<div class="content-header">
+												<div class="title lv2">양식1</div>
+												<div class="command">
+													<div class="input-item">
+														<a href="#" class="btn medium positive line"><span>
+																+ 항목 추가
+															</span></a>
+													</div>
+												</div>
+											</div>
+											<input type="text" placeholder="제목 입력"
+												style="width: 100%;height: 50px;font-size: 1.8rem;margin-bottom: 10px;">
+											<div class="items">
+												<div class="input-item-inner" style="display: flex; gap: 4px;">
+													<input type="text" placeholder="항목 입력">
+													<a href="#"><img src="assets/images/crud-remove.png" style="width: 18px;"></a>
+												</div>
+												<div class="input-item-inner" style="display: flex; gap: 4px;">
+													<input type="text" placeholder="항목 입력">
+													<a href="#"><img src="assets/images/crud-remove.png" style="width: 18px;"></a>
+												</div>
+												<div class="input-item-inner" style="display: flex; gap: 4px;">
+													<input type="text" placeholder="항목 입력">
+													<a href="#"><img src="assets/images/crud-remove.png" style="width: 18px;"></a>
+												</div>
+												<div class="input-item-inner" style="display: flex; gap: 4px;">
+													<input type="text" placeholder="항목 입력">
+													<a href="#"><img src="assets/images/crud-remove.png" style="width: 18px;"></a>
+												</div>
+											</div>
+										</li>
+
+									</ul>
+								</div>
+							</article>
+						</div>
+					</div>
+
+					<div class="set-button justify right">
+						<a href="#" class="btn medium positive fill"><span>
+								양식 수정하기
+							</span></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
