@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="ko">
+<include src="src/includes/head.html"></include>
+
+<body>
+	<div class="viewport">
+		<div id="gnb">
+			<div class="top">
+				<h1 class="logo">
+					<a href="index.html">
+						<div class="symbol">
+							<img src="assets/images/demo/admin-logo-scDemo.png" alt="">
+						</div>
+						<div class="textType">
+							<div class="tit">플랫고등학교</div>
+							<div class="sub">스쿨톡 관리자 시스템</div>
+						</div>
+					</a>
+				</h1>
+				<div class="nav-item scrollbar">
+					<nav class="menu-group">
+						<ul class="menu-group-depth1">
+							<li class="menu-item open active">
+								<a href="/main">
+									<img src="/assets/images/gnb-ico-dashboard-on.png" alt="">대시보드</a>
+							</li>
+							<h2 class="nav-side-title"><span>주소록</span></h2>
+							<li class="menu-item ">
+								<a href="#" class="arrow">
+									<img src="/assets/images/gnb-ico-citizen.png" alt="">주소록 관리</a>
+								<ul class="menu-group-depth2">
+									<li class="menu-item"><a href="/address/te_group">교직원 주소록</a></li>
+									<li class="menu-item"><a href="/address/st_group">학생·학부모 주소록</a></li>
+									<!-- <li class="menu-item"><a href="/student/counsel" >상담관리</a></li> -->
+									<li class="menu-item"><a href="/address/at_group">일반·공유 주소록</a></li>
+								</ul>
+							</li>
+							<li class="menu-item ">
+								<a href="#" class="arrow">
+									<img src="/assets/images/gnb-ico-message.png" alt="">메시지 관리</a>
+								<ul class="menu-group-depth2">
+									<li class="menu-item"><a href="/address/excel_group">엑셀 주소록</a></li>
+									<li class="menu-item"><a href="/msg/send_msg">메시지 발송</a></li>
+									<li class="menu-item"><a href="/msg/vote_group">설문·투표·전자신청서</a></li>
+									<li class="menu-item"><a href="/msg/que">전송대기·예약</a></li>
+									<li class="menu-item"><a href="/msg/result">전송 결과확인</a></li>
+								</ul>
+							</li>
+							<h2 class="nav-side-title"><span>관리</span></h2>
+							<li class="menu-item ">
+								<a href="#" class="arrow">
+									<img src="/assets/images/gnb-ico-call.png" alt="">전화관리</a>
+								<ul class="menu-group-depth2">
+									<li class="menu-item"><a href="/phone/safe_call">안심번호 통화내역</a></li>
+									<li class="menu-item"><a href="/phone/safe_record">안심번호 녹취기록</a></li>
+									<li class="menu-item"><a href="/phone/safe_text">안심번호 수신 문자</a></li>
+									<li class="menu-item"><a href="/phone/call_record">유선전화 녹취기록</a></li>
+									<li class="menu-item"><a href="/phone/phone_list">학교 연락처 관리</a></li>
+									<li class="menu-item"><a href="/phone/exception_list">녹음 제외관리</a></li>
+								</ul>
+							</li>
+							<li class="menu-item ">
+								<a href="#" class="arrow">
+									<img src="/assets/images/gnb-ico-classtalk.png" alt="">클래스톡 관리</a>
+								<ul class="menu-group-depth2">
+
+									<li class="menu-item"><a href="/board/msg?board_type=N&amp;board_code=1743042883">est</a></li>
+									<li class="menu-item"><a href="/board/msg?board_type=F&amp;board_code=212011900">급식</a></li>
+									<li class="menu-item"><a href="/board/msg?board_type=N&amp;board_code=15364536738">앱메뉴얼</a></li>
+									<li class="menu-item"><a href="/board/msg?board_type=N&amp;board_code=1740725304">학교 게시판</a></li>
+									<li class="menu-item"><a href="/board/msg?board_type=S&amp;board_code=15364536737">학교 일정</a></li>
+									<li class="menu-item"><a href="/board/msg?board_type=N&amp;board_code=1740977204">학교알림게시판</a></li>
+									<li class="menu-item"><a href="/board/msg?board_type=S&amp;board_code=212011122">학사일정</a></li>
+									<li class="menu-item"><a href="/board/board_add">게시판 설정</a></li>
+								</ul>
+							</li>
+							<li class="menu-item ">
+								<a href="#" class="arrow">
+									<img src="/assets/images/gnb-ico-reward.png" alt="">상·벌점</a>
+								<ul class="menu-group-depth2">
+									<li class="menu-item"><a href="/point/point_plus">상점 부여</a></li>
+									<li class="menu-item"><a href="/point/point_minus">벌점 부여</a></li>
+									<li class="menu-item"><a href="/point/point_adjust">교정점수 부여</a></li>
+									<li class="menu-item"><a href="/point/person_point">상·벌점 현황</a></li>
+									<li class="menu-item"><a href="/point/point_history">상·벌점 부여목록</a></li>
+									<li class="menu-item"><a href="/point/point_stastics">상·벌점 부여통계</a></li>
+									<li class="menu-item"><a href="/point/point_setting">상·벌점 항목 관리</a></li>
+								</ul>
+							</li>
+							<li class="menu-item ">
+								<a href="#" class="arrow">
+									<img src="/assets/images/gnb-ico-attendance.png" alt="">출결 관리</a>
+								<ul class="menu-group-depth2">
+									<li class="menu-item"><a href="/check/check_daily">일자별 통계</a></li>
+									<li class="menu-item"><a href="/check/check_person">개인별 출결 관리</a></li>
+								</ul>
+							</li>
+							<li class="menu-item ">
+								<a href="#" class="arrow">
+									<img src="/assets/images/gnb-ico-meal.png" alt="">급식 관리</a>
+								<ul class="menu-group-depth2">
+									<li class="menu-item"><a href="/food/food_daily">일자별 급식 집계</a></li>
+									<li class="menu-item"><a href="/food/food_person">개인별 신청·취식 관리</a></li>
+									<li class="menu-item"><a href="/food/food_allergy">개인 알러지 관리</a></li>
+								</ul>
+							</li>
+							<li class="menu-item ">
+								<a href="#" class="arrow">
+									<img src="/assets/images/gnb-ico-reservation.png" alt="">예약관리</a>
+								<ul class="menu-group-depth2">
+									<li class="menu-item"><a href="/book/book_list">통합 예약 관리</a></li>
+									<li class="menu-item"><a href="/book/visit_list">방문 예약 관리</a></li>
+								</ul>
+							</li>
+							<h2 class="nav-side-title"><span>설정</span></h2>
+							<li class="menu-item ">
+								<a href="#" class="arrow">
+									<img src="/assets/images/gnb-ico-system.png" alt="">
+									시스템관리</a>
+								<ul class="menu-group-depth2">
+									<li class="menu-item"><a href="/setting/policy">정책 설정</a></li>
+									<li class="menu-item"><a href="/excel/download_list">요금·서류 자료 추출</a></li>
+									<li class="menu-item"><a href="/setting/account">계정 정보변경</a></li>
+								</ul>
+							</li>
+						</ul>
+					</nav>
+					<nav class="menu-group">
+						<ul class="menu-group-depth1">
+							<li class="menu-item active open">
+								<a href="#" class="arrow">
+									<img src="assets/images/gnb-ico-favorite.png" alt="">
+									즐겨찾기(active, open)</a>
+								<ul class="menu-group-depth2">
+									<li class="menu-item"><a href="Dashboard.html">대시보드(아파트)</a></li>
+									<li class="menu-item"><a href="Dashboard-schooltalk.html">대시보드(스쿨톡)</a></li>
+									<li class="menu-item"><a href="Dashboard-schooltalkDataNull.html">대시보드(Data Null)</a>
+									</li>
+
+									<li class="menu-item"><a href="DashboardUser-schooltalk.html">개인화 대시보드(스쿨톡)</a></li>
+									<li class="menu-item"><a href="DashboardUser-schooltalkDataNull.html">개인화 대시보드(Data Null)</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+			<footer>
+				<img src="assets/images/schooltalk/logo-footer-schooltalk.png" alt="">
+				<small class="copyright">© NETBREEZE Corp. All rights reserved.</small>
+			</footer>
+		</div>
+
+		<div class="container">
+			<include src="src/includes/header.html"></include>
+			<div class="contents">
+				<div class="panel scrollbar main">
+					<div class="row vertical schoolrow">
+						<div class="column">
+							<article class="box status-main type-middle">
+								<div class="banner">
+									<div class="swiper-container">
+										<ul class="swiper-wrapper">
+											<li class="swiper-slide">
+												<a href="#" class="app-inner">
+													<img src="assets/images/schooltalk/banner01.png" alt="">
+												</a>
+											</li>
+											<li class="swiper-slide">
+												<a href="#" class="app-inner">
+													<img src="assets/images/schooltalk/banner02.png" alt="">
+												</a>
+											</li>
+											<li class="swiper-slide">
+												<a href="#" class="app-inner">
+													<img src="assets/images/schooltalk/banner03.png" alt="">
+												</a>
+											</li>
+											<li class="swiper-slide">
+												<a href="#" class="app-inner">
+													<img src="assets/images/schooltalk/banner04.png" alt="">
+												</a>
+											</li>
+										</ul>
+										<div class="swiper-command">
+											<div class="swiper-pagination"></div>
+										</div>
+									</div>
+
+								</div>
+								<div class="content-header">
+									<div class="title lv2">서비스 이용 현황</div>
+									<div class="command">
+										<span class="side"><em class="gray">8개 서비스 이용 중</em></span>
+									</div>
+								</div>
+								<div class="list-serviceUse-status">
+									<ul>
+										<li>
+											<a href="#" class="call on">
+												<span>전화</span>
+											</a>
+										</li>
+										<li>
+											<a href="#" class="recoard on">
+												<span>녹음</span>
+											</a>
+										</li>
+										<li>
+											<a href="#" class="visit on">
+												<span>방문</span>
+											</a>
+										</li>
+										<li>
+											<a href="#" class="attendance on">
+												<span>출결</span>
+											</a>
+										</li>
+										<li>
+											<a href="#" class="meal on">
+												<span>급식</span>
+											</a>
+										</li>
+										<li>
+											<a href="#" class="messenger on">
+												<span>메신저</span>
+											</a>
+										</li>
+										<li>
+											<a href="#" class="message on">
+												<span>메시지</span>
+											</a>
+										</li>
+										<li>
+											<a href="#" class="score on">
+												<span>상·벌점</span>
+											</a>
+										</li>
+
+									</ul>
+								</div>
+								<div class="list-serviceUse-client">
+									<ul>
+										<li>
+											안심번호 사용 교직원
+											<div class="val">
+												<span class="use">24</span>
+												<span class="unit">/</span>
+												<span class="total">50</span>
+											</div>
+										</li>
+
+										<li>
+											클래스톡 설치 학생·학부모
+											<div class="val">
+												<span class="use">31</span>
+												<span class="unit">/</span>
+												<span class="total">85</span>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</article>
+
+							<div class="data-layout">
+								<article class="box chart type-middle">
+									<div class="content-header">
+										<div class="title lv2">주간 학생 출결 현황 <i>(2.10 ~ 2.17)</i> </div>
+										<div class="command">
+											<ul class="chart-legend">
+												<li class="blue">
+													학생증
+												</li>
+												<li class="mint">
+													학번
+												</li>
+											</ul>
+										</div>
+									</div>
+									<div class="chart-area">
+										<div class="chart-group doughnut">
+											<div class="chart-item">
+												<div class="doughnut-value">
+													<span class="label">학생증</span>
+													<div class="value">
+														<span class="val">88</span>
+														<span class="unit">%</span>
+													</div>
+												</div>
+												<canvas id="doughnutChart1"></canvas>
+											</div>
+											<div class="chart-item">
+												<div class="doughnut-value">
+													<span class="label">학번</span>
+													<div class="value">
+														<span class="val">82</span>
+														<span class="unit">%</span>
+													</div>
+												</div>
+												<canvas id="doughnutChart2"></canvas>
+											</div>
+
+											<div class="chart-item">
+												<div class="doughnut-value">
+													<span class="label">학번</span>
+													<div class="value">
+														<span class="val">82</span>
+														<span class="unit">%</span>
+													</div>
+												</div>
+												<canvas id="doughnutChart3"></canvas>
+											</div>
+
+										</div>
+										<div class="chart-group bar">
+											<div class="chart-item">
+												<canvas id="barChart1"></canvas>
+											</div>
+										</div>
+
+									</div>
+								</article>
+
+								<article class="box chart type-middle">
+									<div class="content-header">
+										<div class="title lv2">주간 교내 방문 관리 현황 <i>(2.10 ~ 2.17)</i> </div>
+										<div class="command">
+											<ul class="chart-legend">
+												<li class="blue">
+													학무모 상담
+												</li>
+												<li class="mint">
+													단순 민원
+												</li>
+												<li class="lightblue">
+													외부업체
+												</li>
+												<li class="gray">
+													기타
+												</li>
+											</ul>
+										</div>
+									</div>
+									<div class="chart-area">
+										<div class="chart-group doughnut">
+											<div class="chart-item">
+												<div class="doughnut-value">
+													<div class="value">
+														<span class="val">38</span>
+
+													</div>
+													<span class="unit">건</span>
+												</div>
+												<canvas id="doughnutChart3"></canvas>
+											</div>
+										</div>
+										<div class="chart-group bar">
+											<div class="chart-item">
+												<canvas id="barChart2"></canvas>
+											</div>
+										</div>
+
+									</div>
+								</article>
+							</div>
+						</div>
+
+						<div class="column">
+							<article class="box type-min">
+								<div class="content-header">
+									<div class="title lv2">
+										<img class="title-ico" src="assets/images/schooltalk/ico-shcoolNoti.png" alt="">
+										학교 공지 사항
+									</div>
+								</div>
+								<div class="list-board">
+									<ul>
+										<li>
+											<a href="#">
+												<div class="board-inner">
+													<div class="tit">
+														본인의 범죄경력회보서를 직접 출력하여 제출하도록 부탁드립니 부탁드립니 부탁드립니 부탁드립니 부탁드립니의 범죄경력회보서를 직접 출력하여 제출하도록 부탁드립니 부탁드립니
+														부탁드립니 부탁드립니 부탁드립니
+													</div>
+													<div class="date">
+														25.2.5
+													</div>
+												</div>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<div class="board-inner">
+													<div class="tit">
+														본인의 범죄경력회보서를 직접 출력하여 제출하도록 부탁드립니 부탁드립니 부탁드립니 부탁드립니 부탁드립니의 범죄경력회보서를 직접 출력하여 제출하도록 부탁드립니 부탁드립니
+														부탁드립니 부탁드립니 부탁드립니
+													</div>
+													<div class="date">
+														25.2.5
+													</div>
+												</div>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<div class="tit">
+													본인의 범죄경력회보서를 직접 출력하여 제출하도록 부탁드립니 부탁드립니 부탁드립니 부탁드립니 부탁드립니의 범죄경력회보서를 직접 출력하여 제출하도록 부탁드립니 부탁드립니
+													부탁드립니 부탁드립니 부탁드립니
+												</div>
+												<div class="date">
+													25.2.5
+												</div>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<div class="board-inner">
+													<div class="tit">
+														본인의 범죄경력회보서를 직접 출력하여 제출하도록 부탁드립니 부탁드립니 부탁드립니 부탁드립니 부탁드립니의 범죄경력회보서를 직접 출력하여 제출하도록 부탁드립니 부탁드립니
+														부탁드립니 부탁드립니 부탁드립니
+													</div>
+													<div class="date">
+														25.2.5
+													</div>
+												</div>
+											</a>
+										</li>
+										<li class="null">
+											<!-- 기본5개는 고정, 데이터 없으면 이렇게 표시 -->
+										</li>
+										<li class="list-more-button">
+											<a href="#">공지사항 전체보기</a>
+										</li>
+									</ul>
+								</div>
+							</article>
+							<article class="box type-min">
+								<div class="content-header blue">
+									<div class="title lv2">
+										<img class="title-ico" src="assets/images/schooltalk/ico-schoolMessage.png" alt="">
+										메시지 발송내역
+									</div>
+								</div>
+								<div class="list-board message">
+									<ul>
+										<li>
+											<a href="#">
+												<div class="message-inner">
+													<div class="tit">
+														학부모님 안녕하십니까? 귀댁의 자녀느 보살핌 늘봄 대기자 입니다학부모님 안녕하십니까? 귀댁의 자녀느 보살핌 늘봄 대기자 입니다학부모님 안녕하십니까? 귀댁의 자녀느
+														보살핌 늘봄 대기자 입니다학부모님 안녕하십니까? 귀댁의 자녀느 보살핌 늘봄 대기자 입니다
+													</div>
+													<div class="side">
+														<div class="profile">
+															<img src="assets/images/schooltalk/profile.png" alt="">
+															학부모
+														</div>
+														<div class="date">25.2.5 15:17</div>
+													</div>
+												</div>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<div class="message-inner">
+
+													<div class="tit">
+														학부모님 안녕하십니까? 귀댁의 자녀느 보살핌 늘봄 대기자 입니다
+													</div>
+													<div class="side">
+														<div class="profile">
+															<img src="assets/images/schooltalk/profile.png" alt="">
+															학부모
+														</div>
+														<div class="date">25.2.5 15:17</div>
+													</div>
+												</div>
+											</a>
+										</li>
+
+
+										<li class="null">
+											<!-- 기본5개는 고정, 데이터 없으면 이렇게 표시 -->
+										</li>
+										<li class="list-more-button">
+											<a href="#">발송내역 전체보기</a>
+										</li>
+									</ul>
+								</div>
+							</article>
+							<article class="box type-min">
+								<div class="content-header mint">
+									<div class="title lv2">
+										<img class="title-ico" src="assets/images/schooltalk/ico-schoolVote.png" alt="">
+										설문(투표) 응답현황
+									</div>
+								</div>
+								<div class="list-board vote">
+									<ul>
+										<li>
+											<a href="#">
+												<div class="vote-inner">
+													<div class="tit">
+														2025학년도 넷브리즈 고등학교 학습형 늘봄 프로그램 개설 조사2025학년도 넷브리즈 고등학교 학습형 늘봄 프로그램 개설 조사
+													</div>
+													<div class="progress-ratio">
+														<div class="bar high" data-value="72">
+															<span class="label">항목</span>
+															<span class="val"></span>
+														</div>
+														<div class="bar" data-value="38">
+															<span class="label">항목</span>
+															<span class="val"></span>
+														</div>
+													</div>
+													<div class="side">
+														<ul class="legend">
+															<li><em class="gray">발송 50</em></li>
+															<li>완료 40</li>
+															<li><em class="gray">대기 10</em></li>
+														</ul>
+														<div class="date"><b>3일</b>뒤 종료</div>
+													</div>
+												</div>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<div class="vote-inner">
+													<div class="tit">
+														2025학년도 넷브리즈 고등학교 학습형 늘봄 프로그램 개설 조사2025학년도 넷브리즈 고등학교 학습형 늘봄 프로그램 개설 조사
+													</div>
+													<div class="progress-ratio">
+														<div class="bar high" data-value="72">
+															<span class="label">항목</span>
+															<span class="val"></span>
+														</div>
+														<div class="bar" data-value="38">
+															<span class="label">항목</span>
+															<span class="val"></span>
+														</div>
+													</div>
+													<div class="side">
+														<ul class="legend">
+															<li><em class="gray">발송 50</em></li>
+															<li>완료 40</li>
+															<li><em class="gray">대기 10</em></li>
+														</ul>
+														<div class="date"><b>3일</b>뒤 종료</div>
+													</div>
+												</div>
+											</a>
+										</li>
+
+										<li class="null">
+											<!-- 기본5개는 고정, 데이터 없으면 이렇게 표시 -->
+										</li>
+										<li class="list-more-button">
+											<a href="#">응답현황 전체보기</a>
+										</li>
+									</ul>
+								</div>
+							</article>
+						</div>
+					</div>
+
+				</div>
+				<div class="panel side">
+					<article>
+
+						<div id="panelTab" class="mainPanelCont tab-component">
+							<div class="panelTab_1 tab-content">
+								<div class="inlineDatepicker">
+									<div id="datepicker1" class="datepicker">
+										<!-- datepicker -->
+									</div>
+								</div>
+								<!-- 스크롤 라이브러리를 위한 scheduleList scrollbar 클래스 추가 -->
+								<div class="scroll-cont scheduleList scrollbar">
+									<div class="list-schedule">
+										<ol>
+											<li>
+												<div class="day">
+													24
+													<small>월</small>
+												</div>
+												<div class="info">
+													<div class="tit">하자보수 주민고청회 개최</div>
+													<sapn class="side">종일</sapn>
+												</div>
+												<div class="more-cont">
+													<a href="#" class="ico more">더보기</a>
+													<div class="list-more-cont">
+														<ul>
+															<li> <a href="#">내 구글 캘린더에 추가</a> </li>
+														</ul>
+													</div>
+												</div>
+											</li>
+
+											<li>
+												<div class="day">
+													24
+													<small>월</small>
+												</div>
+												<div class="info">
+													<div class="tit">하자보수 주민고청회 개최</div>
+													<sapn class="side">종일</sapn>
+												</div>
+												<div class="more-cont">
+													<a href="#" class="ico more">더보기</a>
+													<div class="list-more-cont">
+														<ul>
+															<li> <a href="#">내 구글 캘린더에 추가</a> </li>
+														</ul>
+													</div>
+												</div>
+											</li>
+
+											<li>
+												<div class="day">
+													24
+													<small>월</small>
+												</div>
+												<div class="info">
+													<div class="tit">하자보수 주민고청회 개최</div>
+													<sapn class="side">종일</sapn>
+												</div>
+												<div class="more-cont">
+													<a href="#" class="ico more">더보기</a>
+													<div class="list-more-cont">
+														<ul>
+															<li> <a href="#">내 구글 캘린더에 추가</a> </li>
+														</ul>
+													</div>
+												</div>
+											</li>
+
+											<li>
+												<div class="day">
+													24
+													<small>월</small>
+												</div>
+												<div class="info">
+													<div class="tit">하자보수 주민고청회 개최</div>
+													<sapn class="side">종일</sapn>
+												</div>
+												<div class="more-cont">
+													<a href="#" class="ico more">더보기</a>
+													<div class="list-more-cont">
+														<ul>
+															<li> <a href="#">내 구글 캘린더에 추가</a> </li>
+														</ul>
+													</div>
+												</div>
+											</li>
+
+											<li>
+												<div class="day">
+													24
+													<small>월</small>
+												</div>
+												<div class="info">
+													<div class="tit">하자보수 주민고청회 개최</div>
+													<sapn class="side">종일</sapn>
+												</div>
+												<div class="more-cont">
+													<a href="#" class="ico more">더보기</a>
+													<div class="list-more-cont">
+														<ul>
+															<li> <a href="#">내 구글 캘린더에 추가</a> </li>
+														</ul>
+													</div>
+												</div>
+											</li>
+
+											<li>
+												<div class="day">
+													24
+													<small>월</small>
+												</div>
+												<div class="info">
+													<div class="tit">하자보수 주민고청회 개최</div>
+													<sapn class="side">종일</sapn>
+												</div>
+												<div class="more-cont">
+													<a href="#" class="ico more">더보기</a>
+													<div class="list-more-cont">
+														<ul>
+															<li> <a href="#">내 구글 캘린더에 추가</a> </li>
+														</ul>
+													</div>
+												</div>
+											</li>
+
+											<li>
+												<div class="day">
+													24
+													<small>월</small>
+												</div>
+												<div class="info">
+													<div class="tit">하자보수 주민고청회 개최</div>
+													<sapn class="side">종일</sapn>
+												</div>
+												<div class="more-cont">
+													<a href="#" class="ico more">더보기</a>
+													<div class="list-more-cont">
+														<ul>
+															<li> <a href="#">내 구글 캘린더에 추가</a> </li>
+														</ul>
+													</div>
+												</div>
+											</li>
+
+											<li>
+												<div class="day">
+													24
+													<small>월</small>
+												</div>
+												<div class="info">
+													<div class="tit">하자보수 주민고청회 개최</div>
+													<sapn class="side">종일</sapn>
+												</div>
+												<div class="more-cont">
+													<a href="#" class="ico more">더보기</a>
+													<div class="list-more-cont">
+														<ul>
+															<li> <a href="#">내 구글 캘린더에 추가</a> </li>
+														</ul>
+													</div>
+												</div>
+											</li>
+											<li>
+												<div class="day">
+													24
+													<small>월</small>
+												</div>
+												<div class="info">
+													<div class="tit">하자보수 주민고청회 개최</div>
+													<sapn class="side">종일</sapn>
+												</div>
+												<div class="more-cont">
+													<a href="#" class="ico more">더보기</a>
+													<div class="list-more-cont">
+														<ul>
+															<li> <a href="#">내 구글 캘린더에 추가</a> </li>
+														</ul>
+													</div>
+												</div>
+											</li>
+										</ol>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</article>
+				</div>
+			</div>
+		</div>
+	</div>
+	<include src="src/includes/스쿨톡대시보드공통스크립트.html"></include>
+</body>
+
+</html>

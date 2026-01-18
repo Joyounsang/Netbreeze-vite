@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="ko" class="white">
+<include src="src/includes/head.html"></include>
+
+<body>
+	<div class="viewport">
+		<include src="src/includes/GNB.html"></include>
+		<div class="container">
+			<include src="src/includes/header.html"></include>
+
+			<div class="contents">
+				<div class="panel">
+					<div class="row">
+						<div class="column">
+							<article>
+								<include src="src/includes/PageHead.html"></include>
+								<div class="query">
+									<div class="input-item">
+										<div class="input-item-inner">
+											<p>질문별 선거인단의 답변을 확인하실 수 있습니다.</p>
+										</div>
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+
+
+					<!-- <div class="row">
+						<div class="column">
+							<article>
+								<div class="content-header">
+									<div class="title lv2">통계 결과</div>
+								</div>
+								<div class="tbl">
+									<table>
+										<colgroup>
+											<col style="width:140px;">
+											<col style="width:auto">
+											<col style="width:140px;">
+											<col style="width:auto;">
+											<col style="width:140px;">
+											<col style="width:auto;">
+											<col style="width:140px;">
+											<col style="width:auto;">
+										</colgroup>
+										<tbody>
+											<tr>
+												<th scope="row" class="center">전체 투표수</th>
+												<td class="center">2,000 명</td>
+												<th scope="row" class="center">참여</th>
+												<td class="center">1,899 명</td>
+												<th scope="row" class="center">불참</th>
+												<td class="center">3 명</td>
+												<th scope="row" class="center">무효</th>
+												<td class="center">3 명</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</article>
+						</div>
+					</div> -->
+
+					<div class="row">
+						<div class="column">
+							<article>
+								<div class="content-header">
+									<div class="title lv2">통계 현황</div>
+								</div>
+								<div class="tbl">
+									<div class="min">
+										<table>
+											<thead>
+												<colgroup>
+													<col style="width:140px;">
+													<col style="width:300px;">
+													<col style="width:100px;">
+													<col style="width:auto;">
+													<col style="width:auto;">
+													<col style="width:auto;">
+													<col style="width:auto;">
+													<col style="width:auto;">
+												</colgroup>
+												<thead>
+													<tr>
+														<th class="center">구분</th>
+														<th class="center">그래프</th>
+														<th class="center">범례</th>
+														<th class="center">전체 선거인수</th>
+														<th class="center">전자투표참여자</th>
+														<th class="center">전차투표미참여자</th>
+														<th class="center">후보</th>
+														<th class="center">투표수</th>
+													</tr>
+												</thead>
+											</thead>
+											<tbody>
+												<tr>
+													<th class="center" rowspan="4">입주민 회장</th>
+													<td rowspan="4" class="center">
+														<div class="chart-area">
+
+															<div class="chart-group bar">
+																<div class="chart-item">
+																	<canvas id="barChart1"></canvas>
+																</div>
+															</div>
+														</div>
+													</td>
+													<td rowspan="4" class="center">
+														<ul class="chart-legend">
+															<li class="blue">
+																범례
+															</li>
+															<li class="red">
+																범례
+															</li>
+															<li class="mint">
+																범례
+															</li>
+															<li class="gray">
+																범례
+															</li>
+														</ul>
+													</td>
+													<td rowspan="4" class="center">200</td>
+													<td rowspan="4" class="center">200</td>
+													<td rowspan="4" class="center bd-r">180</td>
+
+													<td class="center">A</td>
+													<td class="center">0</td>
+												</tr>
+												<tr>
+													<td class="center">B</td>
+													<td class="center">0</td>
+												</tr>
+												<tr>
+													<td class="center">C</td>
+													<td class="center">0</td>
+												</tr>
+												<tr>
+													<td class="center">D</td>
+													<td class="center">0</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="tbl">
+									<div class="min">
+										<table>
+											<thead>
+												<colgroup>
+													<col style="width:140px;">
+													<col style="width:300px;">
+													<col style="width:100px;">
+													<col style="width:auto;">
+													<col style="width:auto;">
+													<col style="width:auto;">
+													<col style="width:auto;">
+													<col style="width:auto;">
+												</colgroup>
+												<thead>
+													<tr>
+														<th class="center">구분</th>
+														<th class="center">그래프</th>
+														<th class="center">범례</th>
+														<th class="center">전체 선거인수</th>
+														<th class="center">전자투표참여자</th>
+														<th class="center">전차투표미참여자</th>
+														<th class="center">후보</th>
+														<th class="center">투표수</th>
+													</tr>
+												</thead>
+											</thead>
+											<tbody>
+												<tr>
+													<th class="center" rowspan="4">입주민 회장</th>
+													<td rowspan="4" class="center">
+														<div class="chart-area">
+
+															<div class="chart-group line">
+																<div class="chart-item">
+																	<canvas id="lineChart1"></canvas>
+																</div>
+															</div>
+														</div>
+													</td>
+													<td rowspan="4" class="center">
+														<ul class="chart-legend">
+															<li class="blue">
+																범례
+															</li>
+															<li class="red">
+																범례
+															</li>
+															<li class="mint">
+																범례
+															</li>
+															<li class="gray">
+																범례
+															</li>
+														</ul>
+													</td>
+													<td rowspan="4" class="center">200</td>
+													<td rowspan="4" class="center">200</td>
+													<td rowspan="4" class="center bd-r">180</td>
+													<td class="center">A</td>
+													<td class="center">0</td>
+												</tr>
+												<tr>
+													<td class="center">B</td>
+													<td class="center">0</td>
+												</tr>
+												<tr>
+													<td class="center">C</td>
+													<td class="center">0</td>
+												</tr>
+												<tr>
+													<td class="center">D</td>
+													<td class="center">0</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="tbl">
+									<div class="min">
+										<table>
+											<colgroup>
+												<col style="width:140px;">
+												<col style="width:300px;">
+												<col style="width:100px;">
+												<col style="width:auto;">
+												<col style="width:auto;">
+												<col style="width:auto;">
+												<col style="width:auto;">
+												<col style="width:auto;">
+											</colgroup>
+											<thead>
+												<tr>
+													<th class="center">구분</th>
+													<th class="center">그래프</th>
+													<th class="center">범례</th>
+													<th class="center">전체 선거인수</th>
+													<th class="center">전자투표참여자</th>
+													<th class="center">전차투표미참여자</th>
+													<th class="center">후보</th>
+													<th class="center">투표수</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<th class="center" rowspan="3">감사위원</th>
+													<td rowspan="3" class="center">
+														<div class="chart-area">
+															<div class="chart-group">
+																<div class="chart-item">
+																	<canvas id="pieChart1"></canvas>
+																</div>
+															</div>
+														</div>
+													</td>
+													<td rowspan="3" class="center">
+														<ul class="chart-legend">
+															<li class="blue">
+																범례
+															</li>
+															<li class="red">
+																범례
+															</li>
+															<li class="mint">
+																범례
+															</li>
+															<li class="gray">
+																범례
+															</li>
+														</ul>
+													</td>
+													<td rowspan="3" class="center">200</td>
+													<td rowspan="3" class="center">200</td>
+													<td rowspan="3" class="center bd-r">180</td>
+													<td class="center">정우성</td>
+													<td class="center">0 </td>
+												</tr>
+												<tr>
+													<td class="center">유재석</td>
+													<td class="center">
+														0 </td>
+												</tr>
+												<tr>
+													<td class="center">강호동</td>
+													<td class="center">
+														0 </td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+
+								<div class="tbl">
+									<div class="min">
+										<table>
+											<colgroup>
+												<col style="width:140px;">
+												<col style="width:300px;">
+												<col style="width:100px;">
+												<col style="width:auto;">
+												<col style="width:auto;">
+												<col style="width:auto;">
+												<col style="width:auto;">
+												<col style="width:auto;">
+											</colgroup>
+											<thead>
+												<tr>
+													<th class="center">구분</th>
+													<th class="center">그래프</th>
+													<th class="center">범례</th>
+													<th class="center">전체 선거인수</th>
+													<th class="center">전자투표참여자</th>
+													<th class="center">전차투표미참여자</th>
+													<th class="center">후보</th>
+													<th class="center">투표수</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<th class="center">감사위원</th>
+													<td class="center">
+														감사위원 입후보분들 입니다. </td>
+													<td class="center" colspan="6">
+														<a href="#"
+															onclick="openPopup('vote_statistics_pop?vo_id=1744161754&amp;vote_number=F123456781744161125&amp;answer_type=descriptive', 950, 600)"
+															class="btn medium normal line">주관식 답변확인</a>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<script>
+		let charts = {};
+		document.addEventListener("DOMContentLoaded", function () {
+
+			// 공통 색상 정의
+			const COLORS = {
+				primary: '#5680eb',    // 파란색
+				secondary: '#FD6465',  // 빨강색
+				tertiary: '#51A39E',   // 민트색
+				background: '#D9DAE1', // 회색
+				grid: '#F5F5F9',      // 그리드 색상
+				text: '#9FA2B4'       // 텍스트 색상
+			};
+
+			// 파이 차트 생성
+			const createDoughnutChart = (chartId, data, colors) => {
+				const ctx = document.getElementById(chartId);
+				return new Chart(ctx, {
+					type: 'pie',
+					data: {
+						labels: false,
+						datasets: [{
+							data: data,
+							backgroundColor: colors,
+							hoverBackgroundColor: colors,
+							borderWidth: 0
+						}]
+					},
+					options: {
+						aspectRatio: 1,
+						responsive: true,
+						maintainAspectRatio: true,
+						layout: { padding: 0 },
+						animation: {
+							duration: 800,
+							easing: 'easeOutQuad'
+						},
+						// cutoutPercentage: 80
+					},
+					plugins: [{
+						afterDraw: function (chart) {
+							const ctx = chart.chart.ctx;
+							const dataset = chart.data.datasets[0];
+							const meta = chart.getDatasetMeta(0);
+							const total = dataset.data.reduce((a, b) => a + b, 0);
+
+							ctx.font = "bold 12px Pretendard";
+							ctx.fillStyle = "#000";
+							ctx.textBaseline = "middle";
+
+							meta.data.forEach((element, index) => {
+								const model = element._model;
+								const midAngle = (model.startAngle + model.endAngle) / 2;
+								const radius = (model.outerRadius + model.innerRadius) / 2;
+								const x = model.x + Math.cos(midAngle) * radius;
+								const y = model.y + Math.sin(midAngle) * radius;
+
+								const value = dataset.data[index];
+								const percent = ((value / total) * 100).toFixed(1);
+
+								ctx.textAlign = "center";
+								ctx.fillText(`${percent}%`, x, y);
+							});
+						}
+					}]
+
+				});
+			};
+
+			// 가로 바 차트 생성 
+			const createHorizontalBarChart = (ctx) => {
+				const data = {
+					labels: ['101동', '102동', '103동', '104동'],
+					datasets: [{
+						data: [40, 30, 14, 8],
+						backgroundColor: [
+							COLORS.primary,
+							COLORS.secondary,
+							COLORS.tertiary,
+							COLORS.background
+						],
+						borderWidth: 0
+					}]
+				};
+
+				return new Chart(ctx, {
+					type: 'horizontalBar',
+					data: data,
+					options: {
+						indexAxis: 'y',
+						responsive: true,
+						maintainAspectRatio: false,
+						scales: {
+							xAxes: [{
+								display: false,
+							}],
+						},
+						legend: { display: false },
+						layout: {
+							padding: {
+								left: 0,
+								right: 50, // 오른쪽 여백 추가
+								top: 0,
+								bottom: 0
+							}
+						},
+						animation: {
+							duration: 800,
+							easing: 'easeOutQuad'
+						},
+					},
+					plugins: [{
+						afterDraw: function (chart) {
+							var ctx = chart.ctx;
+							ctx.font = '12px Pretendard';
+							ctx.textAlign = 'left';
+							ctx.textBaseline = 'middle';
+
+							chart.data.datasets.forEach((dataset, i) => {
+								var meta = chart.getDatasetMeta(i);
+								meta.data.forEach((bar, index) => {
+									var data = dataset.data[index];
+									var xPos = bar._model.x + 5;
+									var yPos = bar._model.y;
+
+									// 숫자 부분 (굵게, 검은색)
+									ctx.font = 'bold 12px Pretendard';
+									ctx.fillStyle = '#000000';
+									ctx.fillText(data, xPos, yPos);
+
+									// 괄호와 퍼센트 부분
+									var numberWidth = ctx.measureText(data).width;
+									ctx.font = '12px Pretendard';
+									ctx.fillStyle = COLORS.text;
+									ctx.fillText(` (${data}%)`, xPos + numberWidth, yPos);
+								});
+							});
+						}
+					}]
+				});
+			};
+
+			// 라인 차트 생성 
+			const createLineChart = (ctx) => {
+				const data = {
+					labels: ['2/1', '2/2', '2/3', '2/4', '2/5'],
+					datasets: [
+						{
+							label: '상담 건수',
+							data: [65, 75, 45, 80, 90],
+							borderColor: COLORS.primary,
+							backgroundColor: 'rgba(105, 128, 234, 0.1)',
+							borderWidth: 1,
+							pointBackgroundColor: COLORS.primary,
+							pointRadius: 1,
+							pointHoverRadius: 2,
+							fill: false,
+							lineTension: 0.3
+						},
+						{
+							label: '민원 처리',
+							data: [35, 50, 30, 60, 70],
+							borderColor: COLORS.secondary,
+							backgroundColor: 'rgba(255, 158, 100, 0.1)',
+							borderWidth: 1,
+							pointBackgroundColor: COLORS.secondary,
+							pointRadius: 1,
+							pointHoverRadius: 2,
+							fill: false,
+							lineTension: 0.3
+						},
+						{
+							label: '기타 응답',
+							data: [20, 30, 25, 40, 45],
+							borderColor: COLORS.tertiary,
+							backgroundColor: 'rgba(72, 219, 164, 0.1)',
+							borderWidth: 1,
+							pointBackgroundColor: COLORS.tertiary,
+							pointRadius: 1,
+							pointHoverRadius: 2,
+							fill: false,
+							lineTension: 0.3
+						}
+					]
+				};
+
+				return new Chart(ctx, {
+					type: 'line',
+					data: data,
+					options: {
+						aspectRatio: 1,
+						responsive: true,
+						maintainAspectRatio: false,
+						scales: {
+							xAxes: [{
+								gridLines: { display: false },
+								ticks: {
+									fontFamily: 'Pretendard'
+								}
+							}],
+							yAxes: [{
+								gridLines: {
+									drawTicks: false
+								},
+								ticks: {
+									beginAtZero: true,
+									fontFamily: 'Pretendard',
+									padding: 10
+								}
+							}]
+						},
+						legend: {
+							display: false,
+						},
+						tooltips: {
+							enabled: true,
+							mode: 'index',
+							intersect: false,
+							backgroundColor: '#fff',
+							titleFontColor: '#000',
+							bodyFontColor: '#000',
+							borderColor: '#ccc',
+							borderWidth: 1
+						},
+						layout: { padding: 0 },
+						animation: {
+							duration: 800,
+							easing: 'easeOutQuad'
+						},
+					}
+				});
+			};
+
+
+
+			function createCharts() {
+				// 레이아웃 유연성을 위한 기존차트제거
+				Object.values(charts).forEach(chart => chart.destroy());
+
+				// 애니메이션을 위한 새차트 생성 및 데이터 
+				charts.pieChart1 = createDoughnutChart("pieChart1", [52, 34, 6, 6], [COLORS.primary, COLORS.secondary, COLORS.tertiary, COLORS.background]);
+
+				const { labels, data } = (() => {
+					const today = new Date();
+					const labels = Array.from({ length: 5 }, (_, i) => {
+						const date = new Date(today);
+						date.setDate(date.getDate() - (4 - i));
+						return `2/${date.getDate()}`;
+					});
+					return { labels, data: [65, 75, 45, 80, 90] };
+				})();
+
+				charts.barChart1 = createHorizontalBarChart(document.getElementById('barChart1'));
+				charts.lineChart1 = createLineChart(document.getElementById('lineChart1'));
+			}
+
+			createCharts();  // 차트 생성
+
+			let resizeTimer;
+			window.addEventListener("resize", function () {
+				clearTimeout(resizeTimer);
+				resizeTimer = setTimeout(() => {
+					createCharts(); // 브라우저 리사이즈시에도 차트 재생성
+				}, 100);
+			});
+		});
+
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,264 @@
+<script>
+    let charts = {};
+    document.addEventListener("DOMContentLoaded", function () {
+
+        // 공통 색상 정의
+        const COLORS = {
+            primary: '#6980EA',    // 파란색
+            secondary: '#61C0A7',  // 민트색
+            tertiary: '#DBE8FD',   // 연한 파란색
+            background: '#F5F6F8', // 회색
+            grid: '#F5F5F9',      // 그리드 색상
+            text: '#9FA2B4'       // 텍스트 색상
+        };
+
+        // 도넛 차트 생성 함수
+        const createDoughnutChart = (chartId, data, colors) => {
+            const ctx = document.getElementById(chartId);
+            return new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: false,
+                    datasets: [{
+                        data: data,
+                        backgroundColor: colors,
+                        hoverBackgroundColor: colors,
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    aspectRatio: 1,
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    cutoutPercentage: 80,
+                    layout: { padding: 0 },
+                    animation: {
+                        duration: 800,
+                        easing: 'easeOutQuad'
+                    },
+                }
+            });
+        };
+
+        // 세로 바 차트 생성 함수
+        const createBarChart = (ctx, data, labels) => {
+            return new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            data: data,
+                            backgroundColor: data.map(() => COLORS.secondary),
+                            borderWidth: 0
+                        },
+                        {
+                            data: data.map(v => v * 0.8),
+                            backgroundColor: data.map(() => COLORS.primary),
+                            borderWidth: 0
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        xAxes: [{
+                            stacked: false,
+                            ticks: {
+                                fontFamily: 'Pretendard',
+                                fontColor: COLORS.text
+                            },
+                            gridLines: { display: false },
+                            scaleLabel: { display: false },
+                            barThickness: 16,
+                            categoryPercentage: 0.4,
+                            // barPercentage: 0.6
+                        }],
+                        yAxes: [{
+                            gridLines: {
+                                display: true,
+                                color: COLORS.grid,
+                                zeroLineColor: COLORS.grid,
+                                drawBorder: false
+                            },
+                            ticks: { display: false }
+                        }]
+                    },
+                    layout: { padding: 0 },
+                    legend: { display: false },
+                    animation: {
+                        duration: 800,
+                        easing: 'easeOutQuad'
+                    },
+                },
+
+            });
+        };
+
+        // 가로 바 차트 생성 함수
+        const createHorizontalBarChart = (ctx) => {
+            const data = {
+                labels: ['학무모상담', '단순민원', '외부업체', '기타'],
+                datasets: [{
+                    data: [40, 30, 14, 8],
+                    backgroundColor: [
+                        COLORS.primary,
+                        COLORS.secondary,
+                        COLORS.tertiary,
+                        COLORS.background
+                    ],
+                    borderWidth: 0
+                }]
+            };
+
+            return new Chart(ctx, {
+                type: 'horizontalBar',
+                data: data,
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        xAxes: [{
+                            display: false,
+                        }],
+                        yAxes: [{
+                            display: false,
+                            categoryPercentage: 0.7,
+                            barPercentage: 0.6
+                        }]
+                    },
+                    legend: { display: false },
+                    tooltips: { enabled: false },
+                    layout: {
+                        padding: {
+                            left: 0,
+                            right: 50, // 오른쪽 여백 추가
+                            top: 0,
+                            bottom: 0
+                        }
+                    },
+                    animation: {
+                        duration: 800,
+                        easing: 'easeOutQuad'
+                    },
+                },
+                plugins: [{
+                    afterDraw: function (chart) {
+                        var ctx = chart.ctx;
+                        ctx.font = '12px Pretendard';
+                        ctx.textAlign = 'left';
+                        ctx.textBaseline = 'middle';
+
+                        chart.data.datasets.forEach((dataset, i) => {
+                            var meta = chart.getDatasetMeta(i);
+                            meta.data.forEach((bar, index) => {
+                                var data = dataset.data[index];
+                                var xPos = bar._model.x + 5;
+                                var yPos = bar._model.y;
+
+                                // 숫자 부분 (굵게, 검은색)
+                                ctx.font = 'bold 12px Pretendard';
+                                ctx.fillStyle = '#000000';
+                                ctx.fillText(data, xPos, yPos);
+
+                                // 괄호와 퍼센트 부분
+                                var numberWidth = ctx.measureText(data).width;
+                                ctx.font = '12px Pretendard';
+                                ctx.fillStyle = COLORS.text;
+                                ctx.fillText(` (${data}%)`, xPos + numberWidth, yPos);
+                            });
+                        });
+                    }
+                }]
+            });
+        };
+
+        function createCharts() {
+            // 레이아웃 유연성을 위한 기존차트제거
+            Object.values(charts).forEach(chart => chart.destroy());
+
+            // 애니메이션을 위한 새차트 생성 및 데이터 
+            charts.doughnut1 = createDoughnutChart("doughnutChart1", [82, 18], [COLORS.primary, COLORS.background]);
+            charts.doughnut2 = createDoughnutChart("doughnutChart2", [82, 18], [COLORS.secondary, COLORS.background]);
+            charts.doughnut3 = createDoughnutChart("doughnutChart3", [52, 34, 6, 6], [COLORS.primary, COLORS.secondary, COLORS.tertiary, COLORS.background]);
+
+            const { labels, data } = (() => {
+                const today = new Date();
+                const labels = Array.from({ length: 5 }, (_, i) => {
+                    const date = new Date(today);
+                    date.setDate(date.getDate() - (4 - i));
+                    return `2/${date.getDate()}`;
+                });
+                return { labels, data: [65, 75, 45, 80, 90] };
+            })();
+
+            charts.barChart = createBarChart(document.getElementById('barChart1'), data, labels);
+            charts.horizontalBarChart = createHorizontalBarChart(document.getElementById('barChart2'));
+        }
+
+        createCharts();  // 차트 생성
+        voteProgressUi(); // 투표설문 
+        swiperMain(); // 메인배너
+
+        let resizeTimer;
+        window.addEventListener("resize", function () {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                createCharts(); // 브라우저 리사이즈시에도 차트 재생성
+            }, 100);
+        });
+    });
+
+
+    function voteProgressUi() {
+        // .list-board.vote 엘리먼트가 있는 경우에만 실행
+        const voteElement = document.querySelector('.list-board.vote');
+        if (!voteElement) return; // vote 엘리먼트가 없다면 함수 종료
+
+        // progress-ratio bar 초기화
+        const progressBars = document.querySelectorAll('.progress-ratio .bar');
+
+        // 먼저 모든 bar의 width를 0으로 설정
+        progressBars.forEach(bar => {
+            bar.style.transition = 'width 0.8s ease-out';
+            bar.style.width = '0%';
+
+            const value = bar.getAttribute('data-value');
+            bar.querySelector('.val').textContent = value + '%';
+        });
+
+        // 약간의 지연 후 실제 값으로 애니메이션
+        setTimeout(() => {
+            progressBars.forEach(bar => {
+                const value = bar.getAttribute('data-value');
+                bar.style.width = value + '%';
+            });
+        }, 100);
+    }
+
+    function swiperMain() {
+        const options = {
+            loop: true,
+            speed: 300,
+            effect: 'fade', // fade 효과 추가
+
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+
+            },
+            // allowTouchMove: false,
+            autoHeight: false,
+            slidesPerView: 1,
+            pagination: {
+                el: '.swiper-pagination', // 페이지네이션 활성화
+                clickable: true,
+            },
+        };
+
+        const singleSwiper = new Swiper('.banner .swiper-container', options);
+    }
+
+</script>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<include src="src/includes/head.html"></include>
+
+<body>
+	<div class="viewport type-window">
+		<div class="window-header">
+			투표·설문 재발송
+		</div>
+		<div class="container">
+			<div class="window-body">
+				<div class="row">
+					<div class="column">
+						<article>
+							<div class="content-header">
+								<div class="title lv2">내용</div>
+								<div class="command">
+									<div class="input-item">
+										<a href="#" class="btn medium line positive ">메시지 불러오기</a>
+									</div>
+								</div>
+							</div>
+							<div class="tbl type-input">
+								<table>
+									<colgroup>
+										<col style="width:15%">
+										<col style="width:35%">
+										<col style="width:15%">
+										<col style="width:35%">
+
+									</colgroup>
+									<tbody>
+										<tr>
+											<th scope="row">발송방법</th>
+											<td class="left">
+												<div class="input-item">
+													<select name="send_on" id="wr_by" class="form-select" required="">
+														<option value="sms">문자</option>
+														<option value="all">푸시+문자</option>
+														<option value="push">푸시</option>
+													</select>
+												</div>
+											</td>
+											<th scope="row">대상</th>
+											<td class="left">
+												<div class="input-item">
+													<select name="send_target" id="wr_by" class="form-select" required="">
+														<option value="nono_vote">미참여자</option>
+														<option value="all">전체 선거인단</option>
+													</select>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row">메시지</th>
+											<td class="left" colspan="3">
+												<div class="input-item">
+													<textarea name="wr_message" id="wr_message" rows="8"
+														class="box_txt box_square textarea form-control" placeholder="메시지 내용"></textarea>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</article>
+
+					</div>
+				</div>
+			</div>
+			<div class="window-footer">
+				<div class="justify center">
+					<a href="#" class="btn fill positive"><span>재발송</span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

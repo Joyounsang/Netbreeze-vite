@@ -1,0 +1,424 @@
+/* 스크롤바 전체 영역 */
+::-webkit-scrollbar,
+::-moz-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track,
+::-moz-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+* {
+
+  -webkit-tap-highlight-color: transparent;
+  word-break: keep-all;
+
+  &::-webkit-input-placeholder {
+    color: var(--text);
+    opacity: 0.4;
+  }
+
+  &:-moz-placeholder {
+    color: var(--text);
+    opacity: 0.4;
+  }
+
+  &::-moz-placeholder {
+    color: var(--text);
+    opacity: 0.4;
+  }
+
+  &:-ms-input-placeholder {
+    color: var(--text);
+    opacity: 0.4;
+  }
+}
+
+body {
+  height: 100%;
+}
+
+em {
+  &.gray {
+    color: var(--text-light);
+  }
+
+  &.red {
+    color: var(--rec-negative);
+  }
+
+  &.blue {
+    color: var(--rec-primary);
+  }
+}
+
+
+// 공통 focus 스타일
+%common-focus {
+  border: 1px solid #fff;
+  outline: 2px solid rgba(0, 150, 255, 0.50);
+}
+
+%common-inputStyle {
+  font-family: $base-font-system;
+  color: var(--text-dark);
+  font-size: 1.5rem;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  background-color: transparent;
+  box-sizing: border-box;
+}
+
+input[type="color"],
+input[type="date"],
+input[type="datetime-local"],
+input[type="datetime"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+select {
+  width: 100%;
+  height: 100%;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 50px;
+  @extend %common-inputStyle;
+
+  &.center {
+    text-align: center;
+    padding: 0;
+  }
+
+  &.right {
+    text-align: right;
+  }
+
+  &:focus {
+    @extend %common-focus;
+  }
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 14px;
+  line-height: 1.5;
+  border-radius: 6px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  resize: none;
+  @extend %common-inputStyle;
+
+  &:focus {
+    @extend %common-focus;
+  }
+}
+
+select option[value=""][disabled] {
+  display: none;
+}
+
+input::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("../images/selected-arrow.png");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 20px;
+  padding-right: 4px;
+
+  &:focus {
+    @extend %common-focus;
+  }
+
+}
+
+.file {
+  min-height: 36px;
+
+  .btn {
+    width: 100%;
+    height: 100%;
+  }
+
+  input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
+
+.checkbox,
+.radio {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  text-align: left;
+
+
+
+  &.block {
+
+
+
+    &.disabled {
+
+
+      span {
+
+        background: #e5ebf5 !important;
+        color: #afbed7 !important;
+        pointer-events: none;
+        border-color: #e5ebf5 !important;
+      }
+    }
+
+
+    input {
+      &:checked {
+        &+span {
+          border-radius: 36px;
+          border: 1px solid var(--rec-primary);
+          background: rgba(0, 150, 255, 0.80);
+          color: #fff;
+          font-weight: 600;
+          z-index: 1;
+          position: relative;
+
+          &+.btn-text {
+            color: var(--white);
+          }
+
+          &:before {
+            background: url("../images/ico-check-on.png") no-repeat center;
+            background-size: contain;
+          }
+        }
+      }
+
+      &:disabled {
+        &+span {
+          background-color: #e5ebf5 !important;
+          color: #afbed7 !important;
+          pointer-events: none;
+          border-color: #e5ebf5 !important;
+        }
+      }
+    }
+
+    span {
+
+      border: 1px solid var(--border);
+      color: var(--text-light);
+      border-radius: 36px;
+      display: block;
+      color: #7E8291;
+      font-size: 1.5rem;
+      font-weight: 600;
+      line-height: 36px;
+      letter-spacing: -1px;
+      height: 36px;
+      padding-right: 16px;
+      padding-left: 12px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: all .3s;
+
+
+      &:before {
+        position: static;
+        width: 20px;
+        height: 20px;
+        background: url("../images/ico-check.png") no-repeat center;
+        background-size: contain;
+        transition: all .3s;
+      }
+    }
+  }
+
+  &+.checkbox,
+  &+.radio {
+    margin-left: 8px;
+  }
+
+  input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+
+    &:checked+span {
+      color: var(--text);
+      font-weight: 700;
+    }
+  }
+
+  span {
+    display: block;
+    font-size: 1.4rem;
+    letter-spacing: -1px;
+    padding-left: 24px;
+    line-height: 24px;
+    color: var(--text-light);
+    font-weight: 500;
+    cursor: pointer;
+
+    a {
+      &:hover {
+        em {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &:before {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.checkbox {
+  input {
+    &:checked+span {
+      &:before {
+        background: url("../images/admin-crud-check-on.png") no-repeat center;
+        background-size: contain;
+      }
+    }
+
+    &:disabled+span {
+      &:before {
+        opacity: 0.5;
+        background: url("../images/admin-crud-check-dis.png") no-repeat center;
+        background-size: contain;
+      }
+    }
+
+    &.indeterminate+span {
+      &:before {
+        background: url("../images/admin-crud-check-indeterminate.png") no-repeat center;
+        background-size: contain;
+      }
+    }
+  }
+
+  span {
+    &:before {
+      background: url("../images/admin-crud-check-off.png") no-repeat center;
+      background-size: contain;
+    }
+  }
+}
+
+.radio {
+  &.block {
+    &.min {
+      span {
+        &::before {
+          content: none;
+        }
+      }
+    }
+  }
+
+  input {
+    &:checked+span {
+      &:before {
+        background: url("../images/admin-crud-radio-on.png") no-repeat center;
+        background-size: contain;
+      }
+    }
+
+    &:disabled+span:before {
+      background: url("../images/admin-crud-radio-dis.png") no-repeat center;
+      background-size: contain;
+    }
+  }
+
+  span {
+    &:before {
+      background: url("../images/admin-crud-radio-off.png") no-repeat center;
+      background-size: contain;
+    }
+  }
+}
+
+input[disabled],
+select[disabled],
+option[disabled],
+textarea[disabled],
+button[disabled] {
+  background: #e5ebf5 !important;
+  border-color: #e5ebf5 !important;
+  color: #afbed7 !important;
+  pointer-events: none !important;
+  background-image: none !important;
+}
+
+input[readonly],
+select[readonly],
+option[readonly],
+textarea[readonly] {
+  font-weight: 600;
+  color: var(--text-gray);
+  background-color: var(--gray);
+  pointer-events: none;
+  background-image: none;
+  padding: 0 14px;
+}
+
+input.invalid,
+input:invalid,
+select.invalid,
+select:invalid,
+textarea.invalid,
+textarea:invalid {
+  border-color: var(--rec-negative-border);
+  color: var(--rec-negative);
+  background-color: var(--white);
+  background-image: none;
+}

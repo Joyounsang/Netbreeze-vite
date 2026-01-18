@@ -1,0 +1,69 @@
+html {
+  font-size: 62.5%;
+  font-family: $base-font-system;
+  min-width: $min-width;
+  background: $background-color;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  overflow-style: -ms-autohiding-scrollbar;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+
+  body {
+    font-size: $base-font-size;
+    letter-spacing: -0.5px;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+
+  ::selection {
+    @if ($selection-color) {
+      background-color: $selection-color;
+      text-shadow: none;
+    }
+  }
+
+  audio,
+  canvas,
+  iframe,
+  svg,
+  video {
+    vertical-align: middle;
+  }
+
+  img:not(.section-bg) {
+    height: auto;
+    max-width: 100%;
+  }
+
+  option,
+  optgroup {
+    color: initial;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  &.overflow {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+
+
+
+// Accessibility
+// 키보드 접근시에만 outline
+:focus:not(:focus-visible) {
+  outline: 0;
+}

@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="ko">
+<include src="src/includes/head.html"></include>
+
+<body>
+	<div class="viewport type-window">
+		<div class="window-header">
+			제목 (이부분은 필요없는경우 삭제)
+		</div>
+		<div class="container">
+			<div class="content-header white">
+				<div class="justify right">
+					<a href="#" class="btn positive fill medium"><span>일시열림</span></a>
+					<a href="#" class="btn natural line medium"><span>재부팅</span></a>
+					<a href="#" class="btn negative line medium"><span>삭제</span></a>
+				</div>
+			</div>
+			<div class="inner-tab">
+				<ul>
+					<li rel="modalTab2_1" class="on">
+						<a href="#">리스트(높이고정)</a>
+					</li>
+					<li rel="modalTab2_2">
+						<a href="#">리스트(무한)</a>
+					</li>
+					<li rel="modalTab2_3">
+						<a href="#">기타설정형태</a>
+					</li>
+				</ul>
+			</div>
+			<div class="window-body">
+				<div id="panelTab" class="tab-component">
+					<div class="modalTab2_1 tab-content">
+						<div class="row">
+							<div class="column">
+
+								<article>
+									<div class="tbl type-list">
+										<!-- 스크롤 라이브러리를 위한 scrollbar 클래스 추가 -->
+										<div class="tmain scrollbar min">
+											<table>
+												<colgroup>
+													<col style="width:52px;">
+													<col style="width:auto">
+													<col style="width:100px;">
+													<col style="width:100px;">
+													<col style="width:auto;">
+												</colgroup>
+												<thead>
+													<tr>
+														<th scope="col" class="center">
+															캡쳐사진
+														</th>
+														<th scope="col" class="center">
+															시설명
+														</th>
+														<th scope="col" class="center">
+															출입방법
+														</th>
+														<th scope="col" class="center">
+															시간
+														</th>
+														<th scope="col" class="center">
+															출입자 정보
+														</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="center">
+															<div class="preview">
+																<img src="assets/images/admin-default.png" alt="">
+															</div>
+														</td>
+														<td class="center">
+															String
+														</td>
+														<td class="center">
+															<b class="status"><em class="blue">Positive</em></b>
+														</td>
+														<td class="center">
+															HH:MM:SS
+														</td>
+														<td class="center">
+															String
+														</td>
+													</tr>
+													<tr>
+														<td class="center">
+															<div class="preview">
+																<img src="assets/images/admin-default.png" alt="">
+															</div>
+														</td>
+														<td class="center">
+															String
+														</td>
+														<td class="center">
+															<b class="status"><em class="blue">Positive</em></b>
+														</td>
+														<td class="center">
+															HH:MM:SS
+														</td>
+														<td class="center">
+															String
+														</td>
+													</tr>
+													<tr>
+														<td class="center">
+															<div class="preview">
+																<img src="assets/images/admin-default.png" alt="">
+															</div>
+														</td>
+														<td class="center">
+															String
+														</td>
+														<td class="center">
+															<b class="status"><em class="blue">Positive</em></b>
+														</td>
+														<td class="center">
+															HH:MM:SS
+														</td>
+														<td class="center">
+															String
+														</td>
+													</tr>
+													<tr>
+														<td class="center">
+															<div class="preview">
+																<img src="assets/images/admin-default.png" alt="">
+															</div>
+														</td>
+														<td class="center">
+															String
+														</td>
+														<td class="center">
+															<b class="status"><em class="blue">Positive</em></b>
+														</td>
+														<td class="center">
+															HH:MM:SS
+														</td>
+														<td class="center">
+															String
+														</td>
+													</tr>
+													<tr>
+														<td class="center">
+															<div class="preview">
+																<img src="assets/images/admin-default.png" alt="">
+															</div>
+														</td>
+														<td class="center">
+															String
+														</td>
+														<td class="center">
+															<b class="status"><em class="blue">Positive</em></b>
+														</td>
+														<td class="center">
+															HH:MM:SS
+														</td>
+														<td class="center">
+															String
+														</td>
+													</tr>
+													<tr>
+														<td class="center">
+															<div class="preview">
+																<img src="assets/images/admin-default.png" alt="">
+															</div>
+														</td>
+														<td class="center">
+															String
+														</td>
+														<td class="center">
+															<b class="status"><em class="blue">Positive</em></b>
+														</td>
+														<td class="center">
+															HH:MM:SS
+														</td>
+														<td class="center">
+															String
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div class="tfoot justify">
+											<div class="pagination">
+												<ol>
+													<li class="first">
+														<a href="#">처음</a>
+													</li>
+													<li class="prev">
+														<a href="#">이전</a>
+													</li>
+													<li class="on">
+														<a href="#">1</a>
+													</li>
+													<li>
+														<a href="#">2</a>
+													</li>
+													<li>
+														<a href="#">3</a>
+													</li>
+													<li>
+														<a href="#">4</a>
+													</li>
+													<li>
+														<a href="#">5</a>
+													</li>
+													<li class="next">
+														<a href="#">다음</a>
+													</li>
+													<li class="last">
+														<a href="#">마지막</a>
+													</li>
+												</ol>
+											</div>
+										</div>
+									</div>
+									<!-- 각탭에 개별 버튼으로쓰려면 이곳에 window-footer -->
+									<div class="window-footer">
+										<div class="justify center">
+											<a href="#" class="btn natural"><span>확인</span></a>
+										</div>
+									</div>
+								</article>
+							</div>
+						</div>
+					</div>
+					<div class="modalTab2_2 tab-content">
+						<div class="row">
+							<div class="column">
+
+								<article>
+									<div class="tbl type-list">
+										<div class="">
+											<table>
+												<colgroup>
+													<col style="width:52px;">
+													<col style="width:auto">
+													<col style="width:100px;">
+													<col style="width:100px;">
+													<col style="width:auto;">
+												</colgroup>
+												<thead>
+													<tr>
+														<th scope="col" class="center">
+															캡쳐사진
+														</th>
+														<th scope="col" class="center">
+															시설명
+														</th>
+														<th scope="col" class="center">
+															출입방법
+														</th>
+														<th scope="col" class="center">
+															시간
+														</th>
+														<th scope="col" class="center">
+															출입자 정보
+														</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="center">
+															<div class="preview">
+																<img src="assets/images/admin-default.png" alt="">
+															</div>
+														</td>
+														<td class="center">
+															String
+														</td>
+														<td class="center">
+															<b class="status"><em class="blue">Positive</em></b>
+														</td>
+														<td class="center">
+															HH:MM:SS
+														</td>
+														<td class="center">
+															String
+														</td>
+													</tr>
+													<tr>
+														<td class="center">
+															<div class="preview">
+																<img src="assets/images/admin-default.png" alt="">
+															</div>
+														</td>
+														<td class="center">
+															String
+														</td>
+														<td class="center">
+															<b class="status"><em class="blue">Positive</em></b>
+														</td>
+														<td class="center">
+															HH:MM:SS
+														</td>
+														<td class="center">
+															String
+														</td>
+													</tr>
+													<tr>
+														<td class="center">
+															<div class="preview">
+																<img src="assets/images/admin-default.png" alt="">
+															</div>
+														</td>
+														<td class="center">
+															String
+														</td>
+														<td class="center">
+															<b class="status"><em class="blue">Positive</em></b>
+														</td>
+														<td class="center">
+															HH:MM:SS
+														</td>
+														<td class="center">
+															String
+														</td>
+													</tr>
+													<tr>
+														<td class="center">
+															<div class="preview">
+																<img src="assets/images/admin-default.png" alt="">
+															</div>
+														</td>
+														<td class="center">
+															String
+														</td>
+														<td class="center">
+															<b class="status"><em class="blue">Positive</em></b>
+														</td>
+														<td class="center">
+															HH:MM:SS
+														</td>
+														<td class="center">
+															String
+														</td>
+													</tr>
+													<tr>
+														<td class="center">
+															<div class="preview">
+																<img src="assets/images/admin-default.png" alt="">
+															</div>
+														</td>
+														<td class="center">
+															String
+														</td>
+														<td class="center">
+															<b class="status"><em class="blue">Positive</em></b>
+														</td>
+														<td class="center">
+															HH:MM:SS
+														</td>
+														<td class="center">
+															String
+														</td>
+													</tr>
+													<tr>
+														<td class="center">
+															<div class="preview">
+																<img src="assets/images/admin-default.png" alt="">
+															</div>
+														</td>
+														<td class="center">
+															String
+														</td>
+														<td class="center">
+															<b class="status"><em class="blue">Positive</em></b>
+														</td>
+														<td class="center">
+															HH:MM:SS
+														</td>
+														<td class="center">
+															String
+														</td>
+													</tr>
+													<tr>
+														<td class="center">
+															<div class="preview">
+																<img src="assets/images/admin-default.png" alt="">
+															</div>
+														</td>
+														<td class="center">
+															String
+														</td>
+														<td class="center">
+															<b class="status"><em class="blue">Positive</em></b>
+														</td>
+														<td class="center">
+															HH:MM:SS
+														</td>
+														<td class="center">
+															String
+														</td>
+													</tr>
+													<tr>
+														<td class="center">
+															<div class="preview">
+																<img src="assets/images/admin-default.png" alt="">
+															</div>
+														</td>
+														<td class="center">
+															String
+														</td>
+														<td class="center">
+															<b class="status"><em class="blue">Positive</em></b>
+														</td>
+														<td class="center">
+															HH:MM:SS
+														</td>
+														<td class="center">
+															String
+														</td>
+													</tr>
+													<tr>
+														<td class="center">
+															<div class="preview">
+																<img src="assets/images/admin-default.png" alt="">
+															</div>
+														</td>
+														<td class="center">
+															String
+														</td>
+														<td class="center">
+															<b class="status"><em class="blue">Positive</em></b>
+														</td>
+														<td class="center">
+															HH:MM:SS
+														</td>
+														<td class="center">
+															String
+														</td>
+													</tr>
+													<tr>
+														<td class="center">
+															<div class="preview">
+																<img src="assets/images/admin-default.png" alt="">
+															</div>
+														</td>
+														<td class="center">
+															String
+														</td>
+														<td class="center">
+															<b class="status"><em class="blue">Positive</em></b>
+														</td>
+														<td class="center">
+															HH:MM:SS
+														</td>
+														<td class="center">
+															String
+														</td>
+													</tr>
+													<tr>
+														<td class="center">
+															<div class="preview">
+																<img src="assets/images/admin-default.png" alt="">
+															</div>
+														</td>
+														<td class="center">
+															String
+														</td>
+														<td class="center">
+															<b class="status"><em class="blue">Positive</em></b>
+														</td>
+														<td class="center">
+															HH:MM:SS
+														</td>
+														<td class="center">
+															String
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<!-- 각탭에 개별 버튼으로쓰려면 이곳에 window-footer -->
+									<div class="window-footer">
+										<div class="justify center">
+											<a href="#" class="btn natural"><span>확인</span></a>
+										</div>
+									</div>
+								</article>
+							</div>
+						</div>
+					</div>
+					<div class="modalTab2_3 tab-content">
+						<div class="row">
+							<div class="column">
+
+								<article>
+									<div class="tbl type-input">
+										<table>
+											<colgroup>
+												<col style="width:140px">
+												<col style="width: auto;">
+											</colgroup>
+											<tbody>
+												<tr>
+													<th>
+														시리얼번호
+													</th>
+													<td>
+														<div class="input-item">
+															<input type="text" value="1717837238">
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<th>
+														시설명
+													</th>
+													<td>
+														<div class="input-item">
+															<input type="text" value="타석기 #2">
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<th>
+														동
+													</th>
+													<td>
+														<div class="input-item">
+															<select name="" id="">
+																<option value="" selected>커뮤니티</option>
+															</select>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<th>
+														라인
+													</th>
+													<td>
+														<div class="input-item">
+															<select name="" id="">
+																<option value="" selected>1라인</option>
+															</select>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<th>
+														층
+													</th>
+													<td>
+														<div class="input-item">
+															<select name="" id="">
+																<option value="" selected>1층</option>
+															</select>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<th>
+														조건
+													</th>
+													<td>
+														<div class="input-item">
+															<select name="" id="">
+																<option value="" selected>동/커뮤니티 등록자만 출입</option>
+															</select>
+														</div>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<!-- 각탭에 개별 버튼으로쓰려면 이곳에 window-footer -->
+									<div class="window-footer">
+										<div class="justify center">
+											<a href="#" class="btn positive fill"><span>재등록</span></a>
+										</div>
+									</div>
+
+								</article>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+<include src="src/includes/head.html"></include>
+
+<body>
+	<div class="viewport">
+		<include src="src/includes/GNB.html"></include>
+		<div class="container">
+			<include src="src/includes/header.html"></include>
+			<div class="contents">
+				<!-- 스크롤 라이브러리를 위한  scrollbar 클래스 변경 -->
+				<div class="panel scrollbar main">
+					<div class="row">
+						<div class="column">
+							<article class="box center info-apt">
+								<div class="justify">
+									<div class="apt">
+										<div class="flat-visual">
+											<img class="shadow" src="assets/images/img-visual-shadow.png" alt="">
+											<img class="line" src="assets/images/img-visual-line.png" alt="">
+											<img class="overlay" src="assets/images/img-visual-ovelay.png" alt="">
+											<img class="build" src="assets/images/img-visual-build.png" alt="">
+										</div>
+									</div>
+									<div class="info">
+										<div class="title lv2"><em class="gray">아파트 정보가 없습니다</em></div>
+										<a href="#" class="btn positive fill medium"><span>버튼 필요시 사용영역</span></a>
+									</div>
+								</div>
+							</article>
+						</div>
+						<div class="column">
+							<article class="box center">
+								<div class="data-status">
+									<ul>
+										<li class="null">
+											<div class="data">
+												<span class="tit">앱 승인요청</span>
+												<div class="value">0</div>
+												<span class="unit">개</span>
+											</div>
+										</li>
+										<li class="null">
+											<div class="data">
+												<span class="tit">앱 승인요청</span>
+												<div class="value">0</div>
+												<span class="unit">개</span>
+											</div>
+										</li>
+										<li class="null">
+											<div class="data">
+												<span class="tit">앱 승인요청</span>
+												<div class="value">0</div>
+												<span class="unit">건</span>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</article>
+						</div>
+					</div>
+					<div class="row">
+						<div class="column">
+							<article class="box line">
+								<div class="content-header">
+									<div class="title lv2">시설 예약 현황</div>
+									<div class="command">
+										<!-- <a href="#" class="btn medium transparent"><span>더보기</span></a> -->
+									</div>
+								</div>
+								<div class="list-card">
+									<ul>
+										<li class="null">
+											<a href="#">
+												<div class="icon reservation"></div>
+												<div class="info">
+													<div class="card-tit">최소 3개노출하고 2개일경우에 1개는 이걸로 사용</div>
+												</div>
+											</a>
+										</li>
+										<li class="null">
+											<a href="#">
+												<div class="icon reservation"></div>
+												<div class="info">
+													<div class="card-tit">이용내역 없음</div>
+												</div>
+											</a>
+										</li>
+										<li class="null">
+											<a href="#">
+												<div class="icon reservation"></div>
+												<div class="info">
+													<div class="card-tit">이용내역 없음</div>
+												</div>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</article>
+						</div>
+						<div class="column">
+							<article class="box line">
+								<div class="content-header">
+									<div class="title lv2">연동 모듈 현황</div>
+									<div class="command">
+										<!-- <a href="#" class="btn medium transparent"><span>더보기</span></a> -->
+									</div>
+								</div>
+								<div class="list-card">
+									<ul>
+										<li class="null">
+											<a href="#">
+												<div class="icon module"></div>
+												<div class="info">
+													<div class="card-tit">최소 3개노출하고 2개일경우에 1개는 이걸로 사용</div>
+												</div>
+											</a>
+										</li>
+										<li class="null">
+											<a href="#">
+												<div class="icon module"></div>
+												<div class="info">
+													<div class="card-tit">모듈 없음</div>
+												</div>
+											</a>
+										</li>
+										<li class="null">
+											<a href="#">
+												<div class="icon module"></div>
+												<div class="info">
+													<div class="card-tit">모듈 없음</div>
+												</div>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</article>
+						</div>
+
+					</div>
+
+					<div class="row">
+						<div class="column">
+							<article class="box">
+								<div class="content-header">
+									<div class="title lv2">
+										<img class="title-ico" src="assets/images/ico-notice.png" alt="">
+										아파트 공지사항
+									</div>
+									<div class="command">
+										<a href="#" class="btn medium transparent"><span>더보기</span></a>
+									</div>
+								</div>
+								<div class="list-card type-board">
+									<div class="no-data">
+										<img src="assets/images/nodata.png" alt="">
+										<p>${name} 없습니다</p>
+									</div>
+								</div>
+							</article>
+						</div>
+
+						<div class="column">
+							<article class="box">
+								<div class="content-header">
+									<div class="title lv2">
+										<img class="title-ico" src="assets/images/ico-area.png" alt="">
+										최근 지역소식
+									</div>
+									<div class="command">
+										<a href="#" class="btn medium transparent"><span>더보기</span></a>
+									</div>
+								</div>
+								<div class="list-card type-board">
+									<div class="no-data">
+										<img src="assets/images/nodata.png" alt="">
+										<p>${name} 없습니다</p>
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+				</div>
+				<div class="panel side">
+					<article>
+						<div class="content-header">
+							<div class="inner-tab">
+								<ul>
+									<li rel="panelTab_1" class="on">
+										<a href="#">아파트 일정</a>
+									</li>
+									<li rel="panelTab_2">
+										<a href="#">발송 메세지</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div id="panelTab" class="mainPanelCont tab-component">
+							<div class="panelTab_1 tab-content">
+								<div class="inlineDatepicker">
+									<div id="datepicker1" class="datepicker">
+										<!-- datepicker -->
+									</div>
+								</div>
+								<!-- 스크롤 라이브러리를 위한 scheduleList scrollbar 클래스 추가 -->
+								<div class="scroll-cont scheduleList scrollbar">
+									<div class="no-data">
+										<img src="assets/images/nodata.png" alt="">
+										<p>${name} 없습니다</p>
+									</div>
+								</div>
+							</div>
+							<div class="panelTab_2 tab-content">
+								<!-- 스크롤 라이브러리를 위한 messageList scrollbar 클래스 추가 -->
+								<div class="scroll-cont messageList scrollbar">
+									<div class="no-data">
+										<img src="assets/images/nodata.png" alt="">
+										<p>${name} 없습니다</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</article>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
