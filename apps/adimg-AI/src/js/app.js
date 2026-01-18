@@ -231,16 +231,6 @@ function layoutSystem() {
     e.preventDefault();
     $(this).toggleClass('active');
     $('.viewport').toggleClass('gnb-hidden');
-
-    // 차트 재로드 및 레이아웃 재정렬
-    setTimeout(function () {
-      if (window.chatChartInstance) {
-        window.chatChartInstance.resize();
-      }
-      if (window.gaugeChartInstance) {
-        window.gaugeChartInstance.resize();
-      }
-    }, 300); // GNB 애니메이션 완료 후 실행
   })
   const countNum = $('.row'),
     classNum = countNum.length;

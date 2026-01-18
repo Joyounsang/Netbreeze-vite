@@ -81,7 +81,7 @@
                                             const myChart = echarts.init(chartDom);
 
                                             // 전역 변수로 차트 인스턴스 저장
-                                            window.chatChartInstance = myChart;
+                                            // window.chatChartInstance = myChart;
 
                                             // 12주 날짜 생성
                                             const labels = ['10.10', '10.18', '10.26', '11.3', '11.11', '11.19', '11.27', '12.5', '12.13', '12.21', '12.29', '1.6'];
@@ -109,9 +109,8 @@
 
                                             const option = {
                                                 animation: true,
-                                                animationDuration: 3000,
+                                                animationDuration: 1000,
                                                 animationEasing: 'linear',
-                                                animationDelay: 0,
                                                 grid: {
                                                     left: '40px',
                                                     right: 0,
@@ -176,8 +175,6 @@
                                                         }
                                                     },
                                                     backgroundColor: 'rgba(21, 24, 26, 0.9)',
-                                                    // borderColor: 'rgba(255, 255, 255, 0.1)',
-                                                    // borderWidth: 1,
                                                     borderRadius: 14, // 라운딩 추가
                                                     padding: [12, 16], // [상하, 좌우] 패딩
                                                     textStyle: {
@@ -207,9 +204,6 @@
                                                         name: '활성 사용자 수',
                                                         type: 'line',
                                                         smooth: 0.4,
-                                                        animationDuration: 3000,
-                                                        animationEasing: 'linear',
-                                                        animationDelay: 0,
                                                         data: activeUserData,
                                                         lineStyle: {
                                                             color: colors.activeUser.normal,
@@ -242,9 +236,6 @@
                                                         name: '채팅 건 수',
                                                         type: 'line',
                                                         smooth: 0.4,
-                                                        animationDuration: 3000,
-                                                        animationEasing: 'linear',
-                                                        animationDelay: 0,
                                                         data: chatCountData,
                                                         lineStyle: {
                                                             color: colors.chatCount.normal,
@@ -277,9 +268,6 @@
                                                         name: '1인당 평균 채팅 건 수',
                                                         type: 'line',
                                                         smooth: 0.4,
-                                                        animationDuration: 3000,
-                                                        animationEasing: 'linear',
-                                                        animationDelay: 0,
                                                         data: avgChatData,
                                                         lineStyle: {
                                                             color: colors.avgChat.normal,
@@ -291,30 +279,24 @@
                                                         },
                                                         symbol: 'circle',
                                                         symbolSize: 0,
-                                                        emphasis: {
-                                                            focus: 'series',
-                                                            lineStyle: {
-                                                                color: colors.avgChat.hover,
-                                                                width: 2
-                                                            },
-                                                            itemStyle: {
-                                                                color: colors.avgChat.hex,
-                                                                borderColor: '#fff',
-                                                                borderWidth: 1,
-                                                                shadowBlur: 0
-                                                            },
-                                                            symbol: 'circle',
-                                                            symbolSize: 10
-                                                        },
                                                         showSymbol: false
                                                     }
                                                 ]
                                             };
 
-                                            requestAnimationFrame(function () {
-                                                myChart.setOption(option);
+                                            myChart.setOption(option);
+
+                                            window.addEventListener('resize', function () {
+                                                myChart.resize();
                                             });
 
+                                            $('.globalNav').on('click', function () {
+
+                                                // 차트 재로드 및 레이아웃 재정렬
+                                                setTimeout(function () {
+                                                    myChart.resize();
+                                                }, 300); // GNB 애니메이션 완료 후 실행
+                                            })
                                         });
                                     </script>
                                 </div>
@@ -455,7 +437,7 @@
                                                         const gaugeChart = echarts.init(gaugeDom);
 
                                                         // 전역 변수로 차트 인스턴스 저장
-                                                        window.gaugeChartInstance = gaugeChart;
+                                                        // window.gaugeChartInstance = gaugeChart;
 
                                                         const value = 72; // 게이지 값
 
