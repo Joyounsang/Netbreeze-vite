@@ -585,8 +585,8 @@ textarea[disabled] {
   &.close {
     &:before {
       background: url('../images/ico-gnb-close.png') no-repeat;
-      width: 20px;
-      height: 20px;
+      width: 30px;
+      height: 30px;
     }
   }
 
@@ -1100,6 +1100,16 @@ textarea[disabled] {
     display: flex;
     gap: 10px;
 
+    &.col {
+      flex-direction: column;
+
+
+      .btn-mid {
+        height: 52px;
+        width: 100%;
+      }
+    }
+
     .btn {
       flex: 1;
       min-width: inherit;
@@ -1107,16 +1117,7 @@ textarea[disabled] {
   }
 
   @include screen("mobile") {
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
-    z-index: 99999;
-    top: 40%;
-    transition: top 0.4s ease-in-out;
 
-    &.center {
-      text-align: center;
-    }
 
     &.page {
       top: 0% !important;
@@ -1143,8 +1144,10 @@ textarea[disabled] {
         padding-left: 30px;
         padding-right: 30px;
         padding-top: 30px;
-        padding-bottom: 30px;
-
+        padding-bottom: 120px;
+        max-height: inherit;
+        height: calc(100vh - 54px);
+        overflow: auto;
 
         .modal-title {
           align-items: start;
@@ -1160,139 +1163,18 @@ textarea[disabled] {
       }
 
       .modal-footer {
+        position: fixed;
         padding-bottom: 0;
         max-width: 100%;
         padding: 30px;
+        background-color: rgba(255, 255, 255, 0.8);
+        // box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.05);
       }
     }
 
-
-    &.on {
-      top: 50%;
-      z-index: 999;
-
-      .modal-inner {
-        opacity: 1;
-      }
-    }
-
-
-
-    &.toast {
-      text-align: center;
-      font-size: 1.6rem;
-      color: #fff;
-      top: 0;
-      margin-top: 0 !important;
-      transition: none;
-
-      .modal-inner {
-        width: 100%;
-        background: none;
-        box-shadow: none;
-        padding: 20px;
-      }
-
-      .modal-body {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-height: 55px;
-        padding: 14px;
-        border-radius: 50px;
-        background: rgba(53, 53, 68, 0.9);
-
-        p {
-          font-size: 1.5rem;
-          font-weight: 500;
-        }
-      }
-
-      &.bottom {
-        bottom: 0;
-        top: auto;
-      }
-    }
 
     &-inner {
-      width: 90%;
-      max-width: 330px;
-      margin: auto;
-      position: relative;
-      z-index: 99999;
-      background: #fff;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.1);
-      opacity: 0;
-      transition: opacity 0.4s ease-in-out;
-      padding: 20px 20px 16px;
-    }
-
-    .modal-dim {
-      display: block;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      margin: auto;
-      width: 100%;
-      height: 100%;
-      background: #000;
-      opacity: 0;
-      z-index: 99998;
-      transition: opacity 0.4s ease-in-out;
-
-      &.on {
-        opacity: 0.7;
-      }
-    }
-
-    .modal-title {
-      font-size: 2rem;
-      font-weight: 700;
-      line-height: 24px;
-      letter-spacing: -1px;
-      margin-bottom: 20px;
-    }
-
-    .desc {
-      font-weight: 500;
-      line-height: 28px;
-      letter-spacing: -1px;
-      font-size: 1.8rem;
-      color: rgba(42, 46, 55, 0.7);
-    }
-
-    small {
-      display: inline-block;
-      color: #9fa2b4;
-      font-size: 1.5rem;
-      line-height: 20px;
-      font-weight: 500;
-    }
-
-    .modal-body {
-      max-height: 355px;
-
-      &+.modal-footer {
-        margin-top: 20px;
-      }
-
-      &.auto {
-        max-height: inherit;
-      }
-    }
-
-    .modal-footer {
-      display: flex;
-      gap: 10px;
-
-      .btn {
-        flex: 1;
-        min-width: inherit;
-      }
+      width: 80%;
     }
   }
 
@@ -1910,7 +1792,15 @@ html {
           font-size: clamp(1.5rem, 1.8vw, 1.7rem);
           font-weight: 400;
           line-height: 150%;
+
+          &.desc {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            margin-top: 10px;
+          }
         }
+
+
 
         .dropdown {
           p {
