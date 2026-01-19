@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<include src="src/includes/head.html"></include>
+
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <section id="content" class="section">
+                <article class="article">
+                    <div id="information">
+                        <h1 class="project-name">INDEX</h1>
+                    </div>
+                </article>
+
+                <article class="article">
+
+                    <div class="tbl">
+                        <table class="cdList">
+                            <colgroup>
+                                <col style="width: 8%;" />
+                                <col style="width: 15%;" />
+                                <col style="width: 15%;" />
+                                <col style="width: auto;" />
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Group</th>
+                                    <th scope="col">Depth</th>
+                                    <th scope="col" class="center">URL</th>
+                                    <th scope="col">ETC</th>
+                                </tr>
+                            </thead>
+                            <tbody id="sum">
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td class="left">가이드</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">guide</a>
+                                    </td>
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">공통</th>
+                                    <td class="left">팝업</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">alert</a>
+                                    </td>
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td class="left">에러페이지</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">errorPage</a>
+                                    </td>
+                                    <td>404 500 등</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td class="left">로딩</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">loading</a>
+                                    </td>
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">로그인</th>
+                                    <td class="left"></td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">U010101</a>
+                                    </td>
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">대시보드</th>
+                                    <td class="left">채팅 AI 채팅형</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">A010101</a>
+                                    </td>
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td class="left">민원 통화 관리</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">A020101</a>
+                                    </td>
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">민원 통합 관리</th>
+                                    <td class="left">민원 통화</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">B010101</a>
+                                    </td>
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td class="left">위험 민원</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">B020101</a>
+                                    </td>
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">페이지 유형</th>
+                                    <td class="left">데이터없음</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">N010101</a>
+                                    </td>
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td class="left">테이블</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">P010101</a>
+                                    </td>
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td class="left">차트</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">P020101</a>
+                                    </td>
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td class="left">셋팅</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">P030101</a>
+                                    </td>
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td class="left">트리</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">P040101</a>
+                                    </td>
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td class="left">MIX</td>
+                                    <td class="view-url">
+                                        <a href="#" target="_blank">P040101</a>
+                                    </td>
+                                    <td></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+            </section>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+
+            $('.cdList').find('tr').each(function () {
+                var link = $(this).find('.view-url a').text();
+                $(this).find('.view-url a').attr('href', link + '.html');
+                $(this).find('.view-img a').attr('href', 'png/' + link + '.png');
+                $(this).find('.view-img-m a').attr('href', 'png/mo/M_' + link + '.png');
+            });
+
+
+            $(function () {
+                var total = $('#sum tr').size();
+                var ok = $('#sum td span.blue').size();
+                var persent = parseInt((ok / total) * 100);
+                $('#total-page').text(total);
+                $('#ok-page').text(ok);
+                $('#persent').text(+persent + '%');
+            });
+        });
+    </script>
+    <script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>

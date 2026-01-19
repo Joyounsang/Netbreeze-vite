@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="ko">
+<include src="src/includes/head.html"></include>
+
+<body>
+    <div class="viewport">
+        <include src="src/includes/header.html"></include>
+        <div class="container">
+            <include src="src/includes/GNB.html"></include>
+            <div class="contents">
+                <div class="panel scrollbar">
+                    <div class="panel-dashboard">
+                        <div class="panel-main">
+                            <div class="row">
+                                <div class="column aiHelperArea">
+                                    <div class="netbreezeAi">
+                                        <div class="ai-speak">
+                                            <span>홍길동님, 안녕하세요!</span>
+                                            <p>
+                                                민원 통화 중 긍정 감정 분포가
+                                                14% 증가 했습니다.
+                                            </p>
+                                        </div>
+
+                                        <div class="netbreezeHelper">
+                                            <span class="atom" style="background-color: #0096FF;"></span>
+                                            <span class="atom" style="background-color: #FC8D9D;"></span>
+                                            <span class="atom" style="background-color: #F5C66F;"></span>
+                                            <span class="atom" style="background-color: #33CEB9;"></span>
+                                        </div>
+                                    </div>
+
+                                    <ul class="mainChartsArea-label">
+                                        <li class="charts-label">
+                                            긍정
+                                            <span class="dot" style="background-color: #0096FF;"></span>
+                                        </li>
+                                        <li class="charts-label">
+                                            중립
+                                            <span class="dot" style="background-color: #F2B84B;"></span>
+                                        </li>
+                                        <li class="charts-label">
+                                            부정
+                                            <span class="dot" style="background-color: #FF4F1A;"></span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="column mainChartsArea">
+                                    <div class="headline">
+
+                                        <div class="flt">
+                                            <div class="title-lv1">통화 감정 분포 추이</div>
+                                            <select style="width: 90px;">
+                                                <option>7일</option>
+                                            </select>
+                                            <div class="input-date">
+                                                <div class="include-ico">
+                                                    <input id="sdate" class="datepicker" type="text">
+                                                    <label for="sdate" class="ico cal" title="날짜선택"></label>
+                                                </div>
+                                                <span class="unit">-</span>
+                                                <div class="include-ico">
+                                                    <input id="edate" class="datepicker" type="text">
+                                                    <label for="edate" class="ico cal" title="날짜선택"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="cmd">
+                                            <div class="button-tab">
+                                                <a href="#" class="button-tab-item">채팅(AI 채팅형)</a>
+                                                <a href="#" class="button-tab-item on">민원 통화 관리</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="chart-view">
+                                        <div id="chatChart" style="width: 100%; height: 100%;"></div>
+                                    </div>
+                                    <script>
+                                        document.addEventListener('DOMContentLoaded', function () {
+                                            const chartDom = document.getElementById('chatChart');
+                                            const myChart = echarts.init(chartDom);
+
+                                            // 전역 변수로 차트 인스턴스 저장
+                                            // window.chatChartInstance = myChart;
+
+                                            // 12주 날짜 생성
+                                            const labels = ['10.10', '10.18', '10.26', '11.3', '11.11', '11.19', '11.27', '12.5', '12.13', '12.21', '12.29', '1.6'];
+
+                                            // 랜덤 데이터 생성 함수
+                                            function generateRandomData(count, min, max) {
+                                                const data = [];
+                                                for (let i = 0; i < count; i++) {
+                                                    data.push(Math.floor(Math.random() * (max - min + 1)) + min);
+                                                }
+                                                return data;
+                                            }
+
+                                            // 랜덤 샘플 데이터 생성 (데모 버전) - 스택 바 차트용
+                                            const positiveData = generateRandomData(12, 200, 1500); // 긍정
+                                            const neutralData = generateRandomData(12, 300, 2000); // 중립
+                                            const negativeData = generateRandomData(12, 200, 1400); // 부정
+
+                                            // 색상 정의
+                                            const colors = {
+                                                positive: '#0096FF', // 긍정 - 파란색
+                                                neutral: '#F2B84B',   // 중립 - 노란색/주황색
+                                                negative: '#E55765'  // 부정 - 빨간색
+                                            };
+
+                                            const option = {
+                                                animation: true,
+                                                animationDuration: 1000,
+                                                animationEasing: 'linear',
+                                                grid: {
+                                                    left: '40px',
+                                                    right: 0,
+                                                    top: '10%',
+                                                    bottom: '10%',
+                                                    containLabel: false
+                                                },
+                                                xAxis: {
+                                                    type: 'category',
+                                                    data: labels,
+                                                    axisLine: {
+                                                        show: false
+                                                    },
+                                                    axisTick: {
+                                                        show: false
+                                                    },
+                                                    axisLabel: {
+                                                        show: true,
+                                                        color: '#7E8291',
+                                                        fontSize: 12
+                                                    },
+                                                    splitLine: {
+                                                        show: false
+                                                    }
+                                                },
+                                                yAxis: {
+                                                    type: 'value',
+                                                    min: 0,
+                                                    max: 8000,
+                                                    interval: 2000,
+                                                    axisLine: {
+                                                        show: false
+                                                    },
+                                                    axisTick: {
+                                                        show: false
+                                                    },
+                                                    axisLabel: {
+                                                        show: true,
+                                                        color: '#7E8291',
+                                                        formatter: function (value) {
+                                                            return value.toLocaleString();
+                                                        }
+                                                    },
+                                                    splitLine: {
+                                                        show: true,
+                                                        lineStyle: {
+                                                            color: '#DBE1E6',
+                                                            width: 1
+                                                        }
+                                                    }
+                                                },
+                                                tooltip: {
+                                                    trigger: 'axis',
+                                                    axisPointer: {
+                                                        type: 'shadow'
+                                                    },
+                                                    backgroundColor: 'rgba(21, 24, 26, 0.9)',
+                                                    borderRadius: 14,
+                                                    padding: [12, 16],
+                                                    textStyle: {
+                                                        color: '#fff',
+                                                        fontSize: 12
+                                                    },
+                                                    extraCssText: 'box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);',
+                                                    formatter: function (params) {
+                                                        let html = '<div style="padding: 2px 0;">';
+                                                        html += '<div style="font-size: 12px; color: rgba(255, 255, 255, 0.7); margin-bottom: 6px;">' + params[0].axisValue + '</div>';
+
+                                                        params.forEach(function (item) {
+                                                            const color = item.color;
+                                                            html += '<div style="display: flex; align-items: center; margin-bottom: 4px;">';
+                                                            html += '<span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background-color: ' + color + '; margin-right: 8px;"></span>';
+                                                            html += '<span style="font-size: 14px; font-weight: 600; color: #fff;">' + item.seriesName + ': ' + item.value.toLocaleString() + '</span>';
+                                                            html += '</div>';
+                                                        });
+
+                                                        // 총합 표시
+                                                        const total = params.reduce(function (sum, item) {
+                                                            return sum + item.value;
+                                                        }, 0);
+                                                        html += '<div style="margin-top: 6px; padding-top: 6px; border-top: 1px solid rgba(255, 255, 255, 0.2);">';
+                                                        html += '<span style="font-size: 14px; font-weight: 600; color: #fff;">총합: ' + total.toLocaleString() + '</span>';
+                                                        html += '</div>';
+
+                                                        html += '</div>';
+                                                        return html;
+                                                    }
+                                                },
+                                                series: [
+                                                    {
+                                                        name: '부정',
+                                                        type: 'bar',
+                                                        stack: 'total',
+                                                        barWidth: 20,
+                                                        data: negativeData,
+                                                        itemStyle: {
+                                                            color: colors.negative,
+                                                            borderRadius: [0, 0, 0, 0] // 하단 라운딩
+                                                        },
+                                                        emphasis: {
+                                                            itemStyle: {
+                                                                shadowBlur: 10,
+                                                                shadowOffsetX: 0,
+                                                                shadowColor: 'rgba(0, 0, 0, 0.3)'
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        name: '중립',
+                                                        type: 'bar',
+                                                        stack: 'total',
+                                                        barWidth: 20,
+                                                        data: neutralData,
+                                                        itemStyle: {
+                                                            color: colors.neutral,
+                                                            borderRadius: [0, 0, 0, 0]
+                                                        },
+                                                        emphasis: {
+                                                            itemStyle: {
+                                                                shadowBlur: 10,
+                                                                shadowOffsetX: 0,
+                                                                shadowColor: 'rgba(0, 0, 0, 0.3)'
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        name: '긍정',
+                                                        type: 'bar',
+                                                        stack: 'total',
+                                                        barWidth: 20,
+                                                        data: positiveData,
+                                                        itemStyle: {
+                                                            color: colors.positive,
+                                                            borderRadius: [4, 4, 0, 0] // 상단 라운딩
+                                                        },
+                                                        emphasis: {
+                                                            itemStyle: {
+                                                                shadowBlur: 10,
+                                                                shadowOffsetX: 0,
+                                                                shadowColor: 'rgba(0, 0, 0, 0.3)'
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            };
+
+                                            myChart.setOption(option);
+
+                                            window.addEventListener('resize', function () {
+                                                myChart.resize();
+                                            });
+
+                                            $('.globalNav').on('click', function () {
+
+                                                // 차트 재로드 및 레이아웃 재정렬
+                                                setTimeout(function () {
+                                                    myChart.resize();
+                                                }, 300); // GNB 애니메이션 완료 후 실행
+                                            })
+                                        });
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-sub">
+                            <div class="row">
+                                <div class="column dashboardTable">
+                                    <div class="title-lv1">통화 주요 키워드</div>
+                                    <div class="data-mix">
+                                        <div class="keywordChart">
+                                            <div id="keywordChart" style="width: 100%; height: 100%;"></div>
+                                            <script>
+                                                document.addEventListener('DOMContentLoaded', function () {
+                                                    const keywordChartDom = document.getElementById('keywordChart');
+                                                    if (keywordChartDom) {
+                                                        const keywordChart = echarts.init(keywordChartDom);
+
+                                                        // 색상 배열: #15181A를 기준으로 투명도 20%씩 감소 (rgba 형식)
+                                                        const chartColors = [
+                                                            'rgba(21, 24, 26, 1)',   // 100%
+                                                            'rgba(21, 24, 26, 0.8)', // 80%
+                                                            'rgba(21, 24, 26, 0.6)', // 60%
+                                                            'rgba(21, 24, 26, 0.4)', // 40%
+                                                            'rgba(21, 24, 26, 0.2)'  // 20%
+                                                        ];
+
+                                                        // 샘플 데이터 (5개 순위)
+                                                        const data = [
+                                                            { value: 493, name: '키워드1' },
+                                                            { value: 299, name: '키워드2' },
+                                                            { value: 271, name: '키워드3' },
+                                                            { value: 194, name: '키워드4' },
+                                                            { value: 150, name: '키워드5' }
+                                                        ];
+
+                                                        const option = {
+                                                            tooltip: {
+                                                                trigger: 'item',
+                                                                formatter: function (params) {
+                                                                    return params.name + '<br/>' +
+                                                                        params.value + '건 (' +
+                                                                        params.percent + '%)';
+                                                                },
+                                                                backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                                                                borderColor: 'transparent',
+                                                                textStyle: {
+                                                                    color: '#fff',
+                                                                    fontSize: 12
+                                                                },
+                                                                padding: [8, 12]
+                                                            },
+                                                            series: [
+                                                                {
+                                                                    name: '키워드',
+                                                                    type: 'pie',
+                                                                    radius: ['40%', '70%'], // 도넛 차트 (내부 반지름 40%, 외부 반지름 70%)
+                                                                    center: ['50%', '50%'],
+                                                                    avoidLabelOverlap: false,
+                                                                    itemStyle: {
+                                                                        borderRadius: 0,
+                                                                        borderColor: '#fff',
+                                                                        borderWidth: 0
+                                                                    },
+                                                                    label: {
+                                                                        show: true,
+                                                                        position: 'outside',
+                                                                        formatter: function (params) {
+                                                                            return params.value;
+                                                                        },
+                                                                        fontSize: 14,
+                                                                        fontWeight: 'normal',
+                                                                        color: '#15181A',
+                                                                        lineHeight: 16
+                                                                    },
+                                                                    labelLine: {
+                                                                        show: true,
+                                                                        length: 10,
+                                                                        length2: 5,
+                                                                        lineStyle: {
+                                                                            color: '#DBE1E6',
+                                                                            width: 1
+                                                                        }
+                                                                    },
+                                                                    emphasis: {
+                                                                        itemStyle: {
+                                                                            shadowBlur: 10,
+                                                                            shadowOffsetX: 0,
+                                                                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                                                        }
+                                                                    },
+                                                                    data: data.map((item, index) => ({
+                                                                        value: item.value,
+                                                                        name: item.name,
+                                                                        itemStyle: {
+                                                                            color: chartColors[index]
+                                                                        }
+                                                                    }))
+                                                                }
+                                                            ],
+                                                            animation: true,
+                                                            animationDuration: 1000,
+                                                            animationEasing: 'cubicOut'
+                                                        };
+
+                                                        keywordChart.setOption(option);
+
+                                                        // 리사이즈 이벤트
+                                                        window.addEventListener('resize', function () {
+                                                            keywordChart.resize();
+                                                        });
+                                                    }
+                                                });
+                                            </script>
+                                        </div>
+
+                                        <div class="tbl type-clean">
+                                            <div class="tmain">
+                                                <table>
+                                                    <colgroup>
+                                                        <col style="width:52px;">
+                                                        <col style="width:auto;">
+                                                        <col style="width:100px;">
+                                                        <col style="width:84px;">
+                                                        <col style="width:80px;">
+                                                    </colgroup>
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col" class="center">
+                                                                순위
+                                                            </th>
+
+                                                            <th scope="col" class="center">
+                                                                키워드
+                                                            </th>
+                                                            <th scope="col" class="center">
+                                                                발생 건(수)
+                                                            </th>
+                                                            <th scope="col" class="center">
+                                                                비율(%)
+                                                            </th>
+                                                            <th scope="col" class="center">
+                                                                등/하락
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="center">
+                                                                1
+                                                            </td>
+
+                                                            <td class="center">
+                                                                <b>Keyword</b>
+                                                            </td>
+
+                                                            <td class="center">
+                                                                99
+                                                            </td>
+
+                                                            <td class="center">
+                                                                40%
+                                                            </td>
+
+                                                            <td class="center">
+                                                                <span class="raf up">12%</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="center">
+                                                                1
+                                                            </td>
+
+                                                            <td class="center">
+                                                                <b>Keyword</b>
+                                                            </td>
+
+                                                            <td class="center">
+                                                                99
+                                                            </td>
+
+                                                            <td class="center">
+                                                                40%
+                                                            </td>
+
+                                                            <td class="center">
+                                                                <span class="raf down">2%</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="center">
+                                                                1
+                                                            </td>
+
+                                                            <td class="center">
+                                                                <b>Keyword</b>
+                                                            </td>
+
+                                                            <td class="center">
+                                                                99
+                                                            </td>
+
+                                                            <td class="center">
+                                                                40%
+                                                            </td>
+
+                                                            <td class="center">
+                                                                <span class="raf up">12%</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="center">
+                                                                1
+                                                            </td>
+
+                                                            <td class="center">
+                                                                <b>Keyword</b>
+                                                            </td>
+
+                                                            <td class="center">
+                                                                99
+                                                            </td>
+
+                                                            <td class="center">
+                                                                40%
+                                                            </td>
+
+                                                            <td class="center">
+                                                                <span class="raf up">12%</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="center">
+                                                                1
+                                                            </td>
+
+                                                            <td class="center">
+                                                                <b>Keyword</b>
+                                                            </td>
+
+                                                            <td class="center">
+                                                                99
+                                                            </td>
+
+                                                            <td class="center">
+                                                                40%
+                                                            </td>
+
+                                                            <td class="center">
+                                                                <span class="raf up">12%</span>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="column currentSituation">
+                                    <ul class="list-currentSituation">
+                                        <li>
+                                            <div class="title-lv1">사용자 현황</div>
+                                            <div class="data">
+                                                <div class="user-value">
+                                                    <span class="counting-value" count-value="457">0</span>
+                                                    <em>명</em>
+                                                </div>
+                                            </div>
+                                            <div class="info">
+                                                <dl>
+                                                    <dt>정상</dt>
+                                                    <dd><em>54</em></dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt>이용 중지</dt>
+                                                    <dd><em class="red">54</em></dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt>가입 대기</dt>
+                                                    <dd>235</dd>
+                                                </dl>
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            <div class="title-lv1">AI 활성 사용 현황</div>
+                                            <div class="data">
+                                                <div class="gauge-status">
+                                                    <div id="gaugeChart"
+                                                        style="width: clamp(120px, 8vw, 200px); height: clamp(120px, 8vw, 200px);">
+                                                    </div>
+                                                    <div class="value">
+                                                        <span class="label">사용 중</span>
+                                                        <div><span class="counting-value" count-value="72">0</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <script>
+                                                document.addEventListener('DOMContentLoaded', function () {
+                                                    const gaugeDom = document.getElementById('gaugeChart');
+                                                    if (gaugeDom) {
+                                                        const gaugeChart = echarts.init(gaugeDom);
+
+                                                        // 전역 변수로 차트 인스턴스 저장
+                                                        // window.gaugeChartInstance = gaugeChart;
+
+                                                        const value = 72; // 게이지 값
+
+                                                        // 게이지 옵션 (초기 0% 설정)
+                                                        const option = {
+                                                            animation: true,
+                                                            animationDuration: 3000,
+                                                            animationEasing: 'easeOut',
+                                                            series: [
+                                                                {
+                                                                    type: 'gauge',
+                                                                    min: 0,
+                                                                    max: 100,
+                                                                    radius: '85%',
+                                                                    center: ['50%', '50%'],
+                                                                    startAngle: 90,
+                                                                    endAngle: -270,
+                                                                    progress: {
+                                                                        show: true,
+                                                                        width: 8,
+                                                                        itemStyle: {
+                                                                            color: '#0096FF'
+                                                                        }
+                                                                    },
+                                                                    axisLine: {
+                                                                        lineStyle: {
+                                                                            width: 8,
+                                                                            color: [
+                                                                                [0, '#DBE1E6'],
+                                                                                [1, '#DBE1E6']
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    pointer: {
+                                                                        show: false
+                                                                    },
+                                                                    axisTick: {
+                                                                        show: false
+                                                                    },
+                                                                    splitLine: {
+                                                                        show: false
+                                                                    },
+                                                                    axisLabel: {
+                                                                        show: false
+                                                                    },
+                                                                    detail: {
+                                                                        show: false
+                                                                    },
+                                                                    data: [
+                                                                        {
+                                                                            value: 0,
+                                                                            name: '사용 중'
+                                                                        }
+                                                                    ],
+                                                                    title: {
+                                                                        show: false
+                                                                    }
+                                                                }
+                                                            ]
+                                                        };
+
+                                                        // 초기 설정 (0%)
+                                                        gaugeChart.setOption(option);
+
+                                                        // 애니메이션으로 목표 값까지 증가
+                                                        setTimeout(function () {
+                                                            // data value만 변경하면 progress가 자동으로 애니메이션됨
+                                                            gaugeChart.setOption({
+                                                                animation: true,
+                                                                animationDuration: 2000,
+                                                                animationEasing: 'easeOut',
+                                                                series: [
+                                                                    {
+                                                                        data: [
+                                                                            {
+                                                                                value: value,
+                                                                                name: '사용 중'
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            });
+                                                        }, 100);
+
+                                                        window.addEventListener('resize', function () {
+                                                            gaugeChart.resize();
+                                                        });
+
+                                                        // 카운팅 애니메이션 (게이지 차트 영역 내의 counting-value만 선택)
+                                                        const gaugeContainer = gaugeDom.closest('.gauge-status');
+                                                        const countingElement = gaugeContainer ? gaugeContainer.querySelector('.counting-value') : null;
+                                                        if (countingElement) {
+                                                            const targetValue = parseInt(countingElement.getAttribute('count-value')) || 0;
+                                                            const duration = 2000; // 2초
+                                                            const startValue = 0;
+                                                            const startTime = Date.now();
+
+                                                            function updateCounter() {
+                                                                const elapsed = Date.now() - startTime;
+                                                                const progress = Math.min(elapsed / duration, 1);
+                                                                const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+                                                                const currentValue = Math.round(startValue + (targetValue - startValue) * easeOutCubic);
+
+                                                                countingElement.textContent = currentValue + '%';
+
+                                                                if (progress < 1) {
+                                                                    requestAnimationFrame(updateCounter);
+                                                                } else {
+                                                                    countingElement.textContent = targetValue + '%';
+                                                                }
+                                                            }
+
+                                                            updateCounter();
+                                                        }
+                                                    }
+                                                });
+                                            </script>
+                                            <div class="info">
+                                                <dl>
+                                                    <dt>사용 중</dt>
+                                                    <dd><em class="blue">4.9 건</em></dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt>전체</dt>
+                                                    <dd>2.2 건</dd>
+                                                </dl>
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            <div class="title-lv1">이용 현황</div>
+                                            <div class="data">
+                                                <div class="swiper serviceSwiper">
+                                                    <div class="swiper-wrapper">
+                                                        <div class="swiper-slide">
+                                                            <div class="service-item">
+                                                                <img src="assets/images/gnb-ico-service.png" alt="">
+                                                                <div class="info">
+                                                                    <div class="tit">네이버웍스 코어</div>
+                                                                    <div class="plan">Standard</div>
+                                                                    <div class="date">(25.9.1 ~ 26.8.31)</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="service-item">
+                                                                <img src="assets/images/gnb-ico-service.png" alt="">
+                                                                <div class="info">
+                                                                    <div class="tit">네이버웍스 코어</div>
+                                                                    <div class="plan">Standard</div>
+                                                                    <div class="date">(25.9.1 ~ 26.8.31)</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="service-item">
+                                                                <img src="assets/images/gnb-ico-service.png" alt="">
+                                                                <div class="info">
+                                                                    <div class="tit">네이버웍스 코어</div>
+                                                                    <div class="plan">Standard</div>
+                                                                    <div class="date">(25.9.1 ~ 26.8.31)</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="swiper-command">
+
+                                                        <div class="swiper-button-prev">
+                                                            이전
+                                                        </div>
+                                                        <div class="swiper-pagination"></div>
+                                                        <div class="swiper-button-next">
+                                                            다음
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="info">
+                                                <dl>
+                                                    <dt>당월 이용 금액</dt>
+                                                    <dd>86,000 원</dd>
+                                                </dl>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>
