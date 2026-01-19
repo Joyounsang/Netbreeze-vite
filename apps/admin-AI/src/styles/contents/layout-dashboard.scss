@@ -51,7 +51,18 @@
         justify-content: center;
         width: 100%;
         position: relative;
-        height: 100%;
+        height: calc(100% - 38px);
+
+        // 워드 클라우드용 가로 그리드선 배경
+        &.has-grid {
+          background-image: repeating-linear-gradient(to bottom,
+              transparent,
+              transparent calc(100% / 5 - 1px),
+              #DBE1E6 calc(100% / 5 - 1px),
+              #DBE1E6 calc(100% / 5));
+          background-size: 100% 100%;
+
+        }
 
         #chatChart {
           display: flex;

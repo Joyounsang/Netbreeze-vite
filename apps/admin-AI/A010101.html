@@ -78,7 +78,7 @@
                                     <script>
                                         document.addEventListener('DOMContentLoaded', function () {
                                             const chartDom = document.getElementById('chatChart');
-                                            const myChart = echarts.init(chartDom);
+                                            let myChart = echarts.init(chartDom);
 
                                             // 전역 변수로 차트 인스턴스 저장
                                             // window.chatChartInstance = myChart;
@@ -291,12 +291,13 @@
                                             });
 
                                             $('.globalNav').on('click', function () {
-
-                                                // 차트 재로드 및 레이아웃 재정렬
+                                                myChart.dispose();
                                                 setTimeout(function () {
-                                                    myChart.resize();
+                                                    const newChart = echarts.init(document.getElementById('chatChart'));
+                                                    newChart.setOption(option);
+                                                    myChart = newChart;
                                                 }, 300); // GNB 애니메이션 완료 후 실행
-                                            })
+                                            });
                                         });
                                     </script>
                                 </div>

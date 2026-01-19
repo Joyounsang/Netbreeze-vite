@@ -73,7 +73,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="chart-view">
+                                    <div class="chart-view has-grid">
                                         <div id="chatChart" style="width: 100%; height: 100%;"></div>
                                     </div>
                                     <script
@@ -81,7 +81,7 @@
                                     <script>
                                         document.addEventListener('DOMContentLoaded', function () {
                                             const chartDom = document.getElementById('chatChart');
-                                            const myChart = echarts.init(chartDom);
+                                            let myChart = echarts.init(chartDom);
 
                                             // 색상 정의
                                             const colors = {
@@ -240,9 +240,12 @@
                                             });
 
                                             $('.globalNav').on('click', function () {
+                                                myChart.dispose();
                                                 setTimeout(function () {
-                                                    myChart.resize();
-                                                }, 300);
+                                                    const newChart = echarts.init(document.getElementById('chatChart'));
+                                                    newChart.setOption(option);
+                                                    myChart = newChart;
+                                                }, 300); // GNB 애니메이션 완료 후 실행
                                             });
                                         });
                                     </script>
