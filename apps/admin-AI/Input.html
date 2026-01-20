@@ -1,154 +1,85 @@
 <!DOCTYPE html>
-<html lang="ko" class="white">
+<html lang="ko">
 <include src="src/includes/head.html"></include>
 
 <body>
-	<div class="viewport">
-		<include src="src/includes/GNB.html"></include>
-		<div class="container">
-			<include src="src/includes/header.html"></include>
-			<div class="contents">
-				<div class="panel">
-					<div class="row">
-						<div class="column">
-							<article>
-								<include src="src/includes/PageHead.html"></include>
-								<div class="content-header">
-									<div class="title lv2">${제목}</div>
-									<div class="command">
-										<div class="input-item">
-											<a href="#" class="btn medium positive"><span>
-													<img src="assets/images/gnb-ico-system-on.png">
-													Button
-												</span></a>
+    <div class="viewport">
+        <include src="src/includes/header.html"></include>
+        <div class="container">
+            <include src="src/includes/GNB.html"></include>
+            <div class="contents">
+                <div class="panel scrollbar">
+                    <div class="panel-default">
+                        <include src="src/includes/guideline.html"></include>
+                        <div class="panel-body">
+                            <div class="panel-body-grid">
+                                <div class="viewline">
 
-											<a href="#" class="btn medium positive"><span>
-													<img src="assets/images/gnb-ico-parking-on.png">
-													다양한 아이콘 응용
-												</span></a>
-										</div>
-									</div>
-								</div>
-								<div class="modify">
-									<div class="picture">
-										<div class="file">
-											<input type="file" name="" id="fileIdDefault" />
-											<label class="file-upload" for="fileIdDefault" style="width: 116px;height: 116px;">
-												<span style="background-image: url('assets/images/admin-default.png');"></span>
-											</label>
-										</div>
-									</div>
-									<include src="src/includes/Table-Row.html"></include>
-								</div>
-							</article>
-						</div>
-					</div>
+                                    <div class="inputset" style="display: flex; flex-wrap: wrap; gap: 10px;">
+                                        <label class="checkbox block">
+                                            <input type="checkbox" checked><span>checkblock</span>
+                                        </label>
 
-					<div class="row">
-						<div class="column">
-							<article>
-								<div class="content-header">
-									<div class="title lv2">${제목}</div>
-									<div class="command">
-										<div class="input-item">
-											<a href="#" class="btn medium positive"><span>
-													<img src="assets/images/gnb-ico-system-on.png">
-													Button
-												</span></a>
+                                        <label class="checkbox">
+                                            <input type="checkbox" checked><span>checkblock</span>
+                                        </label>
 
-											<a href="#" class="btn medium positive"><span>
-													<img src="assets/images/gnb-ico-parking-on.png">
-													다양한 아이콘 응용
-												</span></a>
-										</div>
-									</div>
-								</div>
-								<include src="src/includes/Table-Row.html"></include>
-							</article>
-						</div>
-					</div>
+                                        <label class="radio">
+                                            <input type="radio" checked><span>radio</span>
+                                        </label>
 
-					<div class="row">
-						<div class="column">
-							<article>
-								<div class="content-header">
-									<div class="title lv2">${제목}</div>
-									<div class="command">
-										<div class="input-item">
-											<a href="#" class="btn medium positive"><span>
-													<img src="assets/images/gnb-ico-system-on.png">
-													Button
-												</span></a>
+                                        <div class="input-date">
+                                            <div class="include-ico">
+                                                <input id="sdate" class="datepicker" type="text">
+                                                <label for="sdate" class="ico cal" title="날짜선택"></label>
+                                            </div>
+                                            <span class="unit">-</span>
+                                            <div class="include-ico">
+                                                <input id="edate" class="datepicker" type="text">
+                                                <label for="edate" class="ico cal" title="날짜선택"></label>
+                                            </div>
+                                        </div>
 
-											<a href="#" class="btn medium positive"><span>
-													<img src="assets/images/gnb-ico-parking-on.png">
-													다양한 아이콘 응용
-												</span></a>
-										</div>
-									</div>
-								</div>
-								<div class="tbl type-input">
-									<table>
-										<colgroup>
-											<col style="width:140px;">
-											<col style="width:auto">
-											<col style="width:140px;">
-											<col style="width:auto;">
-											<col style="width:140px;">
-											<col style="width:auto;">
-										</colgroup>
-										<tbody>
-											<tr>
-												<th scope="row">th</th>
-												<td class="left">
-													<div class="input-item">
-														<input type="text">
-														<input type="text">
-													</div>
-												</td>
+                                        <select>
+                                            <option>option</option>
+                                        </select>
 
-												<th scope="row">th</th>
-												<td class="left">
-													<div class="input-item">
-														<select>
-															<option value="" selected>선택</option>
-														</select>
-													</div>
-												</td>
+                                        <div class="input-file">
+                                            <input type="file" id="profileImageUpload" accept="image/*"
+                                                style="display: none;">
+                                            <label for="profileImageUpload" class="btn icoLeft edit fileAttach">
+                                                <span class="ico edit"></span>
+                                                파일첨부
+                                            </label>
+                                        </div>
 
-												<th scope="row">th</th>
-												<td class="left">
-													<div class="input-item">
-														<a href="#" class="btn medium natural fill"><span>Button</span></a>
-													</div>
-												</td>
-											</tr>
-											<tr>
-												<td class="left" colspan="6">
-													<div class="input-item">
-														<textarea name="" id="" cols="30" rows="10" placeholder="메모 입력"
-															style="height: 300px;"></textarea>
-													</div>
-												</td>
-											</tr>
+                                        <div class="input-switch">
+                                            <label class="switch">
+                                                <input type="checkbox" id="switch">
+                                                <span class="slider"></span>
+                                            </label>
+                                            <div class="labelname">파일 권한 예외 유저 관리</div>
+                                        </div>
 
-										</tbody>
-									</table>
-								</div>
-							</article>
-						</div>
-					</div>
+                                        <div class="include-ico" style="width: 200px;">
+                                            <input id="search" type="text" placeholder="Placeholder">
+                                            <label class="ico search" for="search">search</label>
+                                        </div>
 
-					<div class="set-button justify right">
-						<a href="#" class="btn medium positive fill"><span>
-								저장하기
-							</span></a>
-					</div>
+                                        <input type="text">
 
-				</div>
-			</div>
-		</div>
-	</div>
+                                        <textarea name="" id=""></textarea>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/src/js/main.js"></script>
 </body>
 
 </html>

@@ -11,31 +11,26 @@
 				<div class="panel scrollbar">
 					<div class="panel-default">
 						<include src="src/includes/guideline.html"></include>
-
 						<div class="panel-body">
-							<div class="panel-body-grid type-sidebar type-page">
+							<div class="panel-body-grid">
 								<include src="src/includes/tabline.html"></include>
 								<include src="src/includes/filterline.html"></include>
-								<div class="viewline">
-									<div class="tbl type-page">
-										<div class="tmain">
-											<table>
-												<colgroup>
-													<col style="width:auto;">
-												</colgroup>
-												<thead>
-													<tr>
-														<th scope="col" class="left">
-															부서명
-															<a href="#" class="ico align">정렬</a>
-														</th>
-													</tr>
-												</thead>
-
-											</table>
-										</div>
-									</div>
-									<include src="src/includes/treeMenu.html"></include>
+								<div class="viewline" style="height: calc(100vh - 440px);">
+									<ul class="mainChartsArea-label">
+										<li class="charts-label">
+											채팅 건 수
+											<span class="dot" style="background-color: #FF4F1A;"></span>
+										</li>
+										<li class="charts-label">
+											활성 사용자 수
+											<span class="dot" style="background-color: #0096FF;"></span>
+										</li>
+										<li class="charts-label">
+											1인당 평균 채팅 건 수
+											<span class="dot" style="background-color: #2FC580;"></span>
+										</li>
+									</ul>
+									<include src="src/includes/chart-line.html"></include>
 								</div>
 							</div>
 						</div>

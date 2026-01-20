@@ -46,6 +46,10 @@
   >.column {
     width: 100%;
     word-break: break-all;
+
+    &.bg {
+      background-color: #F6F8FA;
+    }
   }
 
 }
@@ -74,11 +78,85 @@
     .panel-body-grid {
       flex: 1;
 
+      article {
+        &+article {
+          margin-top: 40px;
+        }
+      }
+
       &.type-sidebar {
-        width: clamp(300px, 15vw, 400px);
+        width: 100%;
+        // width: clamp(300px, 15vw, 400px);
         height: auto;
         flex: none;
         padding: 0 40px 0 40px;
+
+        &.type-page {
+          padding: 0;
+
+          .tree-side {
+            height: auto;
+            background-color: transparent;
+            border-radius: 0;
+            padding: 0;
+          }
+
+          .tree-menu {
+            .tree-item {
+
+
+              .tree-link {
+                border-bottom: 1px solid var(--border);
+                border-radius: 0;
+
+                &:hover {
+                  color: var(--rec-primary);
+                }
+
+                &.on {
+                  background-color: #E5F2FF;
+                  color: var(--rec-primary);
+                  font-weight: 700;
+                }
+              }
+
+              // 하위 메뉴가 있는 경우 화살표 아이콘 추가
+              &.has-children {
+                >.tree-link {
+                  padding-left: 32px;
+                  position: relative;
+
+                  &:before {
+                    content: '';
+                    display: block;
+                    width: 16px;
+                    height: 16px;
+                    position: absolute;
+                    left: 12px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: url('../images/ico-treeArrows.png') no-repeat center;
+                    background-size: contain;
+                    transition: transform 0.2s ease;
+                  }
+                }
+
+                &.expanded {
+                  >.tree-link:before {
+                    transform: translateY(-50%) rotate(90deg);
+                  }
+                }
+              }
+
+              // 하위 메뉴가 없는 경우 화살표 없음
+              &:not(.has-children) {
+                >.tree-link {
+                  padding-left: 12px;
+                }
+              }
+            }
+          }
+        }
 
         &+.panel-body-grid {
 
@@ -87,18 +165,27 @@
           .viewline {
             padding-left: 0;
           }
+
+          .tbl {
+            &.type-set {
+              table {
+                tbody {
+                  tr {
+                    th {
+                      padding-left: 0;
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
   }
 }
 
-.tree-side {
-  width: 100%;
-  background-color: #F6F8FA;
-  border-radius: 14px;
-  padding: 20px;
-}
+
 
 .headline {
   display: flex;
@@ -133,6 +220,10 @@
   align-items: center;
   padding: 20px;
   border-radius: 14px;
+
+  .btn {
+    background-color: #fff;
+  }
 
   .info {
     display: flex;
@@ -173,7 +264,8 @@
       height: 100%;
       position: relative;
 
-      a {
+      a,
+      span {
         display: flex;
         gap: 6px;
         font-size: 1.7rem;
@@ -189,6 +281,12 @@
           font-weight: 500;
           line-height: 100%;
           line-height: 50px;
+        }
+      }
+
+      &.title {
+        span {
+          color: var(--text);
         }
       }
 
@@ -267,6 +365,17 @@
 
 .viewline {
   padding: 0 40px;
+
+  .chart-view {
+    height: calc(100% - 40px);
+  }
+
+  .mainChartsArea-label {
+    padding: 16px 0;
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 20px;
+  }
 }
 
 
@@ -547,20 +656,7 @@ header {
       }
     }
 
-    .profile {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 30px;
-      height: 30px;
-      aspect-ratio: 1/1;
-      border-radius: 10px;
-      background-color: var(--gray);
-      font-size: 1.4rem;
-      color: var(--text-gray);
-      font-weight: 500;
-      position: relative;
-    }
+
 
   }
 
@@ -600,11 +696,8 @@ header {
       }
     }
   }
-
-
-
-
 }
+
 
 
 #gnb {

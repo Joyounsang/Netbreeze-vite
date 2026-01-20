@@ -8,7 +8,7 @@ $(document).ready(function () {
   gnbMenuToggle();
   tooltipInit();
   treeMenuInit();
-
+  switchUi();
   clickModal();
   innerTabUi();
   progressUi();
@@ -23,6 +23,24 @@ $(window).on('resize', function () {
   modalSize();
   checkGlobalNavState();
 });
+
+function switchUi() {
+  $('.switch').each(function () {
+    $(this).on('click', function () {
+      if ($(this).hasClass('on')) {
+        $(this).removeClass('on');
+        $(this).find('input').attr('checked', false);
+        return false;
+      } else {
+        $(this).addClass('on');
+        $(this).find('input').attr('checked', true);
+        return false;
+      }
+    });
+  });
+}
+
+
 function progressUi() {
   $('.bar').each(function () {
     const maxValue = parseFloat($(this).data('max-value'));
@@ -259,7 +277,6 @@ function clickModal() {
     $('html').addClass('overflow');
     $target.addClass('on');
 
-    // option
     modalSize();
 
     $target.find(".modalClose").on('click', function (e) {

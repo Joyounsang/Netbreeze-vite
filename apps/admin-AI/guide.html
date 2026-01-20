@@ -1,163 +1,100 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <include src="src/includes/head.html"></include>
 
-
 <body>
-    <!--=include include/WA.html -->
     <div class="viewport">
-        <include src="src/includes/GNB.html"></include>
+        <include src="src/includes/header.html"></include>
         <div class="container">
-            <include src="src/includes/header.html"></include>
+            <include src="src/includes/GNB.html"></include>
             <div class="contents">
-                <div class="panel scroll">
-                    <div class="row">
-                        <div class="column">
-                            <article>
-                                <div class="content-header justify">
-                                    <div class="title">
-                                        좌측 '즐겨찾기' 에 페이지 샘플있음.
-                                        <a href="#" class="ico favorite">즐겨찾기</a>
-                                    </div>
-                                    <nav class="location">
-                                        <ol>
-                                            <li><a href="#">홈</a></li>
-                                            <li><a href="#">메뉴</a></li>
-                                            <li><a href="#">현재메뉴</a></li>
-                                        </ol>
-                                    </nav>
+                <div class="panel scrollbar">
+                    <div class="panel-default">
+                        <div class="panel-head">
+                            <div class="headline">
+                                <div class="title-lv1">
+                                    제목입니다.
+                                    <span class="ico helper tooltipOpen">도움말</span>
+                                    <div class="tooltip">메뉴에 대한 도움말 입니다.<br>해당 메뉴는 사용자 관리 메뉴입니다.</div>
                                 </div>
-                                <div class="content-header">
-                                    <div class="title lv2">버튼은 다양한 클래스의 조합으로 유연하게 사용</div>
-                                    <div class="command">
-                                        <div class="input-item">
-                                            <a href="#" class="btn medium positive"><span>
-                                                    <img src="assets/images/gnb-ico-system-on.png">
-                                                    이곳은 우측 커맨드영역입니다
-                                                </span></a>
+
+                                <ol class="location">
+                                    <li>depth1</li>
+                                    <li>depth2</li>
+                                    <li>depth3</li>
+                                </ol>
+                            </div>
+
+                            <div class="guideline">
+                                <div class="info">
+                                    <div class="netbreezeAi">
+                                        <div class="netbreezeHelper">
+                                            <span class="atom" style="background-color: #0096FF;"></span>
+                                            <span class="atom" style="background-color: #FC8D9D;"></span>
+                                            <span class="atom" style="background-color: #F5C66F;"></span>
+                                            <span class="atom" style="background-color: #33CEB9;"></span>
+                                        </div>
+                                    </div>
+                                    <ul class="list dot">
+                                        <li>화면 관련 메세지가 들어가는 영역 입니다</li>
+                                        <li><b>좀더 강조하려면 이것을 사용하세요</b></li>
+                                    </ul>
+                                </div>
+                                <a href="#" class="btn icoLeft tooltipOpen"><span
+                                        class="ico helper">helper</span>도움말</a>
+                                <div class="tooltip">메뉴에 대한 도움말 입니다.<br>해당 메뉴는 사용자 관리 메뉴입니다.</div>
+                            </div>
+
+                        </div>
+                        <div class="panel-body">
+                            <div class="panel-body-grid">
+                                <div class="tabline">
+                                    <ul class="tab">
+                                        <li class="active"><a href="#">활성화된 탭<span>0</span></a></li>
+                                        <li><a href="#">비활성화 탭<span>0</span></a></li>
+                                        <li class="title"><span>탭이아닌 일반 제목일 때</span></li>
+                                    </ul>
+                                </div>
+                                <div class="filterline">
+                                    <div class="flt">
+                                        <a href="input.html" class="btn negative"> (좌)이곳에 검색 및 필터 데이트피커 등이 들어갈
+                                            수있습니다(클릭)</a>
+                                    </div>
+                                    <div class="cmd">
+                                        <a href="#" class="btn positive">다양한 기능버튼이 들어갈 수 있습니다(우)</a>
+                                    </div>
+                                </div>
+                                <div class="viewline">
+
+                                    <div class="tbl type-page">
+
+                                        <div class="null">
+                                            <div class="netbreezeAi">
+                                                <div class="ai-speak">
+                                                    <p>
+                                                        <b>화면가이드</b>
+                                                        해당영역에 table, chart, setting 등 모든 레이아웃이 들어갈 수 있습니다
+                                                    </p>
+                                                </div>
+
+                                                <div class="netbreezeHelper">
+                                                    <span class="atom" style="background-color: #0096FF;"></span>
+                                                    <span class="atom" style="background-color: #FC8D9D;"></span>
+                                                    <span class="atom" style="background-color: #F5C66F;"></span>
+                                                    <span class="atom" style="background-color: #33CEB9;"></span>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="justify left">
-                                    <a href="#" class="btn small"><span>small</span></a>
-                                    <a href="#" class="btn medium"><span>medium</span></a>
-                                    <a href="#" class="btn"><span>large width : inline</span></a>
-                                </div>
-                                <div class="justify center">
-                                    <a href="#" class="btn small positive fill"><span>small fill positive</span></a>
-                                    <a href="#" class="btn medium positive line positive"><span>medium line
-                                            positive</span></a>
-                                    <a href="#" class="btn positive"><span> large basic positive</span></a>
-                                </div>
-                                <div class="justify right">
-                                    <a href="#" class="btn small positive"><span>positive</span></a>
-                                    <a href="#" class="btn medium negative"><span>negative</span></a>
-                                    <a href="#" class="btn normal"><span>normal</span></a>
-                                    <a href="#" class="btn gray"><span>gray</span></a>
-                                    <a href="#" class="btn natural"><span>natural</span></a>
-                                    <a href="#" class="btn disabled"><span>disabled</span></a>
-                                </div>
-                            </article>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="row">
-                        <div class="column">
-                            <article class="box">
-                                <div class="content-header">
-                                    <div class="title lv2">인풋 : 인풋의 종류는 List.html 참고</div>
-                                </div>
-                                <div class="justify left">
-                                    <div class="input-item">
-                                        <input type="text" class="invalid">
-                                        <input type="text">
-                                        <input type="text" placeholder="placeholder">
-                                        <input type="text" value="value">
-                                    </div>
-                                </div>
-                                <div class="justify center">
-                                    <div class="input-item">
-                                        <input type="text" readonly>
-                                        <input type="text" placeholder="readonly placeholder" readonly>
-                                        <input type="text" value="readonly value" readonly>
-                                    </div>
-                                </div>
-                                <div class="justify right">
-                                    <div class="input-item">
-                                        <input type="text" disabled>
-                                        <input type="text" placeholder="disabled placeholder" disabled>
-                                        <input type="text" value="disabled value" disabled>
-                                    </div>
-                                </div>
-                            </article>
-                            <article>
-                                <div class="content-header">
-                                    <div class="title lv2">화이트 인풋</div>
-                                </div>
-                                <div class="justify left">
-                                    <div class="input-item">
-                                        <input type="text" class="white">
-                                        <input type="text" class="white" placeholder="placeholder">
-                                        <input type="text" class="white" value="value">
-                                    </div>
-                                </div>
-                                <div class="justify center">
-                                    <div class="input-item">
-                                        <input type="text" class="white" readonly>
-                                        <input type="text" class="white" placeholder="readonly placeholder" readonly>
-                                        <input type="text" class="white" value="readonly value" readonly>
-                                    </div>
-                                </div>
-                                <div class="justify right">
-                                    <div class="input-item">
-                                        <input type="text" class="white" disabled>
-                                        <input type="text" class="white" placeholder="disabled placeholder" disabled>
-                                        <input type="text" class="white" value="disabled value" disabled>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel side">
-                    <article>
-                        <div class="content-header">
-                            <div class="inner-tab">
-                                <ul>
-                                    <li rel="panelTab_1" class="on">
-                                        <a href="#">TAB</a>
-                                    </li>
-                                    <li rel="panelTab_2">
-                                        <a href="#">TAB2</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div id="panelTab" class="mainPanelCont tab-component">
-                            <div class="panelTab_1 tab-content">
-                                <div class="no-data">
-                                    <img src="assets/images/nodata.png" alt="">
-                                    <p>데이터가 없습니다</p>
-                                </div>
-
-                                <div class="no-data">
-                                    <img src="assets/images/schooltalk/nodata.png" alt="">
-                                    <p>데이터가 없습니다</p>
-                                </div>
-                            </div>
-                            <div class="panelTab_2 tab-content">
-                                <div class="no-data">
-                                    <img src="assets/images/nodata.png" alt="">
-                                    <p>데이터가 없습니다2</p>
-                                </div>
-                            </div>
-                        </div>
-
-                    </article>
                 </div>
             </div>
         </div>
     </div>
+    <script type="module" src="/src/js/main.js"></script>
 </body>
 
 </html>

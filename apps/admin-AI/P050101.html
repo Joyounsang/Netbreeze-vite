@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<include src="src/includes/head.html"></include>
+
+<body>
+	<div class="viewport">
+		<include src="src/includes/header.html"></include>
+		<div class="container">
+			<include src="src/includes/GNB.html"></include>
+			<div class="contents">
+				<div class="panel scrollbar">
+					<div class="panel-default">
+						<include src="src/includes/guideline.html"></include>
+
+						<div class="panel-body">
+							<div class="panel-body-grid type-sidebar" style="width: clamp(340px, 15vw, 400px);">
+								<include src="src/includes/treeMenu.html"></include>
+							</div>
+							<div class="panel-body-grid">
+								<include src="src/includes/tabline.html"></include>
+								<include src="src/includes/filterline.html"></include>
+								<div class="viewline">
+
+									<div class="tbl type-page">
+
+										<div class="null">
+											<div class="netbreezeAi">
+												<div class="ai-speak">
+													<p>
+														<b>화면가이드</b>
+														해당영역에 table, chart, setting 등 모든 레이아웃이 들어갈 수 있습니다
+													</p>
+												</div>
+
+												<div class="netbreezeHelper">
+													<span class="atom" style="background-color: #0096FF;"></span>
+													<span class="atom" style="background-color: #FC8D9D;"></span>
+													<span class="atom" style="background-color: #F5C66F;"></span>
+													<span class="atom" style="background-color: #33CEB9;"></span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>

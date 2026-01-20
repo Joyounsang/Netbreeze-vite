@@ -42,7 +42,7 @@ body {
 
 em {
   &.gray {
-    color: var(--text-light);
+    color: var(--text-gray);
   }
 
   &.red {
@@ -86,8 +86,7 @@ input[type="time"],
 input[type="url"],
 input[type="week"],
 select {
-  width: 100%;
-  height: 100%;
+  min-width: 140px;
   height: 36px;
   padding: 0 14px;
   border-radius: 50px;
@@ -292,9 +291,9 @@ select {
   span {
     display: block;
     font-size: 1.4rem;
-    letter-spacing: -1px;
+    // letter-spacing: -1px;
     padding-left: 24px;
-    line-height: 24px;
+    line-height: 36px;
     color: var(--text-light);
     font-weight: 500;
     cursor: pointer;
@@ -325,7 +324,7 @@ select {
   input {
     &:checked+span {
       &:before {
-        background: url("../images/admin-crud-check-on.png") no-repeat center;
+        background: url("../images/check-checked.png") no-repeat center;
         background-size: contain;
       }
     }
@@ -333,14 +332,7 @@ select {
     &:disabled+span {
       &:before {
         opacity: 0.5;
-        background: url("../images/admin-crud-check-dis.png") no-repeat center;
-        background-size: contain;
-      }
-    }
-
-    &.indeterminate+span {
-      &:before {
-        background: url("../images/admin-crud-check-indeterminate.png") no-repeat center;
+        background: url("../images/check-disabled.png") no-repeat center;
         background-size: contain;
       }
     }
@@ -348,7 +340,7 @@ select {
 
   span {
     &:before {
-      background: url("../images/admin-crud-check-off.png") no-repeat center;
+      background: url("../images/check-default.png") no-repeat center;
       background-size: contain;
     }
   }
@@ -368,20 +360,20 @@ select {
   input {
     &:checked+span {
       &:before {
-        background: url("../images/admin-crud-radio-on.png") no-repeat center;
+        background: url("../images/radio-checked.png") no-repeat center;
         background-size: contain;
       }
     }
 
     &:disabled+span:before {
-      background: url("../images/admin-crud-radio-dis.png") no-repeat center;
+      background: url("../images/radio-disabled.png") no-repeat center;
       background-size: contain;
     }
   }
 
   span {
     &:before {
-      background: url("../images/admin-crud-radio-off.png") no-repeat center;
+      background: url("../images/radio-default.png") no-repeat center;
       background-size: contain;
     }
   }
@@ -421,4 +413,56 @@ textarea:invalid {
   color: var(--rec-negative);
   background-color: var(--white);
   background-image: none;
+}
+
+.switch {
+  display: inline-block;
+  position: relative;
+  min-width: 40px;
+  height: 24px;
+
+  input {
+    display: none;
+  }
+
+  .slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 42px;
+    background: #D4D4D4;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.25) inset;
+    transition: 0.2s;
+    cursor: pointer;
+
+    &:before {
+      position: absolute;
+      left: 5px;
+      bottom: 5px;
+      top: 5px;
+      height: 14px;
+      width: 14px;
+      background-color: var(--white);
+      border-radius: 50%;
+      transition: 0.2s;
+      content: '';
+      box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  &.on {
+    .slider {
+      background-color: var(--rec-primary);
+
+      &:before {
+        transform: translateX(16px);
+      }
+    }
+
+    &+.labelname {
+      color: var(--text);
+    }
+  }
 }

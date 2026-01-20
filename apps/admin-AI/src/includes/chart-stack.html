@@ -1,0 +1,201 @@
+<div class="chart-view">
+  <div id="chatChart" style="width: 100%; height: 100%;"></div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const chartDom = document.getElementById('chatChart');
+    let myChart = echarts.init(chartDom);
+
+    // 전역 변수로 차트 인스턴스 저장
+    // window.chatChartInstance = myChart;
+
+    // 12주 날짜 생성
+    const labels = ['10.10', '10.18', '10.26', '11.3', '11.11', '11.19', '11.27', '12.5', '12.13', '12.21', '12.29', '1.6'];
+
+    // 랜덤 데이터 생성 함수
+    function generateRandomData(count, min, max) {
+      const data = [];
+      for (let i = 0; i < count; i++) {
+        data.push(Math.floor(Math.random() * (max - min + 1)) + min);
+      }
+      return data;
+    }
+
+    // 랜덤 샘플 데이터 생성 (데모 버전) - 스택 바 차트용
+    const positiveData = generateRandomData(12, 200, 1500); // 긍정
+    const neutralData = generateRandomData(12, 300, 2000); // 중립
+    const negativeData = generateRandomData(12, 200, 1400); // 부정
+
+    // 색상 정의
+    const colors = {
+      positive: '#0096FF', // 긍정 - 파란색
+      neutral: '#F2B84B',   // 중립 - 노란색/주황색
+      negative: '#E55765'  // 부정 - 빨간색
+    };
+
+    const option = {
+      animation: true,
+      animationDuration: 1000,
+      animationEasing: 'linear',
+      grid: {
+        left: '40px',
+        right: 0,
+        top: '10%',
+        bottom: '10%',
+        containLabel: false
+      },
+      xAxis: {
+        type: 'category',
+        data: labels,
+        axisLine: {
+          show: false
+        },
+        axisTick: {
+          show: false
+        },
+        axisLabel: {
+          show: true,
+          color: '#7E8291',
+          fontSize: 12
+        },
+        splitLine: {
+          show: false
+        }
+      },
+      yAxis: {
+        type: 'value',
+        min: 0,
+        max: 8000,
+        interval: 2000,
+        axisLine: {
+          show: false
+        },
+        axisTick: {
+          show: false
+        },
+        axisLabel: {
+          show: true,
+          color: '#7E8291',
+          formatter: function (value) {
+            return value.toLocaleString();
+          }
+        },
+        splitLine: {
+          show: true,
+          lineStyle: {
+            color: '#DBE1E6',
+            width: 1
+          }
+        }
+      },
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+          type: 'shadow'
+        },
+        backgroundColor: 'rgba(21, 24, 26, 0.9)',
+        borderRadius: 14,
+        padding: [12, 16],
+        textStyle: {
+          color: '#fff',
+          fontSize: 12
+        },
+        extraCssText: 'box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);',
+        formatter: function (params) {
+          let html = '<div style="padding: 2px 0;">';
+          html += '<div style="font-size: 12px; color: rgba(255, 255, 255, 0.7); margin-bottom: 6px;">' + params[0].axisValue + '</div>';
+
+          params.forEach(function (item) {
+            const color = item.color;
+            html += '<div style="display: flex; align-items: center; margin-bottom: 4px;">';
+            html += '<span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background-color: ' + color + '; margin-right: 8px;"></span>';
+            html += '<span style="font-size: 14px; font-weight: 600; color: #fff;">' + item.seriesName + ': ' + item.value.toLocaleString() + '</span>';
+            html += '</div>';
+          });
+
+          // 총합 표시
+          const total = params.reduce(function (sum, item) {
+            return sum + item.value;
+          }, 0);
+          html += '<div style="margin-top: 6px; padding-top: 6px; border-top: 1px solid rgba(255, 255, 255, 0.2);">';
+          html += '<span style="font-size: 14px; font-weight: 600; color: #fff;">총합: ' + total.toLocaleString() + '</span>';
+          html += '</div>';
+
+          html += '</div>';
+          return html;
+        }
+      },
+      series: [
+        {
+          name: '부정',
+          type: 'bar',
+          stack: 'total',
+          barWidth: 20,
+          data: negativeData,
+          itemStyle: {
+            color: colors.negative,
+            borderRadius: [0, 0, 0, 0] // 하단 라운딩
+          },
+          emphasis: {
+            itemStyle: {
+              shadowBlur: 10,
+              shadowOffsetX: 0,
+              shadowColor: 'rgba(0, 0, 0, 0.3)'
+            }
+          }
+        },
+        {
+          name: '중립',
+          type: 'bar',
+          stack: 'total',
+          barWidth: 20,
+          data: neutralData,
+          itemStyle: {
+            color: colors.neutral,
+            borderRadius: [0, 0, 0, 0]
+          },
+          emphasis: {
+            itemStyle: {
+              shadowBlur: 10,
+              shadowOffsetX: 0,
+              shadowColor: 'rgba(0, 0, 0, 0.3)'
+            }
+          }
+        },
+        {
+          name: '긍정',
+          type: 'bar',
+          stack: 'total',
+          barWidth: 20,
+          data: positiveData,
+          itemStyle: {
+            color: colors.positive,
+            borderRadius: [4, 4, 0, 0] // 상단 라운딩
+          },
+          emphasis: {
+            itemStyle: {
+              shadowBlur: 10,
+              shadowOffsetX: 0,
+              shadowColor: 'rgba(0, 0, 0, 0.3)'
+            }
+          }
+        }
+      ]
+    };
+
+    myChart.setOption(option);
+
+    window.addEventListener('resize', function () {
+      myChart.resize();
+    });
+
+    $('.globalNav').on('click', function () {
+      myChart.dispose();
+      setTimeout(function () {
+        const newChart = echarts.init(document.getElementById('chatChart'));
+        newChart.setOption(option);
+        myChart = newChart;
+      }, 300); // GNB 애니메이션 완료 후 실행
+    });
+  });
+</script>
