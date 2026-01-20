@@ -787,12 +787,21 @@
   }
 
   .modal-footer {
-    text-align: right;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: #F6F8FA;
     border-top: 1px solid var(--border);
-
     width: 100%;
     padding: 20px;
+
+    .left {
+      margin-right: auto;
+    }
+
+    .right {
+      margin-left: auto;
+    }
 
     .btn {
       min-width: 80px;
@@ -1128,6 +1137,41 @@
 
 .tbl {
   border-top: 1px solid var(--border);
+
+  &.edit-form {
+    border-top: none;
+
+    table {
+      tbody {
+        tr {
+
+          th,
+          td {
+            padding: 10px 20px;
+          }
+        }
+      }
+    }
+
+    input[type="color"],
+    input[type="date"],
+    input[type="datetime-local"],
+    input[type="datetime"],
+    input[type="email"],
+    input[type="month"],
+    input[type="number"],
+    input[type="password"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="text"],
+    input[type="time"],
+    input[type="url"],
+    input[type="week"],
+    select {
+      border-radius: 8px;
+
+    }
+  }
 
   &.type-set {
     border-top: none;
