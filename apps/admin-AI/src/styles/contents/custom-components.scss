@@ -121,6 +121,20 @@
     }
   }
 
+  &.dissmiss {
+    &:before {
+      background: url('../images/ico-dissmiss.png') no-repeat;
+      background-size: contain;
+    }
+  }
+
+  &.drag {
+    &:before {
+      background: url('../images/ico-drag.png') no-repeat;
+      background-size: contain;
+    }
+  }
+
 }
 
 .btn {
@@ -314,6 +328,18 @@
       outline: none;
       border: none;
     }
+  }
+}
+
+.input-certification {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+
+  input {
+    min-width: 44px;
+    height: 44px;
+
   }
 }
 
@@ -1459,23 +1485,163 @@
   background-color: #F6F8FA;
   border-radius: 14px;
   padding: 20px;
+
+  &.type-edit {
+    .tree-link {
+      &:after {
+        content: '';
+        display: block;
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: url('../images/ico-drag.png') no-repeat center;
+        background-size: contain;
+      }
+    }
+
+    .hover-menu {
+      display: none;
+      margin-left: 20px;
+
+      ul {
+        display: flex;
+        gap: 10px;
+
+        .tree-btn {
+          font-size: 1.4rem;
+          font-weight: 500;
+          color: var(--rec-primary);
+          display: flex;
+          gap: 2px;
+          align-items: center;
+          cursor: pointer;
+
+          .ico.added {
+            &:before {
+              background: url('../images/ico-added-positive.png') no-repeat;
+              background-size: contain;
+            }
+          }
+        }
+      }
+    }
+
+    .tree-link:hover .hover-menu {
+      display: block;
+    }
+
+    // 하위 항목 추가 입력 폼
+    .tree-add-form,
+    .tree-edit-form {
+      display: none;
+      padding: 12px;
+      margin: 8px 0;
+      background: #fff;
+      border: 1px solid #DBE1E6;
+      border-radius: 10px;
+
+      &.show {
+        display: block;
+      }
+
+      .form-input {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+
+        input[type="text"] {
+          flex: 1;
+          padding: 10px 12px;
+          border: 1px solid #DBE1E6;
+          border-radius: 8px;
+          font-size: 1.4rem;
+          color: #15181A;
+          background: #fff;
+
+          &::placeholder {
+            color: #9CA3AF;
+          }
+
+          &:focus {
+            outline: none;
+            border-color: var(--rec-primary);
+          }
+        }
+
+        .form-buttons {
+          display: flex;
+          gap: 8px;
+
+          button {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.4rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+
+            &:hover {
+              opacity: 0.8;
+            }
+
+            &.btn-add {
+              background: transparent;
+              color: var(--rec-primary);
+            }
+
+            &.btn-cancel {
+              background: transparent;
+              color: #9CA3AF;
+            }
+          }
+        }
+      }
+    }
+
+    // Sortable placeholder 스타일
+    .ui-sortable-placeholder {
+      visibility: visible !important;
+      border: 2px dashed var(--rec-primary);
+      background: rgba(0, 150, 255, 0.1);
+      height: auto !important;
+      margin: 4px 0;
+      border-radius: 10px;
+    }
+
+    .ui-sortable-helper {
+      opacity: 0.6;
+      cursor: move;
+    }
+  }
 }
 
 
 
 .tree-menu {
+
+
   >.tree-item {
     >.tree-link {
       font-size: clamp(1.4rem, 1vw, 1.6rem);
       font-weight: 600;
+
+
     }
   }
 
   .tree-item {
     position: relative;
 
+
+
     .tree-link {
       display: flex;
+      gap: 10px;
       align-items: center;
       padding: 12px 12px;
       color: #15181A;
@@ -1487,6 +1653,11 @@
         color 0.2s ease;
       border-radius: 10px;
 
+      .code {
+        color: var(--text-gray);
+        font-size: 1.4rem;
+        font-weight: 400;
+      }
 
       &:hover {
         color: var(--rec-primary);
@@ -1496,6 +1667,10 @@
         background-color: #E5F2FF;
         color: var(--rec-primary);
         font-weight: 700;
+
+        .code {
+          color: var(--rec-primary);
+        }
 
       }
     }

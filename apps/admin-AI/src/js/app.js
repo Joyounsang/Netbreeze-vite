@@ -2,29 +2,29 @@
 $(document).ready(function () {
   setScreenSize();
   $('.scrollbar').scrollbar(); // 스크롤디자인 라이브러리호출
-  btnEvent();
   layoutSystem();
   updateFilePath();
   gnbMenuToggle();
   tooltipInit();
   treeMenuInit();
-  switchUi();
+  inputEvent();
   clickModal();
-  innerTabUi();
-  progressUi();
+  btnEvent();
+
   setTimeout(function () {
-    commonSlide();
     serviceSlide();
     defaultModal();
     datepicker();
   }, 10);
 });
+
 $(window).on('resize', function () {
   modalSize();
   checkGlobalNavState();
 });
 
-function switchUi() {
+function inputEvent() {
+  // switch
   $('.switch').each(function () {
     $(this).on('click', function () {
       if ($(this).hasClass('on')) {
@@ -38,10 +38,8 @@ function switchUi() {
       }
     });
   });
-}
 
-
-function progressUi() {
+  // progress bar
   $('.bar').each(function () {
     const maxValue = parseFloat($(this).data('max-value'));
     const currentValue = parseFloat($(this).data('value'));
@@ -51,6 +49,12 @@ function progressUi() {
     $(this).css('width', percentage + '%');
   });
 }
+
+
+
+
+
+
 function updateFilePath() {
   $('.file-input-group').each(function () {
     const fileInput = $(this).find('input[type="file"]');
@@ -63,16 +67,11 @@ function updateFilePath() {
 }
 function btnEvent() {
 
-
+  // header account icon
   $('.accountIcon').on('click', function (e) {
     e.preventDefault();
     e.stopPropagation();
     $(this).closest('.account').toggleClass('active');
-  });
-
-  $('.button-tab-item').on('click', function (e) {
-    // e.preventDefault();
-    // $(this).addClass('on').siblings('.button-tab-item').removeClass('on');
   });
 
   $(document).on('click', function (e) {
@@ -85,6 +84,8 @@ function btnEvent() {
     e.stopPropagation();
   });
 }
+
+// datepicker
 function datepicker() {
   if ($('.timepicker').length) {
     $('.timepicker').datetimepicker({
@@ -150,65 +151,8 @@ function datepicker() {
   }
 }
 
-function innerTabUi() {
-  const tabTit = $('.inner-tab'),
-    tabBtn = tabTit.find('li');
 
-  const tabCnt = $('.tab-content'),
-    tabIdx = tabCnt.index();
-
-  // load style settings
-  tabCnt.not(':eq(' + tabIdx + ')').hide();
-  tabTit.each(function () {
-    const defaultTit = $(this).children('li').eq(0);
-    defaultTit.addClass('on');
-  });
-  $('.tab-component').each(function () {
-    const defaultCnt = $(this).children('.tab-content').eq(0);
-    defaultCnt.addClass('on').show();
-  });
-
-  tabBtn.on('click', function (e) {
-    if ($(this).attr('rel')) {
-      e.preventDefault();
-
-      setTimeout(function () {
-        modalSize();
-      }, 4);
-
-      const $this = $(this)
-      const thisRel = $this.attr('rel');
-      const thisClass = $(`.${thisRel}`);
-      const thisText = $this.text();
-      const target = thisClass.parent('.tab-component').attr('id');
-
-      // content connect
-
-      $(`#${target}>.tab-content`)
-        .hide()
-        .removeClass('on');
-      $(`#${target}>.${thisRel}`)
-        .show()
-        .addClass('on');
-
-      // title styling and attr status
-      $this.addClass('on').siblings().removeClass('on');
-      thisClass.addClass('on').siblings().removeClass('on');
-      $this
-        .find('a')
-        .attr(`title${thisText}tab active`)
-        .parent()
-        .siblings()
-        .find('a')
-        .attr('title', '');
-    }
-  });
-}
-
-
-
-
-
+// set screen size
 function setScreenSize() {
   let vh = window.innerHeight * 0.01;
   document.documentElement.style.setProperty('--vh', `${vh}px`);
@@ -241,6 +185,7 @@ function checkGlobalNavState() {
   }, 300);
 }
 
+// Layout System
 function layoutSystem() {
   // 초기 화면 크기 체크
   checkGlobalNavState();
@@ -259,6 +204,8 @@ function layoutSystem() {
   }
 }
 
+
+// Modal Size
 function modalSize() {
   $('.modal').each(function () {
     const layerHeight = $(this).outerHeight();
@@ -268,6 +215,7 @@ function modalSize() {
   });
 }
 
+// click modal
 function clickModal() {
   $('.modalLoad').on('click', function (e) {
     e.preventDefault();
@@ -303,6 +251,7 @@ function clickModal() {
   });
 }
 
+// default modal
 function defaultModal() {
   modalSize();
   $('.modal').each(function () {
@@ -318,6 +267,7 @@ function defaultModal() {
   })
 }
 
+// GNB Menu Toggle
 function gnbMenuToggle() {
   $('.menu-item > a.arrow').on('click', function (e) {
     e.preventDefault();
@@ -328,20 +278,7 @@ function gnbMenuToggle() {
   });
 }
 
-function commonSlide() {
-  const swiperCommon = new Swiper('.noticeSwiper', {
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    pagination: {
-      el: '.swiper-pagination .inner',
-      type: 'fraction', // 1 / 3 형태
-    },
-    loop: false, // 필요시 true
-  });
-}
-
+// Dashboard Service Slider
 function serviceSlide() {
   const swiperService = new Swiper('.serviceSwiper', {
     navigation: {
@@ -359,13 +296,14 @@ function serviceSlide() {
 }
 
 
-// 함수 정의: 요소가 화면에 보이는지 확인하는 함수
+// Value Counting Animation
 function elementInView(elem) {
   var docViewTop = $(window).scrollTop();
   var docViewBottom = docViewTop + $(window).height();
   var elemTop = $(elem).offset().top;
   return elemTop <= docViewBottom && elemTop >= docViewTop;
 }
+
 $(window).on('load scroll', function () {
   $('.counting-value').each(function () {
     var $this = $(this);
@@ -460,6 +398,36 @@ function treeMenuInit() {
 
   // 모든 tree-link에 클릭 이벤트 추가
   $(document).on('click', '.tree-link', function (e) {
+    // hover-menu 내부 클릭은 이벤트 전파 중단
+    if ($(e.target).closest('.hover-menu').length > 0) {
+      return;
+    }
+
+    // type-edit 모드에서는 sortable이 활성화되어 있으므로 클릭 이벤트를 다르게 처리
+    const $treeSide = $(this).closest('.tree-side');
+    if ($treeSide.hasClass('type-edit')) {
+      // type-edit 모드에서는 단순 클릭만 처리 (드래그는 sortable이 처리)
+      // 드래그 중이 아닐 때만 클릭 이벤트 처리
+      if (!$(this).closest('.ui-sortable-helper').length) {
+        e.preventDefault();
+        const $link = $(this);
+        const $treeItem = $link.closest('.tree-item');
+        const $submenu = $treeItem.children('.tree-submenu');
+
+        // 하위 메뉴가 있는 경우 확장/축소 (수동 전환만)
+        if ($submenu.length > 0) {
+          $treeItem.toggleClass('expanded');
+        }
+
+        // 전체 트리 메뉴에서 모든 on 클래스 제거
+        $('.tree-link').removeClass('on');
+
+        // 클릭한 링크에만 on 클래스 추가 (마지막 선택 항목)
+        $link.addClass('on');
+      }
+      return;
+    }
+
     e.preventDefault();
     const $link = $(this);
     const $treeItem = $link.closest('.tree-item');

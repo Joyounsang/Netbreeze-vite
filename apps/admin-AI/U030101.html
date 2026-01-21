@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<include src="src/includes/head.html"></include>
+
+<body>
+	<div class="viewport">
+		<div class="container">
+			<div class="contents">
+				<div class="panel scrollbar">
+					<div class="panel-utility">
+						<div class="formbox">
+							<div class="netbreezeAi">
+								<div class="netbreezeHelper">
+									<span class="atom" style="background-color: #0096FF;"></span>
+									<span class="atom" style="background-color: #FC8D9D;"></span>
+									<span class="atom" style="background-color: #F5C66F;"></span>
+									<span class="atom" style="background-color: #33CEB9;"></span>
+								</div>
+							</div>
+
+							<p class="desc">
+								<em class="blue">ty******@gm*******</em>로<br>
+								전송된 인증 번호를 입력해주세요.
+							</p>
+							<div class="input-item">
+								<div class="input-item-inner">
+									<div class="input-certification">
+										<input type="text" placeholder="" maxlength="1" class="cert-input">
+										<input type="text" placeholder="" maxlength="1" class="cert-input">
+										<input type="text" placeholder="" maxlength="1" class="cert-input">
+										<input type="text" placeholder="" maxlength="1" class="cert-input">
+									</div>
+								</div>
+								<div class="input-item-inner">
+									<p class="input-text">10분 이내로 입력 해주세요.</p>
+								</div>
+								<div class="input-item-inner">
+									<a href="#" class="btn">인증번호 다시 받기</a>
+								</div>
+								<div class="input-item-inner">
+									<a href="#" class="btn type-text">다른 방법으로 인증</a>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="module" src="/src/js/main.js"></script>
+	<script>
+		// DOM이 완전히 로드된 후 실행
+		document.addEventListener('DOMContentLoaded', function () {
+			// jQuery가 로드될 때까지 대기
+			function initCertificationInputs() {
+				if (typeof $ === 'undefined') {
+					setTimeout(initCertificationInputs, 50);
+					return;
+				}
+
+				// 인증번호 입력란 초기화
+				const $certInputs = $('.input-certification .cert-input');
+
+				// 첫 번째 input에 자동 포커스
+				setTimeout(function () {
+					const $firstInput = $certInputs.first();
+					if ($firstInput.length > 0) {
+						$firstInput[0].focus();
+					}
+				}, 200);
+
+				// 각 input에 이벤트 리스너 추가
+				$certInputs.on('input', function (e) {
+					const $current = $(this);
+					const value = $current.val();
+
+					// 숫자만 입력 가능
+					if (value && !/^\d$/.test(value)) {
+						$current.val('');
+						return;
+					}
+
+					// 입력 시 다음 input으로 포커스 이동
+					if (value && $current.next('.cert-input').length > 0) {
+						$current.next('.cert-input').focus();
+					}
+				});
+
+				// 백스페이스 키 처리: 이전 input으로 이동
+				$certInputs.on('keydown', function (e) {
+					const $current = $(this);
+
+					if (e.key === 'Backspace' && $current.val() === '' && $current.prev('.cert-input').length > 0) {
+						e.preventDefault();
+						$current.prev('.cert-input').focus();
+					}
+				});
+
+				// 화살표 키로 이동 가능하도록
+				$certInputs.on('keydown', function (e) {
+					const $current = $(this);
+
+					if (e.key === 'ArrowLeft' && $current.prev('.cert-input').length > 0) {
+						e.preventDefault();
+						$current.prev('.cert-input').focus();
+					} else if (e.key === 'ArrowRight' && $current.next('.cert-input').length > 0) {
+						e.preventDefault();
+						$current.next('.cert-input').focus();
+					}
+				});
+
+				// 붙여넣기 처리
+				$certInputs.on('paste', function (e) {
+					e.preventDefault();
+					const paste = (e.originalEvent || e).clipboardData.getData('text/plain');
+					const numbers = paste.replace(/\D/g, '').split('').slice(0, $certInputs.length);
+
+					$certInputs.each(function (index) {
+						if (numbers[index]) {
+							$(this).val(numbers[index]);
+						}
+					});
+
+					// 마지막 입력된 input 다음으로 포커스
+					const lastFilledIndex = numbers.length - 1;
+					if (lastFilledIndex < $certInputs.length - 1) {
+						$certInputs.eq(lastFilledIndex + 1).focus();
+					} else {
+						$certInputs.last().focus();
+					}
+				});
+			}
+
+			initCertificationInputs();
+		});
+	</script>
+</body>
+
+</html>
