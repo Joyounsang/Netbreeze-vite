@@ -71,8 +71,8 @@ function btnEvent() {
   });
 
   $('.button-tab-item').on('click', function (e) {
-    e.preventDefault();
-    $(this).addClass('on').siblings('.button-tab-item').removeClass('on');
+    // e.preventDefault();
+    // $(this).addClass('on').siblings('.button-tab-item').removeClass('on');
   });
 
   $(document).on('click', function (e) {

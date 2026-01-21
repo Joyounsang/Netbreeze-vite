@@ -331,7 +331,7 @@ select {
 
     &:disabled+span {
       &:before {
-        opacity: 0.5;
+        // opacity: 0.5;
         background: url("../images/check-disabled.png") no-repeat center;
         background-size: contain;
       }
@@ -384,9 +384,10 @@ select[disabled],
 option[disabled],
 textarea[disabled],
 button[disabled] {
-  background: #e5ebf5 !important;
-  border-color: #e5ebf5 !important;
-  color: #afbed7 !important;
+  opacity: 0.5;
+  background: #DBE1E6 !important;
+  border-color: #DBE1E6 !important;
+  color: var(--text-gray) !important;
   pointer-events: none !important;
   background-image: none !important;
 }

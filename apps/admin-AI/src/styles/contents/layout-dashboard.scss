@@ -42,7 +42,7 @@
       flex: 1;
 
       .title-lv1 {
-        font-size: 2.4rem;
+        font-size: clamp(2.2rem, 1vw, 2.4rem);
       }
 
       .chart-view {
@@ -65,9 +65,9 @@
         }
 
         #chatChart {
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          // display: flex;
+          // align-items: center;
+          // justify-content: center;
         }
 
         &.line {
@@ -125,8 +125,6 @@
       .title-lv1 {
         margin-bottom: clamp(10px, 0.7vw, 20px);
       }
-
-
     }
 
     .currentSituation {
@@ -335,7 +333,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: clamp(200px, 20vw, 300px);
+    width: clamp(180px, 17vw, 300px);
     align-self: stretch; // 부모의 높이에 맞춤
     position: relative;
   }
@@ -459,7 +457,7 @@
 
   >li {
     display: flex;
-    padding: 26px 26px 10px 26px;
+    padding: clamp(20px, 1vw, 26px) clamp(20px, 1vw, 30px) clamp(10px, 0.5vw, 10px) clamp(20px, 1vw, 30px);
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;

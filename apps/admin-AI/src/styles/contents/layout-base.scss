@@ -41,7 +41,7 @@
 .row {
   width: 100%;
   display: flex;
-  gap: clamp(20px, 1.5vw, 40px);
+  gap: clamp(30px, 1.5vw, 40px);
 
   >.column {
     width: 100%;
@@ -109,14 +109,10 @@
                 border-bottom: 1px solid var(--border);
                 border-radius: 0;
 
-                &:hover {
-                  color: var(--rec-primary);
-                }
+
 
                 &.on {
-                  background-color: #E5F2FF;
-                  color: var(--rec-primary);
-                  font-weight: 700;
+                  outline: 1px solid var(--rec-primary-bg);
                 }
               }
 

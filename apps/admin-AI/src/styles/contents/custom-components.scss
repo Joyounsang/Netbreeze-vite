@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 2rem;
+  font-size: clamp(1.8rem, 1vw, 2rem);
   line-height: 36px;
   font-weight: 700;
 }
@@ -403,7 +403,7 @@
 
 .raf {
   display: inline-flex;
-  gap: 8px;
+  gap: 0px;
 
   &::before {
     content: '';
@@ -641,13 +641,21 @@
     }
 
     .modal-footer {
-      padding-left: 30px;
-      padding-right: 30px;
+      padding-left: 24px;
+      padding-right: 24px;
+      padding-top: 14px;
+      padding-bottom: 14px;
       display: flex;
       justify-content: end;
       gap: 20px;
       position: static;
       background-color: var(--white);
+      border: none;
+
+      .btn-text {
+        font-weight: 500;
+        font-size: 1.5rem;
+      }
     }
   }
 
@@ -738,11 +746,34 @@
     max-height: calc(100vh - 220px);
     min-width: 440px;
 
+    .null {
+      padding: 80px;
+    }
+
     .viewline {
       min-width: 800px;
-      min-height: 400px;
+      // min-height: 300px;
       border: none;
-      padding: 20px;
+      padding: 0;
+
+      .tbl {
+        border: 1px solid var(--border);
+        border: none;
+
+        table {
+          tbody {
+            tr {
+
+              th,
+              td {
+                padding: 10px 20px;
+              }
+            }
+          }
+        }
+
+
+      }
 
 
     }
@@ -1138,40 +1169,7 @@
 .tbl {
   border-top: 1px solid var(--border);
 
-  &.edit-form {
-    border-top: none;
-
-    table {
-      tbody {
-        tr {
-
-          th,
-          td {
-            padding: 10px 20px;
-          }
-        }
-      }
-    }
-
-    input[type="color"],
-    input[type="date"],
-    input[type="datetime-local"],
-    input[type="datetime"],
-    input[type="email"],
-    input[type="month"],
-    input[type="number"],
-    input[type="password"],
-    input[type="search"],
-    input[type="tel"],
-    input[type="text"],
-    input[type="time"],
-    input[type="url"],
-    input[type="week"],
-    select {
-      border-radius: 8px;
-
-    }
-  }
+  &.edit-form {}
 
   &.type-set {
     border-top: none;
@@ -1240,6 +1238,25 @@
 
   table {
     width: 100%;
+
+    input[type="color"],
+    input[type="date"],
+    input[type="datetime-local"],
+    input[type="datetime"],
+    input[type="email"],
+    input[type="month"],
+    input[type="number"],
+    input[type="password"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="text"],
+    input[type="time"],
+    input[type="url"],
+    input[type="week"],
+    select {
+      border-radius: 8px;
+
+    }
 
     thead {
       tr {
@@ -1322,19 +1339,19 @@
         th {
           background-color: transparent;
           color: var(--text-gray);
-          font-size: clamp(1.3rem, 1.4vw, 1.5rem);
+          font-size: clamp(1.3rem, 1.3vw, 1.5rem);
         }
 
         td {
           background-color: transparent;
-          font-size: clamp(1.4rem, 1.4vw, 1.6rem);
+          font-size: clamp(1.4rem, 1.3vw, 1.6rem);
         }
 
         th,
         td {
           border-left: none;
-          padding-left: 6px;
-          padding-right: 6px;
+          padding-left: 0;
+          padding-right: 0;
           padding-top: 0;
           padding-bottom: 0;
 
@@ -1396,13 +1413,17 @@
   align-items: center;
   padding: 16px 0;
   border-top: 1px solid var(--border);
+
   // border-bottom: 1px solid var(--border);
+  select {
+    min-width: 80px;
+  }
 
   span {
     color: #7E8291;
     text-align: center;
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: 1.3rem;
+    font-weight: 500;
     line-height: 100%;
     opacity: 0.5;
 
@@ -1443,6 +1464,13 @@
 
 
 .tree-menu {
+  >.tree-item {
+    >.tree-link {
+      font-size: clamp(1.4rem, 1vw, 1.6rem);
+      font-weight: 600;
+    }
+  }
+
   .tree-item {
     position: relative;
 
@@ -1451,11 +1479,12 @@
       align-items: center;
       padding: 12px 12px;
       color: #15181A;
-      font-size: clamp(1.4rem, 1vw, 1.6rem);
+      font-size: clamp(1.3rem, 1vw, 1.5rem);
       font-weight: 500;
       text-decoration: none;
       cursor: pointer;
-      transition: background-color 0.2s ease, color 0.2s ease;
+      transition: background-color 0.2s ease,
+        color 0.2s ease;
       border-radius: 10px;
 
 
@@ -1467,6 +1496,7 @@
         background-color: #E5F2FF;
         color: var(--rec-primary);
         font-weight: 700;
+
       }
     }
 
@@ -1511,7 +1541,7 @@
 
 .tree-submenu {
   list-style: none;
-  padding: 0;
+  padding: 1px 0 1px 0;
   margin: 0;
   max-height: 0;
   overflow: hidden;
