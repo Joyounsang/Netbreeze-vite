@@ -1486,6 +1486,13 @@
   border-radius: 14px;
   padding: 20px;
 
+  .filterline {
+    padding: 0 0 20px 0;
+    background-color: transparent;
+    border: none;
+    position: static;
+  }
+
   &.type-edit {
     .tree-link {
       &:after {
