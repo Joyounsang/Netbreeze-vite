@@ -1552,10 +1552,12 @@
         align-items: center;
         gap: 8px;
         width: 100%;
+        position: relative;
 
         input[type="text"] {
           flex: 1;
-          padding: 10px 12px;
+          // padding: 10px 12px;
+          padding-right: 100px;
           border: 1px solid #DBE1E6;
           border-radius: 8px;
           font-size: 1.4rem;
@@ -1573,15 +1575,20 @@
         }
 
         .form-buttons {
+          position: absolute;
+          right: 16px;
+          top: 50%;
+          transform: translateY(-50%);
           display: flex;
-          gap: 8px;
+          gap: 16px;
 
           button {
-            padding: 10px 16px;
+            padding: 0;
             border: none;
             border-radius: 8px;
             font-size: 1.4rem;
             font-weight: 500;
+            line-height: 1;
             cursor: pointer;
             transition: opacity 0.2s ease;
 
