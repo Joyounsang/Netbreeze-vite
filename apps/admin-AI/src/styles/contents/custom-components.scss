@@ -437,7 +437,8 @@
     display: block;
     width: 20px;
     height: 20px;
-
+    position: relative;
+    bottom: 2px;
   }
 
   &.up {
@@ -581,6 +582,7 @@
     backdrop-filter: blur(10px);
     box-shadow: none;
     border: 1px solid var(--border);
+    padding: 40px;
 
     .type {
       font-size: 10rem;
@@ -1241,6 +1243,7 @@
 
         th {
           background-color: transparent;
+          white-space: nowrap;
 
           .set-title {
             min-width: 200px;
@@ -1288,6 +1291,10 @@
     thead {
       tr {
         border-bottom: 1px solid var(--border);
+
+        th {
+          white-space: nowrap;
+        }
       }
     }
 

@@ -1,0 +1,299 @@
+@media (max-width: 1439px) {
+  body {
+    #gnb {
+      position: absolute;
+    }
+  }
+}
+
+// tablet
+@media (max-width: 1024px) {
+
+  .viewport {
+    min-width: 100%;
+
+    .contents {
+      width: 100%;
+    }
+  }
+
+  .panel-dashboard {
+
+    .panel-main {
+      padding-bottom: 40px;
+
+      .row {
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .mainChartsArea {
+        flex: none;
+
+        .chart-view {
+          height: 280px;
+        }
+
+        .headline {
+          // flex-direction: column;
+          // align-items: start;
+          // gap: 10px;
+          align-items: end;
+
+          .flt {
+            display: block;
+
+            .btn {
+              vertical-align: middle;
+            }
+
+            select {
+              min-width: 80px !important;
+            }
+          }
+
+        }
+
+        .title-lv1 {
+          font-size: clamp(1.8rem, 1vw, 2rem);
+          margin-bottom: 10px;
+        }
+      }
+
+      .aiHelperArea {
+        width: 100%;
+        flex-direction: row;
+        align-items: end;
+
+        .mainChartsArea-label {
+          flex-direction: row;
+          gap: 0;
+
+          li {
+            &+li {
+              margin-left: 16px;
+            }
+          }
+        }
+      }
+    }
+
+    .panel-sub {
+
+      padding-top: 40px;
+
+
+
+      .dashboardTable {
+        width: 100%;
+      }
+
+    }
+
+    .row {
+      flex-direction: column;
+      max-width: 100%;
+
+      .column {
+        width: 100%;
+
+        &.min {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .panel-default {
+    .panel-head {
+      padding-bottom: 20px;
+    }
+
+    .panel-body {
+      flex-direction: column;
+
+      .panel-body-grid {
+        width: 100% !important;
+
+        &.type-sidebar {
+          position: static;
+
+          max-height: 300px;
+          padding: 20px 40px;
+
+          &.type-page {
+            max-height: inherit;
+          }
+
+          &+.panel-body-grid {
+
+            .filterline,
+            .tabline,
+            .viewline {
+              padding-left: 40px;
+            }
+
+            .tbl {
+              &.type-set {
+                table {
+                  tbody {
+                    tr {
+                      th {
+                        padding-left: 20px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+  .tabline {
+
+    ul {
+
+
+      li {
+
+        a,
+        span {
+          font-size: 1.5rem;
+
+          span {
+            font-size: 1.4rem;
+          }
+        }
+
+        &.active {
+          a {
+            font-weight: 700;
+
+          }
+
+          &:after {
+            bottom: -1px;
+          }
+        }
+      }
+    }
+  }
+
+  .filterline {
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+
+    .flt {
+      width: 100%;
+
+      .btn {
+        margin-left: auto;
+      }
+
+      .include-ico {
+        flex: 1;
+      }
+    }
+
+    .cmd {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      justify-content: end;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+
+
+    }
+  }
+
+  .viewline {
+    .tbl {
+      width: calc(100dvw - 80px);
+
+      .tmain {
+        width: 100%;
+        overflow: auto;
+      }
+
+      table {
+        width: 100%;
+        table-layout: auto; // colgroup/col 무시, 콘텐츠 기준 자연스러운 너비
+
+        colgroup col {
+          width: auto !important;
+          min-width: 0;
+        }
+
+        tr {
+          td {
+            font-size: 1.4rem;
+          }
+
+          th {
+            font-size: 1.4rem;
+
+          }
+        }
+      }
+    }
+  }
+
+  .tree-link {
+    right: 1px;
+  }
+
+  .charts-label {
+    flex-direction: row-reverse;
+  }
+
+  .modal {
+    min-width: 100%;
+
+    &-inner {
+      display: block;
+      max-width: 94%;
+    }
+
+    .modal-header {
+      line-height: 50px;
+      min-height: 50px;
+      font-size: 1.8rem;
+
+      .modalClose {
+        width: 26px;
+        height: 26px;
+        right: 14px;
+      }
+    }
+
+    .modal-body {
+      // max-height: calc(100vh - 220px);
+      min-width: 100%;
+
+
+      .viewline {
+        min-width: 100%;
+      }
+
+      .row {
+        width: 100%;
+      }
+
+      .modal-tit {
+        font-size: 1.8rem;
+      }
+    }
+
+  }
+
+
+
+}
