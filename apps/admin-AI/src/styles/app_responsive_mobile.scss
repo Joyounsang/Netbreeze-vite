@@ -440,4 +440,27 @@
       content: none;
     }
   }
+
+  .modal {
+
+    padding: 10px;
+
+    &-inner {
+      max-width: 100%;
+    }
+
+    .modal-body {
+      max-height: calc(100vh - 150px);
+      min-width: 100%;
+      overflow: auto;
+
+
+      .row {
+        flex-direction: column;
+        height: calc(100vh - 200px) !important;
+      }
+
+    }
+
+  }
 }
