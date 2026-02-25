@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+
+@import "@repo/styles/abstracts/variables";
+@import "@repo/styles/abstracts/functions";
+@import "@repo/styles/abstracts/mixins";
+@import "@repo/styles/reset";
+
+// @import "abstracts/variables";
+// @import "abstracts/mixins";
+@import "abstracts/css-variables";
+
+@import "vendors/font";
+
+@import "base/base";
+@import "base/animations";
+@import "base/lib";
+
+@import "app";
+
+@import "contents/layout-base";
+@import "contents/layout-dashboard";
+@import "contents/custom-components";
+
+@import "app_responsive_tablet";
+@import "app_responsive_mobile";

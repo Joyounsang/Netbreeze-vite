@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<include src="src/includes/head.html"></include>
+
+<body>
+    <div class="viewport">
+        <include src="src/includes/GNB.html"></include>
+        <div class="container">
+            <include src="src/includes/header.html"></include>
+            <div class="contents">
+                <div class="panel scrollbar listView">
+                    <div class="panel-head">
+                        <div class="title">설정</div>
+                    </div>
+                    <div class="sticy-item">
+                        <div class="filter-search">
+                            <input type="text" placeholder="설정 항목 찾기">
+                            <div class="side">
+                                <a href="#" class="btn normal fill">검색</a>
+                            </div>
+                        </div>
+                        <div class="list-tab">
+                            <ul>
+                                <li class="on">
+                                    <a href="#">설정탭1</a>
+                                </li>
+                                <li>
+                                    <a href="#">설정탭2</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="content-view">
+                        <div class="setting-list">
+                            <ul>
+                                <li class="setting-item">
+                                    <div class="setting-item-inner">
+                                        <div class="head">
+                                            <div class="tit">
+                                                기본설정
+                                            </div>
+                                            <div class="desc">
+                                                explanation...explanation...
+                                            </div>
+                                        </div>
+                                        <div class="body">
+                                            <input type="text" placeholder="input">
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="setting-item">
+                                    <div class="setting-item-inner">
+                                        <div class="head">
+                                            <div class="tit">
+                                                기본설정
+                                            </div>
+                                            <div class="desc">
+                                                explanation...explanation...
+                                            </div>
+                                        </div>
+                                        <div class="body">
+                                            <select>
+                                                <option value="" selected>선택</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="setting-item">
+                                    <div class="setting-item-inner">
+                                        <div class="head">
+                                            <div class="tit">
+                                                기본설정
+                                            </div>
+                                            <div class="desc">
+                                                explanation...explanation...
+                                            </div>
+                                        </div>
+                                        <div class="body">
+                                            <div class="set-option">
+                                                <div class="labelname">세부설정2</div>
+                                                <label class="switch">
+                                                    <input type="checkbox" id="switch">
+                                                    <span class="slider"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <include src="src/includes/단어바꾸기.html"></include>
+    <script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>

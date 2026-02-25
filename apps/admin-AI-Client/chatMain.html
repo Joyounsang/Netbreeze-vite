@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<include src="src/includes/head.html"></include>
+
+<body>
+    <div class="viewport">
+        <include src="src/includes/GNB.html"></include>
+        <include src="src/includes/대화리스트.html"></include>
+        <div class="container">
+            <include src="src/includes/header.html"></include>
+            <div class="contents">
+                <div class="panel scrollbar listChat">
+                    <div class="content-view">
+
+                        <div class="user-global-chat">
+                            <div class="main-logo">
+                                <img src="assets/images/logo-netbreeze.png" alt="">
+                                <p>
+                                    AI 민원처리 시스템 입니다.<br>
+                                    <b>무엇을 도와드릴까요?</b>
+                                </p>
+                            </div>
+                            <include src="src/includes/대화입력창.html"></include>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>

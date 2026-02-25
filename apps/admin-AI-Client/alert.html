@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<include src="src/includes/head.html"></include>
+
+<body>
+	<a href="#modalDemo" class="btn natural line modalLoad">Modal</a>
+	<a href="#alertDemo" class="btn natural line modalLoad">Alert</a>
+
+	<div id="modalDemo" class="modal">
+		<div class="modal-inner">
+			<div class="modal-header">
+				의견남기기
+				<a href="#" class="modalClose" title="닫기">닫기</a>
+			</div>
+
+			<div class="modal-body">
+				<div class="row">
+					<div class="column">
+
+						<article>
+							소중한 의견이 정상적으로 접수되었습니다.<br>
+							서비스 품질 향상에 활용하겠습니다
+							<div class="modal-footer">
+								<div class="justify right">
+									<a href="#" class="btn natural line"><span>취소</span></a>
+									<a href="#" class="btn positive fill"><span>확인</span></a>
+								</div>
+							</div>
+
+						</article>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="modal-dim"></div>
+	</div>
+
+
+	<div id="alertDemo" class="modal alert center">
+		<div class="modal-inner">
+			<div class="modal-body">
+				<div class="alert-title">의견남기기</div>
+
+				<p class="desc">
+					소중한 의견이 정상적으로 접수되었습니다.<br>
+					서비스 품질 향상에 활용하겠습니다
+				</p>
+			</div>
+			<div class="modal-footer">
+				<div class="justify right">
+					<a href="#" class="btn-text modalClose"><em class="gray">취소</em></a>
+					<a href="#" class="btn-text"><em class="blue">확인</em></a>
+				</div>
+			</div>
+		</div>
+		<div class="modal-dim"></div>
+	</div>
+	<script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>

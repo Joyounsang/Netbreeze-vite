@@ -1,0 +1,227 @@
+@keyframes modalDimShow {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes modalShow {
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes modalDimHide {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes modalHide {
+  0% {
+    top: 0;
+    opacity: 1;
+  }
+
+  100% {
+    top: 40px;
+    opacity: 0;
+  }
+}
+
+@keyframes ani-moveup {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes signAni {
+  0% {
+    filter: blur(0);
+  }
+
+  100% {
+    filter: blur(3px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -100% 0;
+  }
+
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes dung {
+  0% {
+    transform: translate(0, 10px);
+  }
+
+  100% {
+    transform: translate(0, -10px);
+  }
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.8);
+  }
+}
+
+// 초기 로드 시 scale 0에서 1로 커지는 애니메이션
+@keyframes scaleIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+// 아래에서 위로 올라오는 애니메이션
+@keyframes slideUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+// Scale 펄스 애니메이션 키프레임
+@keyframes scalePulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.03);
+  }
+}
+
+// 회전 애니메이션 키프레임
+@keyframes rotate360 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// 무작위 움직임 애니메이션 키프레임
+@keyframes atomMove1 {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(50px, -30px);
+  }
+
+  50% {
+    transform: translate(-40px, 45px);
+  }
+
+  75% {
+    transform: translate(35px, 30px);
+  }
+}
+
+@keyframes atomMove2 {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(-45px, 35px);
+  }
+
+  50% {
+    transform: translate(55px, -25px);
+  }
+
+  75% {
+    transform: translate(-30px, -40px);
+  }
+}
+
+@keyframes atomMove3 {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(30px, 50px);
+  }
+
+  50% {
+    transform: translate(-50px, -35px);
+  }
+
+  75% {
+    transform: translate(40px, -25px);
+  }
+}
+
+@keyframes atomMove4 {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(-35px, -45px);
+  }
+
+  50% {
+    transform: translate(45px, 40px);
+  }
+
+  75% {
+    transform: translate(-50px, 35px);
+  }
+}

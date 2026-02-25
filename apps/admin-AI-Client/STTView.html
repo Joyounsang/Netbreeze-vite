@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="ko">
+<include src="src/includes/head.html"></include>
+
+<body>
+    <div class="viewport">
+        <include src="src/includes/GNB.html"></include>
+        <div class="container">
+            <include src="src/includes/header.html"></include>
+            <div class="contents">
+                <div class="panel scrollbar callView">
+                    <div class="panel-head">
+                        <div class="title">
+                            <img src="assets/images/iconsMenu-gnb-ai.png" alt="" style="width: 20px;">
+                            발신자 박정민 님과의 통화
+                            <span class="badge">공유받은 대화</span>
+                        </div>
+                    </div>
+                    <div class="sticy-item">
+                        <div class="filter-search">
+                            <input type="text" placeholder="음성 기록 키워드 검색">
+                            <div class="side">
+                                <a href="#modWordChange" class="btn white modalLoad">
+                                    <img src="assets/images/ico-wordChange.png" alt="">
+                                    단어바꾸기
+                                </a>
+                                <a href="#" class="btn white">검색</a>
+                            </div>
+                        </div>
+                        <div class="sidebar">
+
+                            <div class="command">
+                                <label class="checkbox">
+                                    <input type="checkbox"><span>메모 모아 보기</span>
+                                </label>
+                            </div>
+                            <div class="command">
+                                <a href="#mdMarketShare" class="btn natural line modalLoad">
+                                    점유율
+                                </a>
+                                <a href="#" class="btn natural line recordeditall">
+                                    <img src="assets/images/ico-recordEdit.png" alt="" style="width: 20px;">
+                                    음성기록 편집
+                                </a>
+                                <div class="active-show-btn">
+                                    <a href="#" class="btn natural line">
+                                        취소
+                                    </a>
+                                    <a href="#" class="btn positive fill">
+                                        저장
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-view">
+                        <div class="callRecord">
+                            <div class="callRecord-inner">
+                                <ul class="list-chat">
+                                    <li class="chat-item cursor admin">
+                                        <div class="chat-item-inner">
+                                            <!-- <div class="time">10:00</div> -->
+                                            <div class="talkbox">
+                                                <div class="head">
+                                                    <div class="name">담당자</div>
+                                                    <div class="time">00:00</div>
+                                                    <ul class="list-option">
+                                                        <li>
+                                                            <button class="hightlight" title="하이라이트">
+                                                                <img src="assets/images/ico-hightlight.png" alt="">
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="addmemo" title="메모">
+                                                                <img src="assets/images/ico-addmemo.png" alt="">
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="recordedit" title="음성기록 편집">
+                                                                <img src="assets/images/ico-recordEdit.png" alt="">
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="textcopy" title="텍스트복사">
+                                                                <img src="assets/images/ico-textcopy.png" alt="">
+                                                            </button>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="body">
+                                                    <p>네, 실업급여 신청 관련해서 도와드리겠습니다. 성함과 생년월일 말씀해
+                                                        주시겠습니까?네, 실업급여 신청 관련해서 도와드리겠습니다. 성함과 생년월일 말씀해 주시겠습니까?네, 실업급여 신청
+                                                        관련해서 도와드리겠습니다. 성함과 생년월일 말씀해 주시겠습니까?네, 실업급여 신청 관련해서 도와드리겠습니다. 성함과
+                                                        생년월일 말씀해 주시겠습니까?네, 실업급여 신청 관련해서 도와드리겠습니다. 성함과 생년월일 말씀해 주시겠습니까?
+                                                    </p>
+                                                    <div class="contenteditable-command">
+                                                        <a href="#" class="text-btn">취소</a>
+                                                        <a href="#" class="text-btn positive">저장</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li class="chat-item cursor user">
+                                        <div class="chat-item-inner">
+                                            <!-- <div class="time">10:00</div> -->
+                                            <div class="talkbox">
+                                                <div class="head">
+                                                    <div class="name">발신자</div>
+                                                    <div class="time">00:00</div>
+                                                    <ul class="list-option">
+                                                        <li>
+                                                            <button class="hightlight" title="하이라이트">
+                                                                <img src="assets/images/ico-hightlight.png" alt="">
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="addmemo" title="메모">
+                                                                <img src="assets/images/ico-addmemo.png" alt="">
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="recordedit" title="음성기록 편집">
+                                                                <img src="assets/images/ico-recordEdit.png" alt="">
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="textcopy" title="텍스트복사">
+                                                                <img src="assets/images/ico-textcopy.png" alt="">
+                                                            </button>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="body">
+                                                    <p>
+                                                        네, 실업급여 신청하려고 하는데요.
+                                                        <span class="list-option">
+                                                            <span class="list-option-item">
+                                                                <a href="#mdHistory" class="history modalLoad"
+                                                                    title="히스토리">
+                                                                    <img src="assets/images/ico-history.png" alt="">
+                                                                </a>
+                                                            </span>
+                                                        </span>
+                                                    </p>
+                                                    <div class="contenteditable-command">
+                                                        <a href="#" class="text-btn">취소</a>
+                                                        <a href="#" class="text-btn positive">저장</a>
+                                                    </div>
+                                                    <div class="memo">
+                                                        하께서 2025년 7월 20일에 제출하신 '넥스트테크 김 부장의 직장 내 괴롭힘' 민원은 담당 부서인
+                                                        서울지방고용노동청 근로개선지도과에
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li class="chat-item cursor admin">
+                                        <div class="chat-item-inner">
+                                            <!-- <div class="time">10:00</div> -->
+                                            <div class="talkbox">
+                                                <div class="head">
+                                                    <div class="name">담당자</div>
+                                                    <div class="time">00:00</div>
+                                                    <ul class="list-option">
+                                                        <li>
+                                                            <button class="hightlight" title="하이라이트">
+                                                                <img src="assets/images/ico-hightlight.png" alt="">
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="addmemo" title="메모">
+                                                                <img src="assets/images/ico-addmemo.png" alt="">
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="recordedit" title="음성기록 편집">
+                                                                <img src="assets/images/ico-recordEdit.png" alt="">
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="textcopy" title="텍스트복사">
+                                                                <img src="assets/images/ico-textcopy.png" alt="">
+                                                            </button>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="body">
+                                                    <p>네, 실업급여 신청 관련해서 도와드리겠습니다. 성함과 생년월일 말씀해
+                                                        주시겠습니까?네, 실업급여 신청 관련해서 도와드리겠습니다. 성함과 생년월일 말씀해 주시겠습니까?네, 실업급여 신청
+                                                        관련해서 도와드리겠습니다. 성함과 생년월일 말씀해 주시겠습니까?네, 실업급여 신청 관련해서 도와드리겠습니다. 성함과
+                                                        생년월일 말씀해 주시겠습니까?네, 실업급여 신청 관련해서 도와드리겠습니다. 성함과 생년월일 말씀해 주시겠습니까?
+                                                    </p>
+                                                    <div class="contenteditable-command">
+                                                        <a href="#" class="text-btn">취소</a>
+                                                        <a href="#" class="text-btn positive">저장</a>
+                                                    </div>
+                                                    <div class="memo">
+                                                        하께서 2025년 7월 20일에 제출하신 '넥스트테크 김 부장의 직장 내 괴롭힘' 민원은 담당 부서인
+                                                        서울지방고용노동청 근로개선지도과에
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li class="chat-item cursor user status-active">
+                                        <div class="chat-item-inner">
+                                            <!-- <div class="time">10:00</div> -->
+                                            <div class="talkbox">
+                                                <div class="head">
+                                                    <div class="name">발신자</div>
+                                                    <div class="time">00:00</div>
+                                                    <ul class="list-option">
+                                                        <li>
+                                                            <button class="hightlight" title="하이라이트">
+                                                                <img src="assets/images/ico-hightlight.png" alt="">
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="addmemo" title="메모">
+                                                                <img src="assets/images/ico-addmemo.png" alt="">
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="recordedit" title="음성기록 편집">
+                                                                <img src="assets/images/ico-recordEdit.png" alt="">
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="textcopy" title="텍스트복사">
+                                                                <img src="assets/images/ico-textcopy.png" alt="">
+                                                            </button>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="body">
+                                                    <p>네, 실업급여 신청하려고 하는데요.</p>
+                                                    <div class="contenteditable-command">
+                                                        <a href="#" class="text-btn">취소</a>
+                                                        <a href="#" class="text-btn positive">저장</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li class="chat-item cursor admin">
+                                        <div class="chat-item-inner">
+                                            <!-- <div class="time">10:00</div> -->
+                                            <div class="talkbox">
+                                                <div class="head">
+                                                    <div class="name">담당자</div>
+                                                    <div class="time">00:00</div>
+                                                    <ul class="list-option">
+                                                        <li>
+                                                            <button class="hightlight" title="하이라이트">
+                                                                <img src="assets/images/ico-hightlight.png" alt="">
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="addmemo" title="메모">
+                                                                <img src="assets/images/ico-addmemo.png" alt="">
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="recordedit" title="음성기록 편집">
+                                                                <img src="assets/images/ico-recordEdit.png" alt="">
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="textcopy" title="텍스트복사">
+                                                                <img src="assets/images/ico-textcopy.png" alt="">
+                                                            </button>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="body">
+                                                    <p>네, 실업급여 신청 관련해서 도와드리겠습니다. 성함과 생년월일 말씀해
+                                                        주시겠습니까?네, 실업급여 신청 관련해서 도와드리겠습니다. 성함과 생년월일 말씀해 주시겠습니까?네, 실업급여 신청
+                                                        관련해서 도와드리겠습니다. 성함과 생년월일 말씀해 주시겠습니까?네, 실업급여 신청 관련해서 도와드리겠습니다. 성함과
+                                                        생년월일 말씀해 주시겠습니까?네, 실업급여 신청 관련해서 도와드리겠습니다. 성함과 생년월일 말씀해 주시겠습니까?
+                                                    </p>
+                                                    <div class="contenteditable-command">
+                                                        <a href="#" class="text-btn">취소</a>
+                                                        <a href="#" class="text-btn positive">저장</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li class="chat-item cursor user">
+                                        <div class="chat-item-inner">
+                                            <!-- <div class="time">10:00</div> -->
+                                            <div class="talkbox">
+                                                <div class="head">
+                                                    <div class="name">발신자</div>
+                                                    <div class="time">00:00</div>
+                                                    <ul class="list-option">
+                                                        <li>
+                                                            <button class="hightlight" title="하이라이트">
+                                                                <img src="assets/images/ico-hightlight.png" alt="">
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="addmemo" title="메모">
+                                                                <img src="assets/images/ico-addmemo.png" alt="">
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="recordedit" title="음성기록 편집">
+                                                                <img src="assets/images/ico-recordEdit.png" alt="">
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="textcopy" title="텍스트복사">
+                                                                <img src="assets/images/ico-textcopy.png" alt="">
+                                                            </button>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="body">
+                                                    <p>네, 실업급여 신청하려고 하는데요.</p>
+                                                    <div class="contenteditable-command">
+                                                        <a href="#" class="text-btn">취소</a>
+                                                        <a href="#" class="text-btn positive">저장</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li class="chat-item cursor admin">
+                                        <div class="chat-item-inner">
+                                            <!-- <div class="time">10:00</div> -->
+                                            <div class="talkbox">
+                                                <div class="head">
+                                                    <div class="name">담당자</div>
+                                                    <div class="time">00:00</div>
+                                                    <ul class="list-option">
+                                                        <li>
+                                                            <button class="hightlight" title="하이라이트">
+                                                                <img src="assets/images/ico-hightlight.png" alt="">
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="addmemo" title="메모">
+                                                                <img src="assets/images/ico-addmemo.png" alt="">
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="recordedit" title="음성기록 편집">
+                                                                <img src="assets/images/ico-recordEdit.png" alt="">
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="textcopy" title="텍스트복사">
+                                                                <img src="assets/images/ico-textcopy.png" alt="">
+                                                            </button>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="body">
+                                                    <p>네, 실업급여 신청 관련해서 도와드리겠습니다. 성함과 생년월일 말씀해
+                                                        주시겠습니까?네, 실업급여 신청 관련해서 도와드리겠습니다. 성함과 생년월일 말씀해 주시겠습니까?네, 실업급여 신청
+                                                        관련해서 도와드리겠습니다. 성함과 생년월일 말씀해 주시겠습니까?네, 실업급여 신청 관련해서 도와드리겠습니다. 성함과
+                                                        생년월일 말씀해 주시겠습니까?네, 실업급여 신청 관련해서 도와드리겠습니다. 성함과 생년월일 말씀해 주시겠습니까?
+                                                    </p>
+                                                    <div class="contenteditable-command">
+                                                        <a href="#" class="text-btn">취소</a>
+                                                        <a href="#" class="text-btn positive">저장</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li class="chat-item cursor user">
+                                        <div class="chat-item-inner">
+                                            <!-- <div class="time">10:00</div> -->
+                                            <div class="talkbox">
+                                                <div class="head">
+                                                    <div class="name">발신자</div>
+                                                    <div class="time">00:00</div>
+                                                    <ul class="list-option">
+                                                        <li>
+                                                            <button class="hightlight" title="하이라이트">
+                                                                <img src="assets/images/ico-hightlight.png" alt="">
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="addmemo" title="메모">
+                                                                <img src="assets/images/ico-addmemo.png" alt="">
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="recordedit" title="음성기록 편집">
+                                                                <img src="assets/images/ico-recordEdit.png" alt="">
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="textcopy" title="텍스트복사">
+                                                                <img src="assets/images/ico-textcopy.png" alt="">
+                                                            </button>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="body">
+                                                    <p>네, 실업급여 신청하려고 하는데요.</p>
+                                                    <div class="contenteditable-command">
+                                                        <a href="#" class="text-btn">취소</a>
+                                                        <a href="#" class="text-btn positive">저장</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <div class="player">
+                                    <div class="player-inner">
+                                        <div class="nb-player" data-skip="10">
+                                            <audio class="nb-audio" preload="metadata">
+                                                <source src="assets/audio/sample.mp3" type="audio/mpeg">
+                                            </audio>
+
+                                            <div class="nb-track">
+                                                <span class="nb-time nb-current">00:00</span>
+                                                <div class="nb-seek" role="slider" aria-label="재생 위치" tabindex="0">
+                                                    <div class="nb-bar">
+                                                        <div class="nb-fill"></div>
+                                                    </div>
+                                                </div>
+                                                <span class="nb-time nb-duration">00:00</span>
+                                            </div>
+
+                                            <div class="nb-controls">
+                                                <button class="nb-btn nb-mute" aria-label="음소거"></button>
+                                                <button class="nb-btn nb-prev" aria-label="이전 10초"></button>
+                                                <button class="nb-btn nb-play" aria-label="재생"></button>
+                                                <button class="nb-btn nb-next" aria-label="다음 10초"></button>
+                                                <button class="nb-btn nb-rate" aria-label="배속">1x</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel side aiRecord">
+                    <div class="panel-side-inner">
+                        <div class="title">
+                            <img src="assets/images/ico-ai.png" alt="" style="width: 18px;">
+                            Ai 요약 및 메모
+                        </div>
+                        <div class="memoRecord scroll-cont scrollbar">
+
+                            <div class="recording">
+                                <div class="info">
+                                    AI가 실시간 내용을 기록 중입니다...
+                                </div>
+                                <div class="text-loading">
+                                    <div class="demo"></div>
+                                    <div class="demo"></div>
+                                </div>
+                            </div>
+
+                            <div class="list-memo">
+                                <ol>
+                                    <li>
+                                        <div class="info">
+                                            <div class="tit">주요 키워드</div>
+                                            <div class="keyword">
+                                                <ul>
+                                                    <li>실업급여</li>
+                                                    <li>권고사직</li>
+                                                    <li>방문상담</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="info">
+                                            <div class="tit">통화 개요</div>
+                                            <p>
+                                                통화 목적: 실업급여 신청 및 방문상담 예약
+                                            </p>
+                                            <p>
+                                                통화 시간: 약 1분 33초
+                                            </p>
+                                        </div>
+                                        <ul class="list-option">
+                                            <li>
+                                                <button class="addmemo" title="메모">
+                                                    <img src="assets/images/ico-addmemo.png" alt="">
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button class="ico more" title="더보기">더보기</button>
+                                                <div class="list-more-cont">
+                                                    <ul>
+                                                        <li> <button>삭제</button> </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <div class="info">
+                                            <div class="tit">고객 정보</div>
+                                            <p>
+                                                성명: 박정민
+                                            </p>
+                                            <p>
+                                                퇴직 회사: (주)OO전자
+                                            </p>
+                                            <p>
+                                                퇴사일: 이번 달 15일
+                                            </p>
+                                            <p>
+                                                퇴사 사유: 회사 경영악화로 인한 권고사직
+                                            </p>
+                                            <div class="memo">
+                                                하께서 2025년 7월 20일에 제출하신 '넥스트테크 김 부장의 직장 내 괴롭힘' 민원은 담당 부서인
+                                                서울지방고용노동청 근로개선지도과에
+                                            </div>
+                                        </div>
+                                        <ul class="list-option">
+                                            <li>
+                                                <button class="addmemo" title="메모">
+                                                    <img src="assets/images/ico-addmemo.png" alt="">
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button class="ico more" title="더보기">더보기</button>
+                                                <div class="list-more-cont">
+                                                    <ul>
+                                                        <li> <button>삭제</button> </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <div class="info">
+                                            <div class="tit">상담 내용</div>
+                                            <p>
+                                                <b>실업급여 수급자격 확인</b>
+                                            </p>
+                                            <ul class="list-dot">
+                                                <li>
+                                                    수급자격 있음 확인
+                                                </li>
+                                                <li>
+                                                    구직신청 필요성 안내
+                                                </li>
+                                            </ul>
+                                            <p>
+                                                <b>방문상담 예약</b>
+                                            </p>
+                                            <ul class="list-dot">
+                                                <li>
+                                                    일시 : 이번 주 금요일 오전 10시
+                                                </li>
+                                                <li>
+                                                    장소 : 1층 4번 창구
+                                                </li>
+                                                <li>
+                                                    예상 소요시간 : 30분
+                                                </li>
+                                            </ul>
+
+                                            <p>
+                                                <b>준비서류 안내</b>
+                                            </p>
+                                            <ul class="list-dot">
+                                                <li>
+                                                    신분증
+                                                </li>
+                                                <li>
+                                                    통장사본
+                                                </li>
+                                                <li>
+                                                    권고사직 관련 서류 등(선택)
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <ul class="list-option">
+                                            <li>
+                                                <button class="addmemo" title="메모">
+                                                    <img src="assets/images/ico-addmemo.png" alt="">
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button class="ico more" title="더보기">더보기</button>
+                                                <div class="list-more-cont">
+                                                    <ul>
+                                                        <li> <button>삭제</button> </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="result">
+                                        <div class="info">
+                                            <div class="tit">상담 결과</div>
+                                            <p>
+                                                실업급여 신청을 위한 방문상담 예약 완료
+                                                필요 서류 안내 완료
+                                            </p>
+                                        </div>
+                                    </li>
+
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <include src="src/includes/단어바꾸기.html"></include>
+    <include src="src/includes/점유율.html"></include>
+    <include src="src/includes/수정내역.html"></include>
+    <include src="src/includes/메모작성.html"></include>
+    <include src="src/includes/텍스트복사토스트.html"></include>
+
+    <script>
+        (function ($) {
+            // 플레이어 커스텀
+            initCustomPlayer();
+
+            // 옵션 기능 스크립트
+            optionMemoInputPopupUi(); // 메모작성 기능
+            optionHightlightUi(); // 하이라이트 기능
+            optionTextCopyUi(); // 텍스트복사 기능
+            optionContenteditableUi(); // 음성기록편집 기능
+            opationRecordeditallAllUi(); // 음성기록편집 전체
+
+            function opationRecordeditallAllUi() {
+                $('.recordeditall').on('click', function (e) {
+                    e.preventDefault();
+                    $(this).addClass('active');
+                    const $talk = $('.callRecord');
+                    const $ps = $talk.find('p');
+                    // const $command = $talk.find('.contenteditable-command');
+                    // 모든 p를 편집 가능하게
+                    $ps.attr('contenteditable', 'true');
+                    $('.active-show-btn').show();
+                    // $command.addClass('on');
+                    // 첫 번째 p에 포커스 주고 커서를 맨 끝으로
+                    const $first = $ps.first();
+                    if ($first.length) {
+                        $first.focus();
+                        placeCaretAtEnd($first[0]);
+                    }
+
+
+                });
+                $('.active-show-btn').find('a').on('click', function (e) {
+                    e.preventDefault();
+                    $('.callRecord').find('p').attr('contenteditable', 'false');
+                    $('.active-show-btn').hide();
+                    $('.recordeditall').removeClass('active');
+                })
+            }
+            function optionContenteditableUi() {
+                $('.recordedit').on('click', function (e) {
+                    e.preventDefault();
+
+                    const $p = $(this)
+                        .closest('.talkbox')
+                        .find('p');
+
+                    $p.attr('contenteditable', 'true').focus();
+
+                    // 필요하면 커서를 맨 끝으로 이동
+                    const range = document.createRange();
+                    const sel = window.getSelection();
+                    range.selectNodeContents($p[0]);
+                    range.collapse(false);
+                    sel.removeAllRanges();
+                    sel.addRange(range);
+
+                    $(this).parents('.talkbox').find('.contenteditable-command').addClass('on');
+                });
+
+                $('.talkbox').find('.text-btn').on('click', function (e) {
+                    e.preventDefault();
+                    $(this).parents('.talkbox').find('.contenteditable-command').removeClass('on');
+                    $(this).closest('.talkbox').find('p').attr('contenteditable', 'false');
+                });
+            }
+            function optionTextCopyUi() {
+                const $toast = $('#toastTextCopy');
+                $('.textcopy').on('click', function (e) {
+                    e.preventDefault();
+                    // 토스트 표시
+                    $toast.addClass('show');
+                    // 3초 후 fade out
+                    setTimeout(function () {
+                        $toast.removeClass('show');
+                    }, 3000);
+                });
+            }
+
+            function optionHightlightUi() {
+                $('.hightlight').on('click', function (e) {
+                    e.preventDefault();
+                    $(this).parents('.talkbox').find('p').toggleClass('hightlight');
+                })
+            }
+
+            function optionMemoInputPopupUi() {
+                let $popover = null;
+                let $currentTrigger = null;
+
+                function getPopover() {
+                    if (!$popover || !$popover.length) {
+                        $popover = $('#memoInput');
+                        if ($popover && $popover.length) {
+                            // 전역 위에 뜨도록 한 번만 보정
+                            if (!$popover.css('position') || $popover.css('position') === 'static') {
+                                $popover.css('position', 'absolute');
+                            }
+                            if (!$popover.css('z-index') || $popover.css('z-index') === 'auto') {
+                                $popover.css('z-index', 10000);
+                            }
+                            $popover.hide();
+                        }
+                    }
+                    return $popover;
+                }
+
+                function placePopover($trigger) {
+                    const $pop = getPopover();
+                    const trigOffset = $trigger.offset();
+                    const trigW = $trigger.outerWidth();
+                    const trigH = $trigger.outerHeight();
+
+                    if (!trigOffset) return;
+
+                    $pop.css({ top: -9999, left: -9999, display: 'block' });
+                    const popW = $pop.outerWidth() || 0;
+                    const popH = $pop.outerHeight() || 0;
+
+                    const gap = 8;
+                    let top = trigOffset.top;
+                    let left = trigOffset.left + trigW + gap; // 기본: 우측
+
+                    const winW = $(window).width();
+                    const winH = $(window).height();
+                    const scrollTop = $(window).scrollTop();
+
+                    // 우측 넘침 시 좌측으로 플립
+                    if (left + popW > winW + $(window).scrollLeft()) {
+                        left = trigOffset.left - popW - gap;
+                    }
+
+                    // 세로 조정: 트리거 상단 기준, 하단 넘치면 위로 올림
+                    const bottom = top + popH;
+                    if (bottom > scrollTop + winH) {
+                        top = Math.max(scrollTop + winH - popH - gap, scrollTop + 8);
+                    }
+
+                    // 트리거 중앙 정렬 보정 (가능하면)
+                    if (popH > trigH) {
+                        const centerTop = trigOffset.top + (trigH / 2) - (popH / 2);
+                        if (centerTop >= scrollTop && centerTop + popH <= scrollTop + winH) {
+                            top = centerTop;
+                        }
+                    }
+
+                    $pop.css({ top: Math.round(top), left: Math.round(left) });
+                }
+
+                function openPopover($trigger) {
+                    $currentTrigger = $trigger;
+                    const $pop = getPopover();
+                    $pop.addClass('open');
+                    placePopover($trigger);
+                }
+
+                function closePopover() {
+                    const $pop = getPopover();
+                    $pop.removeClass('open').hide().css({ top: '', left: '', display: '' });
+                    $currentTrigger = null;
+                }
+
+                $(document).on('click', '.addmemo', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const $t = $(this);
+                    const $pop = getPopover();
+                    if ($pop.hasClass('open') && $currentTrigger && $currentTrigger.is($t)) {
+                        closePopover();
+                        return;
+                    }
+                    $pop.show();
+                    openPopover($t);
+                });
+
+                // 팝오버 내부 클릭은 전파 차단
+                $(document).on('click', '#memoInput', function (e) {
+                    e.stopPropagation();
+                });
+
+                // 외부 클릭 닫기
+                $(document).on('click', function (e) {
+                    const $pop = getPopover();
+                    if (!$pop.hasClass('open')) return;
+                    const $target = $(e.target);
+                    if ($target.closest('.memoInput').length) return;
+                    if ($target.closest('.addmemo').length) return;
+                    closePopover();
+                });
+
+                // ESC 닫기
+                $(document).on('keydown', function (e) {
+                    const $pop = getPopover();
+                    if (e.key === 'Escape' && $pop.hasClass('open')) {
+                        closePopover();
+                    }
+                });
+
+                // 취소/저장 닫기
+                $(document).on('click', '#memoInput .btn.natural, #memoInput .btn.positive', function (e) {
+                    e.preventDefault();
+                    closePopover();
+                });
+
+                // 창 리사이즈/스크롤 시 닫기
+                $(window).on('resize scroll', function () {
+                    const $pop = getPopover();
+                    if ($pop.hasClass('open')) {
+                        closePopover();
+                    }
+                });
+
+                // 어떤 스크롤 컨테이너에서도 스크롤 시 닫히도록(캡처 단계)
+                window.addEventListener('scroll', function () {
+                    const $pop = getPopover();
+                    if ($pop.hasClass('open')) {
+                        closePopover();
+                    }
+                }, true);
+
+            }
+
+
+            // 커스텀 오디오 플레이어
+            function initCustomPlayer() {
+                const player = document.querySelector('.nb-player');
+                if (!player) return;
+
+                const audio = player.querySelector('.nb-audio');
+                const btnPlay = player.querySelector('.nb-play');
+                const btnPrev = player.querySelector('.nb-prev');
+                const btnNext = player.querySelector('.nb-next');
+                const btnMute = player.querySelector('.nb-mute');
+                const btnRate = player.querySelector('.nb-rate');
+                const timeCurrent = player.querySelector('.nb-current');
+                const timeDuration = player.querySelector('.nb-duration');
+                const seek = player.querySelector('.nb-seek');
+                const bar = player.querySelector('.nb-bar');
+                const fill = player.querySelector('.nb-fill');
+                const skipSeconds = parseInt(player.getAttribute('data-skip') || '10', 10);
+
+                // 유틸: 시간 포맷
+                const formatTime = (sec) => {
+                    if (!isFinite(sec)) return '00:00';
+                    const m = Math.floor(sec / 60);
+                    const s = Math.floor(sec % 60);
+                    return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+                };
+
+                // 메타데이터 로드 시 길이 표시
+                audio.addEventListener('loadedmetadata', () => {
+                    timeDuration.textContent = formatTime(audio.duration);
+                });
+
+                // 재생/일시정지
+                const togglePlay = () => {
+                    if (audio.paused) {
+                        audio.play();
+                    } else {
+                        audio.pause();
+                    }
+                };
+                btnPlay.addEventListener('click', togglePlay);
+                audio.addEventListener('play', () => {
+                    btnPlay.classList.add('is-pause');
+                    btnPlay.setAttribute('aria-label', '일시정지');
+                });
+                audio.addEventListener('pause', () => {
+                    btnPlay.classList.remove('is-pause');
+                    btnPlay.setAttribute('aria-label', '재생');
+                });
+
+                // 이전/다음: 구간 이동
+                btnPrev.addEventListener('click', () => {
+                    audio.currentTime = Math.max(0, audio.currentTime - skipSeconds);
+                });
+                btnNext.addEventListener('click', () => {
+                    audio.currentTime = Math.min(audio.duration || audio.currentTime + skipSeconds, audio.currentTime + skipSeconds);
+                });
+
+                // 음소거
+                btnMute.addEventListener('click', () => {
+                    audio.muted = !audio.muted;
+                    btnMute.classList.toggle('is-muted', audio.muted);
+                    btnMute.setAttribute('aria-label', audio.muted ? '음소거 해제' : '음소거');
+                });
+
+                // 배속 순환
+                const rates = [0.5, 1, 1.25, 1.5, 2];
+                let rateIdx = 1; // 1x
+                const applyRate = () => {
+                    audio.playbackRate = rates[rateIdx];
+                    btnRate.textContent = `${rates[rateIdx]}x`;
+                };
+                applyRate();
+                btnRate.addEventListener('click', () => {
+                    rateIdx = (rateIdx + 1) % rates.length;
+                    applyRate();
+                });
+
+                // 진행 바 업데이트
+                const updateProgress = () => {
+                    timeCurrent.textContent = formatTime(audio.currentTime);
+                    const ratio = (audio.currentTime / (audio.duration || 1));
+                    fill.style.width = `${ratio * 100}%`;
+                };
+                audio.addEventListener('timeupdate', updateProgress);
+                audio.addEventListener('seeked', updateProgress);
+
+                // 클릭 시
+                const getClickRatio = (evt) => {
+                    const rect = bar.getBoundingClientRect();
+                    const x = Math.min(Math.max(evt.clientX - rect.left, 0), rect.width);
+                    return x / rect.width;
+                };
+                seek.addEventListener('click', (e) => {
+                    const ratio = getClickRatio(e);
+                    audio.currentTime = ratio * (audio.duration || 0);
+                });
+                // 키보드 접근성
+                seek.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowLeft') {
+                        audio.currentTime = Math.max(0, audio.currentTime - 5);
+                    } else if (e.key === 'ArrowRight') {
+                        audio.currentTime = Math.min(audio.duration || audio.currentTime + 5, audio.currentTime + 5);
+                    } else if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        togglePlay();
+                    }
+                });
+            }
+        })(jQuery);
+    </script>
+    <script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>
