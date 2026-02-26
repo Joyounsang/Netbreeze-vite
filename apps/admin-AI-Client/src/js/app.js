@@ -1,4 +1,31 @@
 'use strict';
+
+// sticky-item 높이를 자동으로 계산하여 CSS 변수로 설정
+function updateStickyItemHeight() {
+  $('.sticy-item').each(function () {
+    const $stickyItem = $(this);
+    const height = $stickyItem.outerHeight();
+
+    if (height > 0) {
+      // .sticy-item의 다음 형제인 .content-view를 찾음
+      const $contentView = $stickyItem.next('.content-view');
+
+      if ($contentView.length) {
+        // .content-view에 CSS 변수 설정
+        $contentView[0].style.setProperty('--sticky-item-height', height + 'px');
+        console.log('Sticky item height set to:', height + 'px');
+      } else {
+        // 같은 부모 내의 .content-view를 찾음
+        const $parentContentView = $stickyItem.parent().find('.content-view');
+        if ($parentContentView.length) {
+          $parentContentView[0].style.setProperty('--sticky-item-height', height + 'px');
+          console.log('Sticky item height set to:', height + 'px');
+        }
+      }
+    }
+  });
+}
+
 $(document).ready(function () {
   setScreenSize();
   $('.scrollbar').scrollbar(); // 스크롤디자인 라이브러리호출
@@ -12,14 +39,87 @@ $(document).ready(function () {
   customSelectUi();
   gnbToggle();
   settingsMenuToggle();
+  tableTextTooltipInit();
+  updateStickyItemHeight();
+  favoriteToggle();
+
+  // 리사이즈 시 높이 재계산
+  $(window).on('resize.sticky-item', function () {
+    updateStickyItemHeight();
+  });
+
   setTimeout(function () {
     defaultModal();
     datepicker();
+    updateStickyItemHeight(); // 모달이나 다른 요소 로드 후 재계산
   }, 10);
+
+  // DOM이 완전히 로드된 후 한 번 더 실행
+  setTimeout(function () {
+    updateStickyItemHeight();
+  }, 100);
 });
 $(window).on('resize', function () {
   modalSize();
 });
+
+// 텍스트 말줄임표 툴팁 기능
+function tableTextTooltipInit() {
+  $('.text-ellipsis').each(function () {
+    const $element = $(this);
+    const fullText = $element.attr('data-full-text') || $element.text();
+    const elementText = $element.text();
+
+    // 텍스트가 잘렸는지 확인
+    if (elementText.length === fullText.length && $element[0].scrollWidth <= $element[0].offsetWidth) {
+      return; // 텍스트가 잘리지 않았으면 툴팁 불필요
+    }
+
+    // 툴팁 요소 생성
+    const $tooltip = $('<div class="tooltip"></div>').text(fullText);
+    $tooltip.appendTo('body');
+
+    // 마우스 오버 이벤트
+    $element.on('mouseenter', function () {
+      const offset = $element.offset();
+      const elementWidth = $element.outerWidth();
+      const elementHeight = $element.outerHeight();
+      const tooltipWidth = $tooltip.outerWidth();
+
+      // 툴팁 위치 계산 (요소 아래 중앙)
+      const left = offset.left + (elementWidth / 2) - (tooltipWidth / 2);
+      const top = offset.top + elementHeight + 8; // 8px 간격
+
+      $tooltip.css({
+        left: left + 'px',
+        top: top + 'px'
+      }).addClass('show');
+    });
+
+    $element.on('mouseleave', function () {
+      $tooltip.removeClass('show');
+    });
+
+    // 스크롤/리사이즈 시 위치 업데이트
+    $(window).on('scroll resize', function () {
+      if ($tooltip.hasClass('show')) {
+        const offset = $element.offset();
+        const elementWidth = $element.outerWidth();
+        const elementHeight = $element.outerHeight();
+        const tooltipWidth = $tooltip.outerWidth();
+
+        const left = offset.left + (elementWidth / 2) - (tooltipWidth / 2);
+        const top = offset.top + elementHeight + 8;
+
+        $tooltip.css({
+          left: left + 'px',
+          top: top + 'px'
+        });
+      }
+    });
+  });
+}
+
 function switchUi() {
   $('.switch').each(function () {
     $(this).on('click', function () {
@@ -299,7 +399,7 @@ function gnbToggle() {
   $('.panel-toggle').on('click', function (e) {
     e.preventDefault();
     $('#gnb').toggleClass('collapsed');
-    
+
     // 접힌 상태 저장 (선택사항)
     const isCollapsed = $('#gnb').hasClass('collapsed');
     if (typeof Storage !== 'undefined') {
@@ -366,3 +466,11 @@ function settingsMenuToggle() {
 }
 
 
+function favoriteToggle() {
+  $('.favorite').each(function () {
+    $(this).on('click', function (e) {
+      e.preventDefault();
+      $(this).toggleClass('on');
+    });
+  });
+}

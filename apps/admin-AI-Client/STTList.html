@@ -10,411 +10,56 @@
             <div class="contents">
                 <div class="panel scrollbar listView">
                     <div class="panel-head">
-                        <div class="title">녹음 목록</div>
+                        <div class="title">STT 통화 목록</div>
+                        <div class="command">
+                            <a href="STTset.html" class="btn natural line">
+                                <img src="assets/images/ico-setfilter.png" alt="">
+                                설정
+                            </a>
+
+                            <a href="aiBoardEdit.html" class="btn positive fill">
+                                <img src="assets/images/ico-added-w.png" alt="">
+                                통화 업로드
+                            </a>
+                        </div>
                     </div>
                     <div class="sticy-item">
                         <div class="filter-search">
                             <input type="text" placeholder="음성 기록 키워드 검색">
                             <div class="side">
-                                <a href="#modWordChange" class="btn gray fill modalLoad">
+                                <a href="#" class="btn white calendar"
+                                    onclick="event.preventDefault(); this.classList.toggle('active'); document.querySelector('.panel.side.schedule').classList.toggle('collapsed'); return false;">
+                                    캘린더 보기
+                                </a>
+                                <a href="#modWordChange" class="btn white modalLoad">
                                     <img src="assets/images/ico-wordChange.png" alt="">
                                     단어바꾸기
                                 </a>
-                                <a href="#" class="btn normal fill">검색</a>
+                                <a href="#" class="btn white">검색</a>
                             </div>
                         </div>
                         <div class="list-tab">
                             <ul>
-                                <li class="on">
-                                    <a href="#">최근생성 <span>7</span></a>
-                                </li>
-                                <li>
-                                    <a href="#">공유받은 <span>4</span></a>
+                                <li class="tit">
+                                    <a href="#">목록</a>
                                 </li>
                             </ul>
+
+                            <div class="command">
+                                <a href="#" class="btn-text negative">
+                                    <img src="assets/images/ico-trash-red.png" alt="">
+                                    선택 항목 삭제
+                                </a>
+                            </div>
                         </div>
                     </div>
 
                     <div class="content-view">
-                        <div class="board-list">
-                            <ul>
-                                <li class="borad-item">
-                                    <a href="recordView.html" class="board-item-inner">
-                                        <div class="cell icon">
-                                            <img src="assets/images/iconsMenu-gnb-allChat.png" alt="">
-                                        </div>
-                                        <div class="cell auto">
-                                            <div class="tit">
-                                                발신자 박정민 님과의 통화
-                                            </div>
-                                            <div class="desc">
-                                                페이지 설명서와 다이어그램, 전체적인 구성도 샘플 제공
-                                            </div>
-                                            <div class="side">
-                                                <span class="badge">
-                                                    <img src="assets/images/ico-ai.png" alt="">
-                                                    Ai요약
-                                                </span>
-                                                <span class="date">
-                                                    2025.4.24 16:19:02
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="cell">
-                                            <div class="text">노트1</div>
-                                        </div>
-                                        <div class="cell">
-                                            <div class="time">2:32</div>
-                                        </div>
-                                    </a>
-                                </li>
-
-                                <li class="borad-item">
-                                    <a href="recordView.html" class="board-item-inner">
-                                        <div class="cell icon">
-                                            <img src="assets/images/iconsMenu-gnb-allChat.png" alt="">
-                                        </div>
-                                        <div class="cell auto">
-                                            <div class="tit">
-                                                발신자 박정민 님과의 통화
-                                            </div>
-                                            <div class="desc">
-                                                페이지 설명서와 다이어그램, 전체적인 구성도 샘플 제공
-                                            </div>
-                                            <div class="side">
-                                                <span class="badge">
-                                                    <img src="assets/images/ico-ai.png" alt="">
-                                                    Ai요약
-                                                </span>
-                                                <span class="date">
-                                                    2025.4.24 16:19:02
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="cell">
-                                            <div class="text">노트1</div>
-                                        </div>
-                                        <div class="cell">
-                                            <div class="time">2:32</div>
-                                        </div>
-                                    </a>
-                                </li>
-
-                                <li class="borad-item">
-                                    <a href="recordView.html" class="board-item-inner">
-                                        <div class="cell icon">
-                                            <img src="assets/images/iconsMenu-gnb-allChat.png" alt="">
-                                        </div>
-                                        <div class="cell auto">
-                                            <div class="tit">
-                                                발신자 박정민 님과의 통화
-                                            </div>
-                                            <div class="desc">
-                                                페이지 설명서와 다이어그램, 전체적인 구성도 샘플 제공
-                                            </div>
-                                            <div class="side">
-                                                <span class="badge">
-                                                    <img src="assets/images/ico-ai.png" alt="">
-                                                    Ai요약
-                                                </span>
-                                                <span class="date">
-                                                    2025.4.24 16:19:02
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="cell">
-                                            <div class="text">노트1</div>
-                                        </div>
-                                        <div class="cell">
-                                            <div class="time">2:32</div>
-                                        </div>
-                                    </a>
-                                </li>
-
-                                <li class="borad-item">
-                                    <a href="recordView.html" class="board-item-inner">
-                                        <div class="cell icon">
-                                            <img src="assets/images/iconsMenu-gnb-allChat.png" alt="">
-                                        </div>
-                                        <div class="cell auto">
-                                            <div class="tit">
-                                                발신자 박정민 님과의 통화
-                                            </div>
-                                            <div class="desc">
-                                                페이지 설명서와 다이어그램, 전체적인 구성도 샘플 제공
-                                            </div>
-                                            <div class="side">
-                                                <span class="badge">
-                                                    <img src="assets/images/ico-ai.png" alt="">
-                                                    Ai요약
-                                                </span>
-                                                <span class="date">
-                                                    2025.4.24 16:19:02
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="cell">
-                                            <div class="text">노트1</div>
-                                        </div>
-                                        <div class="cell">
-                                            <div class="time">2:32</div>
-                                        </div>
-                                    </a>
-                                </li>
-
-                                <li class="borad-item">
-                                    <a href="recordView.html" class="board-item-inner">
-                                        <div class="cell icon">
-                                            <img src="assets/images/iconsMenu-gnb-allChat.png" alt="">
-                                        </div>
-                                        <div class="cell auto">
-                                            <div class="tit">
-                                                발신자 박정민 님과의 통화
-                                            </div>
-                                            <div class="desc">
-                                                페이지 설명서와 다이어그램, 전체적인 구성도 샘플 제공
-                                            </div>
-                                            <div class="side">
-                                                <span class="badge">
-                                                    <img src="assets/images/ico-ai.png" alt="">
-                                                    Ai요약
-                                                </span>
-                                                <span class="date">
-                                                    2025.4.24 16:19:02
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="cell">
-                                            <div class="text">노트1</div>
-                                        </div>
-                                        <div class="cell">
-                                            <div class="time">2:32</div>
-                                        </div>
-                                    </a>
-                                </li>
-
-                                <li class="borad-item">
-                                    <a href="recordView.html" class="board-item-inner">
-                                        <div class="cell icon">
-                                            <img src="assets/images/iconsMenu-gnb-allChat.png" alt="">
-                                        </div>
-                                        <div class="cell auto">
-                                            <div class="tit">
-                                                발신자 박정민 님과의 통화
-                                            </div>
-                                            <div class="desc">
-                                                페이지 설명서와 다이어그램, 전체적인 구성도 샘플 제공
-                                            </div>
-                                            <div class="side">
-                                                <span class="badge">
-                                                    <img src="assets/images/ico-ai.png" alt="">
-                                                    Ai요약
-                                                </span>
-                                                <span class="date">
-                                                    2025.4.24 16:19:02
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="cell">
-                                            <div class="text">노트1</div>
-                                        </div>
-                                        <div class="cell">
-                                            <div class="time">2:32</div>
-                                        </div>
-                                    </a>
-                                </li>
-
-                                <li class="borad-item">
-                                    <a href="recordView.html" class="board-item-inner">
-                                        <div class="cell icon">
-                                            <img src="assets/images/iconsMenu-gnb-allChat.png" alt="">
-                                        </div>
-                                        <div class="cell auto">
-                                            <div class="tit">
-                                                발신자 박정민 님과의 통화
-                                            </div>
-                                            <div class="desc">
-                                                페이지 설명서와 다이어그램, 전체적인 구성도 샘플 제공
-                                            </div>
-                                            <div class="side">
-                                                <span class="badge">
-                                                    <img src="assets/images/ico-ai.png" alt="">
-                                                    Ai요약
-                                                </span>
-                                                <span class="date">
-                                                    2025.4.24 16:19:02
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="cell">
-                                            <div class="text">노트1</div>
-                                        </div>
-                                        <div class="cell">
-                                            <div class="time">2:32</div>
-                                        </div>
-                                    </a>
-                                </li>
-
-                                <li class="borad-item">
-                                    <a href="recordView.html" class="board-item-inner">
-                                        <div class="cell icon">
-                                            <img src="assets/images/iconsMenu-gnb-allChat.png" alt="">
-                                        </div>
-                                        <div class="cell auto">
-                                            <div class="tit">
-                                                발신자 박정민 님과의 통화
-                                            </div>
-                                            <div class="desc">
-                                                페이지 설명서와 다이어그램, 전체적인 구성도 샘플 제공
-                                            </div>
-                                            <div class="side">
-                                                <span class="badge">
-                                                    <img src="assets/images/ico-ai.png" alt="">
-                                                    Ai요약
-                                                </span>
-                                                <span class="date">
-                                                    2025.4.24 16:19:02
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="cell">
-                                            <div class="text">노트1</div>
-                                        </div>
-                                        <div class="cell">
-                                            <div class="time">2:32</div>
-                                        </div>
-                                    </a>
-                                </li>
-
-                                <li class="borad-item">
-                                    <a href="recordView.html" class="board-item-inner">
-                                        <div class="cell icon">
-                                            <img src="assets/images/iconsMenu-gnb-allChat.png" alt="">
-                                        </div>
-                                        <div class="cell auto">
-                                            <div class="tit">
-                                                발신자 박정민 님과의 통화
-                                            </div>
-                                            <div class="desc">
-                                                페이지 설명서와 다이어그램, 전체적인 구성도 샘플 제공
-                                            </div>
-                                            <div class="side">
-                                                <span class="badge">
-                                                    <img src="assets/images/ico-ai.png" alt="">
-                                                    Ai요약
-                                                </span>
-                                                <span class="date">
-                                                    2025.4.24 16:19:02
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="cell">
-                                            <div class="text">노트1</div>
-                                        </div>
-                                        <div class="cell">
-                                            <div class="time">2:32</div>
-                                        </div>
-                                    </a>
-                                </li>
-
-                                <li class="borad-item">
-                                    <a href="recordView.html" class="board-item-inner">
-                                        <div class="cell icon">
-                                            <img src="assets/images/iconsMenu-gnb-allChat.png" alt="">
-                                        </div>
-                                        <div class="cell auto">
-                                            <div class="tit">
-                                                발신자 박정민 님과의 통화
-                                            </div>
-                                            <div class="desc">
-                                                페이지 설명서와 다이어그램, 전체적인 구성도 샘플 제공
-                                            </div>
-                                            <div class="side">
-                                                <span class="badge">
-                                                    <img src="assets/images/ico-ai.png" alt="">
-                                                    Ai요약
-                                                </span>
-                                                <span class="date">
-                                                    2025.4.24 16:19:02
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="cell">
-                                            <div class="text">노트1</div>
-                                        </div>
-                                        <div class="cell">
-                                            <div class="time">2:32</div>
-                                        </div>
-                                    </a>
-                                </li>
-
-                                <li class="borad-item">
-                                    <a href="recordView.html" class="board-item-inner">
-                                        <div class="cell icon">
-                                            <img src="assets/images/iconsMenu-gnb-allChat.png" alt="">
-                                        </div>
-                                        <div class="cell auto">
-                                            <div class="tit">
-                                                발신자 박정민 님과의 통화
-                                            </div>
-                                            <div class="desc">
-                                                페이지 설명서와 다이어그램, 전체적인 구성도 샘플 제공
-                                            </div>
-                                            <div class="side">
-                                                <span class="badge">
-                                                    <img src="assets/images/ico-ai.png" alt="">
-                                                    Ai요약
-                                                </span>
-                                                <span class="date">
-                                                    2025.4.24 16:19:02
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="cell">
-                                            <div class="text">노트1</div>
-                                        </div>
-                                        <div class="cell">
-                                            <div class="time">2:32</div>
-                                        </div>
-                                    </a>
-                                </li>
-
-                                <li class="borad-item">
-                                    <a href="recordView.html" class="board-item-inner">
-                                        <div class="cell icon">
-                                            <img src="assets/images/iconsMenu-gnb-allChat.png" alt="">
-                                        </div>
-                                        <div class="cell auto">
-                                            <div class="tit">
-                                                발신자 박정민 님과의 통화
-                                            </div>
-                                            <div class="desc">
-                                                페이지 설명서와 다이어그램, 전체적인 구성도 샘플 제공
-                                            </div>
-                                            <div class="side">
-                                                <span class="badge">
-                                                    <img src="assets/images/ico-ai.png" alt="">
-                                                    Ai요약
-                                                </span>
-                                                <span class="date">
-                                                    2025.4.24 16:19:02
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="cell">
-                                            <div class="text">노트1</div>
-                                        </div>
-                                        <div class="cell">
-                                            <div class="time">2:32</div>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                        <include src="src/includes/Table-STT요약.html"></include>
                     </div>
                 </div>
 
-                <div class="panel side schedule">
+                <div class="panel side schedule collapsed">
                     <div class="panel-side-inner">
                         <div class="inlineDatepicker">
                             <div id="datepicker1" class="datepicker">
@@ -426,7 +71,7 @@
                                 <ol>
                                     <li>
                                         <div class="info">
-                                            <div class="tit">새로운 대화</div>
+                                            <div class="tit">새로운 대화새로운 대화새로운 대화새로운 대화새로운 대화</div>
                                             <sapn class="date">2025.4.24 16:19:02</sapn>
                                         </div>
                                         <ul class="list-option">

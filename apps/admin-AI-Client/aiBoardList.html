@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<include src="src/includes/head.html"></include>
+
+<body>
+    <div class="viewport">
+        <include src="src/includes/GNB.html"></include>
+        <div class="container">
+            <include src="src/includes/header.html"></include>
+            <div class="contents">
+                <div class="panel scrollbar listView">
+                    <div class="panel-head">
+                        <div class="title">AI Board Post 목록</div>
+                        <div class="command">
+                            <a href="STTSet.html" class="btn natural line">
+                                <img src="assets/images/ico-refresh.png" alt="">
+                                새로고침
+                            </a>
+
+                            <a href="aiBoardEdit.html" class="btn positive fill">
+                                <img src="assets/images/ico-recordEdit-w.png" alt="">
+                                새글 작성
+                            </a>
+                        </div>
+                    </div>
+                    <div class="sticy-item">
+                        <div class="filter-search">
+                            <input type="text" placeholder="Board_id, 제목, board_type, 본문 검색">
+                            <div class="side">
+
+                                <div class="side">
+                                    <div class="input-item">
+                                        <select style="min-width: 100px;">
+                                            <option value="" selected>전체</option>
+                                        </select>
+                                    </div>
+                                    <a href="#" class="btn white">검색</a>
+                                    <label class="checkbox">
+                                        <input type="checkbox"><span>자동 새로고침(5초)</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list-tab">
+                            <ul>
+                                <li class="tit">
+                                    <a href="#">목록</a>
+                                </li>
+                            </ul>
+
+                            <div class="command">
+                                <a href="#" class="btn-text negative">
+                                    <img src="assets/images/ico-trash-red.png" alt="">
+                                    선택 항목 삭제
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-view">
+                        <include src="src/includes/Table-AI보드.html"></include>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>

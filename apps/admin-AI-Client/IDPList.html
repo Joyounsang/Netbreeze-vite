@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<include src="src/includes/head.html"></include>
+
+<body>
+    <div class="viewport">
+        <include src="src/includes/GNB.html"></include>
+        <div class="container">
+            <include src="src/includes/header.html"></include>
+            <div class="contents">
+                <div class="panel scrollbar listView">
+                    <div class="panel-head">
+                        <div class="title">IDP</div>
+                    </div>
+                    <div class="sticy-item">
+                        <div class="filter-search">
+                            <input type="text" placeholder="음성 기록 키워드 검색">
+                            <div class="side">
+                                <a href="#modWordChange" class="btn white modalLoad">
+                                    <img src="assets/images/ico-wordChange.png" alt="">
+                                    단어바꾸기
+                                </a>
+                                <a href="#" class="btn white">검색</a>
+                            </div>
+                        </div>
+                        <div class="list-tab">
+                            <ul>
+                                <li class="tit">
+                                    <a href="#">목록</a>
+                                </li>
+                            </ul>
+
+                            <div class="command">
+                                <a href="#" class="btn-text negative">
+                                    <img src="assets/images/ico-trash-red.png" alt="">
+                                    선택 항목 삭제
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-view">
+                        <!-- data -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <include src="src/includes/단어바꾸기.html"></include>
+    <script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>

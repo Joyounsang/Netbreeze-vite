@@ -57,6 +57,10 @@ jquery ui */
   @include fontStyle;
 }
 
+.ui-datepicker {
+  z-index: 9 !important;
+}
+
 .ui-datepicker-calendar>tbody td.ui-datepicker-week-end:last-child a {
   color: #ff6b6b;
 
@@ -92,7 +96,7 @@ html .ui-button.ui-state-disabled:active {
   }
 
   .ui-widget-header {
-    // background-color: var(--rec-secondary);
+    // background-color: var(--rec-primary);
     background-color: transparent;
     border: none;
     padding: 10px;
@@ -125,21 +129,25 @@ html .ui-button.ui-state-disabled:active {
       top: 9px;
 
       span {
-        background: url('../images/cal-arrow-l.png') no-repeat;
+        background: url('../images/selected-arrow.png') no-repeat;
         background-size: contain;
+        cursor: pointer;
       }
     }
 
     .ui-datepicker-prev {
       left: 6px;
+
+      span {
+        transform: rotate(90deg);
+      }
     }
 
     .ui-datepicker-next {
       right: 6px;
 
       span {
-        background: url('../images/cal-arrow-r.png') no-repeat;
-        background-size: contain;
+        transform: rotate(-90deg);
       }
     }
   }
@@ -182,7 +190,7 @@ html .ui-button.ui-state-disabled:active {
 
     &.ui-state-active {
       border-radius: 6px;
-      background-color: var(--rec-secondary);
+      background-color: var(--rec-primary);
       color: #fff;
       font-weight: 700;
 
@@ -306,7 +314,7 @@ html .ui-button.ui-state-disabled:active {
   font-size: 1.4rem;
   font-weight: 600;
   margin: 10px;
-  color: var(--rec-secondary);
+  color: var(--rec-primary);
   padding: 0 !important;
   opacity: 1 !important;
   border: none;

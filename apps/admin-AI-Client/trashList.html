@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<include src="src/includes/head.html"></include>
+
+<body>
+    <div class="viewport">
+        <include src="src/includes/GNB.html"></include>
+        <div class="container">
+            <include src="src/includes/header.html"></include>
+            <div class="contents">
+                <div class="panel scrollbar listView">
+                    <div class="panel-head">
+                        <div class="title">휴지통</div>
+                    </div>
+                    <div class="sticy-item">
+                        <div class="filter-search">
+                            <input type="text" placeholder="통화 ID, 파일명 검색">
+                            <div class="side">
+                                <a href="#" class="btn white">검색</a>
+                            </div>
+                        </div>
+                        <div class="list-tab">
+                            <ul>
+                                <li class="on">
+                                    <a href="#">전체 22</a>
+                                </li>
+                                <li>
+                                    <a href="#">STT 20</a>
+                                </li>
+                                <li>
+                                    <a href="#">대화 2</a>
+                                </li>
+                            </ul>
+
+                            <div class="command">
+                                <a href="#" class="btn-text negative">
+                                    <img src="assets/images/ico-trash-red.png" alt="">
+                                    선택 항목 삭제
+                                </a>
+                                <a href="#" class="btn-text positive">
+                                    선택 항목 복구
+                                </a>
+                                <a href="#" class="btn-text">
+                                    휴지통 비우기
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-view">
+                        <include src="src/includes/Table-휴지통.html"></include>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ko">
+<include src="src/includes/head.html"></include>
+
+<body>
+    <div class="viewport">
+        <include src="src/includes/GNB.html"></include>
+        <div class="container">
+            <include src="src/includes/header.html"></include>
+            <div class="contents">
+                <div class="panel scrollbar listView">
+                    <div class="panel-head">
+                        <div class="title">STT 설정</div>
+                    </div>
+                    <div class="content-view">
+                        <div class="setting-list">
+                            <article>
+                                <div class="setting-tit">
+                                    STT 엔진 설정
+                                    <em class="gray">모델이 클수록 정확도는 높지만 처리 시간이 길어집니다</em>
+                                </div>
+                                <div class="tbl type-set">
+                                    <table>
+                                        <colgroup>
+                                            <col style="width:230px;">
+                                            <col style="width:auto">
+                                        </colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="set-title">
+                                                        <div class="tit">STT 엔진</div>
+                                                    </div>
+                                                </th>
+                                                <td class="left">
+                                                    <div class="items">
+                                                        <select>
+                                                            <option>Faster Whisper</option>
+                                                        </select>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="set-title">
+                                                        <div class="tit">STT 모델</div>
+                                                    </div>
+                                                </th>
+                                                <td class="left">
+                                                    <div class="items">
+                                                        <select>
+                                                            <option>Tiny(가장 빠름)</option>
+                                                        </select>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="set-title">
+                                                        <div class="tit">처리 장치</div>
+                                                    </div>
+                                                </th>
+                                                <td class="left">
+                                                    <div class="items">
+                                                        <select>
+                                                            <option>CPU</option>
+                                                        </select>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="set-title">
+                                                        <div class="tit">언어</div>
+                                                    </div>
+                                                </th>
+                                                <td class="left">
+                                                    <div class="items">
+                                                        <select>
+                                                            <option>한국어</option>
+                                                        </select>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </article>
+
+                            <article>
+                                <div class="setting-tit">
+                                    파이프라인 설정
+                                </div>
+                                <div class="tbl type-set">
+                                    <table>
+                                        <colgroup>
+                                            <col style="width:230px;">
+                                            <col style="width:auto">
+                                        </colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="set-title">
+                                                        <div class="tit">청크 크기(초)</div>
+                                                    </div>
+                                                </th>
+                                                <td class="left">
+                                                    <div class="items">
+                                                        <input type="text" placeholder="0">
+                                                        <em class="gray">오디오를 나눌 청크 크기 (20-45초 권장)</em>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="set-title">
+                                                        <div class="tit">오버랩 (밀리초)</div>
+                                                    </div>
+                                                </th>
+                                                <td class="left">
+                                                    <div class="items">
+                                                        <input type="text" placeholder="0">
+                                                        <em class="gray">청크 간 겹치는 시간 (1-2초 권장)</em>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="set-title">
+                                                        <div class="tit">청크 크기(초)</div>
+                                                    </div>
+                                                </th>
+                                                <td class="left">
+                                                    <div class="items">
+                                                        <input type="text" placeholder="0">
+                                                        <em class="gray">요약 윈도우 크기 (2-5분 권장)</em>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </article>
+
+                            <article>
+                                <div class="setting-tit">
+                                    DLP/PII 마스킹 설정
+                                </div>
+                                <div class="tbl type-set">
+                                    <table>
+                                        <colgroup>
+                                            <col style="width:230px;">
+                                            <col style="width:auto">
+                                        </colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="set-title">
+                                                        <div class="tit">DLP 마스킹 활성화</div>
+                                                    </div>
+                                                </th>
+                                                <td class="left">
+                                                    <div class="items">
+                                                        <div class="set-option">
+                                                            <label class="switch">
+                                                                <input type="checkbox" id="switch">
+                                                                <span class="slider"></span>
+                                                            </label>
+                                                        </div>
+                                                        <em class="gray">개인정보 자동 마스킹 처리</em>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="set-title">
+                                                        <div class="tit">전화번호 마스킹</div>
+                                                    </div>
+                                                </th>
+                                                <td class="left">
+                                                    <div class="items">
+                                                        <div class="set-option">
+                                                            <label class="switch">
+                                                                <input type="checkbox" id="switch">
+                                                                <span class="slider"></span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="set-title">
+                                                        <div class="tit">이메일 마스킹</div>
+                                                    </div>
+                                                </th>
+                                                <td class="left">
+                                                    <div class="items">
+                                                        <div class="set-option">
+                                                            <label class="switch">
+                                                                <input type="checkbox" id="switch">
+                                                                <span class="slider"></span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="set-title">
+                                                        <div class="tit">주민등록번호 마스킹</div>
+                                                    </div>
+                                                </th>
+                                                <td class="left">
+                                                    <div class="items">
+                                                        <div class="set-option">
+                                                            <label class="switch">
+                                                                <input type="checkbox" id="switch">
+                                                                <span class="slider"></span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </article>
+
+                            <article>
+                                <div class="setting-tit">
+                                    근거 및 유사 케이스 설정
+                                </div>
+                                <div class="tbl type-set">
+                                    <table>
+                                        <colgroup>
+                                            <col style="width:230px;">
+                                            <col style="width:auto">
+                                        </colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="set-title">
+                                                        <div class="tit">근거 최대 개수</div>
+                                                    </div>
+                                                </th>
+                                                <td class="left">
+                                                    <div class="items">
+                                                        <input type="text" placeholder="0">
+                                                        <em class="gray">수집할 법령/보도자료 근거 최대개수</em>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="set-title">
+                                                        <div class="tit">유사 케이스 개수</div>
+                                                    </div>
+                                                </th>
+                                                <td class="left">
+                                                    <div class="items">
+                                                        <input type="text" placeholder="0">
+                                                        <em class="gray">추천할 유사 통화/민원 개수</em>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="content-view-foot">
+                            <a href="#" class="btn natural line">취소</a>
+                            <a href="#" class="btn positive fill">저장</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>

@@ -5,90 +5,214 @@
 <body>
     <div class="viewport">
         <include src="src/includes/GNB.html"></include>
+        <div class="otherNav" style="width: 200px;">
+            <div class="otherNav-inner">
+                <div class="otherNav-title">
+                    <img src="assets/images/otherNavico-management.png" alt="">
+                    관리
+                </div>
+                <ul class="otherMenu">
+                    <li class="on">
+                        <a href="#" class="menu-item">
+                            모니터링
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="menu-item">
+                            기관
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="menu-item">
+                            부서
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="menu-item">
+                            사용자
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="menu-item">
+                            플랜
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
         <div class="container">
             <include src="src/includes/header.html"></include>
             <div class="contents">
                 <div class="panel scrollbar listView">
-                    <div class="panel-head">
-                        <div class="title">설정</div>
-                    </div>
-                    <div class="sticy-item">
-                        <div class="filter-search">
-                            <input type="text" placeholder="설정 항목 찾기">
-                            <div class="side">
-                                <a href="#" class="btn normal fill">검색</a>
-                            </div>
-                        </div>
-                        <div class="list-tab">
-                            <ul>
-                                <li class="on">
-                                    <a href="#">설정탭1</a>
-                                </li>
-                                <li>
-                                    <a href="#">설정탭2</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
                     <div class="content-view">
-                        <div class="setting-list">
-                            <ul>
-                                <li class="setting-item">
-                                    <div class="setting-item-inner">
-                                        <div class="head">
-                                            <div class="tit">
-                                                기본설정
-                                            </div>
-                                            <div class="desc">
-                                                explanation...explanation...
-                                            </div>
-                                        </div>
-                                        <div class="body">
-                                            <input type="text" placeholder="input">
-                                        </div>
+                        <div class="management-list">
+                            <div class="management-item">
+                                <img class="management-icon" src="assets/images/gnb-ico-dashboard.png" alt="">
+                                <div class="info">
+                                    <div class="management-item-title">
+                                        관리자 대시보드
                                     </div>
-                                </li>
-                                <li class="setting-item">
-                                    <div class="setting-item-inner">
-                                        <div class="head">
-                                            <div class="tit">
-                                                기본설정
-                                            </div>
-                                            <div class="desc">
-                                                explanation...explanation...
-                                            </div>
-                                        </div>
-                                        <div class="body">
-                                            <select>
-                                                <option value="" selected>선택</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="setting-item">
-                                    <div class="setting-item-inner">
-                                        <div class="head">
-                                            <div class="tit">
-                                                기본설정
-                                            </div>
-                                            <div class="desc">
-                                                explanation...explanation...
-                                            </div>
-                                        </div>
-                                        <div class="body">
-                                            <div class="set-option">
-                                                <div class="labelname">세부설정2</div>
-                                                <label class="switch">
-                                                    <input type="checkbox" id="switch">
-                                                    <span class="slider"></span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
+                                    <p class="management-item-desc">
+                                        운영/품질 모니터링 및 로그 점검용 페이지 입니다.
+                                    </p>
+                                </div>
+                            </div>
 
-                            </ul>
+                            <div class="management-item">
+                                <img class="management-icon" src="assets/images/gnb-ico-monitoring.png" alt="">
+                                <div class="info">
+                                    <div class="management-item-title">
+                                        모니터링
+                                    </div>
+                                    <p class="management-item-desc">
+                                        최근 실행/지연/신뢰도/근거 첨부 상태를 확인합니다.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="management-item">
+                                <img class="management-icon" src="assets/images/gnb-ico-security.png" alt="">
+                                <div class="info">
+                                    <div class="management-item-title">
+                                        세션/접근 로그
+                                    </div>
+                                    <p class="management-item-desc">
+                                        관리자 페이지 접근 로그는 /var/log/nb/admin_access.log 에 기록됩니다.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="management-item">
+                                <img class="management-icon" src="assets/images/gnb-ico-settings.png" alt="">
+                                <div class="info">
+                                    <div class="management-item-title">
+                                        테넌트 관리
+                                    </div>
+                                    <p class="management-item-desc">
+                                        워크스페이스(테넌트)를 등록/수정/삭제합니다.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="management-item">
+                                <img class="management-icon" src="assets/images/gnb-ico-user.png" alt="">
+                                <div class="info">
+                                    <div class="management-item-title">
+                                        사용자 관리
+                                    </div>
+                                    <p class="management-item-desc">
+                                        사용자별 dept_id/user_level을 설정합니다.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="management-item">
+                                <img class="management-icon" src="assets/images/gnb-ico-service.png" alt="">
+                                <div class="info">
+                                    <div class="management-item-title">
+                                        STT 관리
+                                    </div>
+                                    <p class="management-item-desc">
+                                        STT 통화목록, 처리 상태, 통계를 확인합니다.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="management-item">
+                                <img class="management-icon" src="assets/images/gnb-ico-audit.png" alt="">
+                                <div class="info">
+                                    <div class="management-item-title">
+                                        IDP 관리
+                                    </div>
+                                    <p class="management-item-desc">
+                                        IDP 문서 목록, 처리 상태, 통계를 확인합니다.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="management-item">
+                                <img class="management-icon" src="assets/images/gnb-ico-audit.png" alt="">
+                                <div class="info">
+                                    <div class="management-item-title">
+                                        AI Paper
+                                    </div>
+                                    <p class="management-item-desc">
+                                        국민신문고는 paper 경로로 즉시 전환된 독립 시스템입니다.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="management-item">
+                                <img class="management-icon" src="assets/images/gnb-ico-audit.png" alt="">
+                                <div class="info">
+                                    <div class="management-item-title">
+                                        KMS 문서
+                                    </div>
+                                    <p class="management-item-desc">
+                                        /help 페이지에 표시될 도움말/FAQ 문서를 등록/수정합니다.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="management-item">
+                                <img class="management-icon" src="assets/images/gnb-ico-statistics.png" alt="">
+                                <div class="info">
+                                    <div class="management-item-title">
+                                        Chat v2 관리
+                                    </div>
+                                    <p class="management-item-desc">
+                                        Chat v2 세션, 메시지, 메모리, 컨텍스트 캐시를 확인합니다.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="management-item">
+                                <img class="management-icon" src="assets/images/gnb-ico-statistics.png" alt="">
+                                <div class="info">
+                                    <div class="management-item-title">
+                                        Chat v2 설정
+                                    </div>
+                                    <p class="management-item-desc">
+                                        Chat v2 채팅 타입, 전역 설정을 확인합니다.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="management-item">
+                                <img class="management-icon" src="assets/images/gnb-ico-statistics.png" alt="">
+                                <div class="info">
+                                    <div class="management-item-title">
+                                        Chat 설정 (변수 일괄)
+                                    </div>
+                                    <p class="management-item-desc">
+                                        채팅 관련 모든 설정 변수를 툴팁 설명과 함께 편집합니다.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="management-item">
+                                <img class="management-icon" src="assets/images/gnb-ico-service.png" alt="">
+                                <div class="info">
+                                    <div class="management-item-title">
+                                        Pipeline Control Plane
+                                    </div>
+                                    <p class="management-item-desc">
+                                        프롬프트/프로바이더/툴/모델/설정/API 키를 단일 SSoT(ai_chat)로 관리합니다.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="management-item">
+                                <img class="management-icon" src="assets/images/gnb-ico-settings.png" alt="">
+                                <div class="info">
+                                    <div class="management-item-title">
+                                        DB Admin
+                                    </div>
+                                    <p class="management-item-desc">
+                                        ai_share/ai_chat/ai_kms/ai_cha/ai_stt/ai_idp/ai_paper 테이블을 직접 조회/편집합니다.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
