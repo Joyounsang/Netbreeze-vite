@@ -421,6 +421,30 @@ function settingsMenuToggle() {
   const $settingsMenu = $settingsBtn.closest('.settings-menu');
   const $dropdown = $settingsMenu.find('.settings-dropdown');
 
+  // settings-dropdown을 body 레벨로 이동 (sticky 요소 위에 표시하기 위해)
+  if ($dropdown.length && $dropdown.parent().is('.settings-menu')) {
+    $dropdown.appendTo('body');
+    $dropdown.addClass('settings-dropdown-portal');
+  }
+
+  // 드롭다운 위치 업데이트 함수
+  function updateDropdownPosition() {
+    if ($dropdown.hasClass('open')) {
+      const $btn = $settingsBtn;
+      const btnOffset = $btn.offset();
+      const btnWidth = $btn.outerWidth();
+      const btnHeight = $btn.outerHeight();
+      const dropdownWidth = $dropdown.outerWidth();
+
+      $dropdown.css({
+        position: 'fixed',
+        top: (btnOffset.top + btnHeight + 8) + 'px',
+        right: ($(window).width() - btnOffset.left - btnWidth) + 'px',
+        left: 'auto'
+      });
+    }
+  }
+
   // 설정 버튼 클릭 시 토글
   $settingsBtn.on('click', function (e) {
     e.preventDefault();
@@ -433,6 +457,16 @@ function settingsMenuToggle() {
     // 현재 드롭다운 토글
     $settingsBtn.toggleClass('active');
     $dropdown.toggleClass('open');
+
+    // 위치 업데이트
+    updateDropdownPosition();
+  });
+
+  // 스크롤 및 리사이즈 시 위치 업데이트
+  $(window).on('scroll.settings-dropdown resize.settings-dropdown', function () {
+    if ($dropdown.hasClass('open')) {
+      updateDropdownPosition();
+    }
   });
 
   // 메뉴 항목 클릭 시
@@ -458,7 +492,8 @@ function settingsMenuToggle() {
 
   // 외부 클릭 시 닫기
   $(document).on('click.settings-menu', function (e) {
-    if (!$settingsMenu.is(e.target) && !$settingsMenu.has(e.target).length) {
+    if (!$settingsMenu.is(e.target) && !$settingsMenu.has(e.target).length &&
+      !$dropdown.is(e.target) && !$dropdown.has(e.target).length) {
       $dropdown.removeClass('open');
       $settingsBtn.removeClass('active');
     }
