@@ -1224,7 +1224,10 @@ html {
 
     @include screen("mobile") {
       .list-basic {
-        padding: 20px;
+        padding: 0;
+        box-shadow: none;
+        border: none;
+        background: none;
       }
     }
   }
@@ -1256,14 +1259,19 @@ html {
       background: radial-gradient(67.13% 67.08% at 50% 50%, #FFF 0%, rgba(255, 255, 255, 0.00) 100%);
       filter: blur(95px);
     }
+
+    .viewport {
+      display: flex;
+      flex-direction: column;
+    }
   }
 
   &.onepage {
     .viewport {
       padding-top: 50px;
       padding-bottom: 50px;
-      display: flex;
-      flex-direction: column;
+      // display: flex;
+      // flex-direction: column;
       min-height: 100vh;
 
       /* 최소 높이를 화면 전체로 설정 */
@@ -1309,7 +1317,7 @@ html {
   .app-inner {
     padding: 0 30px;
     max-width: $max-width;
-    width: 1024px;
+    width: 100%;
     margin: auto;
   }
 
@@ -1332,24 +1340,28 @@ html {
 
 
 .tab-list {
-  background-color: rgba(248, 249, 252, 0.7);
-  border-bottom: 1px solid #dbe2ee;
-  backdrop-filter: blur(10px);
+  margin-bottom: 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
 
   ul {
     display: flex;
-    height: 70px;
+    height: 60px;
 
     li {
       height: 100%;
       flex: 1;
 
+      &+li {
+        border-left: 1px solid var(--border);
+      }
+
       &.on {
         a {
-          color: #fff;
           font-weight: 700;
-          background-color: #6980ea;
-          border-radius: 50px 50px 0 50px;
+          color: #fff;
+          background-color: var(--rec-primary);
         }
       }
 
@@ -1358,7 +1370,7 @@ html {
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 2rem;
+        font-size: 1.8rem;
         font-weight: 600;
         color: #666f7b;
         letter-spacing: -1px;
@@ -1367,47 +1379,47 @@ html {
     }
   }
 
-  &.sub {
-    background-color: #fff;
-    overflow-x: auto;
-    overflow-y: hidden;
+  // &.sub {
+  //   background-color: #fff;
+  //   overflow-x: auto;
+  //   overflow-y: hidden;
 
-    ul {
-      height: 44px;
+  //   ul {
+  //     height: 44px;
 
-      li {
-        height: 100%;
-        width: auto;
-        padding: 0 20px;
+  //     li {
+  //       height: 100%;
+  //       width: auto;
+  //       padding: 0 20px;
 
-        &.on {
-          a {
-            color: #000;
-            font-weight: 700;
-            background-color: transparent;
-            border-radius: 0;
-            position: relative;
+  //       &.on {
+  //         a {
+  //           color: #000;
+  //           font-weight: 700;
+  //           background-color: transparent;
+  //           border-radius: 0;
+  //           position: relative;
 
-            &:after {
-              content: '';
-              display: block;
-              width: 100%;
-              height: 2px;
-              background-color: #000;
-              position: absolute;
-              bottom: 0;
-              left: 0;
-            }
-          }
-        }
+  //           &:after {
+  //             content: '';
+  //             display: block;
+  //             width: 100%;
+  //             height: 2px;
+  //             background-color: #000;
+  //             position: absolute;
+  //             bottom: 0;
+  //             left: 0;
+  //           }
+  //         }
+  //       }
 
-        a {
-          font-size: 1.8rem;
-          color: rgba(70, 79, 101, 0.4);
-        }
-      }
-    }
-  }
+  //       a {
+  //         font-size: 1.8rem;
+  //         color: rgba(70, 79, 101, 0.4);
+  //       }
+  //     }
+  //   }
+  // }
 }
 
 
