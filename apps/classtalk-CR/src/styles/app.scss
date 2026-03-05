@@ -835,6 +835,12 @@ textarea[disabled] {
     color: #fff;
     background: #68C9AC;
     border: 1px solid transparent;
+
+    &.line {
+      border: 1px solid #68C9AC;
+      color: #68C9AC;
+      background: transparent;
+    }
   }
 
   &.negative {
@@ -1315,10 +1321,27 @@ html {
   }
 
   .app-inner {
-    padding: 0 30px;
+    padding: 20px 30px;
     max-width: $max-width;
     width: 100%;
     margin: auto;
+
+    &.wide {
+      max-width: 100%;
+    }
+
+    &.mobile {
+      max-width: 520px;
+
+      .app-header {
+        justify-content: center;
+
+        .title-lv1 {
+          flex-direction: column;
+          gap: 0;
+        }
+      }
+    }
   }
 
   @include screen("mobile") {
@@ -1693,12 +1716,113 @@ html {
   }
 }
 
+.voucher-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+
+  ol {
+    width: 100%;
+
+    li {
+      border-top: 1px solid #E9EBEE;
+      padding: 24px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      width: 100%;
+
+      &:first-child {
+        border-top: none;
+      }
+
+      &.withdrawal {
+        .right {
+          * {
+            color: #E55765;
+          }
+        }
+      }
+
+      .left {
+        flex: 1;
+      }
+
+      .right {
+        text-align: right;
+      }
+
+      .date {
+        font-size: 1.3rem;
+        font-weight: 400;
+        color: #9FA2B4;
+
+        b {
+          color: #454545;
+        }
+      }
+
+      .dnw {
+        font-size: 1.3rem;
+        font-weight: 600;
+      }
+
+      .amount {
+        font-size: 1.8rem;
+        font-weight: 700;
+      }
+
+      .note {
+        font-size: 1.6rem;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .title {
+    color: #454545;
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  .amount {
+    color: #454545;
+    font-size: 3.6rem;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  &+.btn {
+    // min-width: 300px;
+    // margin-left: auto;
+    // margin-right: auto;
+  }
+}
+
 .list-basic {
   position: relative;
+
+  &.auto {
+    ul {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(342px, 1fr));
+      gap: 20px;
+
+      li {
+        width: 100%;
+        min-width: 0; // grid 아이템이 1fr로 남는 영역 채우도록
+      }
+    }
+  }
 
   .cta {
     text-align: center;
     margin-top: 20px;
+    // margin-bottom: 20px;
 
     .btn {
       min-width: 300px;
@@ -1748,17 +1872,21 @@ html {
     margin-bottom: 20px;
   }
 
-  ul {
+  >ul {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
 
-    li {
+    >li {
       width: calc(33.33% - 14px);
       border-radius: 10px;
       border: 4px solid #E9EBEE;
       background: #FFF;
       box-shadow: 0 12px 20px -10px rgba(0, 0, 0, 0.10);
+
+      &.dashed {
+        border-style: dashed;
+      }
 
       &.disabled {
         background-color: #fafafa;
@@ -1929,6 +2057,8 @@ html {
     }
   }
 
+
+
   .receipt {
     position: absolute;
     right: 30px;
@@ -1937,6 +2067,13 @@ html {
     padding: 20px 0;
     border-bottom: 1px dashed #AEAEAE;
     width: 200px;
+
+    &.static {
+      position: static;
+      width: 100%;
+      border-top: 1px dashed #AEAEAE;
+      border-bottom: 1px solid transparent;
+    }
 
     dl {
       display: flex;
@@ -1965,6 +2102,14 @@ html {
   }
 
   @include screen("mobile") {
+    &.auto {
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+
     .cta {
       margin-bottom: 30px;
 
@@ -2084,4 +2229,74 @@ html {
 
 .guidebox {
   margin-bottom: 20px;
+}
+
+
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 9999;
+
+
+  .logo {
+    position: relative;
+    text-indent: -999rem;
+    width: 164px;
+    height: 30px;
+
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+
+      &:after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: url('../images/logo-classtalk-horizon.png') no-repeat center;
+        background-size: contain;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+      }
+    }
+  }
+
+  .util {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+  }
+
+  @include screen("mobile") {
+    background-color: #fff;
+    padding: 10px 16px;
+
+    .logo {
+      width: 132px;
+      height: 24px;
+    }
+
+    .util {
+      .btn-mid {
+        width: auto;
+        font-size: 1.2rem;
+        height: auto;
+        padding: 8px 10px;
+        white-space: nowrap;
+      }
+    }
+  }
+
 }
