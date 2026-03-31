@@ -67,3 +67,40 @@ html {
 :focus:not(:focus-visible) {
   outline: 0;
 }
+
+.title-label {
+  position: fixed;
+  display: inline-flex;
+  align-items: center;
+  max-width: 120px;
+  text-align: center;
+  line-height: 1.2;
+  justify-content: center;
+  padding: 4px 6px;
+  border-radius: 6px;
+  background: #3B3F45;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 400;
+  // white-space: nowrap;
+  word-break: keep-all;
+  pointer-events: none;
+  z-index: 9999;
+  text-indent: 0;
+}
+
+.user-settings {
+  border-radius: 4px;
+
+  &.active,
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.settings-dropdown {
+  img {
+    width: 20px;
+  }
+
+}

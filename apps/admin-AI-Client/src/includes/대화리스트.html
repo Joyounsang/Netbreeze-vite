@@ -1,12 +1,7 @@
 <div class="otherNav">
 	<div class="otherNav-inner">
 		<ul class="otherMenu">
-			<li>
-				<a href="chatMain.html" class="menu-item">
-					<img src="assets/images/ico-recordEdit.png" alt="">
-					분석할 민원 작성
-				</a>
-			</li>
+
 			<li>
 				<div class="menu-item">
 					<img src="assets/images/ico-chatSearch.png" alt="">
@@ -14,11 +9,423 @@
 				</div>
 
 			</li>
+			<li>
+				<a href="chatMain.html" class="menu-item">
+					<img src="assets/images/ico-recordEdit.png" alt="">
+					새 채팅
+				</a>
+				<a href="chatDemo.html" class="demo-chat" title-label="임시 채팅">임시 채팅</a>
+			</li>
 		</ul>
 
 		<div class="history">
 			<div class="scrollbar">
+				<div class="history-head">
+					<div class="tit">
+
+						즐겨찾기
+						<a href="#" class="ico helper demo-chat" title-label="대화목록을 즐겨찾기에 드래그하여 추가할 수 있습니다.">도움말</a>
+						<a href="#" class="btn-text">
+							<img src="assets/images/ico-added.png" alt="">
+							그룹 추가
+						</a>
+					</div>
+				</div>
+
+				<div class="favorite-groups">
+					<div class="favorite-group">
+						<div class="favorite-group-head">
+							<button type="button" class="favorite-group-toggle selected-arrow"></button>
+							<div class="favorite-group-title">
+								즐겨찾기2 (접힘)
+							</div>
+							<button class="user-settings right">
+								<span class="ico more">더 보기</span>
+							</button>
+							<div class="settings-dropdown">
+								<ul>
+									<li>
+										<button class="settings-menu-item">
+											<span class="settings-text">그룹 이름 변경</span>
+										</button>
+									</li>
+									<li>
+										<button class="settings-menu-item">
+											<span class="settings-text">그룹만 삭제</span>
+										</button>
+									</li>
+									<li>
+										<button class="settings-menu-item">
+											<span class="settings-text">그룹 및 채팅기록 삭제</span>
+										</button>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<ul class="favorite-group-items">
+							<li class="history-item">
+								<a href="chatView.html" class="history-item-inner">
+									<div class="info">
+										<div class="tit">넥스트테크 김 부장의 반복적인 폭언 및 부당지시에 대한 민원</div>
+										<div class="date">
+											울산센터 박정민 상담사 / 2025G12345
+										</div>
+									</div>
+									<button class="user-settings right">
+										<span class="ico more">더 보기</span>
+									</button>
+									<div class="settings-dropdown">
+										<ul>
+											<li>
+												<button class="settings-menu-item">
+													<span class="settings-text">고정하기</span>
+												</button>
+											</li>
+											<li>
+												<button class="settings-menu-item">
+													<img src="assets/images/setico-share.png" alt="">
+													<span class="settings-text">공유하기</span>
+												</button>
+											</li>
+											<li>
+												<button class="settings-menu-item">
+													<img src="assets/images/setico-edit.png" alt="">
+													<span class="settings-text">제목 변경</span>
+												</button>
+											</li>
+											<li>
+												<button class="settings-menu-item">
+													<img src="assets/images/setico-favorite.png" alt="">
+													<span class="settings-text">즐겨찾기</span>
+												</button>
+											</li>
+											<li>
+												<button class="settings-menu-item">
+													<img src="assets/images/setico-favoriteRemove.png" alt="">
+													<span class="settings-text">즐겨찾기 제거</span>
+												</button>
+											</li>
+										</ul>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="favorite-group open">
+						<div class="favorite-group-head">
+							<button type="button" class="favorite-group-toggle selected-arrow"></button>
+							<div class="favorite-group-title">
+								즐겨찾기1 (오픈)
+							</div>
+							<button class="user-settings right">
+								<span class="ico more">더 보기</span>
+							</button>
+							<div class="settings-dropdown">
+								<ul>
+									<li>
+										<button class="settings-menu-item">
+											<span class="settings-text">그룹 이름 변경</span>
+										</button>
+									</li>
+									<li>
+										<button class="settings-menu-item">
+											<span class="settings-text">그룹만 삭제</span>
+										</button>
+									</li>
+									<li>
+										<button class="settings-menu-item">
+											<span class="settings-text">그룹 및 채팅기록 삭제</span>
+										</button>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<ul class="favorite-group-items">
+							<li class="history-item">
+								<a href="chatView.html" class="history-item-inner">
+									<div class="info">
+										<div class="tit">넥스트테크 김 부장의 반복적인 폭언 및 부당지시에 대한 민원</div>
+										<div class="date">
+											울산센터 박정민 상담사 / 2025G12345
+										</div>
+									</div>
+									<button class="user-settings right">
+										<span class="ico more">더 보기</span>
+									</button>
+									<div class="settings-dropdown">
+										<ul>
+											<li>
+												<button class="settings-menu-item">
+													<img src="assets/images/setico-fix.png" alt="">
+													<span class="settings-text">고정하기</span>
+												</button>
+											</li>
+											<li>
+												<button class="settings-menu-item">
+													<img src="assets/images/setico-fixoff.png" alt="">
+													<span class="settings-text">고정하기 해제</span>
+												</button>
+											</li>
+											<li>
+												<button class="settings-menu-item">
+													<img src="assets/images/setico-share.png" alt="">
+													<span class="settings-text">공유하기</span>
+												</button>
+											</li>
+											<li>
+												<button class="settings-menu-item">
+													<img src="assets/images/setico-edit.png" alt="">
+													<span class="settings-text">제목 변경</span>
+												</button>
+											</li>
+											<li>
+												<button class="settings-menu-item">
+													<img src="assets/images/setico-favorite.png" alt="">
+													<span class="settings-text">즐겨찾기</span>
+												</button>
+											</li>
+											<li>
+												<button class="settings-menu-item">
+													<img src="assets/images/setico-favoriteRemove.png" alt="">
+													<span class="settings-text">즐겨찾기 제거</span>
+												</button>
+											</li>
+										</ul>
+									</div>
+								</a>
+							</li>
+
+							<li class="history-item">
+								<a href="chatView.html" class="history-item-inner">
+									<div class="info">
+										<div class="tit">넥스트테크 김 부장의 반복적인 폭언 및 부당지시에 대한 민원</div>
+										<div class="date">
+											울산센터 박정민 상담사 / 2025G12345
+										</div>
+									</div>
+									<button class="user-settings right">
+										<span class="ico more">더 보기</span>
+									</button>
+									<div class="settings-dropdown">
+										<ul>
+											<li>
+												<button class="settings-menu-item">
+													<img src="assets/images/setico-fix.png" alt="">
+													<span class="settings-text">고정하기</span>
+												</button>
+											</li>
+											<li>
+												<button class="settings-menu-item">
+													<img src="assets/images/setico-fixoff.png" alt="">
+													<span class="settings-text">고정하기 해제</span>
+												</button>
+											</li>
+											<li>
+												<button class="settings-menu-item">
+													<img src="assets/images/setico-share.png" alt="">
+													<span class="settings-text">공유하기</span>
+												</button>
+											</li>
+											<li>
+												<button class="settings-menu-item">
+													<img src="assets/images/setico-edit.png" alt="">
+													<span class="settings-text">제목 변경</span>
+												</button>
+											</li>
+											<li>
+												<button class="settings-menu-item">
+													<img src="assets/images/setico-favorite.png" alt="">
+													<span class="settings-text">즐겨찾기</span>
+												</button>
+											</li>
+											<li>
+												<button class="settings-menu-item">
+													<img src="assets/images/setico-favoriteRemove.png" alt="">
+													<span class="settings-text">즐겨찾기 제거</span>
+												</button>
+											</li>
+										</ul>
+									</div>
+								</a>
+							</li>
+						</ul>
+
+					</div>
+
+					<ul>
+						<li class="history-item">
+							<a href="chatView.html" class="history-item-inner">
+								<div class="info">
+									<div class="tit">넥스트테크 김 부장의 반복적인 폭언 및 부당지시에 대한 민원</div>
+									<div class="date">
+										울산센터 박정민 상담사 / 2025G12345
+									</div>
+								</div>
+								<button class="user-settings right">
+									<span class="ico more">더 보기</span>
+								</button>
+								<div class="settings-dropdown">
+									<ul>
+										<li>
+											<button class="settings-menu-item">
+												<img src="assets/images/setico-fix.png" alt="">
+												<span class="settings-text">고정하기</span>
+											</button>
+										</li>
+										<li>
+											<button class="settings-menu-item">
+												<img src="assets/images/setico-fixoff.png" alt="">
+												<span class="settings-text">고정하기 해제</span>
+											</button>
+										</li>
+										<li>
+											<button class="settings-menu-item">
+												<img src="assets/images/setico-share.png" alt="">
+												<span class="settings-text">공유하기</span>
+											</button>
+										</li>
+										<li>
+											<button class="settings-menu-item">
+												<img src="assets/images/setico-edit.png" alt="">
+												<span class="settings-text">제목 변경</span>
+											</button>
+										</li>
+										<li>
+											<button class="settings-menu-item">
+												<img src="assets/images/setico-favorite.png" alt="">
+												<span class="settings-text">즐겨찾기</span>
+											</button>
+										</li>
+										<li>
+											<button class="settings-menu-item">
+												<img src="assets/images/setico-favoriteRemove.png" alt="">
+												<span class="settings-text">즐겨찾기 제거</span>
+											</button>
+										</li>
+									</ul>
+								</div>
+							</a>
+						</li>
+
+						<li class="history-item">
+							<a href="chatView.html" class="history-item-inner">
+								<div class="info">
+									<div class="tit">넥스트테크 김 부장의 반복적인 폭언 및 부당지시에 대한 민원</div>
+									<div class="date">
+										울산센터 박정민 상담사 / 2025G12345
+									</div>
+								</div>
+								<button class="user-settings right">
+									<span class="ico more">더 보기</span>
+								</button>
+								<div class="settings-dropdown">
+									<ul>
+										<li>
+											<button class="settings-menu-item">
+												<img src="assets/images/setico-fix.png" alt="">
+												<span class="settings-text">고정하기</span>
+											</button>
+										</li>
+										<li>
+											<button class="settings-menu-item">
+												<img src="assets/images/setico-fixoff.png" alt="">
+												<span class="settings-text">고정하기 해제</span>
+											</button>
+										</li>
+										<li>
+											<button class="settings-menu-item">
+												<img src="assets/images/setico-share.png" alt="">
+												<span class="settings-text">공유하기</span>
+											</button>
+										</li>
+										<li>
+											<button class="settings-menu-item">
+												<img src="assets/images/setico-edit.png" alt="">
+												<span class="settings-text">제목 변경</span>
+											</button>
+										</li>
+										<li>
+											<button class="settings-menu-item">
+												<img src="assets/images/setico-favorite.png" alt="">
+												<span class="settings-text">즐겨찾기</span>
+											</button>
+										</li>
+										<li>
+											<button class="settings-menu-item">
+												<img src="assets/images/setico-favoriteRemove.png" alt="">
+												<span class="settings-text">즐겨찾기 제거</span>
+											</button>
+										</li>
+									</ul>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+
+
+
+				<div class="history-head">
+					<div class="tit">최근</div>
+				</div>
 				<ul>
+					<li class="history-item fixing">
+						<a href="chatView.html" class="history-item-inner">
+							<div class="info">
+								<div class="tit">넥스트테크 김 부장의 반복적인 폭언 및 부당지시에 대한 민원</div>
+								<div class="date">
+									울산센터 박정민 상담사 / 2025G12345
+								</div>
+							</div>
+							<button class="user-settings right">
+								<span class="ico more">더 보기</span>
+							</button>
+							<div class="settings-dropdown">
+								<ul>
+									<li>
+										<button class="settings-menu-item">
+											<img src="assets/images/setico-fix.png" alt="">
+											<span class="settings-text">고정하기</span>
+										</button>
+									</li>
+									<li>
+										<button class="settings-menu-item">
+											<img src="assets/images/setico-fixoff.png" alt="">
+											<span class="settings-text">고정하기 해제</span>
+										</button>
+									</li>
+									<li>
+										<button class="settings-menu-item">
+											<img src="assets/images/setico-share.png" alt="">
+											<span class="settings-text">공유하기</span>
+										</button>
+									</li>
+									<li>
+										<button class="settings-menu-item">
+											<img src="assets/images/setico-edit.png" alt="">
+											<span class="settings-text">제목 변경</span>
+										</button>
+									</li>
+									<li>
+										<button class="settings-menu-item">
+											<img src="assets/images/setico-favorite.png" alt="">
+											<span class="settings-text">즐겨찾기</span>
+										</button>
+									</li>
+									<li>
+										<button class="settings-menu-item">
+											<img src="assets/images/setico-favoriteRemove.png" alt="">
+											<span class="settings-text">즐겨찾기 제거</span>
+										</button>
+									</li>
+								</ul>
+							</div>
+						</a>
+					</li>
+
 					<li class="history-item active">
 						<a href="chatView.html" class="history-item-inner">
 							<div class="info">
@@ -27,17 +434,49 @@
 									울산센터 박정민 상담사 / 2025G12345
 								</div>
 							</div>
-
-							<ul class="list-option">
-								<li>
-									<button class="ico more">더보기</button>
-									<div class="list-more-cont">
-										<ul>
-											<li> <button>삭제</button> </li>
-										</ul>
-									</div>
-								</li>
-							</ul>
+							<button class="user-settings right">
+								<span class="ico more">더 보기</span>
+							</button>
+							<div class="settings-dropdown">
+								<ul>
+									<li>
+										<button class="settings-menu-item">
+											<img src="assets/images/setico-fix.png" alt="">
+											<span class="settings-text">고정하기</span>
+										</button>
+									</li>
+									<li>
+										<button class="settings-menu-item">
+											<img src="assets/images/setico-fixoff.png" alt="">
+											<span class="settings-text">고정하기 해제</span>
+										</button>
+									</li>
+									<li>
+										<button class="settings-menu-item">
+											<img src="assets/images/setico-share.png" alt="">
+											<span class="settings-text">공유하기</span>
+										</button>
+									</li>
+									<li>
+										<button class="settings-menu-item">
+											<img src="assets/images/setico-edit.png" alt="">
+											<span class="settings-text">제목 변경</span>
+										</button>
+									</li>
+									<li>
+										<button class="settings-menu-item">
+											<img src="assets/images/setico-favorite.png" alt="">
+											<span class="settings-text">즐겨찾기</span>
+										</button>
+									</li>
+									<li>
+										<button class="settings-menu-item">
+											<img src="assets/images/setico-favoriteRemove.png" alt="">
+											<span class="settings-text">즐겨찾기 제거</span>
+										</button>
+									</li>
+								</ul>
+							</div>
 						</a>
 					</li>
 
@@ -49,239 +488,52 @@
 									울산센터 박정민 상담사 / 2025G12345
 								</div>
 							</div>
-
-							<ul class="list-option">
-								<li>
-									<button class="ico more">더보기</button>
-									<div class="list-more-cont">
-										<ul>
-											<li> <button>삭제</button> </li>
-										</ul>
-									</div>
-								</li>
-							</ul>
-						</a>
-					</li>
-
-					<li class="history-item">
-						<a href="chatView.html" class="history-item-inner">
-							<div class="info">
-								<div class="tit">넥스트테크 김 부장의 반복적인 폭언 및 부당지시에 대한 민원</div>
-								<div class="date">
-									울산센터 박정민 상담사 / 2025G12345
-								</div>
+							<button class="user-settings right">
+								<span class="ico more">더 보기</span>
+							</button>
+							<div class="settings-dropdown">
+								<ul>
+									<li>
+										<button class="settings-menu-item">
+											<img src="assets/images/setico-fix.png" alt="">
+											<span class="settings-text">고정하기</span>
+										</button>
+									</li>
+									<li>
+										<button class="settings-menu-item">
+											<img src="assets/images/setico-fixoff.png" alt="">
+											<span class="settings-text">고정하기 해제</span>
+										</button>
+									</li>
+									<li>
+										<button class="settings-menu-item">
+											<img src="assets/images/setico-share.png" alt="">
+											<span class="settings-text">공유하기</span>
+										</button>
+									</li>
+									<li>
+										<button class="settings-menu-item">
+											<img src="assets/images/setico-edit.png" alt="">
+											<span class="settings-text">제목 변경</span>
+										</button>
+									</li>
+									<li>
+										<button class="settings-menu-item">
+											<img src="assets/images/setico-favorite.png" alt="">
+											<span class="settings-text">즐겨찾기</span>
+										</button>
+									</li>
+									<li>
+										<button class="settings-menu-item">
+											<img src="assets/images/setico-favoriteRemove.png" alt="">
+											<span class="settings-text">즐겨찾기 제거</span>
+										</button>
+									</li>
+								</ul>
 							</div>
-
-							<ul class="list-option">
-								<li>
-									<button class="ico more">더보기</button>
-									<div class="list-more-cont">
-										<ul>
-											<li> <button>삭제</button> </li>
-										</ul>
-									</div>
-								</li>
-							</ul>
 						</a>
 					</li>
 
-					<li class="history-item">
-						<a href="chatView.html" class="history-item-inner">
-							<div class="info">
-								<div class="tit">넥스트테크 김 부장의 반복적인 폭언 및 부당지시에 대한 민원</div>
-								<div class="date">
-									울산센터 박정민 상담사 / 2025G12345
-								</div>
-							</div>
-
-							<ul class="list-option">
-								<li>
-									<button class="ico more">더보기</button>
-									<div class="list-more-cont">
-										<ul>
-											<li> <button>삭제</button> </li>
-										</ul>
-									</div>
-								</li>
-							</ul>
-						</a>
-					</li>
-
-					<li class="history-item">
-						<a href="chatView.html" class="history-item-inner">
-							<div class="info">
-								<div class="tit">넥스트테크 김 부장의 반복적인 폭언 및 부당지시에 대한 민원</div>
-								<div class="date">
-									울산센터 박정민 상담사 / 2025G12345
-								</div>
-							</div>
-
-							<ul class="list-option">
-								<li>
-									<button class="ico more">더보기</button>
-									<div class="list-more-cont">
-										<ul>
-											<li> <button>삭제</button> </li>
-										</ul>
-									</div>
-								</li>
-							</ul>
-						</a>
-					</li>
-
-					<li class="history-item">
-						<a href="chatView.html" class="history-item-inner">
-							<div class="info">
-								<div class="tit">넥스트테크 김 부장의 반복적인 폭언 및 부당지시에 대한 민원</div>
-								<div class="date">
-									울산센터 박정민 상담사 / 2025G12345
-								</div>
-							</div>
-
-							<ul class="list-option">
-								<li>
-									<button class="ico more">더보기</button>
-									<div class="list-more-cont">
-										<ul>
-											<li> <button>삭제</button> </li>
-										</ul>
-									</div>
-								</li>
-							</ul>
-						</a>
-					</li>
-
-					<li class="history-item">
-						<a href="chatView.html" class="history-item-inner">
-							<div class="info">
-								<div class="tit">넥스트테크 김 부장의 반복적인 폭언 및 부당지시에 대한 민원</div>
-								<div class="date">
-									울산센터 박정민 상담사 / 2025G12345
-								</div>
-							</div>
-
-							<ul class="list-option">
-								<li>
-									<button class="ico more">더보기</button>
-									<div class="list-more-cont">
-										<ul>
-											<li> <button>삭제</button> </li>
-										</ul>
-									</div>
-								</li>
-							</ul>
-						</a>
-					</li>
-
-					<li class="history-item">
-						<a href="chatView.html" class="history-item-inner">
-							<div class="info">
-								<div class="tit">넥스트테크 김 부장의 반복적인 폭언 및 부당지시에 대한 민원</div>
-								<div class="date">
-									울산센터 박정민 상담사 / 2025G12345
-								</div>
-							</div>
-
-							<ul class="list-option">
-								<li>
-									<button class="ico more">더보기</button>
-									<div class="list-more-cont">
-										<ul>
-											<li> <button>삭제</button> </li>
-										</ul>
-									</div>
-								</li>
-							</ul>
-						</a>
-					</li>
-
-					<li class="history-item">
-						<a href="chatView.html" class="history-item-inner">
-							<div class="info">
-								<div class="tit">넥스트테크 김 부장의 반복적인 폭언 및 부당지시에 대한 민원</div>
-								<div class="date">
-									울산센터 박정민 상담사 / 2025G12345
-								</div>
-							</div>
-
-							<ul class="list-option">
-								<li>
-									<button class="ico more">더보기</button>
-									<div class="list-more-cont">
-										<ul>
-											<li> <button>삭제</button> </li>
-										</ul>
-									</div>
-								</li>
-							</ul>
-						</a>
-					</li>
-
-					<li class="history-item">
-						<a href="chatView.html" class="history-item-inner">
-							<div class="info">
-								<div class="tit">넥스트테크 김 부장의 반복적인 폭언 및 부당지시에 대한 민원</div>
-								<div class="date">
-									울산센터 박정민 상담사 / 2025G12345
-								</div>
-							</div>
-
-							<ul class="list-option">
-								<li>
-									<button class="ico more">더보기</button>
-									<div class="list-more-cont">
-										<ul>
-											<li> <button>삭제</button> </li>
-										</ul>
-									</div>
-								</li>
-							</ul>
-						</a>
-					</li>
-
-					<li class="history-item">
-						<a href="chatView.html" class="history-item-inner">
-							<div class="info">
-								<div class="tit">넥스트테크 김 부장의 반복적인 폭언 및 부당지시에 대한 민원</div>
-								<div class="date">
-									울산센터 박정민 상담사 / 2025G12345
-								</div>
-							</div>
-
-							<ul class="list-option">
-								<li>
-									<button class="ico more">더보기</button>
-									<div class="list-more-cont">
-										<ul>
-											<li> <button>삭제</button> </li>
-										</ul>
-									</div>
-								</li>
-							</ul>
-						</a>
-					</li>
-
-					<li class="history-item">
-						<a href="chatView.html" class="history-item-inner">
-							<div class="info">
-								<div class="tit">넥스트테크 김 부장의 반복적인 폭언 및 부당지시에 대한 민원</div>
-								<div class="date">
-									울산센터 박정민 상담사 / 2025G12345
-								</div>
-							</div>
-
-							<ul class="list-option">
-								<li>
-									<button class="ico more">더보기</button>
-									<div class="list-more-cont">
-										<ul>
-											<li> <button>삭제</button> </li>
-										</ul>
-									</div>
-								</li>
-							</ul>
-						</a>
-					</li>
 
 
 				</ul>

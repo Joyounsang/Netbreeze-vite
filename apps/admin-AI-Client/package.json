@@ -13,7 +13,9 @@
     "format:fix": "pnpm prettier --write \"./src/**/*.{js,scss,html}\""
   },
   "dependencies": {
-    "@repo/styles": "workspace:*"
+    "@repo/styles": "workspace:*",
+    "air-datepicker": "^3.6.0",
+    "highlight.js": "^11.11.1"
   },
   "devDependencies": {
     "@repo/config-eslint": "workspace:*",

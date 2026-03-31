@@ -1,99 +1,101 @@
+<div class="bottom-action-ui">
+	<a href="#" class="scrollDown">
+		맨 아래로 이동
+	</a>
+
+	<!-- <a href="#" class="ai-replying">
+		<div class="loading-dot">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</a> -->
+</div>
+
 <div class="inner">
+	<div class="chat-file-list">
+		<ul>
+			<li>
+				<div class="status">
+					<div class="loading-simple"></div>
+				</div>
+				<div class="filename">File Name.zip</div>
+				<a href="#" class="ico fileDel">삭제</a>
+			</li>
+
+			<li>
+				<div class="status">
+					<img src="assets/images/ico-file-zip.png" alt="">
+				</div>
+				<div class="filename">File Name.zip</div>
+				<a href="#" class="ico fileDel">삭제</a>
+			</li>
+
+			<li>
+				<div class="status">
+					<img src="assets/images/ico-file-pdf.png" alt="">
+				</div>
+				<div class="filename">File Name.pdf</div>
+				<a href="#" class="ico fileDel">삭제</a>
+			</li>
+
+			<li>
+				<div class="status">
+					<img src="assets/images/ico-file-etc.png" alt="">
+				</div>
+				<div class="filename">File Name.etc</div>
+				<a href="#" class="ico fileDel">삭제</a>
+			</li>
+
+			<li>
+				<div class="status">
+					<img src="https://www.uic.me/assets/images/img-aiSmartHome-product01.png" alt="">
+				</div>
+				<div class="filename">File Name.jpg</div>
+				<a href="#" class="ico fileDel">삭제</a>
+			</li>
+		</ul>
+	</div>
 	<div class="input">
 		<textarea name="" id="" placeholder="접수된 민원내역을 입력해주세요."></textarea>
 	</div>
 	<div class="command">
 		<div class="attach">
-			<input type="file" id="file-attach-input" style="display: none;" multiple>
+
 			<div class="custom-select added" data-value="">
-				<div class="custom-select-button">추가하기</div>
-				<div class="custom-select-dropdown">
-					<div class="custom-select-option" data-action="file">
-						파일추가
-					</div>
-					<div class="custom-select-option" data-action="xx1">
-						XX추가
-					</div>
-					<div class="custom-select-option" data-action="xx2">
-						XX추가
-					</div>
+				<button class="user-settings top">
+					<span class="ico attach">더 보기</span>
+				</button>
+				<div class="settings-dropdown">
+					<ul>
+						<li>
+							<input type="file" class="file-attach-input" style="display: none;" multiple>
+							<button type="button" class="settings-menu-item" data-action="file">
+								<img src="assets/images/setico-added.png" alt="">
+								<span class="settings-text">파일추가</span>
+							</button>
+						</li>
+						<li>
+							<a href="#mdChatSetting" class="settings-menu-item modalLoad">
+								<img src="assets/images/setico-setting.png" alt="">
+								<span class="settings-text">채팅설정</span>
+							</a>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>
 
 		<div class="cta">
-			<div class="custom-select" data-value="">
-				<div class="custom-select-button">
-					<span class="custom-select-text">기본 상담</span>
-				</div>
-				<div class="custom-select-dropdown">
-					<div class="custom-select-option selected" data-value="">기본 상담
-					</div>
-					<div class="custom-select-option" data-value="option2">option2</div>
-					<div class="custom-select-option" data-value="option3">option3</div>
-				</div>
-			</div>
-			<div class="custom-select" data-value="">
-				<div class="custom-select-button">
-					<span class="custom-select-text">Auto</span>
-				</div>
-				<div class="custom-select-dropdown">
-					<div class="custom-select-option selected" data-value="">Auto
-					</div>
-					<div class="custom-select-option" data-value="option2">option2</div>
-					<div class="custom-select-option" data-value="option3">option3</div>
-				</div>
-			</div>
+			<button class="user-settings top">
+				<a href="#mdTools" class="ico options modalLoad" title-label="도구">도구</a>
+			</button>
+
+			<button class="user-settings top">
+				<a href="#" class="ico extend" title-label="확장" data-modal="mdExtend">확장</a>
+			</button>
+
 			<a href="#" class="send">입력</a>
-		</div>
-	</div>
-	<div class="options">
-		<div>
-			<div class="set-option">
-				<label class="switch">
-					<input type="checkbox" id="switch">
-					<span class="slider"></span>
-				</label>
-				<div class="labelname">근거 우선</div>
-			</div>
-		</div>
-
-		<div>
-			<div class="custom-select min" data-value="">
-				<div class="custom-select-button">
-					<span class="custom-select-text">업무형 톤(정확/간결)</span>
-				</div>
-				<div class="custom-select-dropdown">
-					<div class="custom-select-option selected" data-value="">업무형 톤(정확/간결)
-					</div>
-					<div class="custom-select-option" data-value="option2">option2</div>
-					<div class="custom-select-option" data-value="option3">option3</div>
-				</div>
-			</div>
-
-			<div class="custom-select min" data-value="">
-				<div class="custom-select-button">
-					<span class="custom-select-text">보통 길이</span>
-				</div>
-				<div class="custom-select-dropdown">
-					<div class="custom-select-option selected" data-value="">보통 길이
-					</div>
-					<div class="custom-select-option" data-value="option2">option2</div>
-					<div class="custom-select-option" data-value="option3">option3</div>
-				</div>
-			</div>
-
-			<div class="custom-select min" data-value="">
-				<div class="custom-select-button">
-					<span class="custom-select-text">목록/단락 위주</span>
-				</div>
-				<div class="custom-select-dropdown">
-					<div class="custom-select-option selected" data-value="">목록/단락 위주
-					</div>
-					<div class="custom-select-option" data-value="option2">option2</div>
-					<div class="custom-select-option" data-value="option3">option3</div>
-				</div>
-			</div>
 		</div>
 	</div>
 </div>
@@ -104,72 +106,35 @@
 		// user-global-chat 초기화
 		function initUserGlobalChat() {
 			const $chatContainer = $('.user-global-chat');
-			if (!$chatContainer.length) return;
+			const $root = $chatContainer.length ? $chatContainer : $(document);
 
-			initAddedTypeSelect($chatContainer);
-			initTextarea($chatContainer);
-			initFileAttach($chatContainer);
+			initAttachMenuActions($root);
+			initTextarea($root);
 		}
 
-		// added 타입 select 초기화 (user-global-chat 전용)
-		function initAddedTypeSelect($container) {
-			$container.find('.custom-select.added').each(function () {
-				const $customSelect = $(this);
-				const $button = $customSelect.find('.custom-select-button');
-				const $dropdown = $customSelect.find('.custom-select-dropdown');
+		// 첨부 메뉴 액션 처리
+		function initAttachMenuActions($container) {
+			const $fileActionBtns = $('.custom-select.added .settings-menu-item[data-action="file"]');
 
-				// 버튼 클릭 시 드롭다운 토글
-				$button.on('click', function (e) {
-					e.preventDefault();
-					e.stopPropagation();
+			$fileActionBtns.off('click.file-attach').on('click.file-attach', function (e) {
+				e.preventDefault();
+				e.stopPropagation();
 
-					// 다른 커스텀 select 닫기
-					$('.custom-select').not($customSelect).removeClass('open');
-					$('.custom-select-dropdown').not($dropdown).removeClass('open');
+				// 1) 현재 버튼과 같은 li 안의 input 우선 사용
+				let $fileInput = $(this).closest('li').find('.file-attach-input').first();
 
-					// 현재 select 토글
-					$customSelect.toggleClass('open');
-					$dropdown.toggleClass('open');
-				});
-
-				// 옵션 클릭 시 액션 실행
-				$dropdown.find('.custom-select-option').on('click', function (e) {
-					e.preventDefault();
-					e.stopPropagation();
-
-					const action = $(this).data('action');
-					handleAddedTypeAction(action);
-
-					// 드롭다운 닫기
-					$customSelect.removeClass('open');
-					$dropdown.removeClass('open');
-				});
-
-				// 외부 클릭 시 닫기
-				$(document).on('click.custom-select-added-' + $customSelect.index(), function (e) {
-					if (!$customSelect.is(e.target) && !$customSelect.has(e.target).length) {
-						$customSelect.removeClass('open');
-						$dropdown.removeClass('open');
+				// 2) dropdown이 body로 포털된 경우, anchorButton을 통해 원래 attach에서 탐색
+				if (!$fileInput.length) {
+					const $anchorButton = $(this).closest('.settings-dropdown').data('anchorButton');
+					if ($anchorButton && $anchorButton.length) {
+						$fileInput = $anchorButton.closest('.attach').find('.file-attach-input').first();
 					}
-				});
-			});
-		}
+				}
 
-		// added 타입 액션 처리
-		function handleAddedTypeAction(action) {
-			switch (action) {
-				case 'file':
-					$('#file-attach-input').trigger('click');
-					break;
-				case 'xx1':
-					console.log('XX추가 1 실행');
-					// 여기에 XX추가 1 기능 구현
-					break;
-				case 'xx2':
-					console.log('XX추가 2 실행');
-					// 여기에 XX추가 2 기능 구현
-					break;
-			}
+				if ($fileInput.length) {
+					$fileInput[0].click();
+				}
+			});
 		}
 
 		// textarea 입력 처리
@@ -186,21 +151,79 @@
 			});
 		}
 
-		// 파일 첨부 처리
-		function initFileAttach($container) {
-			$('#file-attach-input').on('change', function (e) {
-				const files = e.target.files;
-				if (files && files.length > 0) {
-					console.log('선택된 파일:', files);
-					// 여기에 파일 목록 표시 또는 업로드 처리 로직 추가
-					// 예: 파일 목록을 화면에 표시하거나 서버로 업로드
-				}
+		// 하단 액션(맨 아래로 / 답변 중): 스크롤이 최하단일 때 숨김, 위로 올린 경우에만 표시
+		function initBottomActionUiByScroll($chatContainer) {
+			const $bottomUi = $chatContainer.find('.bottom-action-ui');
+			if (!$bottomUi.length) {
+				return;
+			}
+
+			const $scrollPanel = $chatContainer.closest('.panel');
+			if (!$scrollPanel.length) {
+				return;
+			}
+
+			const $contentView = $chatContainer.closest('.content-view');
+			const thresholdPx = 48;
+
+			function isScrollAtBottom(el) {
+				const gap = el.scrollHeight - el.scrollTop - el.clientHeight;
+				return gap <= thresholdPx;
+			}
+
+			function update() {
+				const el = $scrollPanel[0];
+				$bottomUi.toggleClass('is-pinned-bottom', isScrollAtBottom(el));
+			}
+
+			$bottomUi.find('.scrollDown').off('click.scrollToBottom').on('click.scrollToBottom', function (e) {
+				e.preventDefault();
+				const el = $scrollPanel[0];
+				const maxScroll = Math.max(0, el.scrollHeight - el.clientHeight);
+				$scrollPanel.stop(true).animate({ scrollTop: maxScroll }, 300, 'swing', function () {
+					update();
+				});
 			});
+
+			$scrollPanel.off('scroll.bottomActionUi').on('scroll.bottomActionUi', update);
+			$(window).off('resize.bottomActionUi').on('resize.bottomActionUi', update);
+
+			if ($contentView.length && typeof ResizeObserver !== 'undefined') {
+				const prevRo = $chatContainer.data('bottomActionResizeObserver');
+				if (prevRo && typeof prevRo.disconnect === 'function') {
+					prevRo.disconnect();
+				}
+				const ro = new ResizeObserver(function () {
+					update();
+				});
+				ro.observe($contentView[0]);
+				$chatContainer.data('bottomActionResizeObserver', ro);
+			}
+
+			if ($contentView.length && typeof MutationObserver !== 'undefined') {
+				const prevMo = $chatContainer.data('bottomActionMutationObserver');
+				if (prevMo && typeof prevMo.disconnect === 'function') {
+					prevMo.disconnect();
+				}
+				const mo = new MutationObserver(function () {
+					update();
+				});
+				mo.observe($contentView[0], { childList: true, subtree: true });
+				$chatContainer.data('bottomActionMutationObserver', mo);
+			}
+
+			update();
+			// scrollbar 등 다른 초기화 이후 레이아웃 반영
+			setTimeout(update, 0);
+			setTimeout(update, 200);
 		}
 
 		// 초기화 실행
 		$(document).ready(function () {
 			initUserGlobalChat();
+			$('.user-global-chat').each(function () {
+				initBottomActionUiByScroll($(this));
+			});
 		});
 	})();
 </script>

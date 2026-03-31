@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+<include src="src/includes/head.html"></include>
+
+<body>
+    <div class="viewport">
+        <include src="src/includes/GNB.html"></include>
+        <div class="container">
+            <include src="src/includes/header.html"></include>
+            <div class="contents">
+                <div class="panel scrollbar listView">
+                    <div class="panel-head sticy-item">
+                        <div class="title">
+                            아이콘,버튼 컴포넌트 모음
+                            <div class="btnico" title-label="새로고침">
+                                <a href="#" class=" ico refresh">새로고침</a>
+                            </div>
+                        </div>
+                        <div class="command">
+                            <div class="select-event-button">
+                                <a href="#" class="btn-text negative">
+                                    <img src="assets/images/ico-trash-red.png" alt="">
+                                    선택 항목 삭제
+                                </a>
+
+                                <a href="#" class="btn-text">
+                                    선택 항목 공유하기
+                                </a>
+                            </div>
+
+                            <div class="btnico" title-label="설정">
+                                <a href="#mdSttSettings" class=" ico setting modalLoad">설정</a>
+                            </div>
+
+                            <div class="btnico" title-label="날짜 설정">
+                                <a href="#" class="ico cal filterPanelCalendarOpen">날짜 설정</a>
+                            </div>
+
+                            <div class="btnico" title-label="검색">
+                                <a href="#" class="ico search searchlineOpen">검색</a>
+                            </div>
+
+                            <a href="aiBoardEdit.html" class="btn positive fill">
+                                <img src="assets/images/ico-added-w.png" alt="">
+                                통화 업로드
+                            </a>
+
+
+                            <!-- <a href="#" class="btn white calendar"
+                                onclick="event.preventDefault(); this.classList.toggle('active'); document.querySelector('.panel.side.schedule').classList.toggle('collapsed'); return false;">
+                                캘린더 보기
+                            </a> -->
+                            <!-- <a href="#modWordChange" class="btn white modalLoad">
+                                <img src="assets/images/ico-wordChange.png" alt="">
+                                단어바꾸기
+                            </a> -->
+                            <!-- <a href="#" class="btn white">검색</a> -->
+
+                        </div>
+                        <div class="searchline">
+                            <div class="btnico" title-label="이전">
+                                <a href="#" class="ico back searchlineClose">뒤로가기</a>
+                            </div>
+                            <div class="table-search">
+                                <input type="text" placeholder="검색어를 입력하세요.">
+                            </div>
+                            <div class="command">
+                                <a href="#" class="btn-text arrow filterPanelBasicOpen">
+                                    <img src="assets/images/ico-searchfilter.png" alt="">
+                                    검색 조건
+                                </a>
+                                <a href="#" class="btn black">검색</a>
+                            </div>
+                        </div>
+
+                        <include src="src/includes/필터패널-날짜선택.html"></include>
+
+                        <include src="src/includes/필터패널-검색조건.html"></include>
+                    </div>
+
+                    <div class="content-view">
+
+                        <span style="font-size:1.4rem;padding:10px;border:1px solid #d9d9d9"
+                            title-label="어떤 요소든 title-label을 넣으면 오버시 툴팁이생성되요">툴팁사용 마우스 올려보세요
+                        </span>
+
+                        <div class="setting-list">
+                            <div class="filter-table">
+                                <div class="lines">
+                                    <div class="input-item type-row">
+                                        <div class="btnico"><span class="ico refresh" title-label="새로고침">새로고침</span>
+                                        </div>
+                                        <div class="btnico"><span class="ico close" title-label="닫기">닫기</span></div>
+                                        <div class="btnico"><span class="ico addeditem" title-label="추가">추가</span></div>
+                                        <div class="btnico"><span class="ico cal" title-label="캘린더">캘린더</span></div>
+                                        <div class="btnico"><span class="ico helper" title-label="도움말">도움말</span></div>
+                                        <div class="btnico"><span class="ico excel" title-label="엑셀">엑셀</span></div>
+                                        <div class="btnico"><span class="ico attach" title-label="첨부">첨부</span></div>
+                                        <div class="btnico"><span class="ico options" title-label="도구">도구</span></div>
+                                        <div class="btnico"><span class="ico extend" title-label="확장">확장</span></div>
+                                        <div class="btnico"><span class="ico trash" title-label="휴지통">휴지통</span></div>
+                                        <div class="btnico"><span class="ico align">정렬</span></div>
+                                        <div class="btnico"><span class="ico copy" title-label="복사">복사</span></div>
+                                        <div class="btnico"><span class="ico fileDel" title-label="파일삭제">파일삭제</span>
+                                        </div>
+                                        <div class="btnico"><span class="ico share" title-label="공유하기">공유하기</span></div>
+                                        <div class="btnico"><span class="ico edit" title-label="수정">수정</span></div>
+                                        <div class="btnico"><span class="ico favorite" title-label="즐겨찾기">즐겨찾기</span>
+                                        </div>
+                                        <div class="btnico"><span class="ico more" title-label="더보기">더보기</span></div>
+                                        <div class="btnico"><span class="ico send" title-label="보내기">보내기</span></div>
+                                        <div class="btnico"><span class="ico setting" title-label="환경설정">환경설정</span>
+                                        </div>
+                                        <div class="btnico"><span class="ico search" title-label="검색">검색</span></div>
+                                        <div class="btnico"><span class="ico back" title-label="뒤로가기">뒤로가기</span></div>
+                                    </div>
+                                </div>
+                                <div class="lines">
+                                    <div class="input-item type-row">
+                                        <a href="#" class="btn positive fill">버튼</a>
+                                        <a href="#" class="btn positive line">버튼</a>
+                                        <a href="#" class="btn natural fill">버튼</a>
+                                        <a href="#" class="btn natural line">버튼</a>
+                                        <a href="#" class="btn gray fill">버튼</a>
+                                        <a href="#" class="btn gray line">버튼</a>
+                                        <a href="#" class="btn negative fill">버튼</a>
+                                        <a href="#" class="btn negative line">버튼</a>
+                                        <a href="#" class="btn white">버튼</a>
+                                        <a href="#" class="btn black">버튼</a>
+                                    </div>
+                                </div>
+
+                                <div class="lines">
+                                    <div class="input-item">
+                                        <div class="like-label">input-status-default</div>
+                                        <input type="text" placeholder="placeholder">
+                                    </div>
+                                    <div class="input-item">
+                                        <div class="like-label">input-statusreadonly</div>
+                                        <input type="text" value="readonly" readonly>
+                                    </div>
+                                    <div class="input-item">
+                                        <div class="like-label">input-statusdisabled</div>
+                                        <input type="text" value="disabled" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="lines">
+                                    <div class="input-item">
+                                        <div class="like-label">select</div>
+                                        <select name="" id="">
+                                            <option value="">option</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-item">
+                                        <div class="like-label">custom-select</div>
+                                        <div class="custom-select tablefilter direction-down" data-value="">
+                                            <div class="custom-select-button">
+                                                <span class="custom-select-text">유형</span>
+                                            </div>
+                                            <div class="custom-select-dropdown">
+                                                <div class="custom-select-option selected" data-value="">유형
+                                                </div>
+                                                <div class="custom-select-option" data-value="option2">유형2</div>
+                                                <div class="custom-select-option" data-value="option3">유형3
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="input-item">
+                                        <div class="like-label">calendar</div>
+                                        <div class="input-ico">
+                                            <input type="text" id="date1" class="date-air-datepicker"
+                                                placeholder="날짜 선택">
+                                            <label class="btnico" for="date1"><span class="ico cal"
+                                                    title-label="날짜선택">새로고침</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="input-item">
+                                        <div class="like-label">input+icon</div>
+                                        <div class="input-ico">
+                                            <input type="text" placeholder="다양한 버튼 가능">
+                                            <div class="btnico"><span class="ico refresh" title-label="새로고침">새로고침</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="lines">
+
+                                    <div class="input-item">
+                                        <div class="like-label">textarea</div>
+                                        <div class="textarea-item">
+                                            <textarea name="" id="" placeholder=""></textarea>
+                                            <div class="command">
+                                                <a href="#" class="ico extend" title-label="확장"
+                                                    data-modal="mdExtend">확장</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <include src="src/includes/MD-STT설정.html"></include>
+        <script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>

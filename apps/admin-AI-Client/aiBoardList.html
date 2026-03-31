@@ -9,53 +9,60 @@
             <include src="src/includes/header.html"></include>
             <div class="contents">
                 <div class="panel scrollbar listView">
-                    <div class="panel-head">
-                        <div class="title">AI Board Post 목록</div>
-                        <div class="command">
-                            <a href="STTSet.html" class="btn natural line">
-                                <img src="assets/images/ico-refresh.png" alt="">
-                                새로고침
-                            </a>
 
-                            <a href="aiBoardEdit.html" class="btn positive fill">
-                                <img src="assets/images/ico-recordEdit-w.png" alt="">
-                                새글 작성
-                            </a>
-                        </div>
-                    </div>
-                    <div class="sticy-item">
-                        <div class="filter-search">
-                            <input type="text" placeholder="Board_id, 제목, board_type, 본문 검색">
-                            <div class="side">
-
-                                <div class="side">
-                                    <div class="input-item">
-                                        <select style="min-width: 100px;">
-                                            <option value="" selected>전체</option>
-                                        </select>
-                                    </div>
-                                    <a href="#" class="btn white">검색</a>
-                                    <label class="checkbox">
-                                        <input type="checkbox"><span>자동 새로고침(5초)</span>
-                                    </label>
-                                </div>
+                    <div class="panel-head sticy-item">
+                        <div class="title">
+                            AI Board 요청 목록
+                            <div class="btnico" title-label="새로고침">
+                                <a href="#" class=" ico refresh">새로고침</a>
                             </div>
                         </div>
-                        <div class="list-tab">
-                            <ul>
-                                <li class="tit">
-                                    <a href="#">목록</a>
-                                </li>
-                            </ul>
-
-                            <div class="command">
+                        <div class="command">
+                            <div class="select-event-button">
                                 <a href="#" class="btn-text negative">
                                     <img src="assets/images/ico-trash-red.png" alt="">
                                     선택 항목 삭제
                                 </a>
+
+                                <a href="#" class="btn-text">
+                                    선택 항목 공유하기
+                                </a>
+                            </div>
+
+                            <div class="btnico" title-label="날짜 설정">
+                                <a href="#" class="ico cal filterPanelCalendarOpen">날짜 설정</a>
+                            </div>
+
+                            <div class="btnico" title-label="검색">
+                                <a href="#" class="ico search searchlineOpen">검색</a>
+                            </div>
+
+                            <a href="aiBoardEdit.html" class="btn positive fill">
+                                <img src="assets/images/ico-added-w.png" alt="">
+                                새글 작성
+                            </a>
+                        </div>
+                        <div class="searchline">
+                            <div class="btnico" title-label="이전">
+                                <a href="#" class="ico back searchlineClose">뒤로가기</a>
+                            </div>
+                            <div class="table-search">
+                                <input type="text" placeholder="검색어를 입력하세요.">
+                            </div>
+                            <div class="command">
+                                <a href="#" class="btn-text arrow filterPanelBasicOpen">
+                                    <img src="assets/images/ico-searchfilter.png" alt="">
+                                    검색 조건
+                                </a>
+                                <a href="#" class="btn black">검색</a>
                             </div>
                         </div>
+
+                        <include src="src/includes/필터패널-날짜선택.html"></include>
+
+                        <include src="src/includes/필터패널-검색조건.html"></include>
                     </div>
+
 
                     <div class="content-view">
                         <include src="src/includes/Table-AI보드.html"></include>

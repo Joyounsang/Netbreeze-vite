@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<include src="src/includes/head.html"></include>
+
+<body>
+    <div class="viewport">
+        <include src="src/includes/GNB.html"></include>
+        <div class="otherNav">
+            <div class="otherNav-inner">
+                <ul class="otherMenu">
+
+                    <li>
+                        <div class="menu-item">
+                            <img src="assets/images/ico-chatSearch.png" alt="">
+                            <input type="text" placeholder="민원 검색">
+                        </div>
+
+                    </li>
+                    <li>
+                        <a href="chatMain.html" class="menu-item">
+                            <img src="assets/images/ico-recordEdit.png" alt="">
+                            새 채팅
+                        </a>
+                        <a href="chatDemo.html" class="demo-chat on" title-label="임시 채팅">임시 채팅</a>
+                    </li>
+                </ul>
+
+                <div class="history">
+                    <div class="scrollbar">
+                        <div class="history-head">
+                            <div class="tit">
+
+                                즐겨찾기
+                                <a href="#" class="ico helper demo-chat"
+                                    title-label="대화목록을 즐겨찾기에 드래그하여 추가할 수 있습니다.">도움말</a>
+                                <a href="#" class="btn-text">
+                                    <img src="assets/images/ico-added.png" alt="">
+                                    그룹 추가
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <include src="src/includes/header.html"></include>
+            <div class="contents">
+                <div class="panel scrollbar listChat">
+                    <div class="content-view">
+
+                        <div class="user-global-chat">
+                            <div class="chatmode-title demo-logo">
+                                <img src="assets/images/img-demoChat.png" alt="">
+                                <div class="tit">
+                                    임시채팅
+                                </div>
+                                <p>
+                                    임시 채팅은 최근 채팅 또는 앱 활동에 표시되지 않으며,<br>
+                                    모델을 학습시키거나 사용자 환경을 맞춤 설정하는 데 사용되지 않습니다.<br> 사용자에게 대답을 제공하고 안전하게 보호하기 위해 임시 채팅은 72시간
+                                    동안 저장됩니다.
+                                </p>
+                            </div>
+                            <include src="src/includes/대화입력창.html"></include>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/src/js/main.js"></script>
+    <include src="src/includes/MD-도구.html"></include>
+    <include src="src/includes/MD-채팅설정.html"></include>
+</body>
+
+</html>

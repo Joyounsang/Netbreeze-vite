@@ -67,9 +67,14 @@ html {
         flex: 1;
         width: 100%;
         overflow: auto;
-        height: calc(100vh - 80px);
+        height: calc(100vh - 50px);
 
         &.aiRecord {
+
+          .list-memo {
+            margin-bottom: 0;
+          }
+
           .list-memo>ol>li {
             align-items: start;
             display: flex;
@@ -82,12 +87,14 @@ html {
           }
 
           .memoRecord {
-            height: calc(100vh - 150px);
+            // height: calc(100vh - 86px);
           }
 
           .panel-head {
             border-top: 0;
             padding: 0 20px;
+            border: none;
+            background-color: transparent;
 
             .title {
               padding-left: 0;
@@ -108,8 +115,8 @@ html {
             flex-direction: column;
             padding: 60px;
 
-            // chatMain: 첫 화면 (main-logo가 있을 때) - 중앙 정렬
-            &:has(.main-logo) {
+            // chatMain: 첫 화면 (chatmode-title가 있을 때) - 중앙 정렬
+            &:has(.chatmode-title) {
               justify-content: center;
               align-items: center;
             }
@@ -117,6 +124,7 @@ html {
             .chat-area {
               flex: 1;
               max-width: 860px;
+              width: 100%;
               margin: auto;
 
               // chatView: 채팅 내용이 있을 때
@@ -127,22 +135,32 @@ html {
 
             .user-global-chat {
 
+              .ico {
+                width: 36px;
+                height: 36px;
 
-              // chatMain: 첫 화면 (main-logo가 있을 때) - 중앙 정렬
-              &:has(.main-logo) {
+                &:before {
+                  width: 20px;
+                  height: 20px;
+                }
+              }
+
+
+              // chatMain: 첫 화면 (chatmode-title가 있을 때) - 중앙 정렬
+              &:has(.chatmode-title) {
                 margin: auto;
                 width: 100%;
                 max-width: 800px;
               }
 
-              // chatView: 채팅 화면 (main-logo가 없을 때) - 하단 fixed
-              &:not(:has(.main-logo)) {
+              // chatView: 채팅 화면 (chatmode-title가 없을 때) - 하단 fixed
+              &:not(:has(.chatmode-title)) {
                 position: sticky;
                 bottom: 0;
                 left: 0;
                 right: 0;
                 z-index: 100;
-                padding-bottom: 30px;
+                padding-bottom: 10px;
                 // padding: 0 60px 60px;
               }
 
@@ -201,10 +219,13 @@ html {
                     }
 
                     &.send {
+
                       text-indent: -999rem;
                       display: flex;
                       align-items: center;
                       justify-content: center;
+                      width: 36px;
+                      height: 36px;
 
                       &.active {
 
@@ -233,29 +254,7 @@ html {
                   }
                 }
 
-                .options {
-                  padding: 8px 16px;
-                  width: 100%;
-                  display: flex;
-                  align-items: center;
-                  justify-content: space-between;
-                  border-radius: 0 0 20px 20px;
-                  border: 1px solid #EBECF2;
-                  background: #F6F8FA;
-                  box-shadow: 0 0 17px 0 rgba(0, 150, 255, 0.05);
 
-                  .set-option {
-                    display: flex;
-                    align-items: center;
-                    gap: 6px;
-
-                    .labelname {
-                      font-size: 1.3rem;
-                      font-weight: 500;
-                      color: var(--text-gray);
-                    }
-                  }
-                }
 
                 textarea {
                   background-color: transparent;
@@ -272,19 +271,23 @@ html {
               }
             }
 
-            .main-logo {
+            .chatmode-title {
               max-width: 800px;
               margin: auto;
               width: 100%;
               display: flex;
               gap: 20px;
               align-items: center;
+              justify-content: center;
               margin-bottom: 30px;
+              padding: 10px 0;
+            }
+
+            .main-logo {
               background: linear-gradient(90deg, #15181A 0%, #677680 100%);
               background-clip: text;
               -webkit-background-clip: text;
               -webkit-text-fill-color: transparent;
-              padding: 10px 0;
 
               img {
                 height: 77px;
@@ -299,6 +302,28 @@ html {
                   font-size: 3.6rem;
                   font-weight: 600;
                 }
+              }
+            }
+
+            .demo-logo {
+              flex-direction: column;
+
+              .tit {
+                line-height: 1.2;
+                font-size: 2.6rem;
+                font-weight: 400;
+              }
+
+              p {
+                line-height: 1.6;
+                font-size: 1.8rem;
+                color: var(--text-gray);
+                font-weight: 400;
+                text-align: center;
+              }
+
+              img {
+                width: 50px;
               }
             }
           }
@@ -337,22 +362,44 @@ html {
 
 
         .panel-head {
+          background-color: #fff;
           display: flex;
           flex: none;
-          height: 50px;
+          height: 56px;
           display: flex;
           align-items: center;
           padding: 0 30px;
+          // position: relative;
 
           border-top: 1px solid var(--border);
+          border-bottom: 1px solid var(--border);
+
+          &:after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 20px;
+            background-color: #fff;
+            position: absolute;
+            bottom: -21px;
+            left: 0;
+          }
 
           &+.sticy-item {
             border-top: 1px solid var(--border);
           }
 
+          .select-event-button {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+          }
 
           .command {
             margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 6px;
           }
         }
 
@@ -407,6 +454,51 @@ html {
             }
 
           }
+        }
+
+        .searchline {
+
+          padding: 0 30px;
+          background-color: #F6F8FA;
+          position: absolute;
+          display: none;
+          align-items: center;
+          gap: 10px;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+
+          &.active {
+            display: flex;
+          }
+
+          .table-search {
+            display: flex;
+            align-items: center;
+            gap: 0;
+
+            &:before {
+              content: '';
+              display: block;
+              width: 24px;
+              height: 24px;
+              background: url('../images/ico-search.png') no-repeat center;
+              background-size: contain;
+            }
+
+            input {
+              border: none;
+              padding: 0 0 0 10px;
+
+              &:focus {
+                border: transparent;
+                outline: none;
+              }
+
+            }
+          }
+
         }
 
         .sidebar {
@@ -596,10 +688,19 @@ html {
 .title {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 4px;
   font-size: 1.8rem;
-  line-height: 36px;
+  // line-height: 36px;
   font-weight: 700;
+
+  .date {
+    font-weight: 400;
+    margin-left: 14px;
+
+    em {
+      font-weight: 500;
+    }
+  }
 
   &.lv2 {
     font-size: 2rem;
@@ -666,7 +767,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
-  height: 80px;
+  height: 50px;
 
   .snb {
     height: 100%;
@@ -1176,9 +1277,9 @@ footer {
     display: flex;
     align-items: center;
     gap: 6px;
-    font-size: 1.5rem;
-    font-weight: 500;
-    color: var(--text-gray);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text);
     padding: 20px 20px 15px;
 
     img {
@@ -1192,8 +1293,12 @@ footer {
 
 
     li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
       &+li {
-        margin-top: 10px;
+        // margin-top: 10px;
       }
 
       &.on {
@@ -1203,8 +1308,7 @@ footer {
         }
       }
 
-      &.on,
-      &:hover {
+      &.on {
         a {
           font-weight: 500;
           background-color: #F0F2F4;
@@ -1212,12 +1316,20 @@ footer {
         }
       }
 
+      a.menu-item {
+        &:hover {
+          font-weight: 500;
+          background-color: #F0F2F4;
+        }
+      }
+
       .menu-item {
+        flex: 1;
         display: flex;
         align-items: center;
         gap: 2px;
         border-radius: 10px;
-        padding: 12px;
+        padding: 10px 8px;
         font-size: 1.4rem;
         font-weight: 400;
         color: var(--text);
@@ -1237,15 +1349,184 @@ footer {
           }
         }
 
+
+
         img {
           width: 22px;
+        }
+      }
+
+      .demo-chat {
+        width: 36px;
+        height: 36px;
+        text-indent: -999rem;
+        border-radius: 50%;
+        border: 1px dashed #C0C7CE;
+        background: rgba(235, 241, 246, 0.70);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:after {
+          content: '';
+          display: block;
+          width: 20px;
+          height: 20px;
+          background: url('../images/ico-demoChat.png') no-repeat;
+          background-size: contain;
+        }
+
+        &:hover {
+          background: rgba(235, 241, 246, 0.0);
+        }
+
+        &.on {
+          border: 1px dashed #FFF;
+          background: rgba(204, 212, 217, 0.85);
+
+          &:after {
+            background: url('../images/ico-demoChat-active.png') no-repeat;
+            background-size: contain;
+          }
         }
       }
     }
   }
 
   .history {
+    .btn-text {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
 
+    .favorite-groups {
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+
+      ul {
+        padding-bottom: 0;
+      }
+    }
+
+
+
+    .favorite-group {
+      // border-bottom: 1px solid var(--border);
+      // margin-bottom: 6px;
+      // padding-bottom: 6px;
+
+      ul {
+
+        padding-left: 50px;
+      }
+
+
+
+      &.open {
+        .favorite-group-toggle {
+          transform: rotate(180deg);
+        }
+
+        .favorite-group-items {
+          display: block;
+        }
+      }
+    }
+
+    .favorite-group-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 4px;
+      cursor: pointer;
+
+      .user-settings {
+        display: none;
+        margin-left: auto;
+        width: 20px;
+        height: 20px;
+        opacity: 0.6;
+      }
+
+      &:hover {
+        .user-settings {
+          display: block;
+        }
+      }
+    }
+
+    .favorite-group-toggle {
+      width: 20px;
+      height: 20px;
+      border: none;
+      padding: 0;
+      background: url('../images/selected-arrow.png') no-repeat center;
+      background-size: contain;
+      opacity: 0.4;
+      transform: rotate(-90deg);
+      flex: none;
+    }
+
+    .favorite-group-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.3rem;
+      font-weight: 600;
+      line-height: 1;
+
+      &:before {
+        content: '';
+        display: block;
+        width: 20px;
+        height: 20px;
+        background: url('../images/ico-folder.png') no-repeat center;
+        background-size: contain;
+      }
+    }
+
+    .favorite-group-items {
+      display: none;
+      margin-top: 6px;
+    }
+
+    .favorite-group-body {
+      display: none;
+      margin-top: 6px;
+    }
+
+    .favorite-group.open {
+      .favorite-group-body {
+        display: block;
+      }
+    }
+
+    .history-head {
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+      padding: 0 0 0 10px;
+
+      .command {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .tit {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        font-size: 1.6rem;
+        font-weight: 700;
+        line-height: 100%;
+
+      }
+    }
 
     .scrollbar {
       height: calc(100vh - 166px);
@@ -1265,6 +1546,10 @@ footer {
 
         cursor: pointer;
         position: relative;
+
+        .date {
+          font-size: 1.2rem;
+        }
 
         &.error {
           .history-item-inner {
@@ -1286,22 +1571,35 @@ footer {
           }
         }
 
-        &+li {
-          margin-top: 10px;
+        &.fixing {
+          .history-item-inner {
+            &:after {
+              content: '';
+              display: inline-block;
+              position: relative;
+              margin-right: 2px;
+              // top: 3px;
+              width: 20px;
+              height: 20px;
+              background: url('../images/ico-fixing.png') no-repeat center;
+              background-size: contain;
+            }
+          }
         }
+
+
 
         .history-item-inner {
           border-radius: 8px;
           padding: 12px;
           display: flex;
-          align-items: center;
+          align-items: top;
           justify-content: space-between;
 
-          .list-option {
+          .user-settings {
             display: none;
             width: 20px;
-            flex: none;
-            margin: 0;
+            height: 20px;
           }
 
           .info {
@@ -1315,7 +1613,7 @@ footer {
             .tit {
               color: var(--text);
               font-size: 1.4rem;
-              font-weight: 700;
+              font-weight: 500;
               overflow: hidden;
               white-space: nowrap;
               overflow: hidden;
@@ -1341,18 +1639,7 @@ footer {
               }
             }
 
-            .list-option {
-              display: block;
 
-              .ico {
-                &.more {
-                  &:before {
-                    background: url('../images/ico-more-active.png') no-repeat center;
-                    background-size: contain;
-                  }
-                }
-              }
-            }
           }
         }
 
@@ -1360,14 +1647,8 @@ footer {
           .history-item-inner {
             background-color: #F0F2F4;
 
-            .list-option {
+            .user-settings {
               display: block;
-
-              li {
-                &:hover {
-                  background-color: transparent;
-                }
-              }
             }
           }
         }
@@ -1376,10 +1657,39 @@ footer {
   }
 }
 
+.input-text {
+  font-size: 1.3rem;
+  color: var(--text-light);
+  font-weight: 400;
+}
 
 .setting-list {
   border-top: 1px solid var(--border);
   padding: 30px;
+
+  .filter-table {
+    padding: 20px;
+    border-radius: 14px;
+    background: #FAFBFC;
+
+    .custom-select {
+      .custom-select-button {
+        height: 44px;
+      }
+
+    }
+
+    .input-text {
+      padding-left: 6px;
+    }
+
+    input,
+    select {
+      background-color: #fff;
+      width: 100%;
+      height: 44px;
+    }
+  }
 
   article {
     &+article {
@@ -1388,12 +1698,54 @@ footer {
   }
 
   .setting-tit {
+    color: var(--text);
     display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 1.6rem;
-    font-weight: 600;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 1.8rem;
+    font-weight: 700;
     margin-bottom: 20px;
+    position: relative;
+
+    &.arrow {
+      &+.filter-table {
+        display: none;
+      }
+
+      &.on {
+        &:after {
+          transform: rotate(180deg);
+        }
+
+        &+.filter-table {
+          display: flex;
+        }
+      }
+
+      &:after {
+        content: '';
+        display: block;
+        width: 30px;
+        height: 30px;
+        background: url('../images/selected-arrow.png') no-repeat center;
+        background-size: contain;
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+      }
+    }
+
+    .text {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+
+      img {
+        width: 20px;
+      }
+    }
 
     em {
       font-size: 1.4rem;
@@ -1402,73 +1754,483 @@ footer {
   }
 }
 
-.summary {
-  background: linear-gradient(180deg, #F6F8FA 0%, #FFF 35%);
+.textarea-item {
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid var(--border);
 
-  .summary-dashboard {
+  .command {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 30px;
+    gap: 6px;
+    justify-content: end;
 
-    border-bottom: 1px solid var(--border);
-    border-top: 1px solid var(--border);
+    .ico {
+      width: 36px;
+      height: 36px;
 
-    .info {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      align-items: center;
-
-      .name {
-        width: 100%;
-        font-size: 1.7rem;
-        font-weight: 600;
-        letter-spacing: -0.5px;
-        text-align: left;
-      }
-
-      .desc {
-        width: 100%;
-        color: var(--text-gray);
-        font-size: 1.5rem;
-        font-weight: 300;
-        letter-spacing: -0.5px;
-        text-align: left;
-      }
-
-      dl {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-        align-items: center;
-
-        dt {
-          font-size: 1.5rem;
-          font-weight: 600;
-        }
-
-        dd {
-          font-size: 1.5rem;
-          font-weight: 400;
-          color: var(--text-gray);
-
-          b {
-            color: var(--text);
-          }
-        }
-      }
-
-      &+.info {
-        border-left: 1px solid var(--border);
+      &:before {
+        width: 20px;
+        height: 20px;
       }
     }
   }
 
+  textarea {
+    height: 160px;
+    width: 100%;
+    border: none;
+    resize: none;
+    background-color: transparent;
+    padding: 10px;
+    font-size: 1.5rem;
+  }
+}
+
+.summary {
+
+
+  // .summary-dashboard {
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: space-between;
+  //   gap: 20px;
+  //   padding: 30px;
+
+  //   border-bottom: 1px solid var(--border);
+  //   border-top: 1px solid var(--border);
+
+  //   .info {
+  //     flex: 1;
+  //     display: flex;
+  //     flex-direction: column;
+  //     gap: 4px;
+  //     align-items: center;
+
+  //     .name {
+  //       width: 100%;
+  //       font-size: 1.7rem;
+  //       font-weight: 600;
+  //       letter-spacing: -0.5px;
+  //       text-align: left;
+  //     }
+
+  //     .desc {
+  //       width: 100%;
+  //       color: var(--text-gray);
+  //       font-size: 1.5rem;
+  //       font-weight: 300;
+  //       letter-spacing: -0.5px;
+  //       text-align: left;
+  //     }
+
+  //     dl {
+  //       width: 100%;
+  //       display: flex;
+  //       flex-direction: column;
+  //       gap: 4px;
+  //       align-items: center;
+
+  //       dt {
+  //         font-size: 1.5rem;
+  //         font-weight: 600;
+  //       }
+
+  //       dd {
+  //         font-size: 1.5rem;
+  //         font-weight: 400;
+  //         color: var(--text-gray);
+
+  //         b {
+  //           color: var(--text);
+  //         }
+  //       }
+  //     }
+
+  //     &+.info {
+  //       border-left: 1px solid var(--border);
+  //     }
+  //   }
+  // }
+
   .summary-content {
     padding: 30px 0;
   }
+
+  article {
+    padding: 24px;
+    border-radius: 14px;
+    border: 1px solid #D6E9FF;
+    background: #FFF;
+    box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.05);
+  }
+}
+
+.input-ico {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  .ico {
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background-color: #fff;
+
+    &:before {
+      width: 20px;
+      height: 20px;
+
+    }
+  }
+}
+
+.filter-table {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+
+  &+.filter-table {
+    margin-top: 10px;
+  }
+
+  .command {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    justify-content: end;
+  }
+
+  .lines {
+    &.auto {
+      gap: 24px;
+    }
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .input-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      &.type-row {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+    }
+  }
+}
+
+.filter-panel {
+  position: absolute;
+  left: 0;
+  top: 56px;
+  width: 100%;
+  // height: 290px;
+  z-index: 99;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  background: #fff;
+  box-shadow: 0 5px 7px 0 rgba(0, 0, 0, 0.05);
+  display: none;
+  z-index: 9999;
+  overflow: hidden;
+
+  &.active {
+    display: block;
+  }
+
+
+
+  .date-range-calendar {
+    // max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .date-range-calendar-head {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 14px;
+  }
+
+  .date-range-presets {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    border: 1px solid #dbe1e6;
+    background: #fff;
+    padding: 2px;
+  }
+
+  .range-preset-btn {
+    border: none;
+    background: transparent;
+    color: #81878c;
+    font-size: 1.3rem;
+    font-weight: 500;
+    height: 30px;
+    min-width: 66px;
+    border-radius: 999px;
+    padding: 0 14px;
+
+    &.active {
+      background: #3B3F45;
+      color: #fff;
+    }
+  }
+
+  .date-range-calendar-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+  }
+
+  .date-range-calendar-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #e8edf2;
+    margin-top: 12px;
+    padding-top: 10px;
+
+    .selected-range-text {
+      font-size: 1.5rem;
+      color: var(--rec-primary);
+      font-weight: 500;
+      text-align: center;
+    }
+  }
+
+  #date-range-start,
+  #date-range-end {
+    .air-datepicker {
+      width: 100%;
+      border: none;
+      background: transparent;
+      box-shadow: none;
+      --adp-day-cell-height: 28px;
+      --adp-day-name-color: #7E8291;
+      --adp-nav-color-secondary: #0096FF;
+      --adp-accent-color: #0096FF;
+      --adp-color-current-date: #0096FF;
+      --adp-cell-background-color-selected: #0096FF;
+      --adp-cell-background-color-selected-hover: #0086E6;
+    }
+
+    .air-datepicker-nav {
+      border-bottom: none;
+      padding: 0 36px 8px;
+    }
+
+    .air-datepicker-nav--title {
+      font-size: 1.6rem;
+      font-weight: 600;
+
+      i {
+        color: var(--text);
+      }
+    }
+
+    .air-datepicker-nav--action {
+      width: 20px;
+      height: 20px;
+      text-indent: -999rem;
+      border-radius: 50%;
+      background: url('../images/selected-arrow.png') no-repeat center;
+      background-size: contain;
+
+      svg {
+        display: none;
+      }
+    }
+
+    .air-datepicker-nav--action[data-action='prev'] {
+      transform: rotate(90deg);
+    }
+
+    .air-datepicker-nav--action[data-action='next'] {
+      transform: rotate(-90deg);
+    }
+
+    .air-datepicker-body--day-names {
+      margin: 2px 0 4px;
+
+      .air-datepicker-body--day-name {
+        color: #7E8291;
+      }
+
+      .air-datepicker-body--day-name:first-child {
+        color: #FF495E;
+      }
+
+      .air-datepicker-body--day-name:last-child {
+        color: #0096FF;
+      }
+    }
+
+    .air-datepicker-cell.-day- {
+      border-radius: 6px;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #7E8291;
+
+      &.is-sun {
+        color: #FF495E;
+      }
+
+      &.is-sat {
+        color: #0096FF;
+      }
+    }
+
+    .air-datepicker-cell.-day-.in-range {
+      background: #dceaf8;
+      color: #2b3138;
+      border-radius: 0;
+    }
+
+    .air-datepicker-cell.-day-.range-start,
+    .air-datepicker-cell.-day-.range-end {
+      background: #0096FF;
+      color: #fff;
+      border-radius: 0;
+    }
+
+    .ui-datepicker {
+      width: 100%;
+      padding: 0;
+      border: none;
+      background: transparent;
+    }
+
+    .ui-datepicker-header {
+      background: transparent;
+      border: none;
+    }
+
+    .ui-datepicker-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+    }
+
+    .ui-datepicker-calendar td a {
+      border-radius: 6px;
+    }
+
+    .ui-datepicker-calendar td.in-range {
+      background: #dceaf8;
+    }
+
+    .ui-datepicker-calendar td.in-range a {
+      background: transparent;
+      color: #2b3138;
+    }
+
+    .ui-datepicker-calendar td.range-start a,
+    .ui-datepicker-calendar td.range-end a {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .ui-datepicker-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .ui-datepicker-title select.ui-datepicker-month,
+    .ui-datepicker-title select.ui-datepicker-year {
+      min-width: 72px;
+      height: 30px;
+      border: 1px solid #dbe1e6;
+      border-radius: 8px;
+      padding: 0 10px;
+      background: #fff;
+      font-size: 1.3rem;
+      color: #2b3138;
+    }
+  }
+
+  #date-range-start {
+    .air-datepicker-nav--action[data-action='next'] {
+      display: none;
+    }
+
+    .air-datepicker-nav--action[data-action='prev'] {
+      display: inline-flex;
+    }
+
+    .ui-datepicker-prev {
+      display: block;
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .ui-datepicker-next {
+      display: none;
+    }
+  }
+
+  #date-range-end {
+    .air-datepicker-nav--action[data-action='prev'] {
+      display: none;
+    }
+
+    .air-datepicker-nav--action[data-action='next'] {
+      display: inline-flex;
+    }
+
+    .ui-datepicker-prev {
+      display: none;
+    }
+  }
+}
+
+/* guide 등 단일 Air Datepicker 공통 컬러 */
+.air-datepicker {
+  --adp-accent-color: #0096FF;
+  --adp-color-current-date: #0096FF;
+  --adp-cell-background-color-selected: #0096FF;
+  --adp-cell-background-color-selected-hover: #0086E6;
+}
+
+.air-datepicker-body--day-names {
+  .air-datepicker-body--day-name {
+    color: #7E8291;
+  }
+
+  .air-datepicker-body--day-name:first-child {
+    color: #FF495E;
+  }
+
+  .air-datepicker-body--day-name:last-child {
+    color: #0096FF;
+  }
+}
+
+.air-datepicker-cell.-day- {
+  color: #7E8291;
+
+  &.is-sun {
+    color: #FF495E;
+  }
+
+  &.is-sat {
+    color: #0096FF;
+  }
+}
+
+/* Air Datepicker 기본 CSS 우선순위보다 강하게 선택색 고정 */
+.air-datepicker .air-datepicker-cell.-selected-,
+.air-datepicker .air-datepicker-cell.-selected-.-focus-,
+.air-datepicker .air-datepicker-cell.-range-from-,
+.air-datepicker .air-datepicker-cell.-range-to- {
+  background: #0096FF !important;
+  border-color: #0096FF !important;
+  color: #fff !important;
 }

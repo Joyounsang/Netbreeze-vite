@@ -261,7 +261,7 @@ select {
     span {
 
       border: 1px solid var(--border);
-      color: var(--text-light);
+      color: var(--text-gray);
       border-radius: 36px;
       display: block;
       color: #7E8291;
@@ -306,7 +306,7 @@ select {
 
     &:checked+span {
       color: var(--text);
-      font-weight: 700;
+      // font-weight: 700;
     }
   }
 
@@ -316,7 +316,7 @@ select {
     letter-spacing: 0;
     padding-left: 30px;
     line-height: 36px;
-    color: var(--text-light);
+    color: var(--text-gray);
     font-weight: 500;
     cursor: pointer;
 
@@ -438,6 +438,18 @@ textarea:invalid {
   background-image: none;
 }
 
+.switch-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  .like-label {
+    color: var(--text-light);
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+}
+
 .switch {
   display: inline-block;
   position: relative;
@@ -487,5 +499,11 @@ textarea:invalid {
     &+.labelname {
       color: var(--text);
     }
+
+    &+.like-label {
+      color: var(--text);
+    }
   }
+
+
 }

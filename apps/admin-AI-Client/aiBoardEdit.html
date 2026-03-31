@@ -9,288 +9,184 @@
             <include src="src/includes/header.html"></include>
             <div class="contents">
                 <div class="panel scrollbar listView">
-                    <div class="panel-head">
-                        <div class="title">AI Board Post 작성</div>
+                    <div class="panel-head sticy-item">
+                        <div class="title">
+                            AI Board 새글 작성
+                        </div>
+                        <div class="command">
+                            <a href="#" class="btn natural line">
+                                취소
+                            </a>
+                            <a href="#" class="btn natural line">
+                                입력 초기화
+                            </a>
+                            <a href="#" class="btn positive fill">
+                                저장 및 실행
+                            </a>
+                        </div>
                     </div>
                     <div class="content-view">
                         <div class="setting-list">
                             <article>
                                 <div class="setting-tit">
-                                    Board Type
+                                    질문내용
+                                    <em class="gray">실제 민원 원문이나 답변에 꼭 반영할 사실을 입력해 주세요. 제목은 비워 두면 본문을 기준으로 자동 생성됩니다.</em>
+                                </div>
+                                <div class="filter-table">
+                                    <div class="lines">
+                                        <div class="input-item">
+                                            <div class="like-label">제목(선택)</div>
+                                            <input type="text" placeholder="제목을 입력하지 않으면 본문 앞부분이 자동 제목으로 저장됩니다.">
+                                        </div>
+                                    </div>
+
+                                    <div class="lines">
+                                        <div class="input-item">
+                                            <div class="like-label">내용</div>
+                                            <div class="textarea-item">
+                                                <textarea name="" id="" placeholder="미원 내용, 현재 상황, 원하는 답변 방향, 꼭 포함해야 할 문장을 자유롭게 입력해 주세요.
+예: 접수 일시, 민원인의 요구 사항, 기관 입장, 관련 사실관계, 답변 톤 가이드"></textarea>
+                                                <div class="command">
+                                                    <a href="#" class="ico extend" title-label="확장"
+                                                        data-modal="mdExtend">확장</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </article>
+
+                            <article>
+                                <div class="setting-tit">
+                                    문서 유형과 기본 방향
                                     <em class="gray">board_type 정책을 먼저 불러온 뒤, 허용된 옵션만 선택할 수 있습니다.</em>
                                 </div>
-                                <div class="tbl type-set">
-                                    <table>
-                                        <colgroup>
-                                            <col style="width:230px;">
-                                            <col style="width:auto">
-                                        </colgroup>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">
-                                                    <div class="set-title">
-                                                        <div class="tit">타입</div>
-                                                    </div>
-                                                </th>
-                                                <td class="left">
-                                                    <div class="items">
-                                                        <input type="text" placeholder="타입을 입력해 주세요.">
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                <div class="filter-table">
+                                    <div class="lines">
+                                        <div class="input-item">
+                                            <div class="like-label">문서 유형</div>
+                                            <select name="" id="">
+                                                <option value="">민원 답변</option>
+                                            </select>
+                                            <p class="input-text">민원인에게 안내할 답변 초안을 작성합니다.</p>
+                                        </div>
+                                        <div class="input-item">
+                                            <div class="like-label">응답 방식</div>
+                                            <select name="" id="">
+                                                <option value="">자동 추천</option>
+                                            </select>
+                                            <p class="input-text">자동 추천은 질문 성격에 맞춰 문장 흐름을 스스로 조정합니다.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="lines">
+                                        <div class="input-item">
+                                            <div class="like-label">검토 깊이</div>
+                                            <select name="" id="">
+                                                <option value="">균형형</option>
+                                            </select>
+                                            <p class="input-text">균형형은 속도와 정확도를 함께 고려한 기본 설정입니다..</p>
+                                        </div>
+                                        <div class="input-item">
+                                            <div class="like-label">외부 검색</div>
+                                            <select name="" id="">
+                                                <option value="">외부 검색 안함</option>
+                                            </select>
+                                            <p class="input-text">기관 내부 자료 위주로 작성하려면 기본값을 유지하면 됩니다.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="command">
+                                        <a href="#" class="btn natural line">
+                                            초기화
+                                        </a>
+                                        <a href="#" class="btn black">
+                                            조건 저장
+                                        </a>
+                                    </div>
                                 </div>
                             </article>
 
                             <article>
-                                <div class="setting-tit">
-                                    실행 옵션
-                                </div>
-                                <div class="tbl type-set">
-                                    <table>
-                                        <colgroup>
-                                            <col style="width:230px;">
-                                            <col style="width:auto">
-                                        </colgroup>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">
-                                                    <div class="set-title">
-                                                        <div class="tit">옵션1</div>
-                                                    </div>
-                                                </th>
-                                                <td class="left">
-                                                    <div class="items">
-                                                        <select>
-                                                            <option>FACT_LIGHT</option>
-                                                        </select>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                <a href="#" class="setting-tit arrow">
+                                    <div class="text">
+                                        <img src="assets/images/headerico-settings.png">
+                                        근거와 표현 설정
+                                    </div>
+                                    <em class="gray">답변에 근거를 얼마나 엄격하게 반영할지, 표현은 어떤 밀도로 작성할지 정합니다.</em>
+                                </a>
+                                <div class="filter-table">
+                                    <div class="lines">
+                                        <div class="input-item">
+                                            <div class="like-label">근거 포함 수준</div>
+                                            <select name="" id="">
+                                                <option value="">상황에 따라</option>
+                                            </select>
+                                            <p class="input-text">법규나 출처를 꼭 담아야 할 때는 반드시 포함을 선택합니다.</p>
+                                        </div>
+                                        <div class="input-item">
+                                            <div class="like-label">근거 활용 방식</div>
+                                            <select name="" id="">
+                                                <option value="">균형형</option>
+                                            </select>
+                                            <p class="input-text">보수적은 근거가 모호한 문장을 최대한 줄이는 설정입니다.</p>
+                                        </div>
+                                        <div class="input-item">
+                                            <div class="like-label">결과 형식</div>
+                                            <select name="" id="">
+                                                <option value="">자동</option>
+                                            </select>
+                                            <p class="input-text">자동은 화면과 결과 구조에 맞춰 적절한 형식을 선택합니다.</p>
+                                        </div>
+                                    </div>
 
-                                            <tr>
-                                                <th scope="row">
-                                                    <div class="set-title">
-                                                        <div class="tit">옵션2</div>
-                                                    </div>
-                                                </th>
-                                                <td class="left">
-                                                    <div class="items">
-                                                        <select>
-                                                            <option>required</option>
-                                                        </select>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                    <div class="lines">
+                                        <div class="input-item">
+                                            <div class="like-label">최소 본문 길이</div>
+                                            <input type="text" placeholder="" value="1200">
+                                            <p class="input-text">답변 본문이 너무 짧아지지 않도록 최소 글자 수를 정합니다.</p>
+                                        </div>
+                                        <div class="input-item">
+                                            <div class="like-label">최소 문단 수</div>
+                                            <input type="text" placeholder="" value="4">
+                                            <p class="input-text">기관 답변처럼 문단 구분이 필요한 경우에 유용합니다.</p>
+                                        </div>
+                                        <div class="input-item">
+                                            <div class="like-label">요약 최소 길이</div>
+                                            <input type="text" placeholder="" value="1200">
+                                            <p class="input-text">단 브리핑 요약이 지나치게 짧지 않게 유지합니다.</p>
+                                        </div>
+                                    </div>
 
-                                            <tr>
-                                                <th scope="row">
-                                                    <div class="set-title">
-                                                        <div class="tit">옵션3</div>
-                                                    </div>
-                                                </th>
-                                                <td class="left">
-                                                    <div class="items">
-                                                        <select>
-                                                            <option>verified</option>
-                                                        </select>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                    <div class="lines">
+                                        <div class="input-item">
+                                            <div class="like-label">요약 최대 길이</div>
+                                            <input type="text" placeholder="" value="1200">
+                                            <p class="input-text">답변 본문이 너무 짧아지지 않도록 최소 글자 수를 정합니다.</p>
+                                        </div>
+                                        <div class="input-item">
+                                            <div class="like-label">키워드 최소 개수</div>
+                                            <input type="text" placeholder="" value="4">
+                                            <p class="input-text">기관 답변처럼 문단 구분이 필요한 경우에 유용합니다.</p>
+                                        </div>
+                                        <div class="input-item">
+                                            <div class="like-label">키워드 최대 개수</div>
+                                            <input type="text" placeholder="" value="1200">
+                                            <p class="input-text">단 브리핑 요약이 지나치게 짧지 않게 유지합니다.</p>
+                                        </div>
+                                    </div>
 
-                                            <tr>
-                                                <th scope="row">
-                                                    <div class="set-title">
-                                                        <div class="tit">옵션4</div>
-                                                    </div>
-                                                </th>
-                                                <td class="left">
-                                                    <div class="items">
-                                                        <select>
-                                                            <option>strict</option>
-                                                        </select>
-                                                    </div>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <th scope="row">
-                                                    <div class="set-title">
-                                                        <div class="tit">옵션5</div>
-                                                    </div>
-                                                </th>
-                                                <td class="left">
-                                                    <div class="items">
-                                                        <select>
-                                                            <option>deny</option>
-                                                        </select>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <div class="command">
+                                        <a href="#" class="btn natural line">
+                                            초기화
+                                        </a>
+                                        <a href="#" class="btn black">
+                                            조건 저장
+                                        </a>
+                                    </div>
                                 </div>
                             </article>
-
-                            <article>
-                                <div class="setting-tit">
-                                    Output Contract (정책 기준)
-                                </div>
-                                <div class="tbl type-set">
-                                    <table>
-                                        <colgroup>
-                                            <col style="width:230px;">
-                                            <col style="width:auto">
-                                        </colgroup>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">
-                                                    <div class="set-title">
-                                                        <div class="tit">최소 길이</div>
-                                                    </div>
-                                                </th>
-                                                <td class="left">
-                                                    <div class="items">
-                                                        <input type="text" placeholder="최소 길이를 입력해 주세요.">
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">
-                                                    <div class="set-title">
-                                                        <div class="tit">최소 문단</div>
-                                                    </div>
-                                                </th>
-                                                <td class="left">
-                                                    <div class="items">
-                                                        <input type="text" placeholder="최소 문단을 입력해 주세요.">
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">
-                                                    <div class="set-title">
-                                                        <div class="tit">요약</div>
-                                                    </div>
-                                                </th>
-                                                <td class="left">
-                                                    <div class="items">
-                                                        <input type="text" placeholder="요약을 입력해 주세요.">
-                                                    </div>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <th scope="row">
-                                                    <div class="set-title">
-                                                        <div class="tit">요약 길이</div>
-                                                    </div>
-                                                </th>
-                                                <td class="left">
-                                                    <div class="items">
-                                                        <input type="text" placeholder="요약 길이를 입력해 주세요.">
-                                                    </div>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <th scope="row">
-                                                    <div class="set-title">
-                                                        <div class="tit">키워드</div>
-                                                    </div>
-                                                </th>
-                                                <td class="left">
-                                                    <div class="items">
-                                                        <input type="text" placeholder="키워드를 입력해 주세요.">
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </article>
-
-                            <article>
-                                <div class="setting-tit">
-                                    본문
-                                </div>
-                                <div class="tbl type-set">
-                                    <table>
-                                        <colgroup>
-                                            <col style="width:230px;">
-                                            <col style="width:auto">
-                                        </colgroup>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">
-                                                    <div class="set-title">
-                                                        <div class="tit">제목</div>
-                                                    </div>
-                                                </th>
-                                                <td class="left">
-                                                    <div class="items">
-                                                        <input type="text"
-                                                            placeholder="제목을 입력하지 않으면 본문 앞부분이 자동 제목으로 저장됩니다."
-                                                            style="min-width: 600px;">
-                                                    </div>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <th scope="row">
-                                                    <div class="set-title">
-                                                        <div class="tit">내용</div>
-                                                    </div>
-                                                </th>
-                                                <td class="left">
-                                                    <div class="items">
-                                                        <textarea name="" id=""
-                                                            style="max-width: 600px;min-height: 200px;"
-                                                            placeholder="Board 요청 본문을 입력해 주세요."></textarea>
-                                                    </div>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <th scope="row">
-                                                    <div class="set-title">
-                                                        <div class="tit">첨부파일</div>
-                                                    </div>
-                                                </th>
-                                                <td class="left">
-                                                    <div class="items">
-                                                        <label for="file-select" class="btn normal fill"
-                                                            style="cursor: pointer; position: relative;">
-                                                            파일선택
-                                                            <input type="file" id="file-select" multiple
-                                                                style="position: absolute; opacity: 0; width: 0; height: 0; overflow: hidden;">
-                                                        </label>
-                                                        <a href="#" class="btn positive fill">업로드</a>
-                                                    </div>
-                                                    <div class="file-list">
-                                                        <div class="file-path-input">
-                                                            <input type="text" placeholder="C://folder/file/file.pdf"
-                                                                readonly>
-                                                            <a href="#" class="ico trash">삭제</a>
-                                                        </div>
-                                                        <div class="file-path-input">
-                                                            <input type="text" placeholder="C://folder/file/file.pdf"
-                                                                readonly>
-                                                            <a href="#" class="ico trash">삭제</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </article>
-                        </div>
-
-                        <div class="content-view-foot">
-                            <a href="#" class="btn natural line">취소</a>
-                            <a href="#" class="btn positive fill">저장</a>
                         </div>
                     </div>
                 </div>
