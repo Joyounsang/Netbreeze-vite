@@ -1,169 +1,105 @@
 <!-- 메모리스트 팝업 -->
-<div id="mdMemoList" class="modal">
+<div id="mdMemoList" class="modal type-memo">
 	<div class="modal-inner">
 		<div class="modal-header">
-			작성된 메모 14개
+			<div class="title">
+				<span class="badge blue">정상</span>
+				<div class="title-text">
+					골목길 주차 민원 / 민원인 : 김*희 / 작성된 메모 2개
+					<span class="date">접수 번호 : 1215151-515522 / 접수 일정 : 2026-03-31</span>
+				</div>
+			</div>
 			<a href="#" class="modalClose" title="닫기">닫기</a>
 		</div>
 
-		<div class="modal-body">
-			<div class="callRecord">
-				<div class="callRecord-inner">
-					<ul class="list-chat">
-						<li class="chat-item cursor user">
-							<div class="chat-item-inner">
-								<div class="talkbox">
-									<div class="head">
-										<div class="name">발신자</div>
-										<div class="time">00:00</div>
-									</div>
-									<div class="body">
-										<p>
-											네, 실업급여 신청하려고 하는데요.
-										</p>
-										<div class="contenteditable-command">
-											<a href="#" class="text-btn">취소</a>
-											<a href="#" class="text-btn positive">저장</a>
-										</div>
-										<div class="memo">
-											하께서 2025년 7월 20일에 제출하신 '넥스트테크 김 부장의 직장 내 괴롭힘' 민원은 담당 부서인
-											서울지방고용노동청 근로개선지도과에
-										</div>
+		<div class="modal-body" style="width: 600px;">
+			<div class="memo-list-content scrollbar">
+				<ul class="user-memo-list">
+					<li class="memo-item" id="test01">
+						<div class="memo">
+							<div class="head">
+								<div class="left">
+									<div class="name">홍길동 </div>
+									<div class="time">2026-03-31</div>
+								</div>
+								<div class="right">
+									<button class="user-settings right">
+										<span class="ico more">더 보기</span>
+									</button>
+									<div class="settings-dropdown">
+										<ul>
+											<li>
+												<button class="settings-menu-item btnMemoEdit test01">
+													<img src="assets/images/setico-edit.png" alt="">
+													<span class="settings-text">수정</span>
+												</button>
+											</li>
+											<li>
+												<button class="settings-menu-item">
+													<img src="assets/images/setico-remove.png" alt="">
+													<span class="settings-text">삭제</span>
+												</button>
+											</li>
+										</ul>
 									</div>
 								</div>
 							</div>
-						</li>
 
-						<li class="chat-item cursor admin">
-							<div class="chat-item-inner">
-								<div class="talkbox">
-									<div class="head">
-										<div class="name">담당자</div>
-										<div class="time">00:00</div>
-									</div>
-									<div class="body">
-										<p>네, 실업급여 신청 관련해서 도와드리겠습니다. 성함과 생년월일 말씀해
-											주시겠습니까?네, 실업급여 신청 관련해서 도와드리겠습니다. 성함과 생년월일 말씀해 주시겠습니까?네, 실업급여 신청
-											관련해서 도와드리겠습니다. 성함과 생년월일 말씀해 주시겠습니까?네, 실업급여 신청 관련해서 도와드리겠습니다. 성함과
-											생년월일 말씀해 주시겠습니까?네, 실업급여 신청 관련해서 도와드리겠습니다. 성함과 생년월일 말씀해 주시겠습니까?
-										</p>
-										<div class="contenteditable-command">
-											<a href="#" class="text-btn">취소</a>
-											<a href="#" class="text-btn positive">저장</a>
-										</div>
-										<div class="memo">
-											하께서 2025년 7월 20일에 제출하신 '넥스트테크 김 부장의 직장 내 괴롭힘' 민원은 담당 부서인
-											서울지방고용노동청 근로개선지도과에
-										</div>
-									</div>
+							<div class="body">
+								<p>진행 상황 공유 : 1차 안내 완료 / 강성 민원인 - 주의 필요</p>
+								<div class="contenteditable-command">
+									<a href="#" class="text-btn">취소</a>
+									<a href="#" class="text-btn positive">저장</a>
 								</div>
 							</div>
-						</li>
+						</div>
+					</li>
 
-						<li class="chat-item cursor user">
-							<div class="chat-item-inner">
-								<div class="talkbox">
-									<div class="head">
-										<div class="name">발신자</div>
-										<div class="time">00:00</div>
-									</div>
-									<div class="body">
-										<p>
-											네, 실업급여 신청하려고 하는데요.
-										</p>
-										<div class="contenteditable-command">
-											<a href="#" class="text-btn">취소</a>
-											<a href="#" class="text-btn positive">저장</a>
-										</div>
-										<div class="memo">
-											하께서 2025년 7월 20일에 제출하신 '넥스트테크 김 부장의 직장 내 괴롭힘' 민원은 담당 부서인
-											서울지방고용노동청 근로개선지도과에
-										</div>
-									</div>
-								</div>
-							</div>
-						</li>
 
-						<li class="chat-item cursor admin">
-							<div class="chat-item-inner">
-								<div class="talkbox">
-									<div class="head">
-										<div class="name">담당자</div>
-										<div class="time">00:00</div>
-									</div>
-									<div class="body">
-										<p>네, 실업급여 신청 관련해서 도와드리겠습니다. 성함과 생년월일 말씀해
-											주시겠습니까?네, 실업급여 신청 관련해서 도와드리겠습니다. 성함과 생년월일 말씀해 주시겠습니까?네, 실업급여 신청
-											관련해서 도와드리겠습니다. 성함과 생년월일 말씀해 주시겠습니까?네, 실업급여 신청 관련해서 도와드리겠습니다. 성함과
-											생년월일 말씀해 주시겠습니까?네, 실업급여 신청 관련해서 도와드리겠습니다. 성함과 생년월일 말씀해 주시겠습니까?
-										</p>
-										<div class="contenteditable-command">
-											<a href="#" class="text-btn">취소</a>
-											<a href="#" class="text-btn positive">저장</a>
-										</div>
-										<div class="memo">
-											하께서 2025년 7월 20일에 제출하신 '넥스트테크 김 부장의 직장 내 괴롭힘' 민원은 담당 부서인
-											서울지방고용노동청 근로개선지도과에
-										</div>
-									</div>
-								</div>
-							</div>
-						</li>
-
-						<li class="chat-item cursor user">
-							<div class="chat-item-inner">
-								<div class="talkbox">
-									<div class="head">
-										<div class="name">발신자</div>
-										<div class="time">00:00</div>
-									</div>
-									<div class="body">
-										<p>
-											네, 실업급여 신청하려고 하는데요.
-										</p>
-										<div class="contenteditable-command">
-											<a href="#" class="text-btn">취소</a>
-											<a href="#" class="text-btn positive">저장</a>
-										</div>
-										<div class="memo">
-											하께서 2025년 7월 20일에 제출하신 '넥스트테크 김 부장의 직장 내 괴롭힘' 민원은 담당 부서인
-											서울지방고용노동청 근로개선지도과에
-										</div>
-									</div>
-								</div>
-							</div>
-						</li>
-
-						<li class="chat-item cursor admin">
-							<div class="chat-item-inner">
-								<div class="talkbox">
-									<div class="head">
-										<div class="name">담당자</div>
-										<div class="time">00:00</div>
-									</div>
-									<div class="body">
-										<p>네, 실업급여 신청 관련해서 도와드리겠습니다. 성함과 생년월일 말씀해
-											주시겠습니까?네, 실업급여 신청 관련해서 도와드리겠습니다. 성함과 생년월일 말씀해 주시겠습니까?네, 실업급여 신청
-											관련해서 도와드리겠습니다. 성함과 생년월일 말씀해 주시겠습니까?네, 실업급여 신청 관련해서 도와드리겠습니다. 성함과
-											생년월일 말씀해 주시겠습니까?네, 실업급여 신청 관련해서 도와드리겠습니다. 성함과 생년월일 말씀해 주시겠습니까?
-										</p>
-										<div class="contenteditable-command">
-											<a href="#" class="text-btn">취소</a>
-											<a href="#" class="text-btn positive">저장</a>
-										</div>
-										<div class="memo">
-											하께서 2025년 7월 20일에 제출하신 '넥스트테크 김 부장의 직장 내 괴롭힘' 민원은 담당 부서인
-											서울지방고용노동청 근로개선지도과에
-										</div>
-									</div>
-								</div>
-							</div>
-						</li>
-					</ul>
+				</ul>
+			</div>
+			<div class="memo-input-content">
+				<textarea placeholder="메모를 작성해 보세요."></textarea>
+				<div class="modal-footer">
+					<div class="justify right">
+						<a href="#" class="btn natural line"><span>취소</span></a>
+						<a href="#" class="btn positive fill"><span>저장</span></a>
+					</div>
 				</div>
 			</div>
 		</div>
 
 	</div>
 	<div class="modal-dim"></div>
+
+	<script>
+		$(document).ready(function () {
+			editMemoTextUi(); // 메모 편집 기능
+		});
+		function editMemoTextUi() {
+			$('.test01').on('click', function () {
+				// e.preventDefault();
+
+
+				const $p = $('#test01').find('p');
+				$p.attr('contenteditable', 'true').focus();
+
+				// 필요하면 커서를 맨 끝으로 이동
+				const range = document.createRange();
+				const sel = window.getSelection();
+				range.selectNodeContents($p[0]);
+				range.collapse(false);
+				sel.removeAllRanges();
+				sel.addRange(range);
+
+				$('#test01').find('.contenteditable-command').addClass('on');
+			});
+
+			$('#test01').find('.text-btn').on('click', function (e) {
+				e.preventDefault();
+				$(this).parents('#test01').find('.contenteditable-command').removeClass('on');
+				$(this).closest('#test01').find('p').attr('contenteditable', 'false');
+			});
+		}
+	</script>
 </div>

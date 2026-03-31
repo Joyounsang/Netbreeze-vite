@@ -27,6 +27,71 @@ function initCodeBlockCopy() {
   });
 }
 
+/** 메모 리스트(모달): 더보기 > 수정 → 본문(p) contenteditable 편집 */
+function memoListEditUi() {
+  function moveCaretToEnd(el) {
+    try {
+      const range = document.createRange();
+      const sel = window.getSelection();
+      range.selectNodeContents(el);
+      range.collapse(false);
+      sel.removeAllRanges();
+      sel.addRange(range);
+    } catch (_e) { }
+  }
+
+  // 더보기 메뉴의 "수정" 버튼 (.btnMemoEdit)
+  $(document).on('click', '.modal.type-memo .settings-dropdown .settings-menu-item.btnMemoEdit', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const $memoItem = $(this).closest('.memo-item');
+    const $p = $memoItem.find('.memo .body p').first();
+    const $cmd = $memoItem.find('.memo .body .contenteditable-command').first();
+    if (!$p.length) return;
+
+    if (!$memoItem.data('memoOriginalText')) {
+      $memoItem.data('memoOriginalText', $p.text());
+    }
+
+    $p.attr('contenteditable', 'true').trigger('focus');
+    moveCaretToEnd($p[0]);
+    $cmd.addClass('on');
+
+    // 드롭다운 닫기
+    $('.settings-dropdown.open').removeClass('open');
+    $('.user-settings.active').removeClass('active');
+  });
+
+  // 취소
+  $(document).on('click', '.modal.type-memo .contenteditable-command .text-btn:not(.positive)', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    const $memoItem = $(this).closest('.memo-item');
+    const $p = $memoItem.find('.memo .body p').first();
+    const $cmd = $memoItem.find('.memo .body .contenteditable-command').first();
+    const original = $memoItem.data('memoOriginalText');
+    if (typeof original === 'string') {
+      $p.text(original);
+    }
+    $p.attr('contenteditable', 'false');
+    $cmd.removeClass('on');
+    $memoItem.removeData('memoOriginalText');
+  });
+
+  // 저장
+  $(document).on('click', '.modal.type-memo .contenteditable-command .text-btn.positive', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    const $memoItem = $(this).closest('.memo-item');
+    const $p = $memoItem.find('.memo .body p').first();
+    const $cmd = $memoItem.find('.memo .body .contenteditable-command').first();
+    $p.attr('contenteditable', 'false');
+    $cmd.removeClass('on');
+    $memoItem.removeData('memoOriginalText');
+  });
+}
+
 // sticky-item 높이를 자동으로 계산하여 CSS 변수로 설정
 function updateStickyItemHeight() {
   $('.sticy-item').each(function () {
@@ -68,13 +133,13 @@ $(document).ready(function () {
   settingsMenuToggle();
   initSttRangeCalendar();
   favoriteGroupUi();
-  historyDndUi();
   tableTextTooltipInit();
   updateStickyItemHeight();
   favoriteToggle();
   menuNameTooltip();
   initCodeHighlight();
   initCodeBlockCopy();
+  memoListEditUi();
   filterPanelUi();
   settingTitArrowToggleUi();
   initGuideDatepicker();
@@ -522,15 +587,16 @@ function settingsMenuToggle() {
   function updateDropdownPosition($btn, $dropdown) {
     if (!$btn.length || !$dropdown.length || !$dropdown.hasClass('open')) return;
 
-    const btnOffset = $btn.offset();
     const btnWidth = $btn.outerWidth();
     const btnHeight = $btn.outerHeight();
     const dropdownWidth = $dropdown.outerWidth();
     const dropdownHeight = $dropdown.outerHeight();
-    const btnLeft = btnOffset.left;
-    const btnTop = btnOffset.top;
-    const btnRight = btnLeft + btnWidth;
-    const btnBottom = btnTop + btnHeight;
+    // position: fixed 기준(뷰포트 좌표)로 계산해야 모달/스크롤 환경에서도 정확함
+    const rect = $btn[0] && $btn[0].getBoundingClientRect ? $btn[0].getBoundingClientRect() : null;
+    const btnLeft = rect ? rect.left : 0;
+    const btnTop = rect ? rect.top : 0;
+    const btnRight = rect ? rect.right : (btnLeft + btnWidth);
+    const btnBottom = rect ? rect.bottom : (btnTop + btnHeight);
     const gap = 8;
     const viewportGap = 8;
     let left = btnRight - dropdownWidth;
@@ -550,11 +616,29 @@ function settingsMenuToggle() {
       top = btnBottom + gap;
     }
 
-    const maxLeft = $(window).width() - dropdownWidth - viewportGap;
-    const maxTop = $(window).height() - dropdownHeight - viewportGap;
-    if (left < viewportGap) left = viewportGap;
+    const isInModal = $btn.closest('.modal').length > 0;
+    
+    // 기본(페이지)에서는 viewport 기준으로 clamp
+    let minLeft = viewportGap;
+    let minTop = viewportGap;
+    let maxLeft = window.innerWidth - dropdownWidth - viewportGap;
+    let maxTop = window.innerHeight - dropdownHeight - viewportGap;
+
+    // 모달 내부에서는 "모달 박스 안"으로만 보이게 clamp (모달 밖으로 튀는 현상 방지)
+    if (isInModal) {
+      const modalInner = $btn.closest('.modal').find('.modal-inner')[0];
+      if (modalInner && modalInner.getBoundingClientRect) {
+        const r = modalInner.getBoundingClientRect();
+        minLeft = r.left + viewportGap;
+        minTop = r.top + viewportGap;
+        maxLeft = r.right - dropdownWidth - viewportGap;
+        maxTop = r.bottom - dropdownHeight - viewportGap;
+      }
+    }
+
+    if (left < minLeft) left = minLeft;
     if (left > maxLeft) left = maxLeft;
-    if (top < viewportGap) top = viewportGap;
+    if (top < minTop) top = minTop;
     if (top > maxTop) top = maxTop;
 
     $dropdown.css({
@@ -562,7 +646,8 @@ function settingsMenuToggle() {
       left: left + 'px',
       top: top + 'px',
       right: 'auto',
-      bottom: 'auto'
+      bottom: 'auto',
+      zIndex: isInModal ? 100001 : 10000
     });
   }
 
@@ -606,6 +691,15 @@ function settingsMenuToggle() {
     });
   });
 
+  // 모달 내부 스크롤 컨테이너에서도 위치를 재계산
+  $(document).on('scroll.settings-dropdown', '.modal-body, .scrollbar, .callRecord-inner', function () {
+    $('.settings-dropdown.open').each(function () {
+      const $dropdown = $(this);
+      const $btn = $dropdown.data('anchorButton');
+      updateDropdownPosition($btn, $dropdown);
+    });
+  });
+
   $('.settings-dropdown').on('click', function (e) {
     e.stopPropagation();
   });
@@ -623,6 +717,8 @@ function settingsMenuToggle() {
         console.log('지침(프롬프트 설정) 클릭');
         break;
     }
+    // 공통: 메뉴 아이템 클릭 시 드롭다운 닫기
+    closeAllDropdowns();
   });
 
   $(document).on('click.settings-menu', function () {

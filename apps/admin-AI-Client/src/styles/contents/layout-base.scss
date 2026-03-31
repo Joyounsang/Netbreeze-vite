@@ -129,11 +129,12 @@ html {
 
               // chatView: 채팅 내용이 있을 때
               &:has(.list-chat) {
-                padding-bottom: 40px;
+                padding-bottom: 120px;
               }
             }
 
             .user-global-chat {
+
 
               .ico {
                 width: 36px;
@@ -173,7 +174,7 @@ html {
                 bottom: 0;
                 left: 0;
                 right: 0;
-                z-index: 100;
+                z-index: 999;
                 padding-bottom: 10px;
                 // padding: 0 60px 60px;
               }
@@ -1731,7 +1732,7 @@ footer {
 }
 
 .setting-list {
-  border-top: 1px solid var(--border);
+  // border-top: 1px solid var(--border);
   padding: 30px;
 
   .filter-table {
@@ -1821,10 +1822,32 @@ footer {
   }
 }
 
+.chat-item-edit-mode {
+  width: 100%;
+
+  .textarea-item {
+    padding: 16px;
+    border-color: var(--rec-primary);
+
+    textarea {
+      font-size: 1.6rem;
+      font-weight: 400;
+      height: 120px;
+    }
+  }
+
+  .command {
+    display: flex !important;
+    position: static !important;
+    gap: 10px !important;
+  }
+}
+
 .textarea-item {
   background-color: #fff;
   border-radius: 10px;
   border: 1px solid var(--border);
+  height: auto;
 
   .command {
     display: flex;
@@ -1850,6 +1873,10 @@ footer {
     background-color: transparent;
     padding: 10px;
     font-size: 1.5rem;
+
+    &:focus {
+      outline: none;
+    }
   }
 }
 
@@ -1977,6 +2004,10 @@ footer {
     display: flex;
     align-items: center;
     gap: 20px;
+
+    textarea {
+      background: #fff;
+    }
 
     .input-item {
       flex: 1;

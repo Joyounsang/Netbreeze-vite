@@ -5,16 +5,31 @@
                 <div class="time">오후 2:00</div>
                 <div class="talkbox">
                     <div class="body">
-                        <p>
+                        <p class="user-text">
                             안녕하세요
                         </p>
                     </div>
                 </div>
             </div>
+
+            <div class="chat-item-edit-mode" style="display: none;">
+                <div class="textarea-item">
+                    <textarea name="" id=""></textarea>
+                    <div class="command">
+                        <a href="#" class="ico extend" title-label="확장">확장</a>
+                        <a href="#" class="btn-text btnEditModeCancel">취소</a>
+                        <a href="#" class="btn positive fill btnEditModeUpdate">
+                            <img src="assets/images/ico-recordEdit-w.png" alt="">
+                            업데이트
+                        </a>
+                    </div>
+                </div>
+            </div>
+
             <ul class="command">
                 <li><a href="#" class="ico copy" title-label="복사">복사</a></li>
                 <li><a href="#" class="ico share" title-label="공유">공유</a></li>
-                <li><a href="#" class="ico edit" title-label="수정">수정</a></li>
+                <li><a href="#" class="ico edit btnEditModeInsert" title-label="수정">수정</a></li>
             </ul>
         </li>
 
@@ -81,10 +96,23 @@
                     </div>
                 </div>
             </div>
+            <div class="chat-item-edit-mode" style="display: none;">
+                <div class="textarea-item">
+                    <textarea name="" id=""></textarea>
+                    <div class="command">
+                        <a href="#" class="ico extend" title-label="확장">확장</a>
+                        <a href="#" class="btn-text btnEditModeCancel">취소</a>
+                        <a href="#" class="btn positive fill btnEditModeUpdate">
+                            <img src="assets/images/ico-recordEdit-w.png" alt="">
+                            업데이트
+                        </a>
+                    </div>
+                </div>
+            </div>
             <ul class="command">
                 <li><a href="#" class="ico copy" title-label="복사">복사</a></li>
                 <li><a href="#" class="ico share" title-label="공유">공유</a></li>
-                <li><a href="#" class="ico edit" title-label="수정">수정</a></li>
+                <li><a href="#" class="ico edit btnEditModeInsert" title-label="수정">수정</a></li>
             </ul>
         </li>
 
@@ -143,10 +171,23 @@ function renderTable(data) {
                     </div>
                 </div>
             </div>
+            <div class="chat-item-edit-mode" style="display: none;">
+                <div class="textarea-item">
+                    <textarea name="" id=""></textarea>
+                    <div class="command">
+                        <a href="#" class="ico extend" title-label="확장">확장</a>
+                        <a href="#" class="btn-text btnEditModeCancel">취소</a>
+                        <a href="#" class="btn positive fill btnEditModeUpdate">
+                            <img src="assets/images/ico-recordEdit-w.png" alt="">
+                            업데이트
+                        </a>
+                    </div>
+                </div>
+            </div>
             <ul class="command">
                 <li><a href="#" class="ico copy" title-label="복사">복사</a></li>
                 <li><a href="#" class="ico share" title-label="공유">공유</a></li>
-                <li><a href="#" class="ico edit" title-label="수정">수정</a></li>
+                <li><a href="#" class="ico edit btnEditModeInsert" title-label="수정">수정</a></li>
             </ul>
         </li>
 
@@ -269,10 +310,23 @@ function renderTable(data) {
                     </div>
                 </div>
             </div>
+            <div class="chat-item-edit-mode" style="display: none;">
+                <div class="textarea-item">
+                    <textarea name="" id=""></textarea>
+                    <div class="command">
+                        <a href="#" class="ico extend" title-label="확장">확장</a>
+                        <a href="#" class="btn-text btnEditModeCancel">취소</a>
+                        <a href="#" class="btn positive fill btnEditModeUpdate">
+                            <img src="assets/images/ico-recordEdit-w.png" alt="">
+                            업데이트
+                        </a>
+                    </div>
+                </div>
+            </div>
             <ul class="command">
                 <li><a href="#" class="ico copy" title-label="복사">복사</a></li>
                 <li><a href="#" class="ico share" title-label="공유">공유</a></li>
-                <li><a href="#" class="ico edit" title-label="수정">수정</a></li>
+                <li><a href="#" class="ico edit btnEditModeInsert" title-label="수정">수정</a></li>
             </ul>
         </li>
 
@@ -317,3 +371,55 @@ function renderTable(data) {
         </li>
     </ul>
 </div>
+
+<script>
+    $(function () {
+        function getUserText($chatItem) {
+            const $userText = $chatItem.find('.chat-item-inner .user-text').first();
+            if ($userText.length) return $userText.text().trim();
+            return $chatItem.find('.chat-item-inner .talkbox .body p').first().text().trim();
+        }
+
+        function openEditMode($chatItem) {
+            const text = getUserText($chatItem);
+            const $editBox = $chatItem.find('.chat-item-edit-mode').first();
+            $editBox.find('textarea').val(text);
+            $chatItem.find('.chat-item-inner').first().hide();
+            $editBox.show();
+            $editBox.find('textarea').trigger('focus');
+        }
+
+        function closeEditMode($chatItem) {
+            $chatItem.find('.chat-item-edit-mode').first().hide();
+            $chatItem.find('.chat-item-inner').first().show();
+        }
+
+        $(document).on('click', '.btnEditModeInsert', function (e) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            const $chatItem = $(this).closest('.chat-item.admin');
+            openEditMode($chatItem);
+        });
+
+        $(document).on('click', '.btnEditModeCancel', function (e) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            const $chatItem = $(this).closest('.chat-item.admin');
+            closeEditMode($chatItem);
+        });
+
+        $(document).on('click', '.btnEditModeUpdate', function (e) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            const $chatItem = $(this).closest('.chat-item.admin');
+            const nextText = $chatItem.find('.chat-item-edit-mode textarea').val();
+            const $target = $chatItem.find('.chat-item-inner .user-text').first();
+            if ($target.length) {
+                $target.text(nextText);
+            } else {
+                $chatItem.find('.chat-item-inner .talkbox .body p').first().text(nextText);
+            }
+            closeEditMode($chatItem);
+        });
+    });
+</script>
