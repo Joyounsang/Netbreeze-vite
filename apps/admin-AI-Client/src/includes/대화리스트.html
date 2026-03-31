@@ -63,7 +63,7 @@
 							</div>
 						</div>
 
-						<ul class="favorite-group-items">
+						<ul class="favorite-group-items history-dnd-list">
 							<li class="history-item">
 								<a href="chatView.html" class="history-item-inner">
 									<div class="info">
@@ -143,7 +143,7 @@
 							</div>
 						</div>
 
-						<ul class="favorite-group-items">
+						<ul class="favorite-group-items history-dnd-list">
 							<li class="history-item">
 								<a href="chatView.html" class="history-item-inner">
 									<div class="info">
@@ -255,7 +255,7 @@
 
 					</div>
 
-					<ul>
+					<ul class="favorite-loose-items history-dnd-list">
 						<li class="history-item">
 							<a href="chatView.html" class="history-item-inner">
 								<div class="info">
@@ -371,7 +371,7 @@
 				<div class="history-head">
 					<div class="tit">최근</div>
 				</div>
-				<ul>
+				<ul class="recent-items history-dnd-list">
 					<li class="history-item fixing">
 						<a href="chatView.html" class="history-item-inner">
 							<div class="info">
@@ -541,3 +541,142 @@
 		</div>
 	</div>
 </div>
+
+<script>
+	$(document).ready(function () {
+		historyDndUi();
+	});
+	function historyDndUi() {
+		if (!$.fn.sortable) return;
+
+		function ensureFavoriteLooseList() {
+			let $loose = $('.history .favorite-loose-items.history-dnd-list').first();
+			if ($loose.length) return $loose;
+
+			const $groups = $('.history .favorite-groups').first();
+			if (!$groups.length) return $();
+
+			$loose = $('<ul class="favorite-loose-items history-dnd-list"></ul>');
+			$groups.append($loose);
+			return $loose;
+		}
+
+		const $historyLists = $('.history .history-dnd-list');
+		if (!$historyLists.length) return;
+		let lastPointer = null;
+
+		// 최근 <-> 즐겨찾기(그룹 내부/그룹 외부) 아이템 상호 이동
+		$historyLists.sortable({
+			connectWith: '.history .history-dnd-list',
+			items: '> li.history-item',
+			handle: '.history-item-inner',
+			placeholder: 'history-item-dnd-placeholder',
+			forcePlaceholderSize: true,
+			tolerance: 'pointer',
+			distance: 8,
+			cancel: '.user-settings, .settings-dropdown, .settings-menu-item, input, textarea, select, button',
+			start: function (_event, ui) {
+				ui.item.addClass('is-sorting');
+				$('.settings-dropdown.open').removeClass('open');
+				$('.user-settings.active').removeClass('active');
+			},
+			sort: function (event) {
+				const oe = event.originalEvent;
+				if (!oe) return;
+				lastPointer = {
+					x: oe.clientX,
+					y: oe.clientY
+				};
+			},
+			stop: function (_event, ui) {
+				// droppable miss를 대비해, 마우스 포인터 위치 기준으로 닫힌 그룹 헤더 드롭 처리
+				if (lastPointer) {
+					const elementUnderPointer = document.elementFromPoint(lastPointer.x, lastPointer.y);
+					const $groupHead = $(elementUnderPointer).closest('.favorite-group-head');
+					if ($groupHead.length) {
+						const $group = $groupHead.closest('.favorite-group');
+						const $targetList = $group.children('.favorite-group-items');
+						if ($targetList.length && ui.item.parent()[0] !== $targetList[0]) {
+							ui.item.appendTo($targetList);
+						}
+					} else {
+						// 즐겨찾기 영역 위에 드롭했는데 특정 그룹 헤드가 아니면 폴더 밖 리스트로 이동
+						const $favoriteGroups = $(elementUnderPointer).closest('.favorite-groups');
+						if ($favoriteGroups.length) {
+							const $loose = ensureFavoriteLooseList();
+							if ($loose.length && ui.item.parent()[0] !== $loose[0]) {
+								ui.item.appendTo($loose);
+							}
+						}
+					}
+				}
+
+				ui.item.removeClass('is-sorting');
+				lastPointer = null;
+			}
+		});
+
+		// favorite-group 자체는 즐겨찾기 내에서만 순서 변경
+		$('.favorite-groups').sortable({
+			items: '> .favorite-group',
+			handle: '.favorite-group-head',
+			placeholder: 'favorite-group-dnd-placeholder',
+			forcePlaceholderSize: true,
+			tolerance: 'pointer',
+			distance: 8,
+			cancel: '.favorite-group-toggle, .user-settings, .settings-dropdown, .settings-menu-item, a, button',
+			start: function (_event, ui) {
+				ui.item.addClass('is-sorting');
+				$('.settings-dropdown.open').removeClass('open');
+				$('.user-settings.active').removeClass('active');
+			},
+			stop: function (_event, ui) {
+				ui.item.removeClass('is-sorting');
+			}
+		});
+
+		// 닫힌 즐겨찾기 그룹에도 드롭 가능하도록 그룹 헤드를 drop zone으로 사용
+		if ($.fn.droppable) {
+			$('.favorite-group-head').droppable({
+				accept: '.history li.history-item',
+				tolerance: 'pointer',
+				classes: {
+					'ui-droppable-active': 'is-dnd-active',
+					'ui-droppable-hover': 'is-dnd-hover'
+				},
+				drop: function (_event, ui) {
+					const $group = $(this).closest('.favorite-group');
+					const $targetList = $group.children('.favorite-group-items');
+					const $item = ui.draggable;
+
+					if (!$targetList.length || !$item.length) return;
+
+					// 같은 그룹 내부 재드롭은 무시
+					if ($item.parent()[0] === $targetList[0]) return;
+
+					$item.appendTo($targetList);
+				}
+			});
+
+			// 즐겨찾기 폴더 밖 드롭 영역(폴더만 있을 때도 가능)
+			$('.favorite-groups').droppable({
+				accept: '.history li.history-item',
+				tolerance: 'pointer',
+				classes: {
+					'ui-droppable-active': 'is-dnd-active',
+					'ui-droppable-hover': 'is-dnd-hover'
+				},
+				drop: function (_event, ui) {
+					// 그룹 헤드/아이템 리스트에 떨어진 경우는 각 droppable/sortable이 처리
+					if ($(ui.draggable).closest('.favorite-group-head, .favorite-group-items').length) return;
+
+					const $item = ui.draggable;
+					const $loose = ensureFavoriteLooseList();
+					if (!$item.length || !$loose.length) return;
+					if ($item.parent()[0] === $loose[0]) return;
+					$item.appendTo($loose);
+				}
+			});
+		}
+	}
+</script>

@@ -92,7 +92,7 @@
 			</button>
 
 			<button class="user-settings top">
-				<a href="#" class="ico extend" title-label="확장" data-modal="mdExtend">확장</a>
+				<a href="#" class="ico extend btnTextareaExtend" title-label="확장">확장</a>
 			</button>
 
 			<a href="#" class="send">입력</a>
@@ -148,6 +148,18 @@
 				} else {
 					$sendBtn.removeClass('active');
 				}
+			});
+		}
+
+		// textarea 확장 버튼 토글
+		function initTextareaExtendToggle($container) {
+			$container.find('.btnTextareaExtend').off('click.textarea-extend').on('click.textarea-extend', function (e) {
+				e.preventDefault();
+				const $btn = $(this);
+				const $chatContainer = $btn.closest('.user-global-chat');
+
+				$btn.toggleClass('active');
+				$chatContainer.toggleClass('extend');
 			});
 		}
 
@@ -221,6 +233,7 @@
 		// 초기화 실행
 		$(document).ready(function () {
 			initUserGlobalChat();
+			initTextareaExtendToggle($('.user-global-chat'));
 			$('.user-global-chat').each(function () {
 				initBottomActionUiByScroll($(this));
 			});

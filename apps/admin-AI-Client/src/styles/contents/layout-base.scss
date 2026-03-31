@@ -145,6 +145,20 @@ html {
                 }
               }
 
+              &.extend {
+                .inner {
+                  max-width: 100%;
+                  height: 80vh;
+
+                  .input {
+                    height: 100%;
+
+                    textarea {
+                      height: 100%;
+                    }
+                  }
+                }
+              }
 
               // chatMain: 첫 화면 (chatmode-title가 있을 때) - 중앙 정렬
               &:has(.chatmode-title) {
@@ -172,7 +186,7 @@ html {
                 box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.05);
                 display: flex;
                 flex-direction: column;
-                align-items: end;
+                // align-items: end;
                 background-color: rgba(255, 255, 255, 0.9);
                 backdrop-filter: blur(10px);
 
@@ -258,11 +272,11 @@ html {
 
                 textarea {
                   background-color: transparent;
-                  font-size: 1.8rem;
-                  font-weight: 500;
+                  font-size: 1.6rem;
+                  font-weight: 400;
                   padding: 0;
                   height: 60px;
-                  padding-right: 40px;
+                  // padding-right: 40px;
 
                   &:focus {
                     outline: none;
@@ -1394,6 +1408,12 @@ footer {
   }
 
   .history {
+
+    .recent-items,
+    .favorite-groups {
+      padding: 10px;
+    }
+
     .btn-text {
       font-size: 1.2rem;
       font-weight: 600;
@@ -1402,10 +1422,19 @@ footer {
     .favorite-groups {
       border-bottom: 1px solid var(--border);
       margin-bottom: 20px;
-      padding-bottom: 10px;
+      // padding-bottom: 10px;
 
       ul {
         padding-bottom: 0;
+      }
+
+      &.is-dnd-active {
+        outline: 1px dashed #B7C2CC;
+        border-radius: 10px;
+      }
+
+      &.is-dnd-hover {
+        background: rgba(0, 150, 255, 0.06);
       }
     }
 
@@ -1454,6 +1483,15 @@ footer {
           display: block;
         }
       }
+
+      &.is-dnd-active {
+        outline: 1px dashed #B7C2CC;
+        border-radius: 8px;
+      }
+
+      &.is-dnd-hover {
+        background: rgba(0, 150, 255, 0.08);
+      }
     }
 
     .favorite-group-toggle {
@@ -1488,6 +1526,11 @@ footer {
 
     .favorite-group-items {
       display: none;
+      margin-top: 6px;
+    }
+
+    .favorite-loose-items {
+      min-height: 24px;
       margin-top: 6px;
     }
 
@@ -1653,6 +1696,30 @@ footer {
           }
         }
       }
+    }
+
+    .history-item-dnd-placeholder {
+      height: 56px;
+      margin: 4px 0;
+      border-radius: 8px;
+      border: 1px dashed #B7C2CC;
+      background: rgba(0, 150, 255, 0.05);
+    }
+
+    .history-item.is-sorting {
+      opacity: 0.6;
+    }
+
+    .favorite-group-dnd-placeholder {
+      height: 42px;
+      margin: 4px 0;
+      border-radius: 8px;
+      border: 1px dashed #B7C2CC;
+      background: rgba(0, 150, 255, 0.05);
+    }
+
+    .favorite-group.is-sorting {
+      opacity: 0.7;
     }
   }
 }

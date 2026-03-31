@@ -68,6 +68,7 @@ $(document).ready(function () {
   settingsMenuToggle();
   initSttRangeCalendar();
   favoriteGroupUi();
+  historyDndUi();
   tableTextTooltipInit();
   updateStickyItemHeight();
   favoriteToggle();
@@ -644,6 +645,7 @@ function favoriteGroupUi() {
   if (!$groupHeads.length) return;
 
   $groupHeads.on('click', function (e) {
+    if ($(this).closest('.favorite-group').hasClass('is-sorting')) return;
     // 그룹 메뉴(점3개) 버튼 클릭은 접힘/펼침에서 제외
     if ($(e.target).closest('.user-settings').length) return;
 
@@ -654,9 +656,12 @@ function favoriteGroupUi() {
   $('.favorite-group .favorite-group-toggle').on('click', function (e) {
     e.preventDefault();
     e.stopPropagation();
+    if ($(this).closest('.favorite-group').hasClass('is-sorting')) return;
     $(this).closest('.favorite-group').toggleClass('open');
   });
 }
+
+
 
 function initSttRangeCalendar() {
   const $wrap = $('.date-range-calendar');
