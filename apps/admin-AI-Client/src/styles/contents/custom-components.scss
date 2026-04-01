@@ -2378,7 +2378,7 @@
 }
 
 .bottom-action-ui {
-  height: 40px;
+  height: 32px;
   display: flex;
   width: fit-content;
   max-width: calc(100% - 20px);
@@ -2387,7 +2387,7 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  padding: 10px;
+  padding: 6px;
   background-color: rgba(21, 24, 26, 0.85);
   backdrop-filter: blur(10px);
   border-radius: 12px;
@@ -3276,10 +3276,10 @@ article {
 
 .inner-tab,
 .list-tab {
-  background-color: var(--white);
-  border-bottom: 1px solid var(--border);
+  // background-color: var(--white);
+  // border-bottom: 1px solid var(--border);
   width: 100%;
-  padding: 0 30px;
+  // padding: 0 0px;
   position: relative;
 
   ul {
@@ -3335,9 +3335,6 @@ article {
   top: 0;
   z-index: 9;
 
-  .list-tab {
-    border-bottom: none;
-  }
 }
 
 .list-memo {
@@ -3502,14 +3499,31 @@ span.side {
 
     .recording {
       flex-direction: column;
-      width: 200px;
-      height: 200px;
+      width: 80px;
+      height: 80px;
       position: absolute;
       left: 0;
       right: 0;
       bottom: 0;
       top: 0;
       margin: auto;
+
+      .loading-longtime {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+
+        &:before {
+          mask: radial-gradient(circle at center, transparent 68%, #000 59%);
+
+        }
+
+        // mask: radial-gradient(circle at center, transparent 68%, #000 59%)
+        img {
+          width: 30px;
+
+        }
+      }
     }
   }
 }
@@ -4489,6 +4503,51 @@ span.side {
         line-height: 1.5;
         margin: 0;
       }
+    }
+  }
+}
+
+.searchbox {
+  position: relative;
+
+  input {
+    padding-left: 34px;
+    width: 180px;
+  }
+
+  &:before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url('../images/ico-search.png') no-repeat center;
+    background-size: contain;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.history-item {
+
+  // 실제 클릭/드래그 핸들은 내부 a.history-item-inner라 li:active가 안 걸릴 수 있음
+  .history-item-inner {
+    // cursor: grab;
+  }
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  .history-item-inner:active {
+    cursor: grabbing;
+  }
+
+  &.is-sorting,
+  &.ui-sortable-helper {
+    .history-item-inner {
+      cursor: grabbing;
     }
   }
 }

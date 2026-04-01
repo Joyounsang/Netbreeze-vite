@@ -42,6 +42,10 @@ html {
 
 body {
   height: 100%;
+
+  &.mode-demo {
+    background: rgba(246, 248, 250, 0.3);
+  }
 }
 
 em {

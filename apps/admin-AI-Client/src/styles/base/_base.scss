@@ -15,6 +15,11 @@ html {
   body {
     font-size: $base-font-size;
     letter-spacing: -0.5px;
+    // 텍스트 드래그 선택/복사 허용 (외부 라이브러리/리셋에서 user-select:none을 걸어도 본문은 선택 가능해야 함)
+    // -webkit-user-select: text;
+    // -moz-user-select: text;
+    // -ms-user-select: text;
+    // user-select: text;
   }
 
   *,
@@ -24,10 +29,10 @@ html {
   }
 
   ::selection {
-    @if ($selection-color) {
-      background-color: $selection-color;
-      text-shadow: none;
-    }
+    // @if ($selection-color) {
+    //   background-color: $selection-color;
+    //   text-shadow: none;
+    // }
   }
 
   audio,

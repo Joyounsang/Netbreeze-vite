@@ -9,16 +9,58 @@
             <include src="src/includes/header.html"></include>
             <div class="contents">
                 <div class="panel scrollbar listView">
-                    <div class="panel-head">
-                        <div class="title">휴지통</div>
-                    </div>
-                    <div class="sticy-item">
-                        <div class="filter-search">
-                            <input type="text" placeholder="통화 ID, 파일명 검색">
-                            <div class="side">
-                                <a href="#" class="btn white">검색</a>
+                    <div class="panel-head sticy-item">
+                        <div class="title">
+                            휴지통
+                            <div class="btnico" title-label="새로고침">
+                                <a href="#" class=" ico refresh">새로고침</a>
                             </div>
                         </div>
+                        <div class="command">
+                            <div class="select-event-button">
+                                <a href="#" class="btn-text negative">
+                                    <img src="assets/images/ico-trash-red.png" alt="">
+                                    선택 항목 삭제
+                                </a>
+                                <a href="#" class="btn-text positive">
+                                    선택 항목 복구
+                                </a>
+                                <a href="#" class="btn-text">
+                                    휴지통 비우기
+                                </a>
+                            </div>
+
+                            <div class="btnico" title-label="날짜 설정">
+                                <a href="#" class="ico cal filterPanelCalendarOpen">날짜 설정</a>
+                            </div>
+
+                            <div class="btnico" title-label="검색">
+                                <a href="#" class="ico search searchlineOpen">검색</a>
+                            </div>
+
+                        </div>
+                        <div class="searchline">
+                            <div class="btnico" title-label="이전">
+                                <a href="#" class="ico back searchlineClose">뒤로가기</a>
+                            </div>
+                            <div class="table-search">
+                                <input type="text" placeholder="검색어를 입력하세요.">
+                            </div>
+                            <div class="command">
+                                <a href="#" class="btn-text arrow filterPanelBasicOpen">
+                                    <img src="assets/images/ico-searchfilter.png" alt="">
+                                    검색 조건
+                                </a>
+                                <a href="#" class="btn black">검색</a>
+                            </div>
+                        </div>
+
+                        <include src="src/includes/필터패널-날짜선택.html"></include>
+
+                        <include src="src/includes/필터패널-검색조건.html"></include>
+                    </div>
+
+                    <div class="content-view">
                         <div class="list-tab">
                             <ul>
                                 <li class="on">
@@ -31,29 +73,14 @@
                                     <a href="#">대화 2</a>
                                 </li>
                             </ul>
-
-                            <div class="command">
-                                <a href="#" class="btn-text negative">
-                                    <img src="assets/images/ico-trash-red.png" alt="">
-                                    선택 항목 삭제
-                                </a>
-                                <a href="#" class="btn-text positive">
-                                    선택 항목 복구
-                                </a>
-                                <a href="#" class="btn-text">
-                                    휴지통 비우기
-                                </a>
-                            </div>
                         </div>
-                    </div>
-
-                    <div class="content-view">
                         <include src="src/includes/Table-휴지통.html"></include>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <include src="src/includes/MD-환경설정.html"></include>
     <script type="module" src="/src/js/main.js"></script>
 </body>
 

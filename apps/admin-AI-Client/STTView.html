@@ -9,16 +9,18 @@
             <include src="src/includes/header.html"></include>
             <div class="contents">
                 <div class="panel scrollbar callView">
-                    <div class="panel-head sticy-item">
+                    <div class="panel-head sticy-item clean">
                         <div class="title">
                             <img src="assets/images/iconsMenu-gnb-ai.png" alt="" style="width: 20px;">
-                            발신자 박정민 님과의 통화
+                            골목길 주차 민원
                             <span class="badge">공유받은 대화</span>
                         </div>
                         <div class="command">
-                            <a href="#mdMarketShare" class="btn natural line modalLoad">
-                                점유율
-                            </a>
+                            <div class="searchbox">
+                                <input type="text" placeholder="음성 기록 키워드 검색">
+                            </div>
+                            <a href="#" class="btn black">검색</a>
+                            <a href="#mdMarketShare" class="btn natural line modalLoad">점유율</a>
                             <a href="#" class="btn natural line recordeditall">
                                 <img src="assets/images/ico-recordEdit.png" alt="" style="width: 20px;">
                                 음성기록 편집
@@ -435,7 +437,7 @@
 
                 <div class="panel scrollbar side aiRecord">
                     <div class="panel-side-inner">
-                        <div class="panel-head">
+                        <div class="panel-head clean">
                             <div class="title">
                                 <img src="assets/images/ico-ai.png" alt="" style="width: 18px;">
                                 Ai 요약
@@ -906,6 +908,7 @@
             }
         })(jQuery);
     </script>
+    <include src="src/includes/MD-환경설정.html"></include>
     <script type="module" src="/src/js/main.js"></script>
 </body>
 
