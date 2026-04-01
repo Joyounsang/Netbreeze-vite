@@ -1912,8 +1912,13 @@
     font-size: 1.5rem;
     font-weight: 700;
 
+    img {
+      width: 24px;
+      height: 24px;
+    }
+
     &:before {
-      content: '';
+      // content: '';
       display: block;
       width: 24px;
       height: 24px;
@@ -2257,6 +2262,47 @@
   box-sizing: border-box;
 }
 
+.loading-longtime {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 8px 0 2px;
+
+  // 바깥 원형 프로그레스 링
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    // 비어있는 구간이 있는 링
+    background: conic-gradient(from 0deg,
+        #0096FF 0deg,
+        #4FC3FF 90deg,
+        #00D3FF 170deg,
+        #0096FF 260deg,
+        #007CFF 320deg,
+        transparent 320deg 360deg);
+    animation: loading-longtime-ring 1.35s linear infinite;
+    filter: saturate(1.05);
+    -webkit-mask: radial-gradient(circle at center, transparent 58%, #000 59%);
+    mask: radial-gradient(circle at center, transparent 58%, #000 59%);
+  }
+
+  img {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+    animation: loading-longtime-core 2.2s ease-in-out infinite;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.12));
+  }
+}
+
 .loading-dot {
   display: flex;
   align-items: center;
@@ -2389,6 +2435,28 @@
 
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes loading-longtime-ring {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loading-longtime-core {
+
+  0%,
+  100% {
+    transform: scale(0.92) rotate(0deg);
+  }
+
+  50% {
+    transform: scale(1.08) rotate(180deg);
   }
 }
 

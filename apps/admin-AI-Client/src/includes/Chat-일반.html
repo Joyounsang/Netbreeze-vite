@@ -16,7 +16,7 @@
                 <div class="textarea-item">
                     <textarea name="" id=""></textarea>
                     <div class="command">
-                        <a href="#" class="ico extend" title-label="확장">확장</a>
+                        <a href="#" class="ico extend btnUserEditInputExtend" title-label="확장">확장</a>
                         <a href="#" class="btn-text btnEditModeCancel">취소</a>
                         <a href="#" class="btn positive fill btnEditModeUpdate">
                             <img src="assets/images/ico-recordEdit-w.png" alt="">
@@ -38,6 +38,7 @@
                 <div class="talkbox">
                     <div class="recording">
                         <div class="info">
+                            <img src="assets/images/iconsMenu-gnb-ai.png" alt="">
                             <div class="loading-dot">
                                 <span></span>
                                 <span></span>
@@ -56,10 +57,8 @@
                     <div class="recording">
 
                         <div class="info">
-                            <div class="loading-dot">
-                                <span></span>
-                                <span></span>
-                                <span></span>
+                            <div class="loading-longtime">
+                                <img src="assets/images/netbreezeAi.png" alt="">
                             </div>
                             요청하신 내용을 바탕으로 답변을 생성하고 있습니다. || 답변 생성 중
                         </div>
@@ -100,7 +99,7 @@
                 <div class="textarea-item">
                     <textarea name="" id=""></textarea>
                     <div class="command">
-                        <a href="#" class="ico extend" title-label="확장">확장</a>
+                        <a href="#" class="ico extend btnUserEditInputExtend" title-label="확장">확장</a>
                         <a href="#" class="btn-text btnEditModeCancel">취소</a>
                         <a href="#" class="btn positive fill btnEditModeUpdate">
                             <img src="assets/images/ico-recordEdit-w.png" alt="">
@@ -175,7 +174,7 @@ function renderTable(data) {
                 <div class="textarea-item">
                     <textarea name="" id=""></textarea>
                     <div class="command">
-                        <a href="#" class="ico extend" title-label="확장">확장</a>
+                        <a href="#" class="ico extend btnUserEditInputExtend" title-label="확장">확장</a>
                         <a href="#" class="btn-text btnEditModeCancel">취소</a>
                         <a href="#" class="btn positive fill btnEditModeUpdate">
                             <img src="assets/images/ico-recordEdit-w.png" alt="">
@@ -314,7 +313,7 @@ function renderTable(data) {
                 <div class="textarea-item">
                     <textarea name="" id=""></textarea>
                     <div class="command">
-                        <a href="#" class="ico extend" title-label="확장">확장</a>
+                        <a href="#" class="ico extend btnUserEditInputExtend" title-label="확장">확장</a>
                         <a href="#" class="btn-text btnEditModeCancel">취소</a>
                         <a href="#" class="btn positive fill btnEditModeUpdate">
                             <img src="assets/images/ico-recordEdit-w.png" alt="">
@@ -420,6 +419,28 @@ function renderTable(data) {
                 $chatItem.find('.chat-item-inner .talkbox .body p').first().text(nextText);
             }
             closeEditMode($chatItem);
+        });
+
+        // 수정모드: textarea 확장(+200px) 및 버튼 active 토글
+        $(document).on('click', '.btnUserEditInputExtend', function (e) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+
+            const $btn = $(this);
+            const $chatItem = $btn.closest('.chat-item.admin');
+            const $ta = $chatItem.find('.chat-item-edit-mode textarea').first();
+            if (!$ta.length) return;
+
+            // 최초 클릭 시 기본 높이 저장
+            if ($ta.data('baseHeight') == null) {
+                $ta.data('baseHeight', $ta.outerHeight());
+            }
+
+            const base = Number($ta.data('baseHeight')) || $ta.outerHeight();
+            const isActive = !$btn.hasClass('active');
+
+            $btn.toggleClass('active', isActive);
+            $ta.css('height', (isActive ? base + 200 : base) + 'px');
         });
     });
 </script>
