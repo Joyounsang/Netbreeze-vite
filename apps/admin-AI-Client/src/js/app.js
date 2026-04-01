@@ -23,11 +23,12 @@ $(document).ready(function () {
   menuNameTooltip();
   initCodeHighlight();
   initCodeBlockCopy();
+  userGlobalChatDragUi();
   memoListEditUi();
   filterPanelUi();
   settingTitArrowToggleUi();
   initGuideDatepicker();
-
+  // sttUploadUi();
   // 리사이즈 시 높이 재계산
   $(window).on('resize.sticky-item', function () {
     updateStickyItemHeight();
@@ -68,6 +69,163 @@ function initCodeBlockCopy() {
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(text).catch(function () { });
     }
+  });
+}
+
+/** 채팅 입력창: 파일 드래그 시 is-dragover 클래스만 토글 (UI용) */
+function userGlobalChatDragUi() {
+  function hasFiles(e) {
+    const dt = e && (e.originalEvent ? e.originalEvent.dataTransfer : e.dataTransfer);
+    if (!dt) return false;
+    if (dt.types && dt.types.length) {
+      return Array.from(dt.types).includes('Files');
+    }
+    return !!dt.files;
+  }
+
+  function setDragover($wrap) {
+    $wrap.addClass('is-dragover');
+    const prev = $wrap.data('dragoverTimer');
+    if (prev) clearTimeout(prev);
+    const t = setTimeout(function () {
+      $wrap.removeClass('is-dragover');
+    }, 140);
+    $wrap.data('dragoverTimer', t);
+  }
+
+  $(document).on('dragenter dragover', '.dragfiledesign', function (e) {
+    if (!hasFiles(e)) return;
+    e.preventDefault();
+    setDragover($(this));
+  });
+
+  $(document).on('dragleave', '.dragfiledesign', function (e) {
+    if (!hasFiles(e)) return;
+    if (e.relatedTarget && this.contains(e.relatedTarget)) return;
+    // 타이머로 정리(깜빡임 방지)
+  });
+
+  $(document).on('drop', '.dragfiledesign', function (e) {
+    if (!hasFiles(e)) return;
+    e.preventDefault();
+    const $wrap = $(this);
+    const prev = $wrap.data('dragoverTimer');
+    if (prev) clearTimeout(prev);
+    $wrap.removeClass('is-dragover');
+  });
+}
+
+/** 통화 업로드(모달): 드래그앤드랍 + 파일 선택 */
+function sttUploadUi() {
+  const allowedExt = new Set(['wav', 'mp3', 'm4a', 'aac', 'flac', 'ogg', 'webm', 'wma', 'opus', 'amr', 'mp4']);
+
+  function bytesToSize(bytes) {
+    const n = Number(bytes) || 0;
+    if (n <= 0) return '';
+    const units = ['B', 'KB', 'MB', 'GB'];
+    const i = Math.min(Math.floor(Math.log(n) / Math.log(1024)), units.length - 1);
+    const v = n / Math.pow(1024, i);
+    return (i === 0 ? v.toFixed(0) : v.toFixed(1)) + units[i];
+  }
+
+  function normalizeFiles(fileList) {
+    const arr = Array.from(fileList || []);
+    return arr.filter(function (f) {
+      const name = (f && f.name) ? f.name : '';
+      const ext = name.split('.').pop().toLowerCase();
+      return allowedExt.has(ext);
+    });
+  }
+
+  function getState($modal) {
+    let state = $modal.data('sttUploadState');
+    if (!state) {
+      state = { files: [] };
+      $modal.data('sttUploadState', state);
+    }
+    return state;
+  }
+
+  function renderList($modal) {
+    const state = getState($modal);
+    const $list = $modal.find('.stt-upload-file-list').first();
+    if (!$list.length) return;
+    $list.empty();
+
+    state.files.forEach(function (f, idx) {
+      const size = bytesToSize(f.size);
+      const safeName = String(f.name || '');
+      const $li = $(
+        '<li data-idx="' + idx + '">' +
+        '<div class="status"><img src="assets/images/otherNavico-engine.png" alt=""></div>' +
+        '<div class="filename">' + (size ? '<span class="size">' + size + '</span>' : '') + safeName + '</div>' +
+        '<a href="#" class="ico fileDel stt-upload-file-del">삭제</a>' +
+        '</li>'
+      );
+      $list.append($li);
+    });
+  }
+
+  function addFiles($modal, files) {
+    const state = getState($modal);
+    const next = normalizeFiles(files);
+    if (!next.length) return;
+
+    next.forEach(function (f) {
+      const key = (f.name || '') + '|' + (f.size || 0);
+      const exists = state.files.some(function (x) {
+        return ((x.name || '') + '|' + (x.size || 0)) === key;
+      });
+      if (!exists) state.files.push(f);
+    });
+
+    renderList($modal);
+  }
+
+  $(document).on('click', '.modal.type-upload .btnSttFilePick', function (e) {
+    e.preventDefault();
+    const $modal = $(this).closest('.modal.type-upload');
+    $modal.find('.stt-upload-input').first().trigger('click');
+  });
+
+  $(document).on('change', '.modal.type-upload .stt-upload-input', function () {
+    const $modal = $(this).closest('.modal.type-upload');
+    addFiles($modal, this.files);
+    $(this).val('');
+  });
+
+  // 드롭존 기본 동작(브라우저가 파일 열기) 방지
+  $(document).on('dragover drop', function (e) {
+    if ($(e.target).closest('.modal.type-upload .stt-uploader').length) {
+      e.preventDefault();
+    }
+  });
+
+  $(document).on('dragenter dragover', '.modal.type-upload .stt-uploader', function (e) {
+    e.preventDefault();
+    $(this).addClass('is-dragover');
+  });
+
+  $(document).on('dragleave', '.modal.type-upload .stt-uploader', function (e) {
+    if (e.relatedTarget && this.contains(e.relatedTarget)) return;
+    $(this).removeClass('is-dragover');
+  });
+
+  $(document).on('drop', '.modal.type-upload .stt-uploader', function (e) {
+    e.preventDefault();
+    $(this).removeClass('is-dragover');
+    const dt = e.originalEvent && e.originalEvent.dataTransfer;
+    addFiles($(this).closest('.modal.type-upload'), dt ? dt.files : null);
+  });
+
+  $(document).on('click', '.modal.type-upload .stt-upload-file-del', function (e) {
+    e.preventDefault();
+    const $modal = $(this).closest('.modal.type-upload');
+    const state = getState($modal);
+    const idx = Number($(this).closest('li').attr('data-idx'));
+    if (!Number.isFinite(idx)) return;
+    state.files.splice(idx, 1);
+    renderList($modal);
   });
 }
 

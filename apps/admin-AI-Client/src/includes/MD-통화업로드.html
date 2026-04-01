@@ -1,0 +1,151 @@
+<!-- 메모리스트 팝업 -->
+<div id="mdUploadSTT" class="modal type-upload">
+	<div class="modal-inner">
+		<div class="modal-header">
+			통화 업로드
+			<a href="#" class="modalClose" title="닫기">닫기</a>
+		</div>
+
+		<div class="modal-body" style="width: 800px;">
+			<div class="upload-area">
+				<div class="stt-uploader dragfiledesign">
+					<div class="inner">
+						<div class="tit">여기에 파일을 드래그하여 업로드하세요</div>
+						<p>
+							여러 파일을 한 번에 올리거나,<br>
+							파일 선택 버튼으로 직접 고르세요
+						</p>
+						<input class="stt-upload-input" type="file" multiple
+							accept=".wav,.mp3,.m4a,.aac,.flac,.ogg,.webm,.wma,.opus,.amr,.mp4,audio/*,video/*"
+							style="display:none;" />
+						<button type="button" class="btn natural line btnSttFilePick">파일 선택</button>
+					</div>
+				</div>
+
+				<a href="#" class="btn positive fill">
+					<img src="assets/images/ico-added-w.png" alt="">
+					업로드 시작</a>
+
+				<div class="scrollbar">
+					<div class="chat-file-list">
+						<ul>
+							<li>
+								<div class="status">
+									<img src="assets/images/ico-error.png" alt="">
+								</div>
+								<div class="filename"><span class="size">1.2MB</span>File Name.wav</div>
+								<a href="#" class="ico fileDel">삭제</a>
+							</li>
+
+							<li>
+								<div class="status">
+									<div class="loading-simple"></div>
+								</div>
+								<div class="filename">File Name.wav</div>
+								<a href="#" class="ico fileDel">삭제</a>
+							</li>
+
+							<li>
+								<div class="status">
+									<img src="assets/images/otherNavico-engine.png" alt="">
+								</div>
+								<div class="filename"><span class="size">1.2MB</span>File Name.wav</div>
+								<a href="#" class="ico fileDel">삭제</a>
+							</li>
+
+							<li>
+								<div class="status">
+									<img src="assets/images/otherNavico-engine.png" alt="">
+								</div>
+								<div class="filename"><span class="size">1.2MB</span>File Name.wav</div>
+								<a href="#" class="ico fileDel">삭제</a>
+							</li>
+
+							<li>
+								<div class="status">
+									<img src="assets/images/otherNavico-engine.png" alt="">
+								</div>
+								<div class="filename"><span class="size">1.2MB</span>File Name.wav</div>
+								<a href="#" class="ico fileDel">삭제</a>
+							</li>
+
+							<li>
+								<div class="status">
+									<img src="assets/images/otherNavico-engine.png" alt="">
+								</div>
+								<div class="filename"><span class="size">1.2MB</span>File Name.wav</div>
+								<a href="#" class="ico fileDel">삭제</a>
+							</li>
+
+							<li>
+								<div class="status">
+									<img src="assets/images/otherNavico-engine.png" alt="">
+								</div>
+								<div class="filename"><span class="size">1.2MB</span>File Name.wav</div>
+								<a href="#" class="ico fileDel">삭제</a>
+							</li>
+
+							<li>
+								<div class="status">
+									<img src="assets/images/otherNavico-engine.png" alt="">
+								</div>
+								<div class="filename"><span class="size">1.2MB</span>File Name.wav</div>
+								<a href="#" class="ico fileDel">삭제</a>
+							</li>
+
+							<li>
+								<div class="status">
+									<img src="assets/images/otherNavico-engine.png" alt="">
+								</div>
+								<div class="filename"><span class="size">1.2MB</span>File Name.wav</div>
+								<a href="#" class="ico fileDel">삭제</a>
+							</li>
+
+							<li>
+								<div class="status">
+									<img src="assets/images/otherNavico-engine.png" alt="">
+								</div>
+								<div class="filename"><span class="size">1.2MB</span>File Name.wav</div>
+								<a href="#" class="ico fileDel">삭제</a>
+							</li>
+
+
+
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="guide-area">
+				<div class="guidebox positive">
+					<div class="tit">2개 파일 업로드 완료!</div>
+				</div>
+				<div class="guidebox negative">
+					<div class="tit">1개 파일 업로드 실패 </div>
+					<p>
+						sample.mp3: 서버 업로드 제한 용량을 초과했습니다.저장 위치: /var/www/audio/DEMO
+					</p>
+				</div>
+
+				<div class="guidebox">
+					<div class="tit">업로드 전 확인</div>
+					<ul class="list-dot">
+						<li>파일 이름 형식이 맞아야 자동 분류됩니다.</li>
+						<li>같은 이름의 파일은 다시 올릴 수 없습니다.</li>
+						<li>업로드 후 목록 반영까지 잠시 시간이 걸릴 수 있습니다.</li>
+					</ul>
+				</div>
+
+				<div class="guidebox">
+					<div class="tit">지원 확장자</div>
+					<ul class="list-dot">
+						<li>wav, mp3, m4a, aac, flac, ogg, webm, wma, opus, amr, mp4</li>
+						<li>단일 파일 형식은 한 통화로 처리되고, TX/RX 분리 파일은 같은 통화로 자동 묶음 처리됩니다.</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div class="modal-dim"></div>
+
+</div>
