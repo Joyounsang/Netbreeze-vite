@@ -1,5 +1,5 @@
 html {
-  background-color: #fff;
+  background-color: var(--white);
 }
 
 /* 스크롤바 전체 영역 */
@@ -65,13 +65,13 @@ em {
 
 // 공통 focus 스타일
 %common-focus {
-  border: 1px solid #fff;
+  border: 1px solid var(--white);
   outline: 2px solid rgba(0, 150, 255, 0.50);
 }
 
 %common-inputStyle {
   font-family: $base-font-system;
-  color: var(--text-dark);
+  color: var(--black);
   font-size: 1.5rem;
   font-weight: 500;
   border: 1px solid var(--border);
@@ -236,7 +236,7 @@ select {
           border-radius: 36px;
           border: 1px solid var(--rec-primary);
           background: rgba(0, 150, 255, 0.80);
-          color: #fff;
+          color: var(--white);
           font-weight: 600;
           z-index: 1;
           position: relative;

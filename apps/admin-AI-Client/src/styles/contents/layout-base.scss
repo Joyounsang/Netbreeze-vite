@@ -155,6 +155,11 @@ html {
                   top: 0;
                 }
 
+
+                &:has(.chatmode-title) {
+                  max-width: 100%;
+                }
+
                 .inner {
                   max-width: 100%;
                   height: 80vh;
@@ -307,7 +312,7 @@ html {
             }
 
             .main-logo {
-              background: linear-gradient(90deg, #15181A 0%, #677680 100%);
+              background: linear-gradient(90deg, var(--black) 0%, #677680 100%);
               background-clip: text;
               -webkit-background-clip: text;
               -webkit-text-fill-color: transparent;
@@ -385,7 +390,7 @@ html {
 
 
         .panel-head {
-          background-color: #fff;
+          background-color: var(--white);
           display: flex;
           flex: none;
           height: 56px;
@@ -408,7 +413,7 @@ html {
             display: block;
             width: 100%;
             height: 20px;
-            background-color: #fff;
+            background-color: var(--white);
             position: absolute;
             bottom: -21px;
             left: 0;
@@ -436,7 +441,7 @@ html {
           display: flex;
           align-items: center;
 
-          background: linear-gradient(180deg, #F6F8FA 0%, #FFF 100%);
+          background: linear-gradient(180deg, var(--gray) 0%, var(--white) 100%);
           border-bottom: 1px solid var(--border);
           padding: 12px 30px;
           gap: 6px;
@@ -446,7 +451,7 @@ html {
             input,
             select {
               border-radius: 8px;
-              background-color: #fff;
+              background-color: var(--white);
             }
 
             &+.input-item {
@@ -488,7 +493,7 @@ html {
         .searchline {
 
           padding: 0 30px;
-          background-color: #F6F8FA;
+          background-color: var(--gray);
           position: absolute;
           display: none;
           align-items: center;
@@ -561,14 +566,14 @@ html {
         &.side {
           width: 380px;
           flex: none;
-          border-top: 1px solid #EBECF2;
-          border-left: 1px solid #EBECF2;
+          border-top: 1px solid var(--border);
+          border-left: 1px solid var(--border);
           background: rgba(246, 248, 250, 0.60);
           position: relative;
 
           &.schedule {
             width: 320px;
-            background-color: #fff;
+            background-color: var(--white);
             transition: width 0.3s ease;
 
             .memoRecord {
@@ -592,7 +597,7 @@ html {
           }
 
           .panel-side-inner {
-            // background-color: #fff;
+            // background-color: var(--white);
             border-radius: 8px;
             height: 100%;
           }
@@ -1410,7 +1415,7 @@ footer {
         }
 
         &.on {
-          border: 1px dashed #FFF;
+          border: 1px dashed var(--white);
           background: rgba(204, 212, 217, 0.85);
 
           &:after {
@@ -1605,6 +1610,26 @@ footer {
         cursor: pointer;
         position: relative;
 
+        // DnD / 클릭 실제 핸들(.history-item-inner) 기준 커서 통일
+        .history-item-inner {
+          // cursor: grab;
+
+          &:active {
+            cursor: grabbing;
+          }
+        }
+
+        &:active {
+          cursor: grabbing;
+        }
+
+        &.is-sorting,
+        &.ui-sortable-helper {
+          .history-item-inner {
+            cursor: grabbing;
+          }
+        }
+
         .date {
           font-size: 1.2rem;
         }
@@ -1693,7 +1718,7 @@ footer {
 
             .info {
               * {
-                color: #0096FF;
+                color: var(--rec-primary);
               }
             }
 
@@ -1767,7 +1792,7 @@ footer {
 
     input,
     select {
-      background-color: #fff;
+      background-color: var(--white);
       width: 100%;
       height: 44px;
     }
@@ -1858,7 +1883,7 @@ footer {
 }
 
 .textarea-item {
-  background-color: #fff;
+  background-color: var(--white);
   border-radius: 10px;
   border: 1px solid var(--border);
   height: auto;
@@ -1968,7 +1993,7 @@ footer {
     padding: 24px;
     border-radius: 14px;
     border: 1px solid #D6E9FF;
-    background: #FFF;
+    background: var(--white);
     box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.05);
   }
 }
@@ -1983,7 +2008,7 @@ footer {
     height: 44px;
     border: 1px solid var(--border);
     border-radius: 10px;
-    background-color: #fff;
+    background-color: var(--white);
 
     &:before {
       width: 20px;
@@ -2020,7 +2045,7 @@ footer {
     gap: 20px;
 
     textarea {
-      background: #fff;
+      background: var(--white);
     }
 
     .input-item {
@@ -2047,7 +2072,7 @@ footer {
   z-index: 99;
   padding: 16px 20px;
   border-bottom: 1px solid var(--border);
-  background: #fff;
+  background: var(--white);
   box-shadow: 0 5px 7px 0 rgba(0, 0, 0, 0.05);
   display: none;
   z-index: 9999;
@@ -2075,7 +2100,7 @@ footer {
     align-items: center;
     border-radius: 999px;
     border: 1px solid #dbe1e6;
-    background: #fff;
+    background: var(--white);
     padding: 2px;
   }
 
@@ -2092,7 +2117,7 @@ footer {
 
     &.active {
       background: #3B3F45;
-      color: #fff;
+      color: var(--white);
     }
   }
 
@@ -2127,10 +2152,10 @@ footer {
       box-shadow: none;
       --adp-day-cell-height: 28px;
       --adp-day-name-color: #7E8291;
-      --adp-nav-color-secondary: #0096FF;
-      --adp-accent-color: #0096FF;
-      --adp-color-current-date: #0096FF;
-      --adp-cell-background-color-selected: #0096FF;
+      --adp-nav-color-secondary: var(--rec-primary);
+      --adp-accent-color: var(--rec-primary);
+      --adp-color-current-date: var(--rec-primary);
+      --adp-cell-background-color-selected: var(--rec-primary);
       --adp-cell-background-color-selected-hover: #0086E6;
     }
 
@@ -2177,11 +2202,11 @@ footer {
       }
 
       .air-datepicker-body--day-name:first-child {
-        color: #FF495E;
+        color: var(--rec-negative);
       }
 
       .air-datepicker-body--day-name:last-child {
-        color: #0096FF;
+        color: var(--rec-primary);
       }
     }
 
@@ -2198,11 +2223,11 @@ footer {
       }
 
       &.is-sun {
-        color: #FF495E;
+        color: var(--rec-negative);
       }
 
       &.is-sat {
-        color: #0096FF;
+        color: var(--rec-primary);
       }
     }
 
@@ -2214,8 +2239,8 @@ footer {
 
     .air-datepicker-cell.-day-.range-start,
     .air-datepicker-cell.-day-.range-end {
-      background: #0096FF;
-      color: #fff;
+      background: var(--rec-primary);
+      color: var(--white);
       border-radius: 0;
     }
 
@@ -2252,7 +2277,7 @@ footer {
     .ui-datepicker-calendar td.range-start a,
     .ui-datepicker-calendar td.range-end a {
       background: var(--primary);
-      color: #fff;
+      color: var(--white);
     }
 
     .ui-datepicker-title {
@@ -2268,7 +2293,7 @@ footer {
       border: 1px solid #dbe1e6;
       border-radius: 8px;
       padding: 0 10px;
-      background: #fff;
+      background: var(--white);
       font-size: 1.3rem;
       color: #2b3138;
     }
@@ -2307,48 +2332,4 @@ footer {
       display: none;
     }
   }
-}
-
-/* guide 등 단일 Air Datepicker 공통 컬러 */
-.air-datepicker {
-  --adp-accent-color: #0096FF;
-  --adp-color-current-date: #0096FF;
-  --adp-cell-background-color-selected: #0096FF;
-  --adp-cell-background-color-selected-hover: #0086E6;
-}
-
-.air-datepicker-body--day-names {
-  .air-datepicker-body--day-name {
-    color: #7E8291;
-  }
-
-  .air-datepicker-body--day-name:first-child {
-    color: #FF495E;
-  }
-
-  .air-datepicker-body--day-name:last-child {
-    color: #0096FF;
-  }
-}
-
-.air-datepicker-cell.-day- {
-  color: #7E8291;
-
-  &.is-sun {
-    color: #FF495E;
-  }
-
-  &.is-sat {
-    color: #0096FF;
-  }
-}
-
-/* Air Datepicker 기본 CSS 우선순위보다 강하게 선택색 고정 */
-.air-datepicker .air-datepicker-cell.-selected-,
-.air-datepicker .air-datepicker-cell.-selected-.-focus-,
-.air-datepicker .air-datepicker-cell.-range-from-,
-.air-datepicker .air-datepicker-cell.-range-to- {
-  background: #0096FF !important;
-  border-color: #0096FF !important;
-  color: #fff !important;
 }

@@ -4,6 +4,50 @@ import 'air-datepicker/air-datepicker.css';
 import localeKo from 'air-datepicker/locale/ko';
 import hljs from 'highlight.js';
 
+$(document).ready(function () {
+  setScreenSize();
+  $('.scrollbar').scrollbar();
+  sideNavUi();
+  clickModal();
+  progressUi();
+  dropDownUi();
+  switchUi();
+  customSelectUi();
+  gnbToggle();
+  settingsMenuToggle();
+  initSttRangeCalendar();
+  favoriteGroupUi();
+  tableTextTooltipInit();
+  updateStickyItemHeight();
+  favoriteToggle();
+  menuNameTooltip();
+  initCodeHighlight();
+  initCodeBlockCopy();
+  memoListEditUi();
+  filterPanelUi();
+  settingTitArrowToggleUi();
+  initGuideDatepicker();
+
+  // 리사이즈 시 높이 재계산
+  $(window).on('resize.sticky-item', function () {
+    updateStickyItemHeight();
+  });
+
+  setTimeout(function () {
+    defaultModal();
+    // datepicker();
+    updateStickyItemHeight(); // 모달이나 다른 요소 로드 후 재계산
+  }, 10);
+
+  // DOM이 완전히 로드된 후 한 번 더 실행
+  setTimeout(function () {
+    updateStickyItemHeight();
+  }, 100);
+});
+$(window).on('resize', function () {
+  modalSize();
+});
+
 function initCodeHighlight() {
   document.querySelectorAll('.codearea pre code').forEach(function (el) {
     if (el.classList.contains('hljs')) {
@@ -118,52 +162,6 @@ function updateStickyItemHeight() {
   });
 }
 
-$(document).ready(function () {
-  setScreenSize();
-  $('.scrollbar').scrollbar(); // 스크롤디자인 라이브러리호출
-  // updateFilePath();
-  sideNavUi();
-  clickModal();
-  progressUi();
-  dropDownUi();
-  // moreOptionsList();
-  switchUi();
-  customSelectUi();
-  gnbToggle();
-  settingsMenuToggle();
-  initSttRangeCalendar();
-  favoriteGroupUi();
-  tableTextTooltipInit();
-  updateStickyItemHeight();
-  favoriteToggle();
-  menuNameTooltip();
-  initCodeHighlight();
-  initCodeBlockCopy();
-  memoListEditUi();
-  filterPanelUi();
-  settingTitArrowToggleUi();
-  initGuideDatepicker();
-
-  // 리사이즈 시 높이 재계산
-  $(window).on('resize.sticky-item', function () {
-    updateStickyItemHeight();
-  });
-
-  setTimeout(function () {
-    defaultModal();
-    datepicker();
-    updateStickyItemHeight(); // 모달이나 다른 요소 로드 후 재계산
-  }, 10);
-
-  // DOM이 완전히 로드된 후 한 번 더 실행
-  setTimeout(function () {
-    updateStickyItemHeight();
-  }, 100);
-});
-$(window).on('resize', function () {
-  modalSize();
-});
-
 function initGuideDatepicker() {
   const $inputs = $('.date-air-datepicker');
   if (!$inputs.length) return;
@@ -187,6 +185,7 @@ function filterPanelUi() {
   $(document).on('click', '.searchlineOpen', function (e) {
     e.preventDefault();
     $(this).closest('.panel-head').find('.searchline').addClass('active');
+    // $('.filter-calendar').removeClass('active');
     updateStickyItemHeight();
   });
   $(document).on('click', '.searchlineClose', function (e) {
@@ -294,24 +293,7 @@ function switchUi() {
     });
   });
 }
-function moreOptionsList() {
-  $('.list-option .ico.more').each(function () {
-    $(this).on('click', function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      $('.list-more-cont').removeClass('on');
-      $(this).next('.list-more-cont').toggleClass('on');
-    });
-  });
 
-  $(document).on('click', function () {
-    $('.list-more-cont.on').removeClass('on');
-  });
-
-  $('.list-more-cont').on('click', function (e) {
-    e.stopPropagation();
-  });
-}
 function progressUi() {
   $('.bar').each(function () {
     const maxValue = parseFloat($(this).data('max-value'));
@@ -617,7 +599,7 @@ function settingsMenuToggle() {
     }
 
     const isInModal = $btn.closest('.modal').length > 0;
-    
+
     // 기본(페이지)에서는 viewport 기준으로 clamp
     let minLeft = viewportGap;
     let minTop = viewportGap;
@@ -726,7 +708,6 @@ function settingsMenuToggle() {
   });
 }
 
-
 function favoriteToggle() {
   $('.favorite').each(function () {
     $(this).on('click', function (e) {
@@ -756,8 +737,6 @@ function favoriteGroupUi() {
     $(this).closest('.favorite-group').toggleClass('open');
   });
 }
-
-
 
 function initSttRangeCalendar() {
   const $wrap = $('.date-range-calendar');
@@ -971,7 +950,6 @@ function initSttRangeCalendar() {
     setRange(start, end);
   });
 }
-
 
 function menuNameTooltip() {
   if (window.__titleLabelTooltipInitialized) return;

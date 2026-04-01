@@ -10,7 +10,7 @@
   padding: 11px 11px 11px 12px;
   border-radius: 34px;
   background: rgba(42, 46, 55, 0.90);
-  color: #fff;
+  color: var(--white);
   font-size: 1.8rem;
   font-weight: 700;
   left: -10px;
@@ -22,7 +22,7 @@
   padding: 11px 12px 11px 11px;
   border-radius: 34px;
   background: rgba(42, 46, 55, 0.90);
-  color: #fff;
+  color: var(--white);
   font-size: 1.8rem;
   font-weight: 700;
 }
@@ -41,7 +41,7 @@
     padding: 7px 12px;
     border-radius: 34px;
     background: rgba(42, 46, 55, 0.90);
-    color: #fff;
+    color: var(--white);
     font-size: 1.3rem;
     font-weight: 400;
     letter-spacing: 1.5px;
@@ -65,7 +65,7 @@ jquery ui */
   color: #ff6b6b;
 
   &.ui-state-active {
-    color: #fff;
+    color: var(--white);
   }
 }
 
@@ -74,7 +74,7 @@ jquery ui */
 }
 
 .ui-widget-content {
-  background-color: #fff;
+  background-color: var(--white);
 }
 
 .ui-state-default,
@@ -101,7 +101,7 @@ html .ui-button.ui-state-disabled:active {
     border: none;
     padding: 10px;
     border-radius: 8px;
-    color: #fff;
+    color: var(--white);
 
     .ui-datepicker-title {
       margin: 0;
@@ -191,7 +191,7 @@ html .ui-button.ui-state-disabled:active {
     &.ui-state-active {
       border-radius: 6px;
       background-color: var(--rec-primary);
-      color: #fff;
+      color: var(--white);
       font-weight: 700;
 
       &.ui-state-hover {
@@ -556,11 +556,55 @@ html .ui-button.ui-state-disabled:active {
 }
 
 .swiper-pagination-bullet {
-  background-color: #6980EA;
+  background-color: var(--rec-primary);
   opacity: .3;
 }
 
 .swiper-pagination-bullet-active {
-  background-color: #6980EA;
+  background-color: var(--rec-primary);
   opacity: 1;
+}
+
+
+/* Air Datepicker */
+.air-datepicker {
+  --adp-accent-color: var(--rec-primary);
+  --adp-color-current-date: var(--rec-primary);
+  --adp-cell-background-color-selected: var(--rec-primary);
+  --adp-cell-background-color-selected-hover: var(--rec-primary);
+}
+
+.air-datepicker-body--day-names {
+  .air-datepicker-body--day-name {
+    color: #7E8291;
+  }
+
+  .air-datepicker-body--day-name:first-child {
+    color: var(--rec-negative);
+  }
+
+  .air-datepicker-body--day-name:last-child {
+    color: var(--rec-primary);
+  }
+}
+
+.air-datepicker-cell.-day- {
+  color: #7E8291;
+
+  &.is-sun {
+    color: var(--rec-negative);
+  }
+
+  &.is-sat {
+    color: var(--rec-primary);
+  }
+}
+
+.air-datepicker .air-datepicker-cell.-selected-,
+.air-datepicker .air-datepicker-cell.-selected-.-focus-,
+.air-datepicker .air-datepicker-cell.-range-from-,
+.air-datepicker .air-datepicker-cell.-range-to- {
+  background: var(--rec-primary) !important;
+  border-color: var(--rec-primary) !important;
+  color: var(--white) !important;
 }
