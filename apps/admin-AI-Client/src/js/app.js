@@ -3,6 +3,9 @@ import AirDatepicker from 'air-datepicker';
 import 'air-datepicker/air-datepicker.css';
 import localeKo from 'air-datepicker/locale/ko';
 import hljs from 'highlight.js';
+import Swiper from 'swiper';
+import { Navigation } from 'swiper/modules';
+import 'swiper/css';
 
 $(document).ready(function () {
   setScreenSize();
@@ -28,6 +31,8 @@ $(document).ready(function () {
   filterPanelUi();
   settingTitArrowToggleUi();
   initGuideDatepicker();
+  initNewsCardSwiper();
+  refLinkTooltipUi();
   // sttUploadUi();
   // 리사이즈 시 높이 재계산
   $(window).on('resize.sticky-item', function () {
@@ -336,6 +341,191 @@ function initGuideDatepicker() {
 
     $input.data('airDatepickerBound', true);
   });
+}
+
+/** Chat 뉴스 카드: Swiper 슬라이더 */
+function initNewsCardSwiper() {
+  $('.news-card-area').each(function () {
+    const $area = $(this);
+    const $slider = $area.find('.list-news-card.swiper').first();
+    const $next = $area.find('.news-card-arrow.next').first();
+    const $prev = $area.find('.news-card-arrow.prev').first();
+    const count = $slider.find('.swiper-slide').length;
+
+    if (!$slider.length || $slider.data('newsSwiperBound')) {
+      return;
+    }
+
+    const showNav = count > 3;
+    $area.toggleClass('has-nav', showNav);
+
+    const swiper = new Swiper($slider[0], {
+      modules: [Navigation],
+      slidesPerView: 1.2,
+      spaceBetween: 12,
+      watchOverflow: true,
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 14
+        },
+        1200: {
+          slidesPerView: 3,
+          spaceBetween: 16
+        }
+      },
+      navigation: showNav ? {
+        nextEl: $next[0],
+        prevEl: $prev[0]
+      } : undefined
+    });
+
+    $slider.data('newsSwiperBound', true);
+    $slider.data('newsSwiper', swiper);
+  });
+}
+
+/** Chat 출처 버튼: hover 시 툴팁 위치 계산 표시 */
+function refLinkTooltipUi() {
+  const ns = '.refLinkTooltip';
+  const hoverClass = 'is-hover';
+
+  function placeTooltip($btn, $tooltip) {
+    if (!$btn.length || !$tooltip.length) return;
+
+    const rect = $btn[0].getBoundingClientRect();
+    const gap = -4; // 링크와 툴팁을 살짝 겹쳐 hover 이탈 방지
+    const viewportGap = 8;
+
+    $tooltip.css({
+      left: '0px',
+      top: '0px'
+    });
+
+    const tipW = $tooltip.outerWidth();
+    const tipH = $tooltip.outerHeight();
+
+    let left = rect.left;
+    let top = rect.bottom + gap;
+
+    if (left + tipW > window.innerWidth - viewportGap) {
+      left = window.innerWidth - tipW - viewportGap;
+    }
+    if (left < viewportGap) {
+      left = viewportGap;
+    }
+    if (top + tipH > window.innerHeight - viewportGap) {
+      top = rect.top - tipH - gap;
+    }
+    if (top < viewportGap) {
+      top = viewportGap;
+    }
+
+    $tooltip.css({
+      left: left + 'px',
+      top: top + 'px'
+    });
+  }
+
+  function showFromButton(btnEl) {
+    const $btn = $(btnEl);
+    const $talkbox = $btn.closest('.talkbox');
+    const $tooltip = $talkbox.find('.ref-link-tooltip').first();
+    if (!$tooltip.length) return;
+
+    const prevTimer = $tooltip.data('hoverTimer');
+    if (prevTimer) clearTimeout(prevTimer);
+
+    $btn.addClass(hoverClass);
+    $tooltip.addClass('is-open');
+    placeTooltip($btn, $tooltip);
+    $tooltip.data('anchorBtn', $btn[0]);
+  }
+
+  function hideFromButton(btnEl) {
+    const $btn = $(btnEl);
+    const $talkbox = $btn.closest('.talkbox');
+    const $tooltip = $talkbox.find('.ref-link-tooltip').first();
+    if (!$tooltip.length) return;
+
+    const t = setTimeout(function () {
+      // 버튼이나 툴팁 위에 마우스가 남아있으면 유지
+      const isBtnHover = $btn.is(':hover');
+      const isTipHover = $tooltip.is(':hover');
+      if (!isBtnHover && !isTipHover) {
+        $btn.removeClass(hoverClass);
+        $tooltip.css('display', '');
+        $tooltip.removeClass('is-open');
+      }
+    }, 90);
+    $tooltip.data('hoverTimer', t);
+  }
+
+  $(document)
+    .off('mouseenter' + ns, '.ref-link')
+    .on('mouseenter' + ns, '.ref-link', function () {
+      showFromButton(this);
+    });
+
+  $(document)
+    .off('mouseleave' + ns, '.ref-link')
+    .on('mouseleave' + ns, '.ref-link', function () {
+      hideFromButton(this);
+    });
+
+  $(document)
+    .off('mouseenter' + ns, '.ref-link-tooltip')
+    .on('mouseenter' + ns, '.ref-link-tooltip', function () {
+      const prevTimer = $(this).data('hoverTimer');
+      if (prevTimer) clearTimeout(prevTimer);
+    });
+
+  $(document)
+    .off('mouseleave' + ns, '.ref-link-tooltip')
+    .on('mouseleave' + ns, '.ref-link-tooltip', function () {
+      const $tooltip = $(this);
+      const anchorBtn = $tooltip.data('anchorBtn');
+      const $anchorBtn = anchorBtn ? $(anchorBtn) : $();
+      const isBtnHover = $anchorBtn.length ? $anchorBtn.is(':hover') : false;
+      if (!isBtnHover) {
+        $anchorBtn.removeClass(hoverClass);
+        $tooltip.css('display', '');
+        $tooltip.removeClass('is-open');
+      }
+    });
+
+  $(window)
+    .off('resize' + ns + ' scroll' + ns)
+    .on('resize' + ns + ' scroll' + ns, function () {
+      $('.ref-link-tooltip.is-open').each(function () {
+        const $tooltip = $(this);
+        const anchorBtn = $tooltip.data('anchorBtn');
+        if (!anchorBtn || !document.body.contains(anchorBtn)) {
+          $(anchorBtn).removeClass(hoverClass);
+          $tooltip.removeClass('is-open');
+          return;
+        }
+        placeTooltip($(anchorBtn), $tooltip);
+      });
+    });
+
+  // 버튼/툴팁 영역을 완전히 벗어나면 즉시 닫기
+  $(document)
+    .off('mousemove' + ns)
+    .on('mousemove' + ns, function (e) {
+      const target = e.target;
+      $('.ref-link-tooltip.is-open').each(function () {
+        const $tooltip = $(this);
+        const anchorBtn = $tooltip.data('anchorBtn');
+        const inTooltip = target && this.contains(target);
+        const inButton = anchorBtn && target && anchorBtn.contains(target);
+        if (!inTooltip && !inButton) {
+          $(anchorBtn).removeClass(hoverClass);
+          $tooltip.css('display', '');
+          $tooltip.removeClass('is-open');
+        }
+      });
+    });
 }
 
 /** STTList: 검색 줄 · 검색조건 · 날짜 필터 패널 UI */

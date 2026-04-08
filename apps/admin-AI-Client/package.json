@@ -15,7 +15,8 @@
   "dependencies": {
     "@repo/styles": "workspace:*",
     "air-datepicker": "^3.6.0",
-    "highlight.js": "^11.11.1"
+    "highlight.js": "^11.11.1",
+    "swiper": "^12.1.3"
   },
   "devDependencies": {
     "@repo/config-eslint": "workspace:*",
