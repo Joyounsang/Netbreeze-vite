@@ -1,3 +1,9 @@
+@mixin fontStyle {
+  font-family: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo",
+    -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial,
+    "Malgun Gothic", "맑은 고딕", Dotum, 돋움, sans-serif;
+}
+
 .swiper-button-next:after,
 .swiper-container-rtl .swiper-button-prev:after {
 
@@ -48,7 +54,7 @@
 /* CUSTOM :: 
 jquery ui */
 .ui-widget {
-  font-family: $base-font-system;
+  @include fontStyle;
 }
 
 .ui-datepicker-calendar>tbody td.ui-datepicker-week-end:last-child a {

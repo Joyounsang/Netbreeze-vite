@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ko">
+<include src="src/includes/head.html"></include>
+
+<body>
+	<div class="viewport">
+		<include src="src/includes/GNB.html"></include>
+		<div class="container">
+			<include src="src/includes/header.html"></include>
+			<div class="contents">
+				<div class="panel">
+					<div class="row">
+						<div class="column">
+							<article>
+								<include src="src/includes/PageHead.html"></include>
+								<div class="sub-dashboard">
+									<div class="sub-dashboard-item">
+										<div class="label">시설 사용 세대</div>
+										<div class="value">200,201,203</div>
+										<div class="info">아파트 전체 세대 <b>5,500</b></div>
+									</div>
+
+									<div class="sub-dashboard-item">
+										<div class="label">시설 예약 수</div>
+										<div class="value">200,192,232</div>
+										<div class="info">시설 가입 전체 인원 <b>245,500</b></div>
+									</div>
+
+									<div class="sub-dashboard-item type-calc">
+										<ul class="calc-list">
+											<li>
+												<dl>
+													<dt>
+														정기회원<span>월</span>
+													</dt>
+													<dd>
+														22,300 건
+													</dd>
+												</dl>
+											</li>
+											<li>
+												<dl>
+													<dt>
+														단기회원<span>일</span>
+													</dt>
+													<dd>
+														22,300 건
+													</dd>
+												</dl>
+											</li>
+											<li>
+												<dl>
+													<dt>
+														단기회원<span>시간</span>
+													</dt>
+													<dd>
+														22,300 건
+													</dd>
+												</dl>
+											</li>
+											<li class="last">
+												<dl>
+													<dt>
+														시설 이용 중 세대
+													</dt>
+													<dd>
+														22,300 건
+													</dd>
+												</dl>
+											</li>
+										</ul>
+										<ul class="calc-list">
+											<li>
+												<dl>
+													<dt>
+														26년 <b>4월</b> 청구 합계
+													</dt>
+													<dd>
+														25,250,000 원
+													</dd>
+												</dl>
+											</li>
+											<li>
+												<dl>
+													<dt>
+														26년 <b>3월</b> 청구 합계
+													</dt>
+													<dd>
+														25,250,000 원
+													</dd>
+												</dl>
+											</li>
+											<li>
+												<dl>
+													<dt>
+														26년 <b>2월</b> 청구 합계
+													</dt>
+													<dd>
+														25,250,000 원
+													</dd>
+												</dl>
+											</li>
+											<li class="last">
+												<dl>
+													<dt>
+														월별 청구 합계
+													</dt>
+													<dd>
+														42,350,000 원
+													</dd>
+												</dl>
+											</li>
+										</ul>
+										<ul class="calc-list">
+											<li>
+												<dl>
+													<dt>
+														26년 <b>4월</b> 전출 세대
+													</dt>
+													<dd>
+														3 세대
+													</dd>
+												</dl>
+											</li>
+											<li>
+												<dl>
+													<dt>
+														26년 <b>3월</b> 전출 세대
+													</dt>
+													<dd>
+														3 세대
+													</dd>
+												</dl>
+											</li>
+											<li>
+												<dl>
+													<dt>
+														26년 <b>2월</b> 전출 세대
+													</dt>
+													<dd>
+														3 세대
+													</dd>
+												</dl>
+											</li>
+											<li class="last">
+												<dl>
+													<dt>
+														이번 달 전출 세대
+													</dt>
+													<dd>
+														23 세대
+													</dd>
+												</dl>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="query">
+									<div class="input-item">
+										<div class="input-item-inner">
+											<select class="white">
+												<option value="" selected>2026년</option>
+											</select>
+										</div>
+									</div>
+									<div class="input-item">
+										<div class="input-item-inner">
+											<select class="white" style="width:90px">
+												<option value="" selected>04월</option>
+											</select>
+										</div>
+									</div>
+									<div class="input-item">
+										<div class="input-item-inner">
+											<select class="white" style="width:90px">
+												<option value="" selected>동</option>
+											</select>
+										</div>
+									</div>
+									<div class="input-item">
+										<div class="input-item-inner">
+											<input type="text" placeholder="이름 / 호 검색" class="white">
+										</div>
+									</div>
+									<div class="input-item">
+										<div class="input-item-inner">
+											<select class="white">
+												<option value="" selected>정산현황 상태(전체)</option>
+											</select>
+										</div>
+									</div>
+									<a href="#" class="btn medium positive fill">
+										<span>
+											<img src="assets/images/admin-ico-query.png" alt="">
+											조회
+										</span>
+									</a>
+
+									<div class="side">
+										<a href="#" class="btn medium fill">
+											<span>
+												${임의 지정 버튼}
+											</span>
+										</a>
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+
+
+
+					<div class="row">
+						<div class="column">
+							<article>
+								<div class="content-header">
+									<div class="title lv2">Title</div>
+									<div class="command">
+										<div class="input-item">
+											<a href="#" class="btn medium excel" title="엑셀파일로 다운로드">
+												<span>
+													<img src="assets/images/crud-excel-white.png">
+													엑셀 다운로드
+												</span>
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="tbl type-list">
+									<!-- 스크롤되는 높이를 유동적으로 쓰는경우 이곳에 height 지정 -->
+									<div class="tmain" style="height: auto;">
+										<table>
+											<colgroup>
+												<col style="width:160px;">
+												<col style="width:160px">
+												<col style="width:160px;">
+												<col style="width:auto;">
+												<col style="width:160px;">
+												<col style="width:90px;">
+												<col style="width:90px;">
+											</colgroup>
+											<thead>
+												<tr>
+													<th scope="col" class="center">
+														동
+													</th>
+													<th scope="col" class="center">
+														호수
+													</th>
+													<th scope="col" class="center">
+														세대원 수
+													</th>
+													<th scope="col" class="center">
+														청구액
+													</th>
+													<th scope="col" class="center">
+														정산 처리일
+													</th>
+													<th scope="col" class="center">
+														정산 현황
+													</th>
+													<th scope="col" class="center">
+														상세
+													</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="center">
+														101동
+													</td>
+													<td class="center">
+														405호
+													</td>
+													<td class="center">
+														4
+													</td>
+													<td class="right">
+														<b>10,000</b>
+													</td>
+													<td class="center">
+														2026-05-28
+													</td>
+													<td class="center">
+														<a href="#" class="btn medium negative fill"><span>전출 완료</span></a>
+													</td>
+													<td class="center">
+														<a href="#" class="btn medium white line"><span>상세 보기</span></a>
+													</td>
+												</tr>
+
+												<tr>
+													<td class="center">
+														101동
+													</td>
+													<td class="center">
+														405호
+													</td>
+													<td class="center">
+														4
+													</td>
+													<td class="right">
+														<b>10,000</b>
+													</td>
+													<td class="center">
+														2026-05-28
+													</td>
+													<td class="center">
+														<a href="#" class="btn medium positive fill"><span>신규</span></a>
+													</td>
+													<td class="center">
+														<a href="#" class="btn medium white line"><span>상세 보기</span></a>
+													</td>
+												</tr>
+
+												<tr>
+													<td class="center">
+														101동
+													</td>
+													<td class="center">
+														405호
+													</td>
+													<td class="center">
+														4
+													</td>
+													<td class="right">
+														<b>10,000</b>
+													</td>
+													<td class="center">
+														2026-05-28
+													</td>
+													<td class="center">
+														<a href="#" class="btn medium gary fill"><span>중간 정산</span></a>
+													</td>
+													<td class="center">
+														<a href="#" class="btn medium white line"><span>상세 보기</span></a>
+													</td>
+												</tr>
+
+
+											</tbody>
+										</table>
+									</div>
+									<div class="tfoot justify">
+										<div class="pagistatus">
+											<span class="now">1</span>
+											<span class="total"><em class="gray">/20</em></span>
+										</div>
+										<div class="pagination">
+											<ol>
+												<li class="first">
+													<a href="#">처음</a>
+												</li>
+												<li class="prev">
+													<a href="#">이전</a>
+												</li>
+												<li class="on">
+													<a href="#">1</a>
+												</li>
+												<li>
+													<a href="#">2</a>
+												</li>
+												<li>
+													<a href="#">3</a>
+												</li>
+												<li>
+													<a href="#">4</a>
+												</li>
+												<li>
+													<a href="#">5</a>
+												</li>
+												<li class="next">
+													<a href="#">다음</a>
+												</li>
+												<li class="last">
+													<a href="#">마지막</a>
+												</li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="ko">
+<include src="src/includes/head.html"></include>
+
+<body>
+	<div class="viewport">
+		<include src="src/includes/GNB.html"></include>
+		<div class="container">
+			<include src="src/includes/header.html"></include>
+			<div class="contents">
+				<div class="panel">
+					<div class="row">
+						<div class="column">
+							<article>
+								<include src="src/includes/PageHead.html"></include>
+								<div class="sub-dashboard">
+									<div class="sub-dashboard-item type-calc">
+										<ul class="calc-list">
+											<li>
+												<dl>
+													<dt>
+														기본 요금 합계
+													</dt>
+													<dd>
+														25,250,000 원
+													</dd>
+												</dl>
+											</li>
+											<li>
+												<dl>
+													<dt>
+														옵션 요금 합계
+													</dt>
+													<dd>
+														25,250,000 원
+													</dd>
+												</dl>
+											</li>
+											<li class="last">
+												<dl>
+													<dt>
+														청구금액 합계
+													</dt>
+													<dd>
+														42,350,000 원
+													</dd>
+												</dl>
+											</li>
+										</ul>
+										<ul class="calc-list">
+											<li>
+												<dl>
+													<dt>
+														결제 금액 합계<span>월</span>
+													</dt>
+													<dd>
+														25,250,000 원
+													</dd>
+												</dl>
+											</li>
+											<li>
+												<dl>
+													<dt>
+														결제 금액 합계<span>일</span>
+													</dt>
+													<dd>
+														25,250,000 원
+													</dd>
+												</dl>
+											<li>
+												<dl>
+													<dt>
+														결제 금액 합계<span>시간</span>
+													</dt>
+													<dd>
+														25,250,000 원
+													</dd>
+												</dl>
+											</li>
+											</li>
+											<li class="last">
+												<dl>
+													<dt>
+														청구금액 합계
+													</dt>
+													<dd>
+														42,350,000 원
+													</dd>
+												</dl>
+											</li>
+										</ul>
+										<ul class="calc-list">
+											<li>
+												<dl>
+													<dt>
+														할인금액 합계
+													</dt>
+													<dd>
+														25,250,000 원
+													</dd>
+												</dl>
+											</li>
+											<li>
+												<dl>
+													<dt>
+														환불금액 합계
+													</dt>
+													<dd>
+														25,250,000 원
+													</dd>
+												</dl>
+											</li>
+											<li class="last">
+												<dl>
+													<dt>
+														정산 환불 금액 합계
+													</dt>
+													<dd>
+														42,350,000 원
+													</dd>
+												</dl>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="query">
+									<div class="input-item checkall-line">
+										<label class="checkbox">
+											<input type="checkbox"><span class="large"><b>세대원 전체 선택</b></span>
+										</label>
+									</div>
+									<div class="input-item">
+										<label class="checkbox">
+											<input type="checkbox"><span class="large">홍길동 <em class="badge blue">세대주</em></span>
+										</label>
+										<label class="checkbox">
+											<input type="checkbox"><span class="large">홍길동 <em class="badge">세대원</em></span>
+										</label>
+										<label class="checkbox">
+											<input type="checkbox"><span class="large">홍길동 <em class="badge">세대원</em></span>
+										</label>
+										<label class="checkbox">
+											<input type="checkbox"><span class="large">홍길동 <em class="badge">세대원</em></span>
+										</label>
+										<label class="checkbox">
+											<input type="checkbox"><span class="large">홍길동 <em class="badge">세대원</em></span>
+										</label>
+										<label class="checkbox">
+											<input type="checkbox"><span class="large">홍길동 <em class="badge">세대원</em></span>
+										</label>
+										<label class="checkbox">
+											<input type="checkbox"><span class="large">홍길동 <em class="badge">세대원</em></span>
+										</label>
+										<label class="checkbox">
+											<input type="checkbox"><span class="large">홍길동 <em class="badge">세대원</em></span>
+										</label>
+										<label class="checkbox">
+											<input type="checkbox"><span class="large">홍길동 <em class="badge">세대원</em></span>
+										</label>
+
+									</div>
+								</div>
+								<div class="query">
+									<div class="input-item">
+										<div class="input-item-inner">
+											<select class="white">
+												<option value="" selected>2026년</option>
+											</select>
+										</div>
+									</div>
+									<div class="input-item">
+										<div class="input-item-inner">
+											<select class="white" style="width:90px">
+												<option value="" selected>04월</option>
+											</select>
+										</div>
+									</div>
+									<a href="#" class="btn medium positive fill">
+										<span>
+											<img src="assets/images/admin-ico-query.png" alt="">
+											조회
+										</span>
+									</a>
+
+									<div class="side">
+										<a href="#" class="btn medium fill">
+											<span>
+												${임의 지정 버튼}
+											</span>
+										</a>
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+
+
+
+					<div class="row">
+						<div class="column">
+							<article>
+								<div class="content-header">
+									<div class="title lv2">Title</div>
+									<div class="command">
+										<div class="input-item">
+											<a href="#" class="btn medium positive fill">
+												<span>
+													변경사항 저장
+												</span>
+											</a>
+											<a href="#" class="btn medium negative fill">
+												<span>
+													세대 전출
+												</span>
+											</a>
+											<a href="#" class="btn medium excel" title="엑셀파일로 다운로드">
+												<span>
+													<img src="assets/images/crud-excel-white.png">
+													엑셀 다운로드
+												</span>
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="tbl type-list">
+									<!-- 가로스크롤 플로팅 버튼 등: 스크롤(.tmain) 밖에 래퍼(.tmain-scroll-host)를 두고 배치 -->
+									<div class="tmain-scroll-host">
+										<!-- 특정크기 세로스크롤 안쓰는 디자인으로 height:auto 지정 -->
+										<div class="tmain" style="height: auto;">
+											<!-- 고정가로 셀과 가로스크롤을 위한 table-layout: fixed 지정 -->
+											<table style="table-layout: fixed;">
+												<colgroup>
+													<!-- 고정값 필수 -->
+													<col style="width:100px;">
+													<col style="width:400px">
+													<col style="width:100px;">
+													<col style="width:100px;">
+													<col style="width:100px;">
+													<col style="width:110px;">
+													<col style="width:110px;">
+													<col style="width:110px;">
+													<col style="width:110px">
+													<col style="width:110px;">
+													<col style="width:110px;">
+													<col style="width:110px;">
+													<col style="width:110px;">
+													<col style="width:110px;">
+													<col style="width:110px;">
+													<col style="width:110px;">
+												</colgroup>
+												<thead>
+													<tr>
+														<th scope="col" class="center" rowspan="2">
+															이름
+														</th>
+														<th scope="col" class="center" rowspan="2">
+															시설<br>그룹
+														</th>
+														<th scope="col" class="center" rowspan="2">
+															회원<br>유형
+														</th>
+														<th scope="col" class="center" rowspan="2">
+															사용<br>횟수
+														</th>
+														<th scope="col" class="center" rowspan="2">
+															상태
+														</th>
+														<th scope="col" class="center" rowspan="2">
+															이용<br>일수
+														</th>
+														<th scope="col" class="center" rowspan="2">
+															해당월<br>일수
+														</th>
+														<th scope="col" class="center" rowspan="2">
+															일할<br>금액
+														</th>
+														<th scope="col" class="center" rowspan="2">
+															기본<br>요금
+														</th>
+														<th scope="col" class="center" rowspan="2">
+															옵션<br>요금
+														</th>
+														<th scope="col" class="center" rowspan="2">
+															<em class="blue">청구금액<br>(합)</em>
+														</th>
+														<th scope="col" class="center" colspan="3">
+															청구 금액
+														</th>
+														<th scope="col" class="center" colspan="2">
+															정산 환불 금액
+														</th>
+													</tr>
+													<tr>
+														<th scope="col" class="center bd-l">
+															결제금액(월)
+														</th>
+														<th scope="col" class="center">
+															결제금액(일)
+														</th>
+														<th scope="col" class="center">
+															결제금액(시간)
+														</th>
+														<th scope="col" class="center">
+															할인금액
+														</th>
+														<th scope="col" class="center">
+															환불금액
+														</th>
+													</tr>
+												</thead>
+												<tbody>
+													<!-- data-detail-id 값으로 동일한 값을 가진 tr-toggle-row과 tr-detail-row을 찾아 열고 닫고 있음, 다른방식으로 직접 스크립트 구현하셔도 됩니다 -->
+													<tr class="tr-toggle-row" data-detail-id="detail-row-1" aria-expanded="false">
+														<td class="center">홍길동</td>
+														<td class="center">
+															<div class="arrow-title">골프장</div>
+														</td>
+														<td class="center">정기(월)</td>
+														<td class="center">20</td>
+														<td class="center">
+															<b class="status"><em class="gray">사용 완료</em></b>
+														</td>
+														<td class="center">
+															<!-- 사용자가 값을 수정했다면 status-edit 클래스 추가하여 수정되었다는 상태표기-->
+															<input type="text" value="100" class="white line center status-edit">
+														</td>
+														<td class="center"><input type="text" value="1,000" class="white line right"></td>
+														<td class="center"><input type="text" value="1,000" class="white line right"></td>
+														<td class="right"><b>10,000</b></td>
+														<td class="right"><b>10,000</b></td>
+														<td class="right result"><b><em class="blue">10,000</em></b></td>
+														<td class="right"><b>10,000</b></td>
+														<td class="right"><b>10,000</b></td>
+														<td class="right"><b>10,000</b></td>
+														<td class="right"><b>10,000</b></td>
+														<td class="right"><b>10,000</b></td>
+													</tr>
+													<tr class="tr-detail-row" data-detail-id="detail-row-1" hidden>
+														<td class="center"></td>
+														<td class="left">
+															<div class="arrowsub-title">골프장 타석기 예약</div>
+														</td>
+														<td class="center"></td>
+														<td class="center">10</td>
+														<td class="center"></td>
+														<td class="center"><input type="text" value="100" class="white line center status-edit">
+														</td>
+														<td class="center"><input type="text" value="1,000" class="white line right"></td>
+														<td class="center"><input type="text" value="1,000" class="white line right"></td>
+														<td class="right">10,000</td>
+														<td class="right">10,000</td>
+														<td class="right"><em class="blue">1,000</em></td>
+														<td class="right">10,000</td>
+														<td class="right">10,000</td>
+														<td class="right">10,000</td>
+														<td class="right">10,000</td>
+														<td class="right">10,000</td>
+													</tr>
+													<tr class="tr-detail-row" data-detail-id="detail-row-1" hidden>
+														<td class="center"></td>
+														<td class="left">
+															<div class="arrowsub-title">골프장 타석기 예약</div>
+														</td>
+														<td class="center"></td>
+														<td class="center">10</td>
+														<td class="center"></td>
+														<td class="center"><input type="text" value="100" class="white line center status-edit">
+														</td>
+														<td class="center"><input type="text" value="1,000" class="white line right"></td>
+														<td class="center"><input type="text" value="1,000" class="white line right"></td>
+														<td class="right">10,000</td>
+														<td class="right">10,000</td>
+														<td class="right"><em class="blue">1,000</em></td>
+														<td class="right">10,000</td>
+														<td class="right">10,000</td>
+														<td class="right">10,000</td>
+														<td class="right">10,000</td>
+														<td class="right">10,000</td>
+													</tr>
+
+
+													<tr class="tr-toggle-row" data-detail-id="detail-row-2" aria-expanded="false">
+														<td class="center">홍길동</td>
+														<td class="center">
+															<div class="arrow-title">골프장</div>
+														</td>
+														<td class="center">정기(월)</td>
+														<td class="center">20</td>
+														<td class="center">
+															<b class="status"><em class="red">취소</em></b>
+														</td>
+														<td class="center"><input type="text" value="100" class="white line center"></td>
+														<td class="center"><input type="text" value="1,000" class="white line right"></td>
+														<td class="center"><input type="text" value="1,000" class="white line right"></td>
+														<td class="right"><b>10,000</b></td>
+														<td class="right"><b>10,000</b></td>
+														<td class="right result"><b><em class="blue">10,000</em></b></td>
+														<td class="right"><b>10,000</b></td>
+														<td class="right"><b>10,000</b></td>
+														<td class="right"><b>10,000</b></td>
+														<td class="right"><b>10,000</b></td>
+														<td class="right"><b>10,000</b></td>
+													</tr>
+													<tr class="tr-detail-row" data-detail-id="detail-row-2" hidden>
+														<td class="center"></td>
+														<td class="left">
+															<div class="arrowsub-title">골프장 타석기 예약</div>
+														</td>
+														<td class="center"></td>
+														<td class="center">10</td>
+														<td class="center"></td>
+														<td class="center"><input type="text" value="100" class="white line center status-edit">
+														</td>
+														<td class="center"><input type="text" value="1,000" class="white line right"></td>
+														<td class="center"><input type="text" value="1,000" class="white line right"></td>
+														<td class="right">10,000</td>
+														<td class="right">10,000</td>
+														<td class="right"><em class="blue">1,000</em></td>
+														<td class="right">10,000</td>
+														<td class="right">10,000</td>
+														<td class="right">10,000</td>
+														<td class="right">10,000</td>
+														<td class="right">10,000</td>
+													</tr>
+
+													<tr class="tr-toggle-row" data-detail-id="detail-row-3" aria-expanded="false">
+														<td class="center">홍길동</td>
+														<td class="center">
+															<div class="arrow-title">골프장</div>
+														</td>
+														<td class="center">정기(월)</td>
+														<td class="center">20</td>
+														<td class="center">
+															<b class="status"><em class="blue">이용 중</em></b>
+														</td>
+														<td class="center"><input type="text" value="100" class="white line center"></td>
+														<td class="center"><input type="text" value="1,000" class="white line right"></td>
+														<td class="center"><input type="text" value="1,000" class="white line right"></td>
+														<td class="right"><b>10,000</b></td>
+														<td class="right"><b>10,000</b></td>
+														<td class="right result"><b><em class="blue">10,000</em></b></td>
+														<td class="right"><b>10,000</b></td>
+														<td class="right"><b>10,000</b></td>
+														<td class="right"><b>10,000</b></td>
+														<td class="right"><b>10,000</b></td>
+														<td class="right"><b>10,000</b></td>
+													</tr>
+													<tr class="tr-detail-row" data-detail-id="detail-row-3" hidden>
+														<td class="center"></td>
+														<td class="left">
+															<div class="arrowsub-title">골프장 타석기 예약</div>
+														</td>
+														<td class="center"></td>
+														<td class="center">10</td>
+														<td class="center"></td>
+														<td class="center"><input type="text" value="100" class="white line center status-edit">
+														</td>
+														<td class="center"><input type="text" value="1,000" class="white line right"></td>
+														<td class="center"><input type="text" value="1,000" class="white line right"></td>
+														<td class="right">10,000</td>
+														<td class="right">10,000</td>
+														<td class="right"><em class="blue">1,000</em></td>
+														<td class="right">10,000</td>
+														<td class="right">10,000</td>
+														<td class="right">10,000</td>
+														<td class="right">10,000</td>
+														<td class="right">10,000</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<button type="button" class="tmain-scroll-x-end" hidden aria-label="가로 스크롤 맨 오른쪽으로 이동">스크롤</button>
+										<script>
+											(function () {
+												const table = document.querySelector('.tbl.type-list table');
+												if (!table) return;
+
+												const tbody = table.querySelector('tbody');
+												if (!tbody) return;
+
+												const tmain = table.closest('.tmain');
+												const scrollHost = table.closest('.tmain-scroll-host');
+												const scrollEndBtn = scrollHost ? scrollHost.querySelector('.tmain-scroll-x-end') : null;
+
+												function updateScrollEndBtn() {
+													if (!tmain || !scrollEndBtn) return;
+													const epsilon = 4;
+													const maxScrollLeft = tmain.scrollWidth - tmain.clientWidth;
+													const hasHorizontalScroll = maxScrollLeft > epsilon;
+													const atRightEnd =
+														maxScrollLeft <= epsilon ||
+														tmain.scrollLeft + tmain.clientWidth >= tmain.scrollWidth - epsilon;
+													scrollEndBtn.hidden = !hasHorizontalScroll || atRightEnd;
+												}
+
+												if (tmain && scrollEndBtn) {
+													tmain.addEventListener('scroll', updateScrollEndBtn);
+													tmain.addEventListener('scrollend', updateScrollEndBtn);
+													window.addEventListener('resize', updateScrollEndBtn);
+													if (typeof ResizeObserver !== 'undefined') {
+														new ResizeObserver(updateScrollEndBtn).observe(tmain);
+													}
+													scrollEndBtn.addEventListener('click', function () {
+														const maxLeft = Math.max(0, tmain.scrollWidth - tmain.clientWidth);
+														tmain.scrollTo({ left: maxLeft, behavior: 'smooth' });
+													});
+													updateScrollEndBtn();
+												}
+
+												tbody.addEventListener('click', function (event) {
+													const ignoreTarget = event.target.closest('input, select, button, a, label, textarea');
+													if (ignoreTarget) return;
+
+													const row = event.target.closest('tr.tr-toggle-row');
+													if (!row) return;
+
+													const detailId = row.getAttribute('data-detail-id');
+													if (!detailId) return;
+
+													const detailRows = tbody.querySelectorAll('tr.tr-detail-row[data-detail-id="' + detailId + '"]');
+													if (detailRows.length === 0) return;
+
+													const isExpanded = row.getAttribute('aria-expanded') === 'true';
+													row.setAttribute('aria-expanded', String(!isExpanded));
+													row.classList.toggle('active', !isExpanded);
+													detailRows.forEach(function (detailRow) {
+														detailRow.hidden = isExpanded;
+													});
+													updateScrollEndBtn();
+												});
+											})();
+										</script>
+									</div>
+									<div class="tfoot justify">
+										<div class="pagistatus">
+											<span class="now">1</span>
+											<span class="total"><em class="gray">/20</em></span>
+										</div>
+										<div class="pagination">
+											<ol>
+												<li class="first">
+													<a href="#">처음</a>
+												</li>
+												<li class="prev">
+													<a href="#">이전</a>
+												</li>
+												<li class="on">
+													<a href="#">1</a>
+												</li>
+												<li>
+													<a href="#">2</a>
+												</li>
+												<li>
+													<a href="#">3</a>
+												</li>
+												<li>
+													<a href="#">4</a>
+												</li>
+												<li>
+													<a href="#">5</a>
+												</li>
+												<li class="next">
+													<a href="#">다음</a>
+												</li>
+												<li class="last">
+													<a href="#">마지막</a>
+												</li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>
