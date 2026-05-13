@@ -1,0 +1,455 @@
+/* 로그인 회원가입 flow 20260513 */
+em {
+  &.purple {
+    color: #3617CE;
+  }
+}
+
+.input-stepNum {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.certification-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  input {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+  }
+}
+
+.input-text {
+  color: #9FA2B4;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 26px;
+  letter-spacing: 0.3;
+
+  &.center {
+    text-align: center;
+  }
+
+  strong {
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  &.guide {
+    font-size: 1.3rem;
+    letter-spacing: -0.5px;
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  &.error {
+    color: #FF1109;
+  }
+
+  &.success {
+    color: #1CB372;
+  }
+}
+
+.join-step-guide {
+  width: 586px;
+  margin: auto;
+  margin: autos;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  li {
+    min-width: 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &.line {
+      background-color: #E3E5E7;
+      height: 2px;
+      width: 100%;
+    }
+
+    &.complete {
+      .status {
+        text-indent: -999rem;
+        background: #3617CE;
+
+        &:after {
+          content: '';
+          display: block;
+          width: 12px;
+          height: 18px;
+          background: url('../images/sk/ico-step-complete.png') no-repeat center;
+          background-size: contain;
+        }
+      }
+
+      span {
+        opacity: 1;
+        color: #3617CE;
+      }
+    }
+
+    &.on {
+      .status {
+        color: #fff;
+        background: #3617CE;
+      }
+
+      span {
+        opacity: 1;
+        color: #3617CE;
+      }
+    }
+
+    .status {
+      color: #E3E5E7;
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: 500;
+      line-height: 100%;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 40px;
+      border: 1px solid #E3E5E7;
+      background: #FFF;
+    }
+
+    span {
+      color: #595F76;
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: 500;
+      line-height: 28px;
+      opacity: 0.5;
+    }
+  }
+}
+
+.list-agreement {
+  margin-top: 20px;
+  border-radius: 10px;
+  border: 1px solid #EBECF2;
+  padding: 4px;
+  width: 100%;
+
+  >ul {
+    >li {
+      padding: 4px 10px;
+      position: relative;
+
+      .checkbox {
+        span {
+          color: #000;
+          font-weight: 400;
+        }
+      }
+
+      &.on {
+        .terms-contents {
+          display: block;
+        }
+
+        .terms-toggle {
+          transform: rotate(180deg);
+          opacity: 1;
+        }
+      }
+
+      .terms-toggle {
+        position: absolute;
+        top: 4px;
+        right: 2px;
+        width: 20px;
+        height: 20px;
+        background: url('../images/sk/ico-terms-arrow.png') no-repeat center;
+        background-size: 11px 6px;
+        text-indent: -9999px;
+        overflow: hidden;
+        white-space: nowrap;
+        transition: transform 0.2s ease;
+        opacity: 0.5;
+      }
+    }
+  }
+
+
+  .terms-contents {
+    height: 100px;
+    overflow: auto;
+    display: none;
+    border-top: 1px solid #EBECF2;
+    border-bottom: 1px solid #EBECF2;
+
+    * {
+      font-size: 1.2rem;
+    }
+  }
+
+  ul {
+    li {}
+  }
+}
+
+.login.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .info-text {
+    color: #3617CE;
+    text-align: center;
+    font-size: 1.7rem;
+    font-weight: 700;
+    line-height: 28px;
+    /* 164.706% */
+  }
+
+  &.type-join {
+    .form {
+      max-height: 900px;
+      width: 1024px;
+
+      .form-inner {
+        form {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+
+  input,
+  select {
+    font-weight: 500 !important;
+    font-size: 1.6rem !important;
+    border-radius: 10px;
+    height: 50px;
+
+    &:read-only {
+      border: 1px solid var(--border);
+    }
+  }
+
+  .btn {
+    margin: 0 !important;
+    height: 50px;
+
+
+    &.secondary {
+      background-color: #F2F5FF;
+      color: #5680EB;
+      // border-radius: 6px !important;
+    }
+  }
+
+  .input-item {
+    .like-label {
+      font-weight: 600;
+    }
+  }
+
+  .input-item-inner.justify.center {
+    gap: 24px;
+  }
+
+  .input-item-inner.justify.default {
+    gap: 10px;
+    justify-content: start;
+    align-items: center;
+  }
+
+
+
+  .form {
+    min-width: 540px;
+    // height: 80%;
+    min-height: 834px;
+    width: auto;
+    padding: 60px 100px;
+
+    .checkbox {
+      &.lar {
+        span {
+          font-size: 1.6rem;
+          font-weight: 500;
+          color: #000;
+          padding-left: 30px;
+          line-height: 30px;
+
+          &:before {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+    }
+
+    .radio {
+      input {
+        &:checked+span {
+          color: #5680EB;
+          font-weight: 700;
+          letter-spacing: -0.25px;
+        }
+      }
+
+      span {
+        height: 50px;
+        padding: 0 14px;
+        color: #000;
+        font-size: 1.6rem;
+        font-weight: 500;
+        letter-spacing: 0;
+        white-space: nowrap;
+
+        &:before {
+          content: none;
+        }
+      }
+    }
+
+    .form-inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+
+      form {
+        width: 100%;
+        max-width: 340px;
+      }
+
+      .form-cta {
+        width: 100%;
+        max-width: 340px;
+      }
+    }
+
+    .form-row {
+      width: 100%;
+      display: flex;
+      align-items: start;
+      gap: 40px;
+
+      &+.input-item {
+        margin-top: 20px;
+      }
+
+      .input-item {
+        flex: 1;
+
+        &+.input-item {
+          margin: 0;
+        }
+      }
+
+      &+.form-row {
+        margin-top: 40px;
+      }
+    }
+
+    .service-title {
+      width: 100%;
+      // max-width: 340px;
+      text-align: center;
+      margin: 0;
+
+      .title {
+        display: block;
+        color: #000;
+        background: none;
+        margin-bottom: 14px;
+        line-height: 1.6;
+      }
+
+      .tab-login {
+        margin-top: 14px;
+
+        ul {
+          display: flex;
+          align-items: center;
+          gap: 0;
+
+          li {
+            flex: 1;
+
+            &.on {
+              a {
+                color: #5680EB;
+                border-bottom: 2px solid #5680EB;
+              }
+            }
+
+            &:hover {
+              a {
+                color: var(--text);
+              }
+            }
+
+            a {
+              display: block;
+
+              color: #595F76;
+              text-align: center;
+              font-size: 1.6rem;
+              font-weight: 700;
+              line-height: 50px;
+              border-bottom: 2px solid #EBECF2;
+            }
+          }
+        }
+      }
+    }
+
+
+    .form-cta {
+      .cta-group {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        .btn {
+          width: 160px;
+          border-radius: 14px;
+        }
+      }
+
+      .btn {
+
+        font-size: 1.7rem;
+        font-weight: 700;
+
+        &.white {
+          color: #9FA2B4;
+        }
+      }
+
+      small {
+        margin-top: 24px;
+        display: block;
+        text-align: center;
+        color: #9FA2B4;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 16px;
+        opacity: 0.5;
+      }
+    }
+
+
+  }
+}
+
+/* 로그인 회원가입 flow 20260513 ee */

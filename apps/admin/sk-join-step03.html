@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<include src="src/includes/head.html"></include>
+
+<body>
+	<div class="viewport">
+		<div class="container">
+			<div class="contents">
+				<div class="login login-container type-join">
+					<div class="form">
+						<div class="form-inner">
+							<div class="service-title">
+								<img src="assets/images/sk/logo.png" alt="SK Broadband logo" style="width: 44px;">
+								<div class="title">
+									회원가입
+								</div>
+								<ul class="join-step-guide">
+									<li class="complete">
+										<div class="status">1</div>
+										<span>학교정보</span>
+									</li>
+									<li class="line"></li>
+									<li class="complete">
+										<div class="status">2</div>
+										<span>관리자 계정</span>
+									</li>
+									<li class="line"></li>
+									<li class="on">
+										<div class="status">3</div>
+										<span>가입상품</span>
+									</li>
+									<li class="line"></li>
+									<li>
+										<div class="status">4</div>
+										<span>가입완료</span>
+									</li>
+								</ul>
+							</div>
+
+							<form>
+								<div class="form-row">
+									<div class="input-item">
+										<label for="" class="like-label">
+											<span>가입 상품</span>
+										</label>
+										<div class="input-item-inner justify default">
+											<label class="radio block">
+												<input type="radio" name="product" checked><span>School Message Plus
+													30</span>
+											</label>
+											<label class="radio block">
+												<input type="radio" name="product"><span>School Message Plus
+													50</span>
+											</label>
+											<label class="radio block">
+												<input type="radio" name="product"><span>School Message Plus
+													100</span>
+											</label>
+										</div>
+									</div>
+
+									<div class="input-item" style="width: 130px;">
+										<label for="" class="like-label">
+											<span>약정 선택</span>
+										</label>
+										<div class="input-item-inner">
+											<select name="" id="">
+												<option value="">무약정</option>
+												<option value="">1년</option>
+												<option value="">3년</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="input-item">
+									<label for="" class="like-label">
+										<span>제휴 서비스 선택</span>
+									</label>
+									<div class="input-item-inner justify default">
+										<label class="checkbox lar">
+											<input type="checkbox"><span>교원안심번호</span>
+										</label>
+										<label class="checkbox lar">
+											<input type="checkbox"><span>방문자 예약 시스템</span>
+										</label>
+										<label class="checkbox lar">
+											<input type="checkbox"><span>교직원 PC메신저</span>
+										</label>
+										<label class="checkbox lar">
+											<input type="checkbox"><span>그린마일리지(상·벌점)</span>
+										</label>
+										<label class="checkbox lar">
+											<input type="checkbox"><span>선택 안함</span>
+										</label>
+									</div>
+								</div>
+								<div class="list-agreement">
+									<ul>
+										<li class="on">
+											<label class="checkbox">
+												<input type="checkbox"><span>[필수] 개인정보이용 동의</span>
+											</label>
+											<a href="#" class="terms-toggle" role="button" aria-expanded="true" aria-label="약관 내용 펼치기"></a>
+											<div class="terms-contents">
+												<include src="src/includes/terms.html"></include>
+											</div>
+										</li>
+										<li>
+											<label class="checkbox">
+												<input type="checkbox"><span>[필수] 고유식별정보처리 동의</span>
+											</label>
+											<a href="#" class="terms-toggle" role="button" aria-expanded="false" aria-label="약관 내용 펼치기"></a>
+											<div class="terms-contents">
+												<include src="src/includes/terms.html"></include>
+											</div>
+										</li>
+										<li>
+											<label class="checkbox">
+												<input type="checkbox"><span>[필수] 서비스 이용약관 동의</span>
+											</label>
+											<a href="#" class="terms-toggle" role="button" aria-expanded="false" aria-label="약관 내용 펼치기"></a>
+											<div class="terms-contents">
+												<include src="src/includes/terms.html"></include>
+											</div>
+										</li>
+										<li>
+											<label class="checkbox">
+												<input type="checkbox"><span>[필수] 통신사 이용약관 동의</span>
+											</label>
+											<a href="#" class="terms-toggle" role="button" aria-expanded="false" aria-label="약관 내용 펼치기"></a>
+											<div class="terms-contents">
+												<include src="src/includes/terms.html"></include>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</form>
+
+							<div class="form-cta">
+								<div class="cta-group">
+									<a href="sk-join-step02.html" class="btn white line">이전화면</a>
+									<a href="sk-join-step04.html" class="btn positive fill">다음</a>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<script>
+		(function () {
+			var root = document.querySelector('.list-agreement');
+			if (!root) return;
+
+			root.addEventListener('click', function (e) {
+				var toggle = e.target.closest('a.terms-toggle');
+				if (!toggle) return;
+				e.preventDefault();
+
+				var li = toggle.closest('li');
+				if (!li || !li.parentElement) return;
+
+				var items = li.parentElement.querySelectorAll(':scope > li');
+				for (var i = 0; i < items.length; i++) {
+					items[i].classList.remove('on');
+					var a = items[i].querySelector('a.terms-toggle');
+					if (a) a.setAttribute('aria-expanded', 'false');
+				}
+				li.classList.add('on');
+				toggle.setAttribute('aria-expanded', 'true');
+			});
+		})();
+	</script>
+</body>
+
+</html>

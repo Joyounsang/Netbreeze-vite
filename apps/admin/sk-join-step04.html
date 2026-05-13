@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<include src="src/includes/head.html"></include>
+
+<body>
+	<div class="viewport">
+		<div class="container">
+			<div class="contents">
+				<div class="login login-container">
+					<div class="form">
+						<div class="form-inner">
+							<div class="service-title">
+								<img src="assets/images/sk/logo.png" alt="SK Broadband logo" style="width: 44px;">
+								<div class="title">
+									계정 생성이<br>완료되었습니다!
+								</div>
+							</div>
+
+							<form>
+								<p class="input-text center">
+									<strong>
+										서비스 관리자의 계정 승인 후 이용할 수 있습니다.<br>
+										이메일 · 휴대폰 번호로의 승인 결과를 확인해 주세요.
+									</strong>
+								</p>
+							</form>
+
+							<div class="form-cta">
+								<div class="input-item">
+									<span class="info-text">
+										가입 전용 고객센터 : 1670-5060
+									</span>
+								</div>
+								<div class="input-item">
+									<div class="input-item-inner">
+										<a href="sk-login.html" class="btn positive fill">로그인</a>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<script>
+		(function () {
+			var root = document.querySelector('.list-agreement');
+			if (!root) return;
+
+			root.addEventListener('click', function (e) {
+				var toggle = e.target.closest('a.terms-toggle');
+				if (!toggle) return;
+				e.preventDefault();
+
+				var li = toggle.closest('li');
+				if (!li || !li.parentElement) return;
+
+				var items = li.parentElement.querySelectorAll(':scope > li');
+				for (var i = 0; i < items.length; i++) {
+					items[i].classList.remove('on');
+					var a = items[i].querySelector('a.terms-toggle');
+					if (a) a.setAttribute('aria-expanded', 'false');
+				}
+				li.classList.add('on');
+				toggle.setAttribute('aria-expanded', 'true');
+			});
+		})();
+	</script>
+</body>
+
+</html>
