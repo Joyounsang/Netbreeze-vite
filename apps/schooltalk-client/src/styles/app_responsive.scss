@@ -967,6 +967,21 @@
     .app-section {
       padding: 80px 0;
 
+      &.cover {
+        &.access-management {
+
+
+          .headline {
+            max-width: 100%;
+          }
+
+          .product-img {
+            position: static;
+          }
+
+        }
+      }
+
       &.banner {
         padding: 100px 0;
         // position: relative;

@@ -223,6 +223,44 @@
         }
       }
 
+      &.access-management {
+        background: url('../images/bg-attendance-management.jpg') no-repeat;
+        background-size: cover;
+
+        .app-inner {
+          display: flex;
+          // flex-direction: row-reverse;
+          // align-items: end;
+          justify-content: end;
+        }
+
+        .headline {
+          max-width: 50%;
+
+          span {
+            color: #fff;
+          }
+
+          .title-lv1 {
+            color: #fff;
+          }
+        }
+
+        &:after {
+          opacity: 0.5;
+        }
+
+
+        .product-img {
+          flex: none;
+          left: -34%;
+          top: -160px;
+          max-width: 1280px;
+          position: absolute;
+        }
+
+      }
+
       &.attendance-management {
         background: url('../images/bg-attendance-management.jpg') no-repeat;
         background-size: cover;
@@ -1276,6 +1314,8 @@
         min-height: calc(var(--full-height) - 70px);
         height: auto;
         overflow: hidden;
+
+
 
         &.classtalk-app {
           &:after {
