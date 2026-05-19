@@ -1,0 +1,73 @@
+// 슬라이드 공통 컨트롤 (배너·기타 Swiper에서 재사용)
+.slide-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.slide-progress {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+  max-width: 174px;
+}
+
+.slide-progress__segment {
+  flex: 1;
+  height: 2px;
+  border: 0;
+  border-radius: 2px;
+  background-color: #e8e8e8;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+
+  &.is-active {
+    background-color: #692eff;
+  }
+}
+
+.slide-fraction {
+  flex-shrink: 0;
+  margin: 0;
+  color: var(--text);
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.slide-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.slide-nav__btn {
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 0;
+  background: transparent url('../images/ico-slide-arrows.png') no-repeat center center / 34px 34px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+
+  &--prev {
+    transform: rotate(180deg);
+  }
+
+  &:hover:not(.swiper-button-disabled) {
+    opacity: 0.7;
+  }
+
+  &.swiper-button-disabled {
+    background: transparent url('../images/ico-slide-arrows.png') no-repeat center center / 34px 34px !important;
+    cursor: pointer;
+    opacity: 0.3;
+    cursor: default;
+  }
+}

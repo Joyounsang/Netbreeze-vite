@@ -1,0 +1,26 @@
+:root {
+  --white: #ffffff;
+  --black: #15181A;
+
+  --rec-primary: #3617CE;
+  --rec-secondary: #7F6AFF;
+  --rec-tertiary: #B87DF4;
+  --rec-primary-border: #B4D5F6;
+  --rec-primary-bg: #eff4ff;
+
+  --rec-negative: #ff495e;
+  --rec-negative-border: #ffd7db;
+  --rec-negative-bg: #fffbfb;
+
+  --text: #293443;
+  --text-gray: rgba(41, 52, 67, 0.70);
+  --text-light: rgba(41, 52, 67, 0.40);
+
+
+
+  --border: #E2E2F7;
+  --gray: #F7F7FB;
+  --gray-light: #f3f5f8;
+
+  --full-height: calc(var(--vh, 1vh) * 100);
+}

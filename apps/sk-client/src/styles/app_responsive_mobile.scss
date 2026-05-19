@@ -1,0 +1,99 @@
+// mobile
+@media (max-width: 799px) {
+  .only-mo {
+    display: block;
+  }
+
+  .only-pc {
+    display: none;
+  }
+
+  .viewport {
+    min-width: 100%;
+  }
+
+  .app-inner {
+    max-width: 100%;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+
+  .app-section.service {
+    .service-card-track {
+      .list {
+        gap: 16px;
+        padding: 80px max(16px, calc(50vw - 150px)) 40px;
+      }
+
+      .service-card {
+        width: 300px;
+      }
+
+      .card-item {
+        min-height: 420px;
+        padding: 120px 32px 48px;
+        border-radius: 40px;
+      }
+
+      .icon {
+        width: 180px;
+        top: -56px;
+      }
+
+      .card-tip {
+        top: -72px;
+        max-width: 240px;
+
+        p {
+          font-size: 1.2rem;
+          white-space: normal;
+          text-align: center;
+        }
+      }
+
+      .copy h3 {
+        font-size: 2.8rem;
+
+        span {
+          font-size: 1.5rem;
+        }
+      }
+
+      .copy p {
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  .headline {
+    margin-bottom: 40px;
+    width: 300px;
+    margin: 0 auto;
+
+    span {
+      padding: 8px 14px;
+      font-size: 1.5rem;
+
+      &+.app-title {
+        margin-top: 14px;
+      }
+
+    }
+
+    .app-title {
+      font-size: 3rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin-top: 14px;
+
+      &+.btn {
+        margin: 14px auto 0;
+      }
+    }
+  }
+
+}
