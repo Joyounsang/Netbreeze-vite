@@ -1,18 +1,15 @@
 'use strict';
 
-function initBoardFaq() {
-  const root = document.querySelector('.app-section.board.faq .list-board.dropdown');
-  if (!root) return;
-
-  const items = root.querySelectorAll('ul > li');
-  const buttons = root.querySelectorAll('.dropdown-btn');
+function initBoardDropdown(root) {
+  const items = root.querySelectorAll(':scope > ul > li');
+  const buttons = root.querySelectorAll(':scope > ul > li > .dropdown-btn');
 
   buttons.forEach((btn) => {
     btn.addEventListener('click', (event) => {
       event.preventDefault();
 
       const item = btn.closest('li');
-      if (!item) return;
+      if (!item || !root.contains(item)) return;
 
       const willOpen = !item.classList.contains('is-open');
 
@@ -23,6 +20,10 @@ function initBoardFaq() {
       }
     });
   });
+}
+
+function initBoardFaq() {
+  document.querySelectorAll('.list-board.dropdown').forEach(initBoardDropdown);
 }
 
 if (document.readyState === 'loading') {

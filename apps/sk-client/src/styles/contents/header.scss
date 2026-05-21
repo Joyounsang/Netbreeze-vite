@@ -235,6 +235,13 @@ header {
       outline: 2px solid rgba(105, 46, 255, 0.5);
       outline-offset: 2px;
     }
+
+    &:not(:has(.box-video-thumb)) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 158px;
+    }
   }
 
   .box-video-thumb {
