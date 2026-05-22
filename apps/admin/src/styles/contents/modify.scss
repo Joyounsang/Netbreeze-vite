@@ -1,4 +1,4 @@
-/* 로그인 회원가입 flow 20260513 */
+/* 로그인 회원가입 및 커뮤니티정산관리자 flow 20260522 */
 em {
   &.purple {
     color: #3617CE;
@@ -452,4 +452,193 @@ em {
   }
 }
 
-/* 로그인 회원가입 flow 20260513 ee */
+
+
+
+
+
+
+.sub-dashboard {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+
+
+  .sub-dashboard-item {
+    align-self: stretch;
+    background-color: var(--gray);
+    border-radius: 10px;
+    padding: 24px;
+    border-radius: 8px;
+    background: #FFF;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.10);
+    // min-width: 280px;
+
+    .label {
+      color: var(--text-gray);
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+
+      &+.value {
+        margin-top: 20px;
+      }
+    }
+
+    .value {
+      color: #1C1C1C;
+      font-size: clamp(2.4rem, 2vw, 3.6rem);
+      font-style: normal;
+      font-weight: 600;
+      line-height: 36px;
+      letter-spacing: -0.36px;
+    }
+
+    .info {
+      color: var(--rec-secondary);
+      font-size: clamp(1.4rem, 1vw, 1.7rem);
+      font-weight: 500;
+      line-height: 22px;
+      letter-spacing: -0.5px;
+      margin-top: 10px;
+    }
+
+    &.type-calc {
+
+      border: 1px solid #fff;
+      flex: 1;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      align-items: start;
+
+      .calc-list {
+        flex: 1;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        li {
+          &+li {
+            border-top: 1px solid var(--border);
+          }
+
+          &.last {
+            margin-top: auto;
+            background-color: var(--rec-secondary-bg);
+
+            dl {
+
+              dt,
+              dd {
+                font-size: 1.5rem;
+                color: var(--rec-secondary);
+                font-weight: 700;
+              }
+            }
+          }
+
+          dl {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 12px 24px;
+
+            dt {
+              color: var(--text-gray);
+              font-size: 1.4rem;
+              font-weight: 500;
+              line-height: 1;
+              letter-spacing: -0.5px;
+              display: flex;
+              align-items: center;
+              gap: 5px;
+              height: 16px;
+
+              span {
+                color: var(--rec-secondary);
+                font-size: 1.2rem;
+                font-weight: 600;
+                line-height: 100%;
+                letter-spacing: -0.5px;
+                display: inline-flex;
+                padding: 1px 4px;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                border-radius: 40px;
+                border: 1px solid var(--rec-secondary);
+                ;
+              }
+            }
+
+            dd {
+              color: var(--text-dark);
+              font-size: 1.4rem;
+              font-weight: 500;
+              line-height: 1;
+              letter-spacing: -0.14px;
+            }
+          }
+        }
+
+        &+.calc-list {
+          border-left: 2px solid #D5E0F5;
+        }
+      }
+    }
+  }
+}
+
+.arrowsub-title {
+  padding-left: 30px;
+}
+
+.arrow-title {
+  display: flex;
+  align-items: center;
+  gap: 0;
+
+  &:before {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-image: url(/assets/images/selected-arrow.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+.tr-detail-row,
+.tr-toggle-row {
+  input {
+    min-width: 90px;
+    font-weight: 500;
+    font-size: 1.6rem;
+  }
+}
+
+.checkall-line {
+  padding-right: 40px;
+}
+
+@media (max-width: 1600px) {
+  .sub-dashboard {
+    flex-wrap: wrap;
+
+    .sub-dashboard-item {
+      flex: 1;
+
+      &.type-calc {
+        flex: none;
+        width: 100%;
+      }
+    }
+  }
+}
+
+/* 로그인 회원가입 및 커뮤니티정산관리자 flow 20260522 ee */

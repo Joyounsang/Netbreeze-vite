@@ -39,16 +39,4 @@
     }
   }
 
-  .sub-dashboard {
-    flex-wrap: wrap;
-
-    .sub-dashboard-item {
-      flex: 1;
-
-      &.type-calc {
-        flex: none;
-        width: 100%;
-      }
-    }
-  }
 }
