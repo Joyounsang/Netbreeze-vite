@@ -220,3 +220,127 @@ article {
     margin-top: 300px;
   }
 }
+
+.grid-side {
+  display: flex;
+  gap: 100px;
+
+  .tab-side {
+    flex: none;
+    width: 118px;
+    box-shadow: 8px 0px 10px 0px rgba(0, 0, 0, 0.05);
+    padding: 24px;
+
+    ul {
+      position: sticky;
+      top: 101px;
+      z-index: 8;
+
+      li {
+        &+li {
+          margin-top: 24px;
+        }
+
+        a {
+          display: block;
+          color: #293443;
+          text-align: center;
+          font-size: 1.5rem;
+          font-weight: 500;
+          line-height: 17px;
+          letter-spacing: -1px;
+
+          &:before {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 70px;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: contain;
+          }
+
+          &:hover {
+            font-weight: 800;
+          }
+        }
+
+        &.on {
+          a {
+            color: var(--rec-primary);
+            font-weight: 800;
+          }
+        }
+
+        &.notice {
+          a {
+            &:before {
+              background-image: url('../images/lnbico-notice.png');
+            }
+          }
+
+          &.on {
+            a {
+              &:before {
+                background-image: url('../images/lnbico-notice-on.png');
+              }
+            }
+          }
+        }
+
+        &.faq {
+          a {
+            &:before {
+              background-image: url('../images/lnbico-faq.png');
+            }
+          }
+
+          &.on {
+            a {
+              &:before {
+                background-image: url('../images/lnbico-faq-on.png');
+              }
+            }
+          }
+        }
+
+        &.quote {
+          a {
+            &:before {
+              background-image: url('../images/lnbico-quote.png');
+            }
+          }
+
+          &.on {
+            a {
+              &:before {
+                background-image: url('../images/lnbico-quote-on.png');
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .app-section {
+    flex: 1;
+    padding: 80px 0;
+  }
+
+  .headline {
+    text-align: left;
+    margin-bottom: 44px;
+
+    .app-title {
+      font-size: 3.6rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    p {
+      font-size: 1.6rem;
+      margin-top: 10px;
+    }
+  }
+}

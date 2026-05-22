@@ -1,23 +1,48 @@
 'use strict';
 
-/**
- * tab-stickyContents + stickyContents[data-target] 조합을 범용 스크롤 탭으로 초기화
- */
-function initStickyTabGroup(tabBar) {
-  if (!tabBar || tabBar.dataset.stickyTabsInit === 'true') return;
+const STICKY_TAB_TOP = 101;
+const instances = new Set();
+let globalListenersBound = false;
 
-  const scope = tabBar.parentElement;
-  if (!scope) return;
+/**
+ * tab-stickyContents + 이후 형제 stickyContents[data-target] 스크롤 탭
+ */
+function getPanelRoot(tabBar) {
+  return tabBar.parentElement || tabBar.closest('.app-inner');
+}
+
+function getSection(tabBar) {
+  return tabBar.closest('[data-sticky-tabs-scope]') || tabBar.closest('.app-section');
+}
+
+function collectPanels(panelRoot, tabBar, tabOrder) {
+  const targetIds = new Set(tabOrder);
+  const found = [];
+  let node = tabBar;
+
+  while ((node = node.nextElementSibling)) {
+    if (!panelRoot.contains(node)) break;
+    if (!node.matches('.stickyContents[data-target]')) continue;
+    const id = node.dataset.target;
+    if (targetIds.has(id)) found.push(node);
+  }
+
+  return tabOrder.map((id) => found.find((panel) => panel.dataset.target === id)).filter(Boolean);
+}
+
+function createStickyTabGroup(tabBar) {
+  if (!tabBar || tabBar.dataset.stickyTabsInit === 'true') return null;
+
+  const panelRoot = getPanelRoot(tabBar);
+  const section = getSection(tabBar);
+  if (!panelRoot) return null;
 
   const tabs = [...tabBar.querySelectorAll('li[data-target]')];
-  if (!tabs.length) return;
+  if (!tabs.length) return null;
 
-  const targetIds = new Set(tabs.map((tab) => tab.dataset.target).filter(Boolean));
-  const panels = [...scope.querySelectorAll('.stickyContents[data-target]')].filter((panel) =>
-    targetIds.has(panel.dataset.target),
-  );
-
-  if (!panels.length) return;
+  const tabOrder = tabs.map((tab) => tab.dataset.target).filter(Boolean);
+  const panels = collectPanels(panelRoot, tabBar, tabOrder);
+  if (!panels.length) return null;
 
   tabBar.dataset.stickyTabsInit = 'true';
 
@@ -25,24 +50,60 @@ function initStickyTabGroup(tabBar) {
   let isScrollingByClick = false;
   let clickedTargetId = null;
   let scrollEndTimer = null;
-  let ticking = false;
 
-  const STICKY_TAB_TOP = 101;
+  function getStickyLineBottom() {
+    return STICKY_TAB_TOP + tabBar.offsetHeight + 1;
+  }
 
   function getActivateLine() {
     const rect = tabBar.getBoundingClientRect();
-    // sticky 상태(탭이 상단에 고정됐을 때)는 실제 bottom 사용
+    const stickyLine = getStickyLineBottom();
+
     if (rect.top <= STICKY_TAB_TOP + 1) {
+      return stickyLine;
+    }
+
+    if (rect.top < window.innerHeight && rect.bottom > STICKY_TAB_TOP) {
       return rect.bottom + 1;
     }
-    // fee 섹션 밖(하단 버튼 등)에서 호출 시에도 탭 클릭과 동일한 위치로 맞춤
-    return STICKY_TAB_TOP + tabBar.offsetHeight + 1;
+
+    return stickyLine;
+  }
+
+  function isGroupInView() {
+    const targets = [tabBar, ...panels];
+    if (section) targets.push(section);
+
+    return targets.some((el) => {
+      const rect = el.getBoundingClientRect();
+      return rect.bottom > STICKY_TAB_TOP && rect.top < window.innerHeight;
+    });
   }
 
   function setActiveTab(targetId) {
     tabs.forEach((tab) => {
       tab.classList.toggle('on', tab.dataset.target === targetId);
     });
+  }
+
+  function getActivePanelIdByVisibility() {
+    const line = getActivateLine();
+    let activePanel = panels[0];
+    let maxVisible = -1;
+
+    panels.forEach((panel) => {
+      const rect = panel.getBoundingClientRect();
+      const visibleTop = Math.max(rect.top, line);
+      const visibleBottom = Math.min(rect.bottom, window.innerHeight);
+      const visible = Math.max(0, visibleBottom - visibleTop);
+
+      if (visible > maxVisible) {
+        maxVisible = visible;
+        activePanel = panel;
+      }
+    });
+
+    return activePanel.dataset.target;
   }
 
   function getActivePanelId() {
@@ -59,25 +120,17 @@ function initStickyTabGroup(tabBar) {
     if (panels[panels.length - 1].getBoundingClientRect().top <= line) return lastId;
     if (panels[0].getBoundingClientRect().top > line) return firstId;
 
-    let closestPanel = panels[0];
-    let closestDistance = Infinity;
-    panels.forEach((panel) => {
-      const distance = Math.abs(panel.getBoundingClientRect().top - line);
-      if (distance < closestDistance) {
-        closestDistance = distance;
-        closestPanel = panel;
-      }
-    });
-    return closestPanel.dataset.target;
+    return getActivePanelIdByVisibility();
   }
 
   function updateActiveTab() {
-    if (isScrollingByClick) return;
+    if (isScrollingByClick || !isGroupInView()) return;
     setActiveTab(getActivePanelId());
   }
 
   function getPanelScrollTop(panel) {
-    return window.scrollY + panel.getBoundingClientRect().top - getActivateLine();
+    const scrollMargin = parseFloat(getComputedStyle(panel).scrollMarginTop) || getStickyLineBottom();
+    return window.scrollY + panel.getBoundingClientRect().top - scrollMargin;
   }
 
   function finishClickScroll() {
@@ -133,22 +186,35 @@ function initStickyTabGroup(tabBar) {
     });
   });
 
-  function onScrollOrResize() {
+  updateActiveTab();
+
+  return { updateActiveTab };
+}
+
+function bindGlobalListeners() {
+  if (globalListenersBound) return;
+  globalListenersBound = true;
+
+  let ticking = false;
+  const onScrollOrResize = () => {
     if (ticking) return;
     ticking = true;
     requestAnimationFrame(() => {
-      updateActiveTab();
+      instances.forEach((instance) => instance.updateActiveTab());
       ticking = false;
     });
-  }
+  };
 
   window.addEventListener('scroll', onScrollOrResize, { passive: true });
   window.addEventListener('resize', onScrollOrResize, { passive: true });
-  updateActiveTab();
 }
 
 function initStickyTabs() {
-  document.querySelectorAll('.tab-stickyContents').forEach(initStickyTabGroup);
+  document.querySelectorAll('.tab-stickyContents').forEach((tabBar) => {
+    const instance = createStickyTabGroup(tabBar);
+    if (instance) instances.add(instance);
+  });
+  bindGlobalListeners();
 }
 
 if (document.readyState === 'loading') {

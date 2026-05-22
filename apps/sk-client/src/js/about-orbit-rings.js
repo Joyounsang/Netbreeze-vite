@@ -19,18 +19,21 @@ function initAboutOrbitRings() {
   const DRAW_INSET = 40;
   const DRAW_SCALE = (VIEW_SIZE - DRAW_INSET * 2) / VIEW_SIZE;
   const SEGMENTS = 200;
+  /** 링 움직임 강도·속도 (조금만 티 나게) */
+  const MOTION_AMP_SCALE = 1.35;
+  const MOTION_SPEED_SCALE = 1.55;
 
   const rings = [
     {
       cx: 310,
       cy: 310,
       baseR: 276,
-      stroke: 'rgba(49, 26, 197, 0.22)',
-      lineWidth: 1,
-      blur: 2.5,
+      stroke: 'rgba(49, 26, 197, 0.3)',
+      lineWidth: 1.1,
+      blur: 2,
       harmonics: [
-        { amp: 5, freq: 7, speed: 0.62, phase: 1.5 },
-        { amp: 3, freq: 4, speed: -0.35, phase: 0.2 },
+        { amp: 6, freq: 7, speed: 0.9, phase: 1.5 },
+        { amp: 4, freq: 4, speed: -0.52, phase: 0.2 },
       ],
     },
     {
@@ -38,26 +41,26 @@ function initAboutOrbitRings() {
       cy: 326,
       rx: 298,
       ry: 286,
-      stroke: 'rgba(49, 26, 197, 0.4)',
-      lineWidth: 1,
-      blur: 1.2,
+      stroke: 'rgba(49, 26, 197, 0.48)',
+      lineWidth: 1.15,
+      blur: 1,
       harmonics: [
-        { amp: 12, freq: 4, speed: -0.48, phase: 0.6 },
-        { amp: 7, freq: 6, speed: 0.36, phase: 2.1 },
-        { amp: 5, freq: 3, speed: -0.25, phase: 3.8 },
+        { amp: 15, freq: 4, speed: -0.72, phase: 0.6 },
+        { amp: 9, freq: 6, speed: 0.54, phase: 2.1 },
+        { amp: 6, freq: 3, speed: -0.38, phase: 3.8 },
       ],
     },
     {
       cx: 310,
       cy: 310,
       baseR: 294,
-      stroke: 'rgba(105, 46, 255, 0.6)',
-      lineWidth: 1.5,
-      blur: 1.5,
+      stroke: 'rgba(105, 46, 255, 0.72)',
+      lineWidth: 1.65,
+      blur: 1.2,
       harmonics: [
-        { amp: 10, freq: 3, speed: 0.55, phase: 0 },
-        { amp: 6, freq: 5, speed: -0.42, phase: 1.2 },
-        { amp: 4, freq: 2, speed: 0.28, phase: 2.4 },
+        { amp: 13, freq: 3, speed: 0.82, phase: 0 },
+        { amp: 8, freq: 5, speed: -0.62, phase: 1.2 },
+        { amp: 5, freq: 2, speed: 0.42, phase: 2.4 },
       ],
     },
   ];
@@ -75,7 +78,9 @@ function initAboutOrbitRings() {
       let radius = ring.baseR;
 
       ring.harmonics.forEach((h) => {
-        radius += h.amp * Math.sin(h.freq * angle + time * h.speed + h.phase);
+        radius += h.amp * MOTION_AMP_SCALE * Math.sin(
+          h.freq * angle + time * h.speed * MOTION_SPEED_SCALE + h.phase,
+        );
       });
 
       points.push({
@@ -96,9 +101,11 @@ function initAboutOrbitRings() {
       let ry = ring.ry;
 
       ring.harmonics.forEach((h) => {
-        const wave = Math.sin(h.freq * angle + time * h.speed + h.phase);
-        rx += h.amp * wave;
-        ry -= h.amp * 0.72 * Math.cos(h.freq * angle + time * h.speed + h.phase + 0.5);
+        const phase = h.freq * angle + time * h.speed * MOTION_SPEED_SCALE + h.phase;
+        const wave = Math.sin(phase);
+        const scaledAmp = h.amp * MOTION_AMP_SCALE;
+        rx += scaledAmp * wave;
+        ry -= scaledAmp * 0.72 * Math.cos(phase + 0.5);
       });
 
       points.push({

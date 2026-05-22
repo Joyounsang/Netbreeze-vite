@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<include src="src/includes/head.html"></include>
+
+
+<body>
+    <div class="viewport">
+        <include src="src/includes/header.html"></include>
+
+        <div class="container">
+            <include src="src/includes/top-고객지원.html"></include>
+
+            <div class="app-inner">
+                <div class="grid-side">
+                    <div class="tab-side">
+                        <ul>
+                            <li class="notice"><a href="F010101.html">공지</a></li>
+                            <li class="faq"><a href="F020101.html">FAQ</a></li>
+                            <li class="quote on"><a href="F030101.html">견적문의</a></li>
+                        </ul>
+                    </div>
+                    <section class="app-section">
+                        <div class="headline">
+                            <h3 class="app-title">
+                                견적 문의
+                            </h3>
+                            <p>
+                                필요하신 서비스를 남겨주시면, 기업전문 매니저가 빠르게 연락을 드립니다.
+                            </p>
+                        </div>
+
+
+                        <div class="cs-form">
+                            <div class="form">
+                                <div class="form-headline">
+                                    <div class="form-tit">고객정보</div>
+                                </div>
+                                <div class="tbl tbl-form">
+                                    <table>
+                                        <caption class="sr-only">고객정보 입력</caption>
+                                        <colgroup>
+                                            <col style="width: 14%">
+                                            <col style="width: 36%">
+                                            <col style="width: 14%">
+                                            <col style="width: 36%">
+                                        </colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">
+                                                    <label for="managerName">담당자명 <span
+                                                            class="required">*</span></label>
+                                                </th>
+                                                <td>
+                                                    <input type="text" id="managerName" placeholder="담당자 성함 입력">
+                                                </td>
+                                                <th scope="row">
+                                                    <label for="companyName">기업명(선택)</label>
+                                                </th>
+                                                <td>
+                                                    <input type="text" id="companyName" placeholder="기업명 입력">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <label for="contactTel">연락처 <span class="required">*</span></label>
+                                                </th>
+                                                <td colspan="3">
+                                                    <div class="field-flex">
+                                                        <select id="contactCarrier" title="통신사 선택">
+                                                            <option value="SK">SK</option>
+                                                        </select>
+                                                        <input type="tel" id="contactTel" placeholder="전화번호 입력">
+                                                        <button type="button" class="btn-form">인증하기</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <label for="emailId">이메일(선택)</label>
+                                                </th>
+                                                <td colspan="3">
+                                                    <div class="field-flex field-email">
+                                                        <input type="text" id="emailId" placeholder="이메일 주소 입력">
+                                                        <span class="field-at" aria-hidden="true">@</span>
+                                                        <input type="text" id="emailDomain" title="이메일 도메인">
+                                                        <select id="emailDomainSelect" title="이메일 도메인 선택">
+                                                            <option value="">직접입력</option>
+                                                        </select>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <label for="installAddress">설치주소(선택)</label>
+                                                </th>
+                                                <td colspan="3">
+                                                    <div class="field-flex field-address">
+                                                        <input type="text" id="installAddress"
+                                                            placeholder="설치 주소 입력 시 빠른 서비스 가능여부 확인이 가능합니다.">
+                                                        <button type="button" class="btn-form">주소찾기</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="form">
+                                <div class="form-headline">
+                                    <div class="form-tit">견적문의</div>
+                                    <span>상품 중복선택 가능</span>
+                                </div>
+                                <div class="tbl tbl-form">
+                                    <table>
+                                        <caption class="sr-only">견적문의 입력</caption>
+                                        <colgroup>
+                                            <col style="width: 14%">
+                                            <col style="width: 86%">
+                                        </colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">
+                                                    <span class="label">견적 상품 <span class="required">*</span></span>
+                                                </th>
+                                                <td>
+                                                    <div class="field-check-group">
+                                                        <label class="checkbox">
+                                                            <input type="checkbox" name="quoteProduct"
+                                                                value="biz-internet" checked>
+                                                            <span>Biz 인터넷</span>
+                                                        </label>
+                                                        <label class="checkbox">
+                                                            <input type="checkbox" name="quoteProduct"
+                                                                value="security-biz-internet">
+                                                            <span>보안 Biz 인터넷</span>
+                                                        </label>
+                                                        <label class="checkbox">
+                                                            <input type="checkbox" name="quoteProduct" value="phone">
+                                                            <span>기업전화</span>
+                                                        </label>
+                                                        <label class="checkbox">
+                                                            <input type="checkbox" name="quoteProduct" value="solution">
+                                                            <span>솔루션</span>
+                                                        </label>
+                                                        <label class="checkbox">
+                                                            <input type="checkbox" name="quoteProduct" value="managed">
+                                                            <span>Managed서비스</span>
+                                                        </label>
+                                                        <label class="checkbox">
+                                                            <input type="checkbox" name="quoteProduct" value="etc">
+                                                            <span>기타</span>
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <label for="inquiryContent">문의 내용 <span
+                                                            class="required">*</span></label>
+                                                </th>
+                                                <td>
+                                                    <textarea id="inquiryContent" placeholder="내용 입력"></textarea>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="agree">
+                                    <div class="agree-item">
+                                        <label class="checkbox">
+                                            <input type="checkbox" />
+                                            <span>
+                                                <b>개인정보 수집 및 이용동의 (필수)</b>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="agree-cont scrollbar">
+                                        <include src="src/includes/terms.html"></include>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="btn-group right">
+                                <a href="#" class="btn medium gray">다시 작성</a>
+                                <a href="#" class="btn medium primary">견적 문의 접수</a>
+                            </div>
+
+                            <div class="box-guide">
+                                <div class="tit">알려드립니다.</div>
+                                <ul class="list-dot">
+                                    <li>
+                                        3년 약정/ 부가세 별도 기준 요금 입니다.
+                                    </li>
+                                    <li>
+                                        인터넷전화, 기업IPTV,보안상품과 결합하여 저렴하게 결합요금으로 이용해보세요.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+
+            </div>
+            <include src="src/includes/footer.html"></include>
+        </div>
+    </div>
+    <script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>

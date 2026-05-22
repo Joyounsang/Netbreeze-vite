@@ -21,22 +21,22 @@ html {
 
   &::-webkit-input-placeholder {
     color: var(--text);
-    opacity: 0.4;
+    opacity: 0.6;
   }
 
   &:-moz-placeholder {
     color: var(--text);
-    opacity: 0.4;
+    opacity: 0.6;
   }
 
   &::-moz-placeholder {
     color: var(--text);
-    opacity: 0.4;
+    opacity: 0.6;
   }
 
   &:-ms-input-placeholder {
     color: var(--text);
-    opacity: 0.4;
+    opacity: 0.6;
   }
 }
 
@@ -65,17 +65,19 @@ em {
 
 // 공통 focus 스타일
 %common-focus {
-  border: 1px solid var(--white);
-  outline: 2px solid rgba(0, 150, 255, 0.50);
+  border-color: var(--rec-primary);
+  outline: none;
 }
 
 %common-inputStyle {
   font-family: $base-font-system;
-  color: var(--black);
-  font-size: 1.5rem;
+  color: var(--text);
+  font-size: 1.7rem;
   font-weight: 500;
+  letter-spacing: -0.5px;
   border: 1px solid var(--border);
-  background-color: transparent;
+  border-radius: 4px;
+  background-color: #fff;
   box-sizing: border-box;
 }
 
@@ -95,12 +97,13 @@ input[type="url"],
 input[type="week"],
 select {
   min-width: 140px;
-  height: 36px;
-  padding: 0 14px;
-  border-radius: 10px;
+  height: 54px;
+  padding: 0 16px;
   @extend %common-inputStyle;
 
-
+  &::placeholder {
+    color: var(--text-light);
+  }
 
   &.center {
     text-align: center;
@@ -122,8 +125,11 @@ select {
   &.min {
     min-width: 80px;
     width: 80px;
+    height: 36px;
     text-align: center;
     padding: 0 6px;
+    border-radius: 10px;
+    font-size: 1.5rem;
   }
 }
 
@@ -167,16 +173,16 @@ select {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
-  background-image: url("../images/selected-arrow.png");
+  padding-right: 44px;
+  background-image: url('../images/inputico-arrows.png');
   background-repeat: no-repeat;
-  background-position: right 10px center;
-  background-size: 20px;
-  padding-right: 4px;
+  background-position: right 16px center;
+  background-size: 20px 20px;
+  cursor: pointer;
 
   &:focus {
     @extend %common-focus;
   }
-
 }
 
 .file {
@@ -206,93 +212,6 @@ select {
   overflow: hidden;
   text-align: left;
 
-  &.single {
-    span {
-      padding-left: 18px;
-    }
-  }
-
-
-  &.block {
-
-
-
-    &.disabled {
-
-
-      span {
-
-        background: #e5ebf5 !important;
-        color: #afbed7 !important;
-        pointer-events: none;
-        border-color: #e5ebf5 !important;
-      }
-    }
-
-
-    input {
-      &:checked {
-        &+span {
-          border-radius: 36px;
-          border: 1px solid var(--rec-primary);
-          background: rgba(0, 150, 255, 0.80);
-          color: var(--white);
-          font-weight: 600;
-          z-index: 1;
-          position: relative;
-
-          &+.btn-text {
-            color: var(--white);
-          }
-
-          &:before {
-            background: url("../images/ico-check-on.png") no-repeat center;
-            background-size: contain;
-          }
-        }
-      }
-
-      &:disabled {
-        &+span {
-          background-color: #e5ebf5 !important;
-          color: #afbed7 !important;
-          pointer-events: none;
-          border-color: #e5ebf5 !important;
-        }
-      }
-    }
-
-    span {
-
-      border: 1px solid var(--border);
-      color: var(--text-gray);
-      border-radius: 36px;
-      display: block;
-      color: #7E8291;
-      font-size: 1.5rem;
-      font-weight: 600;
-      line-height: 36px;
-      letter-spacing: -1px;
-      height: 36px;
-      padding-right: 16px;
-      padding-left: 12px;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      transition: all .3s;
-
-
-      &:before {
-        position: static;
-        width: 20px;
-        height: 20px;
-        background: url("../images/ico-check.png") no-repeat center;
-        background-size: contain;
-        transition: all .3s;
-      }
-    }
-  }
-
   &+.checkbox,
   &+.radio {
     margin-left: 8px;
@@ -309,19 +228,18 @@ select {
     border: 0;
 
     &:checked+span {
-      color: var(--text);
-      // font-weight: 700;
+      color: var(--rec-primary);
     }
   }
 
   span {
     display: block;
-    font-size: 1.5rem;
+    font-size: 1.9rem;
     letter-spacing: 0;
     padding-left: 30px;
-    line-height: 36px;
+    line-height: 30px;
     color: var(--text-gray);
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
 
     a {
@@ -347,10 +265,26 @@ select {
 }
 
 .checkbox {
+  overflow: visible;
+  border-radius: 6px;
+
   input {
+    &:focus-visible+span {
+      color: var(--text);
+      border-radius: 6px;
+      box-shadow: 0 0 0 3px var(--rec-primary-bg);
+      outline: 1px solid var(--rec-primary-border);
+      outline-offset: 3px;
+    }
+
+    &:focus-visible:checked+span {
+      box-shadow: 0 0 0 3px rgba(54, 23, 206, 0.16);
+      outline-color: var(--rec-primary);
+    }
+
     &:checked+span {
       &:before {
-        background: url("../images/check-checked.png") no-repeat center;
+        background: url("../images/crud-check-checked.png") no-repeat center;
         background-size: contain;
       }
     }
@@ -358,17 +292,25 @@ select {
     &:disabled+span {
       &:before {
         // opacity: 0.5;
-        background: url("../images/check-disabled.png") no-repeat center;
-        background-size: contain;
+        // background: url("../images/check-disabled.png") no-repeat center;
+        // background-size: contain;
       }
     }
   }
 
   span {
+    border-radius: 6px;
+    transition: box-shadow 0.2s ease, color 0.2s ease, outline 0.2s ease;
+
     &:before {
-      background: url("../images/check-default.png") no-repeat center;
+      background: url("../images/crud-check.png") no-repeat center;
       background-size: contain;
+      transition: transform 0.2s ease;
     }
+  }
+
+  input:focus-visible:checked+span:before {
+    transform: scale(1.05);
   }
 }
 

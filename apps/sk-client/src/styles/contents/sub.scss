@@ -22,6 +22,22 @@
       }
     }
 
+    &.support {
+      background: url('../images/bg-support.jpg') no-repeat center center / cover;
+
+      .headline {
+        text-align: center;
+
+        .app-title {
+          color: var(--text);
+        }
+
+        p {
+          color: var(--text-gray);
+        }
+      }
+    }
+
     &.biz-internet {
       background: url('../images/bg-bizInternet.jpg') no-repeat center center / cover;
     }
@@ -33,9 +49,15 @@
     &.solution {
       background: url('../images/bg-solution.jpg') no-repeat center center / cover;
     }
+
+    &.managed-service {
+      background: url('../images/bg-managedService.jpg') no-repeat center center / cover;
+    }
   }
 
   &.intro {
+    overflow: hidden;
+
     .row {
       align-items: flex-start;
       justify-content: space-between;
@@ -101,6 +123,68 @@
         color: #fff;
         opacity: 0.7;
       }
+    }
+
+
+    &.type-iot {
+      .app-inner {
+        position: relative;
+      }
+
+      .headline {
+        position: relative;
+        bottom: 160px;
+      }
+
+      .list-customer {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        margin: auto;
+        height: 644px;
+
+        ul {
+          display: grid;
+
+          li {
+            position: absolute;
+
+            &:nth-child(1) {
+              left: 0;
+              top: 0;
+            }
+
+            &:nth-child(2) {
+              right: 0;
+              top: 0;
+            }
+
+            &:nth-child(3) {
+              left: 0;
+              bottom: 0;
+            }
+
+            &:nth-child(4) {
+              right: 0;
+              bottom: 0;
+            }
+          }
+        }
+
+      }
+
+      .diagram {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+        width: 756px;
+      }
+
+
     }
 
     .list-customer {
@@ -207,8 +291,8 @@
 
           p {
             color: #FFF;
-            font-size: 1.8rem;
-            font-weight: 800;
+            font-size: 1.75rem;
+            font-weight: 700;
             line-height: 140%;
             letter-spacing: -0.5px;
 
@@ -218,12 +302,15 @@
           }
         }
       }
+
+
     }
   }
 
   &.features {
     background-color: #F7F7FB;
     padding-bottom: 0;
+
 
     .keypoint {
       margin-bottom: 80px;
@@ -590,6 +677,21 @@
                 border-color: #B87DF4;
               }
             }
+
+            &:nth-child(4n) {
+              .num {
+                color: #9C94A4;
+              }
+
+              .tit {
+                color: #9C94A4;
+              }
+
+              .tag {
+                color: #9C94A4;
+                border-color: #9C94A4;
+              }
+            }
           }
         }
       }
@@ -752,6 +854,8 @@
 
   &.composition {
     border-top: 1px solid #E2E2F7;
+    // overflow:hidden 은 자식 .tab-stickyContents(position:sticky) 동작을 막음
+    overflow: visible;
 
     .diagram {
       &+.diagram {

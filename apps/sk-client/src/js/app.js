@@ -1,4 +1,5 @@
 'use strict';
+import '@/js/skip-nav.js';
 import '@/js/header.js';
 import '@/js/scroll-to-top.js';
 import '@/js/banner-swiper.js';
@@ -14,6 +15,7 @@ import '@/js/product-swiper.js';
 import '@/js/features-swiper.js';
 import '@/js/application-swiper.js';
 import '@/js/keypoint-exa-img.js';
+import '@/js/banner-ad-rise.js';
 
 $(document).ready(function () {
   AOS.init();
