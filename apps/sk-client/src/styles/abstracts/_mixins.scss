@@ -1,3 +1,9 @@
+@mixin mobile {
+  @media screen and (max-width: $mobile) {
+    @content;
+  }
+}
+
 @mixin screen($size) {
   @if ($size =="mobile-small") {
     @media screen and (max-width: #{$breakpoint-mobile - 1px}) {
@@ -6,7 +12,7 @@
   }
 
   @else if ($size =="mobile") {
-    @media screen and (max-width: #{$breakpoint-tablet - 1px}) {
+    @include mobile {
       @content;
     }
   }

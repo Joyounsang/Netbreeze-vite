@@ -79,13 +79,51 @@ footer {
       }
     }
   }
+
+  @include mobile {
+    .sitemap {
+      display: none;
+
+      &+.fnb {
+        border-top: none;
+        padding-top: 0;
+      }
+    }
+
+    .fnb {
+      margin-bottom: 10px;
+    }
+
+    .info {
+      ul {
+        flex-direction: column;
+        align-items: flex-start;
+
+        &+ul {
+          margin-top: 0;
+        }
+
+        li {
+          line-height: 1;
+
+          &+li {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+
+    small {
+      opacity: 0.5;
+    }
+  }
 }
 
 .quick-menu {
   position: fixed;
   right: 60px;
   bottom: 60px;
-  z-index: 100;
+  z-index: 9;
 
   ul {
     display: flex;
@@ -102,5 +140,10 @@ footer {
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
       }
     }
+  }
+
+  @include mobile {
+    right: 20px;
+    bottom: 20px;
   }
 }

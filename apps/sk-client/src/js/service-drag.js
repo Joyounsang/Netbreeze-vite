@@ -174,13 +174,15 @@ function enableNativeScrollSnap($el, autoScroll, animator) {
   $el.on('scroll.serviceCardsSnap', scheduleIdleSnap);
 }
 
+function enableScrollContainer($el) {
+  $el.css('pointer-events', 'auto');
+}
+
 /** PC 마우스 드래그만 커스텀 처리 (모바일은 네이티브 터치 스크롤) */
 function enableDragScroll($el, autoScroll, animator) {
   if (isCoarsePointerDevice()) {
     return;
   }
-
-  $el.css('pointer-events', 'auto');
 
   let isDragging = false;
   let scrollLeft = 0;
@@ -565,6 +567,7 @@ function initServiceCardTrack() {
     const layoutApi = initServiceCardLayout($simulation);
     const autoScroll = enableAutoScroll($simulation, animator, layoutApi);
 
+    enableScrollContainer($simulation);
     enableNativeScrollSnap($simulation, autoScroll, animator);
     enableDragScroll($simulation, autoScroll, animator);
 

@@ -9,9 +9,10 @@ $full-height: calc(var(--vh, 1vh) * 100) !default;
 // -----------------------------------------------------------------------------
 // Breakpoint
 // -----------------------------------------------------------------------------
+$mobile: 720px !default;
 $breakpoint-mobile-small: 320px !default;
 $breakpoint-mobile: 360px !default;
-$breakpoint-tablet: 720px !default;
+$breakpoint-tablet: $mobile !default;
 $breakpoint-desktop: 1280px !default;
 
 // -----------------------------------------------------------------------------

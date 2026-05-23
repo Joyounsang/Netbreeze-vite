@@ -13,6 +13,10 @@ html {
 .viewport {
   min-width: 1340px;
   width: 100%;
+
+  @include mobile {
+    min-width: 100%;
+  }
 }
 
 .app-inner {
@@ -20,6 +24,10 @@ html {
   width: 100%;
   margin: 0 auto;
   padding: 0 30px;
+
+  @include mobile {
+    max-width: 100%;
+  }
 }
 
 .headline {
@@ -102,6 +110,52 @@ html {
       margin: 24px auto 0;
     }
   }
+
+  @include mobile {
+    margin-bottom: 40px;
+
+    &.arrow {
+      &:before {
+        width: 44px;
+        height: 57px;
+        margin: 40px auto 40px;
+      }
+    }
+
+    span {
+      padding: 8px 12px;
+      font-size: 1.4rem;
+
+      &.label {
+        font-size: 1.5rem;
+        border: none;
+        font-weight: 800;
+        // border: 1px solid #B87DF4;
+        padding: 0;
+        display: block;
+        margin: 0;
+        width: 100%;
+        text-align: center;
+      }
+
+      &+.app-title {
+        margin-top: 24px;
+      }
+
+    }
+
+    h3.app-title {
+      font-size: 2.8rem;
+    }
+
+    h4.app-title {
+      font-size: 2.4rem;
+    }
+
+    p {
+      font-size: 1.7rem;
+    }
+  }
 }
 
 .row {
@@ -111,6 +165,10 @@ html {
 
   .col {
     flex: 1;
+  }
+
+  @include mobile {
+    flex-direction: column;
   }
 }
 
@@ -123,6 +181,10 @@ article {
     gap: 12px;
     margin-bottom: 20px;
 
+    .btn-group {
+      margin-top: 0;
+    }
+
     &.center {
       align-items: center;
     }
@@ -134,11 +196,7 @@ article {
       p {
         margin-top: 10px;
       }
-
-
     }
-
-
   }
 
   .caption {
@@ -153,6 +211,37 @@ article {
 
   &+article {
     margin-top: 80px;
+  }
+
+  @include mobile {
+    .flex {
+      flex-direction: column;
+      align-items: center;
+      // margin-bottom: 10px;
+
+      .headline {
+        width: 100%;
+
+        .app-title {
+          flex-direction: column;
+          align-items: center;
+          font-size: 2rem;
+          text-align: center;
+        }
+
+        p {
+          font-size: 1.5rem;
+          text-align: center;
+        }
+      }
+
+      .caption {
+        display: block;
+        width: 100%;
+        text-align: right;
+        font-size: 1.2rem;
+      }
+    }
   }
 }
 
@@ -210,14 +299,59 @@ article {
     }
   }
 
+  @include mobile {
+    top: 64px;
+    margin-bottom: 40px;
+    padding: 4px 0 8px;
+    // z-index: 9;
+
+    display: none;
+
+    &-inner {
+      border: none;
+      padding: 0;
+      display: flex;
+      width: 100%;
+
+      ul {
+        width: 100%;
+
+        li {
+          flex: 1;
+          height: 40px;
+          min-width: inherit;
+
+          a {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            color: var(--text-gray);
+            text-align: center;
+            font-family: 'SUITE', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            line-height: 100%;
+            letter-spacing: -1px;
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+
 }
 
 .stickyContents {
   scroll-margin-top: 250px;
-  // height: 100dvh;
 
   &+.stickyContents {
     margin-top: 300px;
+  }
+
+  @include mobile {
+    &+.stickyContents {
+      margin-top: 80px;
+    }
   }
 }
 
@@ -341,6 +475,67 @@ article {
     p {
       font-size: 1.6rem;
       margin-top: 10px;
+    }
+  }
+
+  @include mobile {
+    flex-direction: column;
+    gap: 0;
+    padding-top: 60px;
+
+    .tab-side {
+      position: fixed;
+      left: 0;
+      top: 64px;
+      width: 100%;
+      flex: none;
+      width: 100%;
+      box-shadow: none;
+      padding: 10px 10px 20px 10px;
+      border-bottom: 1px solid var(--border);
+      background-color: #fff;
+      z-index: 9;
+
+      ul {
+        position: static;
+        display: flex;
+        background-color: #fff;
+
+        li {
+          flex: 1;
+          text-align: center;
+
+          &+li {
+            margin-top: 0;
+          }
+
+          a {
+            font-size: 1.6rem;
+            line-height: 1;
+
+            &:before {
+              width: 50px;
+              height: 50px;
+              margin: auto;
+            }
+
+          }
+        }
+      }
+    }
+
+    .headline {
+      display: none;
+      margin-bottom: 20px;
+      text-align: center;
+
+      .app-title {
+        font-size: 2.4rem;
+      }
+
+      p {
+        font-size: 1.4rem;
+      }
     }
   }
 }

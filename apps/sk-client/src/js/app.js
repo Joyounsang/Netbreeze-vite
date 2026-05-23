@@ -17,10 +17,31 @@ import '@/js/application-swiper.js';
 import '@/js/keypoint-exa-img.js';
 import '@/js/banner-ad-rise.js';
 
-$(document).ready(function () {
-  AOS.init();
+const MOBILE_BREAKPOINT = 720;
+
+function withRaf(fn) {
+  let scheduled = false;
+  return (...args) => {
+    if (scheduled) return;
+    scheduled = true;
+    requestAnimationFrame(() => {
+      scheduled = false;
+      fn(...args);
+    });
+  };
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  window.AOS?.init?.();
   $('.scrollbar').scrollbar();
   clickModal();
+  // 약간의 지연 후 이미지 스위치(초기 렌더 보정)
+  setTimeout(switchImages, 300);
+
+  // 리사이즈·방향 전환 시 이미지 스위치
+  const handleResize = withRaf(switchImages);
+  window.addEventListener('resize', handleResize, { passive: true });
+  window.addEventListener('orientationchange', handleResize, { passive: true });
 });
 
 
@@ -68,3 +89,27 @@ function clickModal() {
     });
   });
 }
+
+// -------------------------
+// Responsive Image Switch
+// -------------------------
+const switchImages = () => {
+  const isMobile = window.innerWidth <= MOBILE_BREAKPOINT;
+
+  $('.responsive').each(function () {
+    const $img = $(this);
+    const src = $img.attr('src') ?? '';
+    const isMo = src.endsWith('-mo.png') || src.endsWith('-mo.jpg');
+
+    if (isMobile) {
+      if (!isMo) {
+        const next = src.replace('.png', '-mo.png').replace('.jpg', '-mo.jpg');
+        $img.attr('src', next);
+      }
+      return;
+    }
+
+    const next = src.replace('-mo.png', '.png').replace('-mo.jpg', '.jpg');
+    if (next !== src) $img.attr('src', next);
+  });
+};

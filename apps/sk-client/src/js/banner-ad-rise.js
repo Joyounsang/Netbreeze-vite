@@ -1,5 +1,13 @@
 'use strict';
 
+function markBannerSectionsWithAd() {
+  document.querySelectorAll('.app-section.banner').forEach((section) => {
+    if (section.querySelector('.banner-ad')) {
+      section.classList.add('banner--has-ad');
+    }
+  });
+}
+
 function initBannerAdRise() {
   const sections = document.querySelectorAll('.app-section.banner[data-banner-ad-rise]');
   if (!sections.length) return;
@@ -51,7 +59,11 @@ function initBannerAdRise() {
 }
 
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initBannerAdRise);
+  document.addEventListener('DOMContentLoaded', () => {
+    markBannerSectionsWithAd();
+    initBannerAdRise();
+  });
 } else {
+  markBannerSectionsWithAd();
   initBannerAdRise();
 }
