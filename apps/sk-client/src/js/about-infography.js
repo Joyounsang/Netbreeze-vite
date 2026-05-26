@@ -5,7 +5,7 @@
  */
 function initAboutInfography() {
   const section = document.querySelector('.app-section.about');
-  const orbit = section?.querySelector('.info-orbit');
+  const orbit = section?.querySelector('.graphic .info-orbit');
   if (!section || !orbit) return;
 
   const items = [...orbit.querySelectorAll('.info')];

@@ -5,6 +5,7 @@ import '@/js/scroll-to-top.js';
 import '@/js/banner-swiper.js';
 import '@/js/service-drag.js';
 import '@/js/about-infography.js';
+import '@/js/about-section-mobile.js';
 import '@/js/about-orbit-rings.js';
 import '@/js/about-typing.js';
 import '@/js/video-service.js';

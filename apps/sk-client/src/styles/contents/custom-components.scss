@@ -109,7 +109,7 @@
         .notice-tit-swiper {
           flex: 1;
           min-width: 0;
-          height: 80px;
+          max-height: 140px;
           overflow: hidden;
 
           .swiper-slide {
