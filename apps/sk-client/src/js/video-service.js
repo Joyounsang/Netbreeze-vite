@@ -125,7 +125,16 @@ function initVideoService() {
     activeLink = link;
 
     links.forEach((item) => {
-      item.closest('.video-list__item')?.classList.toggle('is-active', item === link);
+      const listItem = item.closest('.video-list__item');
+      const isCurrent = item === link;
+
+      listItem?.classList.toggle('is-active', isCurrent);
+
+      if (isCurrent) {
+        item.setAttribute('aria-current', 'true');
+      } else {
+        item.removeAttribute('aria-current');
+      }
     });
 
     if (isYoutubeReady(iframe)) {

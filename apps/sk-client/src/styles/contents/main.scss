@@ -79,18 +79,18 @@ main {
 
         .img {
           background-color: var(--gray);
-          height: 300px;
+          height: auto;
           width: 100%;
           position: relative;
 
           img {
             // width: 80%;
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            top: 0;
-            margin: auto;
+            // position: absolute;
+            // left: 0;
+            // right: 0;
+            // bottom: 0;
+            // top: 0;
+            // margin: auto;
           }
         }
       }
@@ -1171,8 +1171,20 @@ main {
         }
       }
 
-      &.is-active .video-list__title {
-        color: #9b8cff;
+      &.is-active {
+        .video-list__title {
+          color: #9b8cff;
+        }
+
+        .video-list__link {
+          .video-list__desc {
+            color: rgba(255, 255, 255, 1);
+          }
+
+          .video-list__outlink {
+            opacity: 1;
+          }
+        }
       }
     }
 

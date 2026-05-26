@@ -1114,6 +1114,7 @@
   @include mobile {
     overflow-x: auto;
 
+
     .list-dot {
       li {
         font-size: 1.5rem;
@@ -1145,6 +1146,7 @@
 
     table {
       table-layout: auto;
+      min-width: 600px;
     }
 
     thead {
@@ -1259,6 +1261,8 @@
     }
   }
 }
+
+
 
 .modal {
   display: none;
@@ -1472,6 +1476,104 @@
     background-color: var(--white);
     margin-top: 20px;
     width: 100%;
+  }
+
+  .complete {
+    display: block;
+    text-align: center;
+
+    p {
+      font-size: 2.4rem;
+      font-weight: 600;
+      line-height: 140%;
+      letter-spacing: -0.5px;
+      margin-bottom: 20px;
+    }
+  }
+
+  @include mobile {
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 16px;
+    left: 0;
+    right: 0;
+
+    &-inner {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
+    }
+
+    &.alert {
+      .modal-inner {
+        min-width: 0;
+        max-width: 100%;
+        width: calc(100% - 32px);
+      }
+
+      .modal-body {
+        min-width: 0;
+      }
+    }
+
+    .modal-header {
+      padding: 0 24px;
+
+      .name {
+        line-height: 60px;
+        font-size: 2rem;
+      }
+
+      .modalClose {
+        width: 26px;
+        height: 26px;
+        right: 14px;
+      }
+    }
+
+    .modal-body {
+      padding: 20px;
+      min-width: 0;
+      max-width: 100%;
+      width: 100%;
+      box-sizing: border-box;
+
+      .tbl {
+        max-width: 100%;
+
+        table {
+          table-layout: auto;
+        }
+
+        thead {
+          th {
+            padding: 0 10px;
+          }
+        }
+
+        tbody {
+
+          td,
+          th {
+            padding: 10px;
+            font-size: 1.5rem;
+            word-break: keep-all;
+            overflow-wrap: anywhere;
+          }
+        }
+      }
+
+    }
+
+    .complete {
+      p {
+        font-size: 1.8rem;
+      }
+    }
   }
 
 }
@@ -2153,6 +2255,7 @@
 
       table {
         table-layout: auto;
+        min-width: inherit;
       }
 
       tr {

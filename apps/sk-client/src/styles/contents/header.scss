@@ -566,6 +566,7 @@ body {
     }
 
     &.is-mobile-nav-open .gnb-nav {
+      border-top: 1px solid var(--border);
       transform: translateX(0);
       visibility: visible;
     }
