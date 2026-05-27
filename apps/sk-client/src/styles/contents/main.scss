@@ -667,26 +667,24 @@ main {
 
       .list-product-main {
         ul {
-          // gap: 40px;
+          gap: 34px;
 
           li {
             width: 100%;
 
             .question {
-
               .info {
+                gap: 4px;
 
                 .service-name {
-                  font-size: 1.6rem;
+                  font-size: 1.5rem;
                 }
 
                 p {
-                  font-size: 2rem;
+                  font-size: 1.7rem;
                   line-height: 140%;
                 }
               }
-
-
             }
 
             .reply {
@@ -696,17 +694,21 @@ main {
             }
 
             .message {
+              flex-direction: column;
+              align-items: center;
+              gap: 20px;
 
               .more {
-                font-size: 1.6rem;
+                font-size: 1.5rem;
+                text-align: center;
               }
 
               p {
-                font-size: 1.6rem;
+                font-size: 1.8rem;
               }
 
               .helper {
-                width: 50px;
+                width: 60px;
               }
             }
           }

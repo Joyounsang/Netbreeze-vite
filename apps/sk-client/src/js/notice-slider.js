@@ -16,6 +16,7 @@ function initNoticeSlider() {
     direction: 'vertical',
     loop: true,
     slidesPerView: 1,
+    spaceBetween: 20,
     speed: 600,
     autoplay: {
       delay: 3500,

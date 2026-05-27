@@ -626,6 +626,78 @@ em {
   padding-right: 40px;
 }
 
+.tbl,
+.tbl-sm,
+.tbl-col {
+  &.type-list {
+
+    // 스크롤은 .tmain, 플로팅 UI는 이 래퍼 기준으로 고정 (스크롤과 함께 밀리지 않음)
+    .tmain-scroll-host {
+      position: relative;
+      min-height: 0;
+
+      .tmain-scroll-x-actions {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        // right: 10px;
+        left: 0;
+        top: 0;
+        padding: 8px;
+        z-index: 4;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .tmain-scroll-x-start,
+      .tmain-scroll-x-end {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        padding: 0;
+        border: 1px solid var(--border);
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.5);
+        box-shadow: 0 2px 8px rgba(15, 23, 42, 0.12);
+        color: var(--text-dark);
+        font-size: 2rem;
+        line-height: 1;
+        cursor: pointer;
+        transition: background-color 0.15s ease, box-shadow 0.15s ease;
+        text-indent: -999rem;
+
+        &:after {
+          content: '';
+          display: block;
+          width: 16px;
+          height: 24px;
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+
+        &:hover {
+          background-color: #f5f7fb;
+          box-shadow: 0 3px 10px rgba(15, 23, 42, 0.16);
+        }
+      }
+
+      .tmain-scroll-x-start:after {
+        background-image: url('../images/cal-arrow-l.png');
+      }
+
+      .tmain-scroll-x-end:after {
+        background-image: url('../images/cal-arrow-r.png');
+      }
+    }
+  }
+}
+
+
 @media (max-width: 1600px) {
   .sub-dashboard {
     flex-wrap: wrap;
