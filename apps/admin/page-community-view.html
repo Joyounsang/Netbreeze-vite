@@ -469,7 +469,10 @@
 												</tbody>
 											</table>
 										</div>
-										<button type="button" class="tmain-scroll-x-end" hidden aria-label="가로 스크롤 맨 오른쪽으로 이동">스크롤</button>
+										<div class="tmain-scroll-x-actions">
+											<button type="button" class="tmain-scroll-x-start" hidden aria-label="가로 스크롤 맨 왼쪽으로 이동">스크롤</button>
+											<button type="button" class="tmain-scroll-x-end" hidden aria-label="가로 스크롤 맨 오른쪽으로 이동">스크롤</button>
+										</div>
 										<script>
 											(function () {
 												const table = document.querySelector('.tbl.type-list table');
@@ -480,31 +483,45 @@
 
 												const tmain = table.closest('.tmain');
 												const scrollHost = table.closest('.tmain-scroll-host');
+												const scrollStartBtn = scrollHost ? scrollHost.querySelector('.tmain-scroll-x-start') : null;
 												const scrollEndBtn = scrollHost ? scrollHost.querySelector('.tmain-scroll-x-end') : null;
 
-												function updateScrollEndBtn() {
-													if (!tmain || !scrollEndBtn) return;
+												function updateScrollBtns() {
+													if (!tmain) return;
 													const epsilon = 4;
 													const maxScrollLeft = tmain.scrollWidth - tmain.clientWidth;
 													const hasHorizontalScroll = maxScrollLeft > epsilon;
+													const atLeftEnd = tmain.scrollLeft <= epsilon;
 													const atRightEnd =
 														maxScrollLeft <= epsilon ||
 														tmain.scrollLeft + tmain.clientWidth >= tmain.scrollWidth - epsilon;
-													scrollEndBtn.hidden = !hasHorizontalScroll || atRightEnd;
+													if (scrollStartBtn) {
+														scrollStartBtn.hidden = !hasHorizontalScroll || atLeftEnd;
+													}
+													if (scrollEndBtn) {
+														scrollEndBtn.hidden = !hasHorizontalScroll || atRightEnd;
+													}
 												}
 
-												if (tmain && scrollEndBtn) {
-													tmain.addEventListener('scroll', updateScrollEndBtn);
-													tmain.addEventListener('scrollend', updateScrollEndBtn);
-													window.addEventListener('resize', updateScrollEndBtn);
+												if (tmain && (scrollStartBtn || scrollEndBtn)) {
+													tmain.addEventListener('scroll', updateScrollBtns);
+													tmain.addEventListener('scrollend', updateScrollBtns);
+													window.addEventListener('resize', updateScrollBtns);
 													if (typeof ResizeObserver !== 'undefined') {
-														new ResizeObserver(updateScrollEndBtn).observe(tmain);
+														new ResizeObserver(updateScrollBtns).observe(tmain);
 													}
-													scrollEndBtn.addEventListener('click', function () {
-														const maxLeft = Math.max(0, tmain.scrollWidth - tmain.clientWidth);
-														tmain.scrollTo({ left: maxLeft, behavior: 'smooth' });
-													});
-													updateScrollEndBtn();
+													if (scrollStartBtn) {
+														scrollStartBtn.addEventListener('click', function () {
+															tmain.scrollTo({ left: 0, behavior: 'smooth' });
+														});
+													}
+													if (scrollEndBtn) {
+														scrollEndBtn.addEventListener('click', function () {
+															const maxLeft = Math.max(0, tmain.scrollWidth - tmain.clientWidth);
+															tmain.scrollTo({ left: maxLeft, behavior: 'smooth' });
+														});
+													}
+													updateScrollBtns();
 												}
 
 												tbody.addEventListener('click', function (event) {
@@ -526,7 +543,7 @@
 													detailRows.forEach(function (detailRow) {
 														detailRow.hidden = isExpanded;
 													});
-													updateScrollEndBtn();
+													updateScrollBtns();
 												});
 											})();
 										</script>
