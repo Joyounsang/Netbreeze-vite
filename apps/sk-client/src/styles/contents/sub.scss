@@ -1181,9 +1181,16 @@
       }
 
       .diagram {
-        overflow-x: auto;
+        text-align: center;
+
+        img {
+          width: 100%;
+          max-width: 390px;
+        }
 
         &.extend {
+          overflow-x: auto;
+
           img {
             min-width: 800px;
           }
