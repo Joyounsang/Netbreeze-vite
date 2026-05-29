@@ -184,6 +184,71 @@ function snapToNearestCard($el, animator, autoScroll) {
   });
 }
 
+/**
+ * 모바일: 세로 스와이프는 페이지 스크롤, 가로만 카드 트랙 스크롤
+ */
+function enableMobileTouchAxisLock($el, autoScroll) {
+  const el = $el[0];
+  if (!el) return;
+
+  let startX = 0;
+  let startY = 0;
+  let axis = null;
+  let touchActive = false;
+
+  const lockThreshold = 8;
+  const lockRatio = 1.15;
+
+  function resetAxisLock() {
+    axis = null;
+    el.classList.remove('is-touch-lock-x', 'is-touch-lock-y');
+  }
+
+  function onTouchStart(e) {
+    if (!isMobileViewport() || e.touches.length !== 1) return;
+
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    touchActive = true;
+    resetAxisLock();
+    autoScroll?.beginUserInteraction();
+  }
+
+  function onTouchMove(e) {
+    if (!isMobileViewport() || e.touches.length !== 1) return;
+
+    const dx = e.touches[0].clientX - startX;
+    const dy = e.touches[0].clientY - startY;
+
+    if (axis !== null) return;
+
+    if (Math.abs(dx) < lockThreshold && Math.abs(dy) < lockThreshold) return;
+
+    if (Math.abs(dy) > Math.abs(dx) * lockRatio) {
+      axis = 'y';
+      el.classList.add('is-touch-lock-y');
+      return;
+    }
+
+    if (Math.abs(dx) > Math.abs(dy) * lockRatio) {
+      axis = 'x';
+      el.classList.add('is-touch-lock-x');
+    }
+  }
+
+  function onTouchEnd() {
+    if (!touchActive) return;
+    touchActive = false;
+    resetAxisLock();
+    autoScroll?.endUserInteraction();
+  }
+
+  el.addEventListener('touchstart', onTouchStart, { passive: true });
+  el.addEventListener('touchmove', onTouchMove, { passive: true });
+  el.addEventListener('touchend', onTouchEnd, { passive: true });
+  el.addEventListener('touchcancel', onTouchEnd, { passive: true });
+}
+
 /** 모바일 네이티브 터치 스크롤 후 가장 가까운 카드로 스냅 */
 function enableNativeScrollSnap($el, autoScroll, animator) {
   if (!isMobileViewport()) {
@@ -193,7 +258,13 @@ function enableNativeScrollSnap($el, autoScroll, animator) {
   let idleTimer = null;
 
   function onScrollEnd() {
-    if ($el.hasClass('dragging') || $el.hasClass('is-scrolling')) return;
+    if (
+      $el.hasClass('dragging') ||
+      $el.hasClass('is-scrolling') ||
+      $el.hasClass('is-user-interacting')
+    ) {
+      return;
+    }
     snapToNearestCard($el, animator, autoScroll);
   }
 
@@ -281,7 +352,7 @@ function enableDragScroll($el, autoScroll, animator) {
     el.setPointerCapture?.(e.pointerId);
 
     animator.cancel();
-    autoScroll?.pause();
+    autoScroll?.beginUserInteraction();
 
     isDragging = true;
     hasDragged = false;
@@ -339,17 +410,22 @@ function enableDragScroll($el, autoScroll, animator) {
 
     if (hasDragged) {
       suppressLinkClick();
+      autoScroll?.releaseUserInteraction();
       finishInteraction();
+    } else {
+      autoScroll?.endUserInteraction();
     }
 
     hasDragged = false;
     $el.trigger('scroll.serviceCards');
   }
 
-  el.addEventListener('pointerdown', start);
-  el.addEventListener('pointermove', move);
-  el.addEventListener('pointerup', end);
-  el.addEventListener('pointercancel', end);
+  if (!isMobileViewport()) {
+    el.addEventListener('pointerdown', start);
+    el.addEventListener('pointermove', move);
+    el.addEventListener('pointerup', end);
+    el.addEventListener('pointercancel', end);
+  }
 
   $el[0].addEventListener(
     'click',
@@ -371,12 +447,14 @@ function enableAutoScroll($el, animator, layoutApi) {
   let resumeTimer = null;
   let isPaused = true;
   let isHovered = false;
+  let isUserInteracting = false;
   let currentIndex = 0;
   let direction = 1;
   let isStepping = false;
 
   const stepPauseMs = 2400;
   const scrollDuration = 520;
+  const userResumeDelayMs = 1800;
 
   function syncFromScroll() {
     currentIndex = getClosestCardIndex($el);
@@ -389,7 +467,16 @@ function enableAutoScroll($el, animator, layoutApi) {
 
     stepTimer = window.setTimeout(() => {
       stepTimer = null;
-      if (isPaused || isHovered || $el.hasClass('dragging') || isStepping) return;
+      if (
+        isPaused ||
+        isHovered ||
+        isUserInteracting ||
+        $el.hasClass('dragging') ||
+        $el.hasClass('is-user-interacting') ||
+        isStepping
+      ) {
+        return;
+      }
       stepCard();
     }, stepPauseMs);
   }
@@ -459,10 +546,35 @@ function enableAutoScroll($el, animator, layoutApi) {
     resumeTimer = window.setTimeout(() => {
       resumeTimer = null;
 
-      if (isHovered || $el.hasClass('dragging') || $el.hasClass('is-scrolling') || isStepping) return;
+      if (
+        isHovered ||
+        isUserInteracting ||
+        $el.hasClass('dragging') ||
+        $el.hasClass('is-user-interacting') ||
+        $el.hasClass('is-scrolling') ||
+        isStepping
+      ) {
+        return;
+      }
 
       start();
-    }, 1600);
+    }, userResumeDelayMs);
+  }
+
+  function beginUserInteraction() {
+    isUserInteracting = true;
+    $el.addClass('is-user-interacting');
+    pause();
+  }
+
+  function releaseUserInteraction() {
+    isUserInteracting = false;
+    $el.removeClass('is-user-interacting');
+  }
+
+  function endUserInteraction() {
+    releaseUserInteraction();
+    resumeLater();
   }
 
   function setHovered(hovered) {
@@ -473,13 +585,29 @@ function enableAutoScroll($el, animator, layoutApi) {
       return;
     }
 
-    if ($el.hasClass('dragging') || $el.hasClass('is-scrolling') || isStepping) return;
+    if (
+      $el.hasClass('dragging') ||
+      $el.hasClass('is-user-interacting') ||
+      $el.hasClass('is-scrolling') ||
+      isStepping
+    ) {
+      return;
+    }
 
     resumeLater();
   }
 
   function start() {
-    if (isHovered || $el.hasClass('dragging') || $el.hasClass('is-scrolling') || isStepping) return;
+    if (
+      isHovered ||
+      isUserInteracting ||
+      $el.hasClass('dragging') ||
+      $el.hasClass('is-user-interacting') ||
+      $el.hasClass('is-scrolling') ||
+      isStepping
+    ) {
+      return;
+    }
 
     if ($el[0].scrollWidth - $el[0].clientWidth <= 0) return;
 
@@ -493,6 +621,9 @@ function enableAutoScroll($el, animator, layoutApi) {
     resumeLater,
     start,
     setHovered,
+    beginUserInteraction,
+    releaseUserInteraction,
+    endUserInteraction,
     syncFromScroll,
     destroy() {
       pause();
@@ -642,6 +773,7 @@ function initServiceCardTrack() {
     const autoScroll = enableAutoScroll($simulation, animator, layoutApi);
 
     enableScrollContainer($simulation);
+    enableMobileTouchAxisLock($simulation, autoScroll);
     enableNativeScrollSnap($simulation, autoScroll, animator);
     enableDragScroll($simulation, autoScroll, animator);
 

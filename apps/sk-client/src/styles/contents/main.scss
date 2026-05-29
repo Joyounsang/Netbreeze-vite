@@ -228,8 +228,21 @@ main {
         overflow-y: hidden;
         scroll-behavior: auto;
         overscroll-behavior-x: contain;
-        touch-action: pan-x;
         -webkit-overflow-scrolling: touch;
+
+        @include mobile {
+          touch-action: manipulation;
+          overscroll-behavior-y: auto;
+
+          &.is-touch-lock-x {
+            touch-action: pan-x pinch-zoom;
+          }
+
+          &.is-touch-lock-y {
+            touch-action: pan-y pinch-zoom;
+            overflow-x: hidden;
+          }
+        }
 
         @media screen and (min-width: 721px) {
           touch-action: pan-y;
