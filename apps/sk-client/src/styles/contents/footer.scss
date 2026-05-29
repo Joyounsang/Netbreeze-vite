@@ -145,5 +145,13 @@ footer {
   @include mobile {
     right: 20px;
     bottom: 20px;
+
+    ul {
+      li {
+        a {
+          width: 50px;
+        }
+      }
+    }
   }
 }

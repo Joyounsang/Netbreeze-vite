@@ -1,6 +1,11 @@
 'use strict';
 
+const MOBILE_BREAKPOINT = 720;
 const CARD_METRICS_CACHE = new WeakMap();
+
+function isMobileViewport() {
+  return window.innerWidth <= MOBILE_BREAKPOINT;
+}
 
 function getCards($simulation) {
   return $simulation.find('.list > .service-card');
@@ -164,10 +169,6 @@ function removeServiceCardClones($simulation) {
   $simulation.removeData('serviceLoop');
 }
 
-function isCoarsePointerDevice() {
-  return window.matchMedia('(hover: none) and (pointer: coarse)').matches;
-}
-
 function snapToNearestCard($el, animator, autoScroll) {
   animator.cancel();
   animator.setScrollingState(false);
@@ -185,7 +186,7 @@ function snapToNearestCard($el, animator, autoScroll) {
 
 /** 모바일 네이티브 터치 스크롤 후 가장 가까운 카드로 스냅 */
 function enableNativeScrollSnap($el, autoScroll, animator) {
-  if (!isCoarsePointerDevice()) {
+  if (!isMobileViewport()) {
     return;
   }
 
@@ -226,29 +227,28 @@ function enableScrollContainer($el) {
   $el.css('pointer-events', 'auto');
 }
 
-/** PC 마우스 드래그만 커스텀 처리 (모바일은 네이티브 터치 스크롤) */
+/** PC: 드래그로 자유 스크롤, 손을 떼면 가장 가까운 카드로 스냅 (모바일은 네이티브 터치) */
 function enableDragScroll($el, autoScroll, animator) {
-  if (isCoarsePointerDevice()) {
-    return;
-  }
+  const el = $el[0];
+  if (!el) return;
 
   let isDragging = false;
   let scrollLeft = 0;
+  let activePointerId = null;
 
   let pointerStartX = 0;
   let pointerStartY = 0;
-  let gestureDeltaX = 0;
   let hasDragged = false;
   let suppressClick = false;
-  let startIndex = 0;
-  let minDragScrollLeft = 0;
-  let maxDragScrollLeft = 0;
   let dragRafId = null;
   let pendingScrollLeft = null;
 
   const dragThreshold = 8;
-  const stepThreshold = 26;
   const clickSuppressMs = 300;
+
+  function isDesktopInteraction() {
+    return !isMobileViewport();
+  }
 
   function finishInteraction() {
     snapToNearestCard($el, animator, autoScroll);
@@ -273,7 +273,12 @@ function enableDragScroll($el, autoScroll, animator) {
   }
 
   function start(e) {
-    if (e.button !== 0) return;
+    if (!isDesktopInteraction()) return;
+    if (activePointerId !== null) return;
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+
+    activePointerId = e.pointerId;
+    el.setPointerCapture?.(e.pointerId);
 
     animator.cancel();
     autoScroll?.pause();
@@ -281,17 +286,9 @@ function enableDragScroll($el, autoScroll, animator) {
     isDragging = true;
     hasDragged = false;
     suppressClick = false;
-    gestureDeltaX = 0;
     pointerStartX = e.pageX;
     pointerStartY = e.pageY;
     scrollLeft = $el.scrollLeft();
-    startIndex = getClosestCardIndex($el);
-
-    const prevLeft = getCardScrollLeft($el, Math.max(0, startIndex - 1));
-    const nextLeft = getCardScrollLeft($el, Math.min(getCardCount($el) - 1, startIndex + 1));
-
-    minDragScrollLeft = prevLeft === null ? scrollLeft : Math.min(scrollLeft, prevLeft);
-    maxDragScrollLeft = nextLeft === null ? scrollLeft : Math.max(scrollLeft, nextLeft);
     $el.addClass('dragging');
     animator.setScrollingState(true);
     e.preventDefault();
@@ -304,23 +301,22 @@ function enableDragScroll($el, autoScroll, animator) {
   }
 
   function move(e) {
-    if (!isDragging) return;
+    if (!isDragging || e.pointerId !== activePointerId) return;
 
     e.preventDefault();
     markDragIfMoved(e.pageX, e.pageY);
 
     const walkX = e.pageX - pointerStartX;
-    gestureDeltaX = walkX;
-    const desiredScrollLeft = scrollLeft - walkX;
-    const clampedScrollLeft = Math.max(minDragScrollLeft, Math.min(maxDragScrollLeft, desiredScrollLeft));
-    pendingScrollLeft = clampedScrollLeft;
+    pendingScrollLeft = scrollLeft - walkX;
 
     if (!dragRafId) {
       dragRafId = requestAnimationFrame(flushDragScroll);
     }
   }
 
-  function end() {
+  function end(e) {
+    if (e && e.pointerId !== activePointerId) return;
+
     if (dragRafId) {
       cancelAnimationFrame(dragRafId);
       dragRafId = null;
@@ -330,40 +326,30 @@ function enableDragScroll($el, autoScroll, animator) {
       pendingScrollLeft = null;
     }
 
+    if (activePointerId !== null) {
+      el.releasePointerCapture?.(activePointerId);
+      activePointerId = null;
+    }
+
+    if (!isDragging) return;
+
     isDragging = false;
     $el.removeClass('dragging');
     animator.setScrollingState(false);
 
     if (hasDragged) {
       suppressLinkClick();
-    }
-
-    if (hasDragged && Math.abs(gestureDeltaX) >= stepThreshold) {
-      const direction = gestureDeltaX > 0 ? -1 : 1;
-      const nextIndex = Math.max(0, Math.min(getCardCount($el) - 1, startIndex + direction));
-      const targetLeft = getCardScrollLeft($el, nextIndex);
-
-      if (targetLeft !== null) {
-        animator.scrollTo(targetLeft, { duration: 320, ease: 'outQuart' }, () => {
-          $el.trigger('scrollend.serviceCards');
-          autoScroll?.syncFromScroll();
-          autoScroll?.resumeLater();
-        });
-      } else {
-        finishInteraction();
-      }
-    } else {
       finishInteraction();
     }
 
     hasDragged = false;
-    gestureDeltaX = 0;
     $el.trigger('scroll.serviceCards');
   }
 
-  $el.on('mousedown', start);
-  $(document).on('mousemove.serviceDrag', move);
-  $(document).on('mouseup.serviceDrag', end);
+  el.addEventListener('pointerdown', start);
+  el.addEventListener('pointermove', move);
+  el.addEventListener('pointerup', end);
+  el.addEventListener('pointercancel', end);
 
   $el[0].addEventListener(
     'click',

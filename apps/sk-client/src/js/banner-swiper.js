@@ -50,6 +50,9 @@ function initBannerSwiper() {
     },
     speed: 600,
     loop: true,
+    allowTouchMove: false,
+    simulateTouch: false,
+    grabCursor: false,
     autoplay: {
       delay: 5000,
       disableOnInteraction: false,

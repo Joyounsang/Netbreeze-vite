@@ -1137,6 +1137,19 @@
     &+.board {
       padding-top: 0;
     }
+
+    @include mobile {
+      .fee-null {
+        padding-bottom: 80px;
+
+        p {
+          font-size: 1.6rem;
+          max-width: 320px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+    }
   }
 
   &.composition {

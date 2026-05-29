@@ -230,6 +230,12 @@ main {
         overscroll-behavior-x: contain;
         touch-action: pan-x;
         -webkit-overflow-scrolling: touch;
+
+        @media screen and (min-width: 721px) {
+          touch-action: pan-y;
+          cursor: grab;
+        }
+
         scrollbar-width: none;
         -ms-overflow-style: none;
 
@@ -962,9 +968,7 @@ main {
       .infography {
         width: 100%;
         overflow: hidden;
-        left: 0%;
-        bottom: -8%;
-        position: relative;
+        position: static;
         // width: 360px;
         height: 500px;
       }
@@ -972,7 +976,7 @@ main {
       .graphic {
         width: 360px;
         height: 360px;
-        position: absolute;
+        // position: absolute;
         left: 0;
         bottom: 0;
         right: 0;
