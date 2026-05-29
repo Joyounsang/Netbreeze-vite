@@ -1,5 +1,7 @@
 'use strict';
 
+const CARD_METRICS_CACHE = new WeakMap();
+
 function getCards($simulation) {
   return $simulation.find('.list > .service-card');
 }
@@ -18,28 +20,74 @@ function getScrollMetrics($simulation) {
   };
 }
 
-function getCardScrollLeft($simulation, index) {
-  const $card = getCards($simulation).eq(index);
-  if (!$card.length) return null;
+function invalidateCardMetricsCache($simulation) {
+  const el = $simulation?.[0];
+  if (!el) return;
+  CARD_METRICS_CACHE.delete(el);
+}
 
-  const cardLeft = $card[0].offsetLeft;
-  const cardWidth = $card.outerWidth();
+function getCardMetrics($simulation) {
+  const el = $simulation?.[0];
+  if (!el) {
+    return { list: [], containerWidth: 0 };
+  }
+
+  const cached = CARD_METRICS_CACHE.get(el);
+  const containerWidth = el.clientWidth;
+  const cards = getCards($simulation).toArray();
+
+  if (
+    cached &&
+    cached.containerWidth === containerWidth &&
+    cached.count === cards.length &&
+    cached.first === cards[0] &&
+    cached.last === cards[cards.length - 1]
+  ) {
+    return cached;
+  }
+
+  const list = cards.map((card) => {
+    const left = card.offsetLeft;
+    const width = card.offsetWidth;
+    return {
+      left,
+      width,
+      center: left + width / 2,
+    };
+  });
+
+  const metrics = {
+    list,
+    count: list.length,
+    containerWidth,
+    first: cards[0] || null,
+    last: cards[cards.length - 1] || null,
+  };
+
+  CARD_METRICS_CACHE.set(el, metrics);
+  return metrics;
+}
+
+function getCardScrollLeft($simulation, index) {
+  const metrics = getCardMetrics($simulation);
+  const item = metrics.list[index];
+  if (!item) return null;
+
   const { containerWidth, el } = getScrollMetrics($simulation);
   const maxScroll = el.scrollWidth - containerWidth;
-  return Math.max(0, Math.min(maxScroll, cardLeft - (containerWidth - cardWidth) / 2));
+  return Math.max(0, Math.min(maxScroll, item.left - (containerWidth - item.width) / 2));
 }
 
 function getClosestCardIndex($simulation) {
-  const $cards = getCards($simulation);
-  if (!$cards.length) return 0;
+  const metrics = getCardMetrics($simulation);
+  if (!metrics.list.length) return 0;
 
   const { center } = getScrollMetrics($simulation);
   let closestIndex = 0;
   let closestDistance = Infinity;
 
-  $cards.each(function (i) {
-    const cardCenter = this.offsetLeft + this.offsetWidth / 2;
-    const distance = Math.abs(cardCenter - center);
+  metrics.list.forEach((card, i) => {
+    const distance = Math.abs(card.center - center);
 
     if (distance < closestDistance) {
       closestDistance = distance;
@@ -186,20 +234,20 @@ function enableDragScroll($el, autoScroll, animator) {
 
   let isDragging = false;
   let scrollLeft = 0;
-  let lastMoveTime = 0;
-  let lastMoveX = 0;
-  let velocityX = 0;
-  let animationFrameId = null;
 
   let pointerStartX = 0;
   let pointerStartY = 0;
+  let gestureDeltaX = 0;
   let hasDragged = false;
   let suppressClick = false;
+  let startIndex = 0;
+  let minDragScrollLeft = 0;
+  let maxDragScrollLeft = 0;
+  let dragRafId = null;
+  let pendingScrollLeft = null;
 
-  const friction = 0.94;
-  const minVelocity = 0.45;
-  const velocityMultiplier = 18;
   const dragThreshold = 8;
+  const stepThreshold = 26;
   const clickSuppressMs = 300;
 
   function finishInteraction() {
@@ -227,26 +275,32 @@ function enableDragScroll($el, autoScroll, animator) {
   function start(e) {
     if (e.button !== 0) return;
 
-    if (animationFrameId) {
-      cancelAnimationFrame(animationFrameId);
-      animationFrameId = null;
-    }
-
     animator.cancel();
     autoScroll?.pause();
 
     isDragging = true;
     hasDragged = false;
     suppressClick = false;
+    gestureDeltaX = 0;
     pointerStartX = e.pageX;
     pointerStartY = e.pageY;
     scrollLeft = $el.scrollLeft();
+    startIndex = getClosestCardIndex($el);
+
+    const prevLeft = getCardScrollLeft($el, Math.max(0, startIndex - 1));
+    const nextLeft = getCardScrollLeft($el, Math.min(getCardCount($el) - 1, startIndex + 1));
+
+    minDragScrollLeft = prevLeft === null ? scrollLeft : Math.min(scrollLeft, prevLeft);
+    maxDragScrollLeft = nextLeft === null ? scrollLeft : Math.max(scrollLeft, nextLeft);
     $el.addClass('dragging');
     animator.setScrollingState(true);
-    lastMoveTime = Date.now();
-    lastMoveX = e.pageX;
-    velocityX = 0;
     e.preventDefault();
+  }
+
+  function flushDragScroll() {
+    dragRafId = null;
+    if (pendingScrollLeft === null) return;
+    $el.scrollLeft(pendingScrollLeft);
   }
 
   function move(e) {
@@ -255,62 +309,56 @@ function enableDragScroll($el, autoScroll, animator) {
     e.preventDefault();
     markDragIfMoved(e.pageX, e.pageY);
 
-    const currentTime = Date.now();
-    const deltaTime = currentTime - lastMoveTime;
-
-    if (deltaTime > 0) {
-      velocityX = (e.pageX - lastMoveX) / deltaTime;
-    }
-
     const walkX = e.pageX - pointerStartX;
-    $el.scrollLeft(scrollLeft - walkX);
+    gestureDeltaX = walkX;
+    const desiredScrollLeft = scrollLeft - walkX;
+    const clampedScrollLeft = Math.max(minDragScrollLeft, Math.min(maxDragScrollLeft, desiredScrollLeft));
+    pendingScrollLeft = clampedScrollLeft;
 
-    lastMoveTime = currentTime;
-    lastMoveX = e.pageX;
+    if (!dragRafId) {
+      dragRafId = requestAnimationFrame(flushDragScroll);
+    }
   }
 
   function end() {
+    if (dragRafId) {
+      cancelAnimationFrame(dragRafId);
+      dragRafId = null;
+    }
+    if (pendingScrollLeft !== null) {
+      $el.scrollLeft(pendingScrollLeft);
+      pendingScrollLeft = null;
+    }
+
     isDragging = false;
     $el.removeClass('dragging');
+    animator.setScrollingState(false);
 
     if (hasDragged) {
       suppressLinkClick();
     }
 
-    if (Math.abs(velocityX) > minVelocity) {
-      animateInertia();
+    if (hasDragged && Math.abs(gestureDeltaX) >= stepThreshold) {
+      const direction = gestureDeltaX > 0 ? -1 : 1;
+      const nextIndex = Math.max(0, Math.min(getCardCount($el) - 1, startIndex + direction));
+      const targetLeft = getCardScrollLeft($el, nextIndex);
+
+      if (targetLeft !== null) {
+        animator.scrollTo(targetLeft, { duration: 320, ease: 'outQuart' }, () => {
+          $el.trigger('scrollend.serviceCards');
+          autoScroll?.syncFromScroll();
+          autoScroll?.resumeLater();
+        });
+      } else {
+        finishInteraction();
+      }
     } else {
       finishInteraction();
     }
 
     hasDragged = false;
+    gestureDeltaX = 0;
     $el.trigger('scroll.serviceCards');
-  }
-
-  function animateInertia() {
-    const maxScrollLeft = $el[0].scrollWidth - $el[0].clientWidth;
-    const currentScrollLeft = $el.scrollLeft();
-
-    if (Math.abs(velocityX) < minVelocity) {
-      animationFrameId = null;
-      finishInteraction();
-      return;
-    }
-
-    const atLeftEdge = currentScrollLeft <= 0 && velocityX < 0;
-    const atRightEdge = currentScrollLeft >= maxScrollLeft && velocityX > 0;
-
-    if (atLeftEdge || atRightEdge) {
-      velocityX = 0;
-      animationFrameId = null;
-      finishInteraction();
-      return;
-    }
-
-    const newScrollLeft = Math.max(0, Math.min(maxScrollLeft, currentScrollLeft - velocityX * velocityMultiplier));
-    $el.scrollLeft(newScrollLeft);
-    velocityX *= friction;
-    animationFrameId = requestAnimationFrame(animateInertia);
   }
 
   $el.on('mousedown', start);
@@ -472,31 +520,69 @@ function initServiceCardLayout($simulation) {
   let scrollRafId = null;
   let activeCardEl = null;
   let activeIndex = -1;
+  let lastCenter = -1;
+  let lastContainerWidth = -1;
+  let lastIsMobile = null;
+  let reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const reduceMotionMq = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const handleReducedMotionChange = (event) => {
+    reducedMotion = event.matches;
+  };
+  if (reduceMotionMq.addEventListener) {
+    reduceMotionMq.addEventListener('change', handleReducedMotionChange);
+  } else {
+    reduceMotionMq.addListener(handleReducedMotionChange);
+  }
 
   function updateTransforms() {
-    const $cards = getCards($simulation);
-    if (!$cards.length) {
+    const cardEls = getCards($simulation).toArray();
+    if (!cardEls.length) {
       scrollRafId = null;
       return;
     }
 
+    if (reducedMotion) {
+      cardEls.forEach((card) => {
+        card.style.removeProperty('--card-depth');
+        card.style.removeProperty('--card-scale');
+      });
+      scrollRafId = null;
+      return;
+    }
+
+    const metrics = getCardMetrics($simulation);
     const { center, containerWidth } = getScrollMetrics($simulation);
     const isMobile = window.innerWidth <= 768;
     const maxDepth = isMobile ? 32 : 64;
     const halfWidth = containerWidth / 2;
+    const centerDiff = Math.abs(center - lastCenter);
 
-    $cards.each(function () {
-      const cardCenter = this.offsetLeft + this.offsetWidth / 2;
-      const distanceFromCenter = cardCenter - center;
+    if (
+      centerDiff < 0.5 &&
+      containerWidth === lastContainerWidth &&
+      isMobile === lastIsMobile
+    ) {
+      scrollRafId = null;
+      return;
+    }
+
+    metrics.list.forEach((card, index) => {
+      const distanceFromCenter = card.center - center;
       const normalizedDistance = Math.max(-1, Math.min(1, distanceFromCenter / halfWidth));
       const depth = Math.abs(normalizedDistance) * maxDepth;
       const scale = 1 - Math.abs(normalizedDistance) * 0.05;
       const finalScale = Math.max(scale, 0.94);
+      const cardEl = cardEls[index];
 
-      this.style.setProperty('--card-depth', `${depth}px`);
-      this.style.setProperty('--card-scale', String(finalScale));
+      if (!cardEl) return;
+      cardEl.style.setProperty('--card-depth', `${depth.toFixed(2)}px`);
+      cardEl.style.setProperty('--card-scale', finalScale.toFixed(4));
     });
 
+    lastCenter = center;
+    lastContainerWidth = containerWidth;
+    lastIsMobile = isMobile;
     scrollRafId = null;
   }
 
@@ -542,6 +628,8 @@ function initServiceCardLayout($simulation) {
   $simulation.on('scroll.serviceCards', scheduleTransformUpdate);
   $simulation.on('scrollend.serviceCards', handleScrollEnd);
   $(window).on('resize.serviceCards', () => {
+    invalidateCardMetricsCache($simulation);
+    lastCenter = -1;
     updateTransforms();
     updateActiveCard();
   });
@@ -614,6 +702,17 @@ function initServiceCardTrack() {
         { threshold: 0.15 },
       );
       observer.observe($section[0]);
+
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          autoScroll.pause();
+          return;
+        }
+
+        if ($section[0].getBoundingClientRect().top < window.innerHeight) {
+          autoScroll.resumeLater();
+        }
+      });
     } else {
       tryStartAuto();
       window.setTimeout(tryStartAuto, 300);

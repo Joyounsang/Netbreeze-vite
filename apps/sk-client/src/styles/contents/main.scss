@@ -323,9 +323,9 @@ main {
           opacity: 0;
           transform: translateY(24px) scale(0.92);
           transform-origin: center bottom;
-          transition:
-            opacity 0.18s ease-out,
-            transform 0.2s ease-in;
+          // transition:
+          //   opacity 0.18s ease-out,
+          //   transform 0.2s ease-in;
         }
       }
 
@@ -339,15 +339,17 @@ main {
         }
 
         .icon {
-          width: 270px;
-          top: -130px;
+          // width: 270px;
+          // top: -130px;
+
 
           img {
             animation: dung 1.4s ease-in-out infinite;
+
           }
 
           &:after {
-            animation: shadow 1.4s ease-in-out infinite alternate;
+            // animation: shadow 1.4s ease-in-out infinite alternate;
           }
         }
       }
@@ -358,7 +360,6 @@ main {
         top: -120px;
         z-index: 3;
         width: max-content;
-        // max-width: 280px;
         padding: 12px 20px;
         border: 2px solid #EDF1FF;
         border-radius: 999px;
@@ -367,10 +368,8 @@ main {
         visibility: hidden;
         transform: translateX(-50%) translateY(6px);
         pointer-events: none;
-        transition:
-          opacity 0.16s ease-out,
-          transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
-          visibility 0s linear 0.16s;
+        transform: translateX(-50%) translateY(0);
+        animation: dung-center 1.4s ease-in-out infinite;
         outline: 2px solid #692eff;
 
         p {
@@ -401,12 +400,7 @@ main {
       .service-card.is-active .card-tip {
         opacity: 1;
         visibility: visible;
-        transform: translateX(-50%) translateY(0);
-        transition:
-          opacity 0.14s ease-out,
-          transform 0.18s cubic-bezier(0.22, 1, 0.36, 1),
-          visibility 0s linear 0s;
-        animation: dung-center 1.4s ease-in-out infinite;
+
       }
 
       .icon {
@@ -419,9 +413,9 @@ main {
         pointer-events: none;
         overflow: hidden;
         border-radius: 50%;
-        transition:
-          width 0.26s cubic-bezier(0.22, 1, 0.36, 1),
-          top 0.26s cubic-bezier(0.22, 1, 0.36, 1);
+        transition: all .3s;
+        // transition:
+        //   width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 
         img {
           display: block;
@@ -513,8 +507,8 @@ main {
 
 
           .icon {
-            width: 210px;
-            top: -100px;
+            // width: 210px;
+            // top: -100px;
           }
         }
 
