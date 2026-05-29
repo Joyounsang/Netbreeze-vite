@@ -39,46 +39,47 @@
                                     <table>
                                         <caption class="sr-only">고객정보 입력</caption>
                                         <colgroup>
-                                            <col style="width: 14%">
-                                            <col style="width: 36%">
-                                            <col style="width: 14%">
-                                            <col style="width: 36%">
+                                            <col style="width: 110px">
+                                            <col style="width: auto">
+                                            <col style="width: 110px">
+                                            <col style="width: auto">
+                                            <col style="width: 110px">
+                                            <col style="width: auto">
                                         </colgroup>
                                         <tbody>
                                             <tr>
                                                 <th scope="row">
-                                                    <label for="managerName">담당자명 <span
-                                                            class="required">*</span></label>
+                                                    <label for="managerName">담당자 <span class="required">*</span></label>
                                                 </th>
                                                 <td>
                                                     <input type="text" id="managerName" placeholder="담당자 성함 입력">
                                                 </td>
                                                 <th scope="row">
-                                                    <label for="companyName">기업명(선택)</label>
+                                                    <label for="companyName">기업명</label>
                                                 </th>
                                                 <td>
                                                     <input type="text" id="companyName" placeholder="기업명 입력">
                                                 </td>
+                                                <th scope="row">
+                                                    <label for="contactTel">연락처 <span class="required">*</span></label>
+                                                </th>
+                                                <td>
+                                                    <input type="tel" id="contactTel" placeholder="전화번호 입력">
+                                                </td>
                                             </tr>
-                                            <tr>
+                                            <!-- <tr>
                                                 <th scope="row">
                                                     <label for="contactTel">연락처 <span class="required">*</span></label>
                                                 </th>
                                                 <td colspan="3">
-                                                    <div class="field-flex">
-                                                        <select id="contactCarrier" title="통신사 선택">
-                                                            <option value="SK">SK</option>
-                                                        </select>
-                                                        <input type="tel" id="contactTel" placeholder="전화번호 입력">
-
-                                                    </div>
+                                                    <input type="tel" id="contactTel" placeholder="전화번호 입력">
                                                 </td>
-                                            </tr>
+                                            </tr> -->
                                             <tr>
                                                 <th scope="row">
-                                                    <label for="emailId">이메일(선택)</label>
+                                                    <label for="emailId">이메일</label>
                                                 </th>
-                                                <td colspan="3">
+                                                <td colspan="5">
                                                     <div class="field-flex field-email">
                                                         <input type="text" id="emailId" placeholder="이메일 주소 입력">
                                                         <span class="field-at" aria-hidden="true">@</span>
@@ -91,9 +92,9 @@
                                             </tr>
                                             <tr>
                                                 <th scope="row">
-                                                    <label for="installAddress">설치주소(선택)</label>
+                                                    <label for="installAddress">설치주소</label>
                                                 </th>
-                                                <td colspan="3">
+                                                <td colspan="5">
                                                     <div class="field-flex field-address">
                                                         <input type="text" id="installAddress"
                                                             placeholder="설치 주소 입력 시 빠른 서비스 가능여부 확인이 가능">
@@ -183,7 +184,7 @@
                                 </div>
                             </div>
 
-                            <div class="btn-group right">
+                            <div class="btn-group">
                                 <a href="#" class="btn medium gray">다시 작성</a>
                                 <a href="#mdComplete" class="btn medium primary modalLoad">견적 문의 접수</a>
                             </div>
