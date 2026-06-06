@@ -285,7 +285,7 @@ input[type='date'] {
 
         .price {
           color: #000;
-          font-size: 4rem;
+          font-size: 3.8rem;
           font-weight: 700;
           line-height: 1;
           display: flex;
@@ -1023,7 +1023,7 @@ article {
         content: '';
         display: block;
         width: 100vw;
-        height: 300px;
+        height: var(--gnb-backdrop-height, 360px);
         background-color: #fff;
         position: fixed;
         left: 0;
@@ -1070,24 +1070,18 @@ article {
       top: 100%;
       left: 0;
       max-height: 0;
-      transition: all .4s ease;
+      overflow: hidden;
+      transition: max-height .4s ease;
       min-width: 200px;
 
       &.on {
-        max-height: 300px;
-
-        ul {
-          max-height: 260px;
-        }
+        max-height: var(--menu-container-height, 500px);
       }
 
       ul {
         margin: 20px 0;
         position: relative;
-        max-height: 0;
-        overflow: hidden;
         z-index: 2;
-        transition: all .4s ease;
 
         li {
           &.gnb-label {
@@ -2108,34 +2102,21 @@ html {
     }
   }
 
-  &.cloud-recording {
-    img {}
-  }
+
 
   &.visit-reservation {
     img {
       position: relative;
-      // top: 10px;
     }
   }
 
   &.attendance-management {
     img {
       position: relative;
-      // top: 30px;
-      // max-width: 500px;
-    }
-
-    &.extend {
-      img {
-        // top: 10px;
-        // min-width: 814px;
-        // position: relative;
-        // right: 180px;
-        // max-width: inherit;
-      }
     }
   }
+
+
 }
 
 .be-af-box {

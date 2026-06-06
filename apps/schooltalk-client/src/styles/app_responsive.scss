@@ -186,6 +186,11 @@
         left: auto;
         right: auto;
         min-width: auto;
+        overflow: hidden;
+
+        &.on {
+          max-height: var(--menu-container-height, 1000px);
+        }
 
         ul {
 
@@ -980,6 +985,8 @@
           }
 
         }
+
+
       }
 
       &.banner {
@@ -996,7 +1003,7 @@
           }
 
           h3 {
-            font-size: 3.4rem;
+            font-size: 3rem;
             line-height: 44px;
           }
 

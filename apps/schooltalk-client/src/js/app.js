@@ -145,20 +145,52 @@ function globalNavUi() {
     return window.innerWidth <= 719;
   }
 
+  function measureMenuContainerHeight($menuContainer) {
+    const menuEl = $menuContainer[0];
+    if (!menuEl) return 0;
+
+    const prevMaxHeight = menuEl.style.maxHeight;
+    menuEl.style.maxHeight = 'none';
+    const height = menuEl.scrollHeight;
+    menuEl.style.maxHeight = prevMaxHeight;
+    return height;
+  }
+
+  function setGnbDropdownHeights($gnb) {
+    let backdropHeight = 0;
+
+    $('.menu-container').each(function () {
+      const height = measureMenuContainerHeight($(this));
+      $(this).css('--menu-container-height', `${height}px`);
+      backdropHeight = Math.max(backdropHeight, height);
+    });
+
+    $gnb.css('--gnb-backdrop-height', `${backdropHeight}px`);
+  }
+
+  function resetGnbDropdownHeights($gnb) {
+    $gnb.css('--gnb-backdrop-height', '');
+    $('.menu-container').css('--menu-container-height', '');
+  }
+
   // .gnb 영역에 마우스를 올리면 모든 menu-container 표시 (데스크톱만)
   $('.gnb').on('mouseenter', function () {
     if (!isMobile()) {
-      $(this).addClass('menu-open');
+      const $gnb = $(this);
+      $gnb.addClass('menu-open');
       $('.menu-container').addClass('on');
       $('.gnb-item.more').addClass('active');
+      setGnbDropdownHeights($gnb);
     }
   });
 
   $('.gnb').on('mouseleave', function () {
     if (!isMobile()) {
-      $(this).removeClass('menu-open');
+      const $gnb = $(this);
+      $gnb.removeClass('menu-open');
       $('.menu-container').removeClass('on');
       $('.gnb-item.more').removeClass('active');
+      resetGnbDropdownHeights($gnb);
     }
   });
 
@@ -179,6 +211,13 @@ function globalNavUi() {
       // 클릭한 항목만 토글
       $menuContainer.toggleClass('on');
       $gnbItem.toggleClass('on');
+
+      if ($menuContainer.hasClass('on')) {
+        const height = measureMenuContainerHeight($menuContainer);
+        $menuContainer.css('--menu-container-height', `${height}px`);
+      } else {
+        $menuContainer.css('--menu-container-height', '');
+      }
     } else {
       // 데스크톱에서는 기본 동작 유지 (마우스 이벤트로 처리)
       e.preventDefault();
