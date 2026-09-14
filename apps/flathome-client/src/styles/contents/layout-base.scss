@@ -1,0 +1,138 @@
+.only-mo {
+  display: none;
+}
+
+.only-pc {
+  display: block;
+}
+
+html {
+  height: 100%;
+}
+
+.viewport {
+  min-width: 1340px;
+  width: 100%;
+
+  @include mobile {
+    min-width: 100%;
+  }
+}
+
+.app-inner {
+  max-width: 1340px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 30px;
+
+  @include mobile {
+    max-width: 100%;
+  }
+}
+
+.headline {
+  text-align: center;
+  margin-bottom: 80px;
+
+
+  &.left {
+    text-align: left;
+
+    p {
+      text-align: left;
+    }
+  }
+
+  &.arrow {
+    &:before {
+      content: '';
+      display: block;
+      width: 64px;
+      height: 77px;
+      margin: 80px auto 80px;
+      background: url('../images/ico-titleArrow.png') no-repeat center center / contain;
+    }
+  }
+
+
+
+  h3.app-title {
+    font-size: clamp(3rem, 5vw, 4.4rem);
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%;
+    letter-spacing: -1.5px;
+    margin-bottom: 24px;
+  }
+
+  h4.app-title {
+    font-size: clamp(2.6rem, 3vw, 4rem);
+    font-weight: 700;
+    line-height: 140%;
+    letter-spacing: -0.5px;
+    margin-bottom: 24px;
+  }
+
+  h5.app-title {
+    font-size: clamp(2.1rem, 3vw, 3.6rem);
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: -0.5px;
+    margin-bottom: 24px;
+  }
+
+  p {
+    color: var(--text-gray);
+    text-align: center;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: -0.5px;
+
+    &.point {
+      font-size: clamp(1.6rem, 3vw, 1.7rem);
+      font-weight: 700;
+      line-height: 140%;
+      letter-spacing: -0.5px;
+    }
+
+    &+.btn {
+      margin-top: 24px;
+    }
+
+    i {
+      color: var(--text);
+      font-style: normal;
+    }
+  }
+
+  @include mobile {
+    margin-bottom: 40px;
+
+    h3.app-title {
+      font-size: 2.8rem;
+    }
+
+    h4.app-title {
+      font-size: 2.4rem;
+    }
+
+    p {
+      font-size: 1.7rem;
+    }
+  }
+}
+
+.row {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+
+  .col {
+    flex: 1;
+  }
+
+  @include mobile {
+    flex-direction: column;
+  }
+}

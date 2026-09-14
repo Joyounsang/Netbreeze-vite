@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<include src="src/includes/head.html"></include>
+
+
+<body class="is-header-white">
+    <div class="viewport">
+        <include src="src/includes/header.html"></include>
+
+        <div class="container">
+            <section class="app-section single-page contact">
+                <div class="app-inner">
+                    <div class="row">
+                        <div class="col">
+                            <div class="headline left">
+                                <h4 class="app-title">
+                                    플랫홈과 할께할<br>
+                                    제휴∙제안을 신청해주세요.
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form">
+                                <div class="form-headline">
+                                    <h5 class="form-tit">담당자 정보 입력</h5>
+                                    <span class="form-required"><em class="red">*</em> 표시는 필수입력</span>
+                                </div>
+                                <form class="contact-form">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-field">
+                                                <label for="contactName">성함 <span class="required">*</span></label>
+                                                <input type="text" id="contactName" placeholder="이름 입력">
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-field">
+                                                <label for="contactTel">연락처 <span class="required">*</span></label>
+                                                <input type="tel" id="contactTel" placeholder="연락처 입력(-없이)">
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-field">
+                                                <label for="contactEmail">이메일 <span class="required">*</span></label>
+                                                <input type="email" id="contactEmail" placeholder="이메일주소 입력">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-field">
+                                                <label for="contactOrg">소속 <span class="required">*</span></label>
+                                                <input type="text" id="contactOrg" placeholder="관리사무소, 입주자대표회의">
+                                            </div>
+
+
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-field">
+                                                <label for="contactProposal">제안서 및 회사 소개서</label>
+                                                <div class="form-file" data-file-field>
+                                                    <input type="file" id="contactProposal" name="contactProposal"
+                                                        class="sr-only">
+                                                    <input type="text" class="form-file__name" readonly
+                                                        placeholder="선택된 파일 없음" data-file-name aria-live="polite">
+                                                    <label for="contactProposal" class="form-file__btn">파일첨부</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-field">
+                                                <label for="contactMessage">기타 문의 내용</label>
+                                                <textarea id="contactMessage"
+                                                    placeholder="문의하실 내용을 자유롭게 남겨주세요."></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-footer">
+                                        <div class="form-agree">
+                                            <label class="checkbox checkbox-all">
+                                                <input type="checkbox" checked>
+                                                <span>전체항목 동의</span>
+                                            </label>
+                                            <div class="form-agree-list">
+                                                <div class="form-agree-item">
+                                                    <label class="checkbox min">
+                                                        <input type="checkbox" checked>
+                                                        <span>(필수) 개인정보 수집 및 이용동의</span>
+                                                    </label>
+                                                    <a href="#mdTermsPersonalInfo" class="form-agree-view">보기</a>
+                                                </div>
+                                                <div class="form-agree-item">
+                                                    <label class="checkbox min">
+                                                        <input type="checkbox">
+                                                        <span>(선택) 마케팅 정보 수신 동의</span>
+                                                    </label>
+                                                    <a href="#mdTermsMarketing" class="form-agree-view">보기</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="form-submit">문의하기</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <include src="src/includes/footer.html"></include>
+    </div>
+    <include src="src/includes/md-플랫홈다운로드.html"></include>
+    <include src="src/includes/md-플랫패스다운로드.html"></include>
+    <include src="src/includes/md-플랫매니저다운로드.html"></include>
+    <script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>

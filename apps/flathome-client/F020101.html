@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+<include src="src/includes/head.html"></include>
+
+
+<body class="is-header-white">
+    <div class="viewport">
+        <include src="src/includes/header.html"></include>
+
+        <div class="container">
+            <section class="app-section single-page">
+                <div class="app-inner">
+                    <div class="row align-top">
+                        <div class="col faq-page__side">
+                            <div class="headline left">
+                                <h3 class="app-title">
+                                    자주 묻는 질문
+                                </h3>
+                                <p>
+                                    서비스 이용 중 생기는 궁금증,<br>
+                                    이곳에서 바로 확인해 보세요.
+                                </p>
+                            </div>
+
+                            <nav class="side-navigation" aria-label="FAQ 카테고리" data-faq-nav>
+                                <p class="side-navigation__all">
+                                    <button type="button" data-faq-filter="all" class="is-active">전체</button>
+                                </p>
+                                <ul class="side-navigation__list">
+                                    <li>
+                                        <button type="button" class="side-navigation__group" aria-expanded="true">
+                                            질문 TOP
+                                        </button>
+                                        <ul class="side-navigation__sub">
+                                            <li><a href="#" data-faq-filter="top">질문 TOP</a></li>
+                                            <li><a href="#" data-faq-filter="security2">2차 보안 인증</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="side-navigation__group">
+                                            서비스 안내
+                                        </button>
+                                        <ul class="side-navigation__sub">
+                                            <li><a href="#" data-faq-filter="onepass">원패스 (BLE·안면인식)</a></li>
+                                            <li><a href="#" data-faq-filter="lobby">클라우드 로비폰</a></li>
+                                            <li><a href="#" data-faq-filter="community">커뮤니티 이용</a></li>
+                                            <li><a href="#" data-faq-filter="parking">주차 이용</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="side-navigation__group" aria-expanded="true">
+                                            앱 이용 도움말
+                                        </button>
+                                        <ul class="side-navigation__sub">
+                                            <li><a href="#" data-faq-filter="app-flathome">플랫홈</a></li>
+                                            <li><a href="#" data-faq-filter="app-flatpass">플랫패스</a></li>
+                                            <li><a href="#" data-faq-filter="app-flatmanager">플랫매니저</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+
+                        <div class="col faq-page__main">
+                            <div class="faq-search">
+                                <input type="search" placeholder="검색어를 입력해 주세요" aria-label="FAQ 검색">
+                                <button type="button" class="btnico search">검색</button>
+                            </div>
+
+                            <div class="cs-board" data-faq-board>
+                                <div class="list-board dropdown">
+
+                                    <!-- 질문 TOP -->
+                                    <ul>
+                                        <li data-faq-category="top">
+                                            <a href="#" class="board-tit dropdown-btn">
+                                                <div class="text">
+                                                    <span class="cate">질문 TOP</span>
+                                                    신청 방법과 도입 절차가 어떻게 되나요?
+                                                </div>
+                                            </a>
+                                            <div class="board-content dropdown-content">
+                                                <div class="board-content-inner">
+                                                    <p>
+                                                        홈페이지 상단의 서비스신청 메뉴에서 필요한 정보를 입력하면, 맞춤서비스를 위한 안내전화를 드립니다.
+                                                        상담부터 관리지원까지 플랫매니저가 책임집니다.
+                                                    </p>
+                                                    <ol class="faq-process">
+                                                        <li>
+                                                            <span class="faq-process__num" aria-hidden="true">1</span>
+                                                            <strong class="faq-process__tit">도입상담</strong>
+                                                            <p class="faq-process__desc">단지정보 제공 및 <br>필요서비스 요청</p>
+                                                        </li>
+                                                        <li>
+                                                            <span class="faq-process__num" aria-hidden="true">2</span>
+                                                            <strong class="faq-process__tit">맞춤서비스 안내</strong>
+                                                            <p class="faq-process__desc">단지 맞춤형 서비스 <br>안내 및 협의</p>
+                                                        </li>
+                                                        <li>
+                                                            <span class="faq-process__num" aria-hidden="true">3</span>
+                                                            <strong class="faq-process__tit">시스템 제공·연동</strong>
+                                                            <p class="faq-process__desc">앱 및 관리자Web <br>제공 필요시 시스템연동</p>
+                                                        </li>
+                                                        <li>
+                                                            <span class="faq-process__num" aria-hidden="true">4</span>
+                                                            <strong class="faq-process__tit">도입완료</strong>
+                                                            <p class="faq-process__desc">플랫 서비스 이용 <br>및 관리지원</p>
+                                                        </li>
+                                                    </ol>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li data-faq-category="top">
+                                            <a href="#" class="board-tit dropdown-btn">
+                                                <div class="text">
+                                                    <span class="cate">질문 TOP</span>
+                                                    신축/기축 모두 이용이 가능한가요?
+                                                </div>
+                                            </a>
+                                            <div class="board-content dropdown-content">
+                                                <p>
+                                                    신축아파트는 편의를 제공할 수 있는 시스템이 많아 더욱 다양한 기능활용이 가능하고, 기축아파트도 연동 시스템에 따라
+                                                    모바일로 스마트한 시스템 제공이 가능합니다.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li data-faq-category="security2">
+                                            <a href="#" class="board-tit dropdown-btn">
+                                                <div class="text">
+                                                    <span class="cate">2차 보안 인증</span>
+                                                    보안에 대한 관리는 어떻게 하나요?
+                                                </div>
+                                            </a>
+                                            <div class="board-content dropdown-content">
+                                                <p>
+                                                    단지시스템에서 클라우드 구간까지 모든 데이터를 암호화하여 안전하게 관리됩니다.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li data-faq-category="top">
+                                            <a href="#" class="board-tit dropdown-btn">
+                                                <div class="text">
+                                                    <span class="cate">질문 TOP</span>
+                                                    시스템 연동은 어떻게 하나요?
+                                                </div>
+                                            </a>
+                                            <div class="board-content dropdown-content">
+                                                <p>
+                                                    당사에서 현장방문하여 VPN시스템을 설치하고 연동절차를 진행합니다.
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                                    <!-- 원패스 (BLE·안면인식) : 블루투스-->
+                                    <ul>
+                                        <li data-faq-category="onepass">
+                                            <a href="#" class="board-tit dropdown-btn">
+                                                <div class="text">
+                                                    <span class="cate">원패스 (BLE·안면인식)</span>
+                                                    기존 출입카드와 함께 쓸 수 있나요?
+                                                </div>
+                                            </a>
+                                            <div class="board-content dropdown-content">
+                                                <p>
+                                                    네. 기존 카드·기기를 그대로 두고 원패스를 함께 사용할 수 있습니다. 전면 교체 없이
+                                                    단계적으로 전환하시는 단지가 많습니다.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li data-faq-category="onepass">
+                                            <a href="#" class="board-tit dropdown-btn">
+                                                <div class="text">
+                                                    <span class="cate">원패스 (BLE·안면인식)</span>
+                                                    보안은 안전한가요? 복제 위험은 없나요?
+                                                </div>
+                                            </a>
+                                            <div class="board-content dropdown-content">
+                                                <p>
+                                                    스마트폰 기반 개인 암호화 인증으로 동작해 카드 복제와 같은 방식의 무단 복제가
+                                                    어렵습니다. 분실 시에는 해당 기기의 권한을 즉시 비활성화할 수 있습니다.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li data-faq-category="onepass">
+                                            <a href="#" class="board-tit dropdown-btn">
+                                                <div class="text">
+                                                    <span class="cate">원패스 (BLE·안면인식)</span>
+                                                    (블루투스 원패스) 설치 공사가 많이 필요한가요?
+                                                </div>
+                                            </a>
+                                            <div class="board-content dropdown-content">
+                                                <p>
+                                                    기존 배선과 인프라를 최대한 활용하는 방식이라 대규모 공사 없이 도입이 가능합니다.
+                                                    <br>
+                                                    기존 공동현관 출입 설비를 활용해 최소한의 공사로 도입할 수 있습니다. 단지 현황에 따라 다르므로, 상담 시 정확한 범위와
+                                                    비용을
+                                                    안내해 드립니다.
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+
+
+                                    <!-- 원패스 (BLE·안면인식) : 안면인식-->
+                                    <ul>
+                                        <li data-faq-category="onepass">
+                                            <a href="#" class="board-tit dropdown-btn">
+                                                <div class="text">
+                                                    <span class="cate">원패스 (BLE·안면인식)</span>
+                                                    블루투스와 안면인식을 동시에 사용할 수 있나요?
+                                                </div>
+                                            </a>
+                                            <div class="board-content dropdown-content">
+                                                <p>
+                                                    네, 하나의 시스템에서 함께 동작하므로, 입주민이 상황에 따라 편한 방식으로 출입하면 됩니다.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li data-faq-category="onepass">
+                                            <a href="#" class="board-tit dropdown-btn">
+                                                <div class="text">
+                                                    <span class="cate">원패스 (BLE·안면인식)</span>
+                                                    블루투스 원패스나 클라우드 로비폰만 따로 도입할 수도 있나요?
+                                                </div>
+                                            </a>
+                                            <div class="board-content dropdown-content">
+                                                <p>
+                                                    단지 상황과 예산에 맞춰 필요한 기능만 선택해 도입하실 수 있으며, 이후 확장 도입도 언제든 가능합니다.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li data-faq-category="onepass">
+                                            <a href="#" class="board-tit dropdown-btn">
+                                                <div class="text">
+                                                    <span class="cate">원패스 (BLE·안면인식)</span>
+                                                    (안면인식 원패스) 설치 공사가 많이 필요한가요?
+                                                </div>
+                                            </a>
+                                            <div class="board-content dropdown-content">
+                                                <p>
+                                                    기존 배선과 인프라를 최대한 활용하는 방식이라 대규모 공사 없이 도입이 가능합니다.
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                                    <!-- 클라우드 로비폰 -->
+                                    <ul>
+                                        <li data-faq-category="cloudlobbyphone">
+                                            <a href="#" class="board-tit dropdown-btn">
+                                                <div class="text">
+                                                    <span class="cate">클라우드 로비폰</span>
+                                                    안면인식이 안 될 때는 어떻게 하나요?
+                                                </div>
+                                            </a>
+                                            <div class="board-content dropdown-content">
+                                                <p>
+                                                    비밀번호·RF 카드·방문자 QR 등 보조 인증을 함께 지원합니다. 상황에 따라 안면인식 대신
+                                                    다른 방식으로 출입할 수 있습니다.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li data-faq-category="cloudlobbyphone">
+                                            <a href="#" class="board-tit dropdown-btn">
+                                                <div class="text">
+                                                    <span class="cate">클라우드 로비폰</span>
+                                                    외부 방문자는 어떻게 출입하나요?
+                                                </div>
+                                            </a>
+                                            <div class="board-content dropdown-content">
+                                                <p>
+                                                    세대와 영상통화로 확인한 뒤 원격으로 문을 열거나, 미리 발급한 방문자 QR로 지정된
+                                                    방문자만 출입하도록 할 수 있습니다.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li data-faq-category="cloudlobbyphone">
+                                            <a href="#" class="board-tit dropdown-btn">
+                                                <div class="text">
+                                                    <span class="cate">클라우드 로비폰</span>
+                                                    경비실 운영과 연동되나요?
+                                                </div>
+                                            </a>
+                                            <div class="board-content dropdown-content">
+                                                <p>
+                                                    네. 경비실기와 연동하면 세대 부재 시에도 경비실에서 대응할 수 있습니다.
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                                    <!-- 커뮤니티 이용 -->
+                                    <ul>
+                                        <li data-faq-category="community">
+                                            <a href="#" class="board-tit dropdown-btn">
+                                                <div class="text">
+                                                    <span class="cate">커뮤니티 이용</span>
+                                                    안면인식이 안 될 때는 어떻게 하나요?
+                                                </div>
+                                            </a>
+                                            <div class="board-content dropdown-content">
+                                                <p>
+                                                    비밀번호·RF 카드·방문자 QR 등 보조 인증을 함께 지원합니다. 상황에 따라 얼굴 대신 다른 방식으로 출입할 수 있어
+                                                    불편이
+                                                    없습니다.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li data-faq-category="community">
+                                            <a href="#" class="board-tit dropdown-btn">
+                                                <div class="text">
+                                                    <span class="cate">커뮤니티 이용</span>
+                                                    외부 방문자는 어떻게 출입하나요?
+                                                </div>
+                                            </a>
+                                            <div class="board-content dropdown-content">
+                                                <p>
+                                                    세대와 영상통화로 확인한 뒤 원격으로 문을 열거나, 미리 발급한 방문자 QR로 지정된 시간에만 출입하도록 할 수 있습니다.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li data-faq-category="community">
+                                            <a href="#" class="board-tit dropdown-btn">
+                                                <div class="text">
+                                                    <span class="cate">커뮤니티 이용</span>
+                                                    경비실 운영과 연동되나요?
+                                                </div>
+                                            </a>
+                                            <div class="board-content dropdown-content">
+                                                <p>
+                                                    네. 경비실기와 연동하면 방문자 호출을 경비실로 연결하고, 세대 부재 시에도 경비실에서 대응할 수 있습니다.
+                                                </p>
+
+
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                                    <!-- 주차 이용 -->
+                                    <ul>
+                                        <li data-faq-category="parking">
+                                            <a href="#" class="board-tit dropdown-btn">
+                                                <div class="text">
+                                                    <span class="cate">주차 이용</span>
+                                                    기존 주차 차단기를 교체해야 하나요?
+                                                </div>
+                                            </a>
+                                            <div class="board-content dropdown-content">
+                                                <p>
+                                                    기존 차단기 업체와의 연동을 협의할 수 있습니다. 단지 장비 환경에 따라 연동 가능 여부와 범위가 달라서 상담 후 안내해
+                                                    드립니다.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li data-faq-category="parking">
+                                            <a href="#" class="board-tit dropdown-btn">
+                                                <div class="text">
+                                                    <span class="cate">주차 이용</span>
+                                                    방문 차량은 어떻게 등록하나요?
+                                                </div>
+                                            </a>
+                                            <div class="board-content dropdown-content">
+                                                <p>
+                                                    입주민이 플랫홈 App에서 방문 차량 번호를 직접 등록합니다. 등록된 차량은 관리자 웹에서 실시간으로 확인됩니다.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li data-faq-category="parking">
+                                            <a href="#" class="board-tit dropdown-btn">
+                                                <div class="text">
+                                                    <span class="cate">주차 이용</span>
+                                                    무료 방문 주차 시간을 정할 수 있나요?
+                                                </div>
+                                            </a>
+                                            <div class="board-content dropdown-content">
+                                                <p>
+                                                    네. 아파트 정책에 맞춰 무료 방문 주차 시간을 설정할 수 있습니다.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li data-faq-category="parking">
+                                            <a href="#" class="board-tit dropdown-btn">
+                                                <div class="text">
+                                                    <span class="cate">주차 이용</span>
+                                                    주차 총량제는 어떻게 운영되나요?
+                                                </div>
+                                            </a>
+                                            <div class="board-content dropdown-content">
+                                                <p>
+                                                    세대별로 방문 주차에 사용할 수 있는 시간의 총량을 정해 운영합니다. 잔여 시간과 초과 여부는 관리자 웹에서 확인·관리할
+                                                    수
+                                                    있습니다.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="board-tit dropdown-btn">
+                                                <div class="text">
+                                                    <span class="cate">주차 이용</span>
+                                                    불법 주차 차량은 어떻게 관리하나요?
+                                                </div>
+                                            </a>
+                                            <div class="board-content dropdown-content">
+                                                <p>
+                                                    미등록 차량이나 장기 방치 차량을 현장에서 촬영해 기록으로 남깁니다. 경비·관리 직원이 App으로 등록하면 관리자 웹에서
+                                                    함께
+                                                    확인할 수 있습니다.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li data-faq-category="parking">
+                                            <a href="#" class="board-tit dropdown-btn">
+                                                <div class="text">
+                                                    <span class="cate">주차 이용</span>
+                                                    주차 공간이 부족한데 방법이 있나요?
+                                                </div>
+                                            </a>
+                                            <div class="board-content dropdown-content">
+                                                <p>
+                                                    주차 자리 추첨제를 제공할 수 있습니다. 단지 상황에 맞는 운영 방식은 상담 시 함께 설계해 드립니다.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li data-faq-category="parking">
+                                            <a href="#" class="board-tit dropdown-btn">
+                                                <div class="text">
+                                                    <span class="cate">주차 이용</span>
+                                                    위반 차량은 어떻게 관리하나요?
+                                                </div>
+                                            </a>
+                                            <div class="board-content dropdown-content">
+                                                <p>
+                                                    관리자 웹에서 블랙리스트·위반 차량을 지정해 출입을 제한할 수 있습니다.
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                                    <!-- 플랫홈 : 내용 없음 -->
+                                    <ul>
+                                        <li data-faq-category="flathome">
+                                            <a href="#" class="board-tit dropdown-btn">
+                                                <div class="text">
+                                                    <span class="cate">플랫홈</span>
+                                                    플랫홈 앱 이용 도움말
+                                                </div>
+                                            </a>
+                                            <div class="board-content dropdown-content">
+                                                <p>
+                                                    플랫홈 앱 이용 도움말
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                                    <!-- 플랫패스 : 내용 없음 -->
+                                    <ul>
+                                        <li data-faq-category="flatpass">
+                                            <a href="#" class="board-tit dropdown-btn">
+                                                <div class="text">
+                                                    <span class="cate">플랫패스</span>
+                                                    플랫패스 앱 이용 도움말
+                                                </div>
+                                            </a>
+                                            <div class="board-content dropdown-content">
+                                                <p>
+                                                    플랫패스 앱 이용 도움말
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                                    <!-- 플랫매니저 : 내용 없음 -->
+                                    <ul>
+                                        <li data-faq-category="flathmanager">
+                                            <a href="#" class="board-tit dropdown-btn">
+                                                <div class="text">
+                                                    <span class="cate">플랫매니저</span>
+                                                    플랫매니저 앱 이용 도움말
+                                                </div>
+                                            </a>
+                                            <div class="board-content dropdown-content">
+                                                <p>
+                                                    플랫매니저 앱 이용 도움말
+                                                </p>
+                                            </div>
+                                        </li>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <include src="src/includes/footer.html"></include>
+    </div>
+    <include src="src/includes/md-플랫홈다운로드.html"></include>
+    <include src="src/includes/md-플랫패스다운로드.html"></include>
+    <include src="src/includes/md-플랫매니저다운로드.html"></include>
+    <script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>

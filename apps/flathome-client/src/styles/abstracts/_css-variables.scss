@@ -1,0 +1,27 @@
+:root {
+  --white: #ffffff;
+  --black: #0D1B2A;
+
+  --rec-primary: #62BBC9;
+  --rec-secondary: #5680EB;
+  --rec-tertiary: #B87DF4;
+  --rec-primary-border: #B4D5F6;
+  --rec-primary-bg: #51555d;
+
+  --rec-negative: #ff495e;
+  --rec-negative-border: #ffd7db;
+  --rec-negative-bg: #fffbfb;
+
+  --text: #0D1B2A;
+  --text-gray: #74758C;
+  --text-light: #9FA2B4;
+
+
+
+  --border: #D1DBEA;
+  --border-light: #EBECF2;
+  --gray: #F5F6F8;
+  --gray-light: #f3f5f8;
+
+  --full-height: calc(var(--vh, 1vh) * 100);
+}

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ko">
+<include src="src/includes/head.html"></include>
+
+<body>
+    <div class="viewport">
+        <include src="src/includes/GNB.html"></include>
+        <div class="container">
+            <include src="src/includes/header.html"></include>
+            <div class="contents">
+                <div class="panel scrollbar listView">
+                    <div class="panel-head">
+                        <div class="title">AI Board Post 작성</div>
+                    </div>
+                    <div class="content-view">
+                        <div class="setting-list">
+                            <article>
+                                <div class="setting-tit">
+                                    Board Type
+                                    <em class="gray">board_type 정책을 먼저 불러온 뒤, 허용된 옵션만 선택할 수 있습니다.</em>
+                                </div>
+                                <div class="tbl type-set">
+                                    <table>
+                                        <colgroup>
+                                            <col style="width:230px;">
+                                            <col style="width:auto">
+                                        </colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="set-title">
+                                                        <div class="tit">타입</div>
+                                                    </div>
+                                                </th>
+                                                <td class="left">
+                                                    <div class="items">
+                                                        <input type="text" placeholder="타입을 입력해 주세요.">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </article>
+
+                            <article>
+                                <div class="setting-tit">
+                                    실행 옵션
+                                </div>
+                                <div class="tbl type-set">
+                                    <table>
+                                        <colgroup>
+                                            <col style="width:230px;">
+                                            <col style="width:auto">
+                                        </colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="set-title">
+                                                        <div class="tit">옵션1</div>
+                                                    </div>
+                                                </th>
+                                                <td class="left">
+                                                    <div class="items">
+                                                        <select>
+                                                            <option>FACT_LIGHT</option>
+                                                        </select>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="set-title">
+                                                        <div class="tit">옵션2</div>
+                                                    </div>
+                                                </th>
+                                                <td class="left">
+                                                    <div class="items">
+                                                        <select>
+                                                            <option>required</option>
+                                                        </select>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="set-title">
+                                                        <div class="tit">옵션3</div>
+                                                    </div>
+                                                </th>
+                                                <td class="left">
+                                                    <div class="items">
+                                                        <select>
+                                                            <option>verified</option>
+                                                        </select>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="set-title">
+                                                        <div class="tit">옵션4</div>
+                                                    </div>
+                                                </th>
+                                                <td class="left">
+                                                    <div class="items">
+                                                        <select>
+                                                            <option>strict</option>
+                                                        </select>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="set-title">
+                                                        <div class="tit">옵션5</div>
+                                                    </div>
+                                                </th>
+                                                <td class="left">
+                                                    <div class="items">
+                                                        <select>
+                                                            <option>deny</option>
+                                                        </select>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </article>
+
+                            <article>
+                                <div class="setting-tit">
+                                    Output Contract (정책 기준)
+                                </div>
+                                <div class="tbl type-set">
+                                    <table>
+                                        <colgroup>
+                                            <col style="width:230px;">
+                                            <col style="width:auto">
+                                        </colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="set-title">
+                                                        <div class="tit">최소 길이</div>
+                                                    </div>
+                                                </th>
+                                                <td class="left">
+                                                    <div class="items">
+                                                        <input type="text" placeholder="최소 길이를 입력해 주세요.">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="set-title">
+                                                        <div class="tit">최소 문단</div>
+                                                    </div>
+                                                </th>
+                                                <td class="left">
+                                                    <div class="items">
+                                                        <input type="text" placeholder="최소 문단을 입력해 주세요.">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="set-title">
+                                                        <div class="tit">요약</div>
+                                                    </div>
+                                                </th>
+                                                <td class="left">
+                                                    <div class="items">
+                                                        <input type="text" placeholder="요약을 입력해 주세요.">
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="set-title">
+                                                        <div class="tit">요약 길이</div>
+                                                    </div>
+                                                </th>
+                                                <td class="left">
+                                                    <div class="items">
+                                                        <input type="text" placeholder="요약 길이를 입력해 주세요.">
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="set-title">
+                                                        <div class="tit">키워드</div>
+                                                    </div>
+                                                </th>
+                                                <td class="left">
+                                                    <div class="items">
+                                                        <input type="text" placeholder="키워드를 입력해 주세요.">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </article>
+
+                            <article>
+                                <div class="setting-tit">
+                                    본문
+                                </div>
+                                <div class="tbl type-set">
+                                    <table>
+                                        <colgroup>
+                                            <col style="width:230px;">
+                                            <col style="width:auto">
+                                        </colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="set-title">
+                                                        <div class="tit">제목</div>
+                                                    </div>
+                                                </th>
+                                                <td class="left">
+                                                    <div class="items">
+                                                        <input type="text"
+                                                            placeholder="제목을 입력하지 않으면 본문 앞부분이 자동 제목으로 저장됩니다."
+                                                            style="min-width: 600px;">
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="set-title">
+                                                        <div class="tit">내용</div>
+                                                    </div>
+                                                </th>
+                                                <td class="left">
+                                                    <div class="items">
+                                                        <textarea name="" id=""
+                                                            style="max-width: 600px;min-height: 200px;"
+                                                            placeholder="Board 요청 본문을 입력해 주세요."></textarea>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="set-title">
+                                                        <div class="tit">첨부파일</div>
+                                                    </div>
+                                                </th>
+                                                <td class="left">
+                                                    <div class="items">
+                                                        <label for="file-select" class="btn normal fill"
+                                                            style="cursor: pointer; position: relative;">
+                                                            파일선택
+                                                            <input type="file" id="file-select" multiple
+                                                                style="position: absolute; opacity: 0; width: 0; height: 0; overflow: hidden;">
+                                                        </label>
+                                                        <a href="#" class="btn positive fill">업로드</a>
+                                                    </div>
+                                                    <div class="file-list">
+                                                        <div class="file-path-input">
+                                                            <input type="text" placeholder="C://folder/file/file.pdf"
+                                                                readonly>
+                                                            <a href="#" class="ico trash">삭제</a>
+                                                        </div>
+                                                        <div class="file-path-input">
+                                                            <input type="text" placeholder="C://folder/file/file.pdf"
+                                                                readonly>
+                                                            <a href="#" class="ico trash">삭제</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="content-view-foot">
+                            <a href="#" class="btn natural line">취소</a>
+                            <a href="#" class="btn positive fill">저장</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>

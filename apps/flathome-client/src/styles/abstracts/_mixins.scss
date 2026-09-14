@@ -1,0 +1,82 @@
+@mixin mobile {
+  @media screen and (max-width: $mobile) {
+    @content;
+  }
+}
+
+@mixin screen($size) {
+  @if ($size =="mobile-small") {
+    @media screen and (max-width: #{$breakpoint-mobile - 1px}) {
+      @content;
+    }
+  }
+
+  @else if ($size =="mobile") {
+    @include mobile {
+      @content;
+    }
+  }
+
+  @else if ($size =="tablet") {
+    @media screen and (min-width: #{$breakpoint-tablet}) and (max-width: #{$breakpoint-desktop - 1px}) {
+      @content;
+    }
+  }
+
+  @else if ($size =="desktop") {
+    @media screen and (min-width: #{$breakpoint-desktop}) {
+      @content;
+    }
+  }
+
+  @else if ($size =="mobile-large") {
+    @media screen and (min-width: #{$breakpoint-tablet}) {
+      @content;
+    }
+  }
+}
+
+// @mixin pseudo($width: 100%, $height: 100%, $pos: absolute, $display: block, $content: "") {
+//   content: $content;
+//   position: $pos;
+//   display: $display;
+//   width: $width;
+//   height: $height;
+// }
+@mixin placeholder-color($color, $opacity) {
+  &::-webkit-input-placeholder {
+    color: $color;
+    opacity: $opacity;
+  }
+
+  &:-moz-placeholder {
+    color: $color;
+    opacity: $opacity;
+  }
+
+  &::-moz-placeholder {
+    color: $color;
+    opacity: $opacity;
+  }
+
+  &:-ms-input-placeholder {
+    color: $color;
+    opacity: $opacity;
+  }
+}
+
+@mixin fontStyle {
+  font-family: $base-font-system;
+}
+
+// 기본 방향: 아래(chevron down). rotate로 방향 조절
+@mixin ico-crud-arrow($size: 12px) {
+  flex: none;
+  content: '';
+  display: block;
+  width: $size;
+  height: $size;
+  border: none;
+  background: url('../images/ico-crud-arrows.png') no-repeat center center / contain;
+  transition: transform 0.2s ease;
+}
