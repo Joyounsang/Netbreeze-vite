@@ -19,13 +19,6 @@ import '@/js/faq-page.js';
 import '@/js/cases-page.js';
 import '@/js/contact-service-select.js';
 import '@/js/contact-file-field.js';
-import '@/js/notice-slider.js';
-import '@/js/fee-sticky-tabs.js';
-import '@/js/product-swiper.js';
-import '@/js/features-swiper.js';
-import '@/js/application-swiper.js';
-import '@/js/keypoint-exa-img.js';
-import '@/js/banner-ad-rise.js';
 
 const MOBILE_BREAKPOINT = 720;
 

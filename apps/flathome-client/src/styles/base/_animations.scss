@@ -153,40 +153,6 @@
   }
 }
 
-@keyframes banner-ad-rise {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, 100%);
-  }
-
-  65% {
-    opacity: 1;
-    transform: translate(-50%, -12px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translate(-50%, 0);
-  }
-}
-
-@keyframes banner-ad-rise-mobile {
-  0% {
-    opacity: 0;
-    transform: translateY(100%);
-  }
-
-  65% {
-    opacity: 1;
-    transform: translateY(-12px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 @keyframes zoom {
   0% {
     transform: scale(1);
@@ -373,9 +339,167 @@
     transform: scale(1);
     opacity: 1;
   }
+}
 
-  30% {
-    transform: scale(1);
+// sub.scss — sub-reason
+@keyframes fadeIconCycle {
+  0% {
+    opacity: 0;
+  }
+
+  8% {
     opacity: 1;
+  }
+
+  28% {
+    opacity: 1;
+  }
+
+  36% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+// sub.scss — modelling gallery
+@keyframes deviceScanLineMove {
+
+  0%,
+  100% {
+    top: 0;
+    opacity: 0.55;
+  }
+
+  50% {
+    top: calc(100% - 2px);
+    opacity: 1;
+  }
+}
+
+@keyframes deviceScanMeshPulse {
+
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+
+  50% {
+    filter: brightness(1.06);
+  }
+}
+
+@keyframes deviceScanCornerPulse {
+
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes deviceErrorShake {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-5px);
+  }
+
+  40% {
+    transform: translateX(5px);
+  }
+
+  60% {
+    transform: translateX(-3px);
+  }
+
+  80% {
+    transform: translateX(3px);
+  }
+}
+
+// sub.scss — smart-choice (B020101)
+@keyframes smartChoiceCornerScan {
+
+  0%,
+  20%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+
+  10% {
+    opacity: 1;
+    transform: scale(1.14);
+  }
+}
+
+@keyframes smartChoiceGraphicPulse {
+
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+@keyframes smartChoiceBleSignal {
+
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  35% {
+    opacity: 0.85;
+    transform: translate(-50%, -52%) scale(1.04);
+  }
+
+  70% {
+    opacity: 0.65;
+    transform: translate(-50%, -48%) scale(1.02);
+  }
+}
+
+@keyframes smartChoiceCameraFocus {
+
+  0%,
+  72%,
+  100% {
+    transform: scale(1);
+  }
+
+  74% {
+    transform: scale(0.82);
+  }
+
+  79% {
+    transform: scale(1.15);
+  }
+
+  84% {
+    transform: scale(1);
+  }
+}
+
+// _main-sections.scss — main-app
+@keyframes main-app-bar-fill {
+  to {
+    width: 100%;
   }
 }
