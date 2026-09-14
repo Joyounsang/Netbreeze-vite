@@ -1542,11 +1542,11 @@
 
 
 .terms {
-  margin-top: -40px;
-  padding-bottom: 40px;
+
+  padding: 0 40px 40px;
 
   a {
-    color: #454545;
+    color: var(--rec-secondary);
 
     &:hover {
       text-decoration: underline;
@@ -1562,11 +1562,14 @@
   }
 
   p {
+    color: var(--text-gray);
     font-size: 1.4rem;
     margin: 0 0 10px;
   }
 
   ul {
+    color: var(--text-gray);
+
     >li {
       font-size: 1.4rem;
       font-weight: 500;
@@ -1617,5 +1620,3 @@
     pointer-events: none;
   }
 }
-
-
