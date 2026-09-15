@@ -132,7 +132,20 @@ function initBannerSwiper() {
   });
 
   syncAllHeroProgressFrames(swiperEl);
-  window.addEventListener('resize', () => syncAllHeroProgressFrames(swiperEl), { passive: true });
+
+  let resizeFrameScheduled = false;
+  window.addEventListener(
+    'resize',
+    () => {
+      if (resizeFrameScheduled) return;
+      resizeFrameScheduled = true;
+      requestAnimationFrame(() => {
+        resizeFrameScheduled = false;
+        syncAllHeroProgressFrames(swiperEl);
+      });
+    },
+    { passive: true },
+  );
 }
 
 $(document).ready(initBannerSwiper);

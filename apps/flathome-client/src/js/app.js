@@ -1,5 +1,4 @@
 'use strict';
-import '@/js/smooth-scroll.js';
 import '@/js/skip-nav.js';
 import '@/js/header.js';
 import '@/js/location-menu.js';
@@ -37,15 +36,15 @@ function withRaf(fn) {
 
 document.addEventListener('DOMContentLoaded', () => {
   window.AOS?.init?.();
-  $('.scrollbar').scrollbar();
+  // $('.scrollbar').scrollbar();
   clickModal();
   // 약간의 지연 후 이미지 스위치(초기 렌더 보정)
-  setTimeout(switchImages, 300);
+  // setTimeout(switchImages, 300);
 
   // 리사이즈·방향 전환 시 이미지 스위치
-  const handleResize = withRaf(switchImages);
-  window.addEventListener('resize', handleResize, { passive: true });
-  window.addEventListener('orientationchange', handleResize, { passive: true });
+  // const handleResize = withRaf(switchImages);
+  // window.addEventListener('resize', handleResize, { passive: true });
+  // window.addEventListener('orientationchange', handleResize, { passive: true });
 });
 
 

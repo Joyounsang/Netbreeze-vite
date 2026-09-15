@@ -23,8 +23,13 @@ function initHeaderScrollTheme() {
     return;
   }
 
+  let headerIsWhite = null;
+
   const updateHeaderTheme = () => {
-    header.classList.toggle('white', window.scrollY > 0);
+    const shouldWhite = window.scrollY > 0;
+    if (headerIsWhite === shouldWhite) return;
+    headerIsWhite = shouldWhite;
+    header.classList.toggle('white', shouldWhite);
   };
 
   updateHeaderTheme();

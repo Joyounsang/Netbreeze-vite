@@ -13,10 +13,6 @@ html {
   line-height: 1.5;
   color: var(--text);
 
-  &.lenis.lenis-smooth {
-    scroll-behavior: auto !important;
-  }
-
   body {
     font-size: fs($base-font-size);
     letter-spacing: -0.5px;
