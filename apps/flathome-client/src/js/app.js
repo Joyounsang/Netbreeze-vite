@@ -15,6 +15,7 @@ import '@/js/add-service-swiper.js';
 import '@/js/motion-screen.js';
 import '@/js/main-smartlife-reveal.js';
 import '@/js/board-faq.js';
+import '@/js/side-nav-mobile.js';
 import '@/js/faq-page.js';
 import '@/js/cases-page.js';
 import '@/js/contact-service-select.js';

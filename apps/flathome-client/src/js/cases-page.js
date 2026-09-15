@@ -1,5 +1,7 @@
 'use strict';
 
+import { closeSideNavMobilePanel } from '@/js/side-nav-mobile.js';
+
 function setActiveCasesFilter(links, activeLink) {
   links.forEach((link) => {
     link.classList.toggle('is-active', link === activeLink);
@@ -38,6 +40,7 @@ function initCasesPage() {
 
       setActiveCasesFilter(filterLinks, link);
       applyCasesFilter(board, filter);
+      closeSideNavMobilePanel(nav);
     });
   });
 }

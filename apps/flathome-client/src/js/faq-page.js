@@ -1,5 +1,7 @@
 'use strict';
 
+import { closeSideNavMobilePanel } from '@/js/side-nav-mobile.js';
+
 function setActiveFilter(triggers, activeTrigger) {
   triggers.forEach((trigger) => {
     trigger.classList.toggle('is-active', trigger === activeTrigger);
@@ -31,14 +33,25 @@ function initFaqNav() {
 
   nav.querySelectorAll('.side-navigation__group').forEach((btn) => {
     const item = btn.closest('li');
-    if (item && !item.classList.contains('is-open') && btn.getAttribute('aria-expanded') === 'true') {
-      item.classList.add('is-open');
+    if (item) {
+      btn.setAttribute('aria-expanded', item.classList.contains('is-open') ? 'true' : 'false');
     }
 
     btn.addEventListener('click', () => {
       if (!item) return;
 
       const willOpen = !item.classList.contains('is-open');
+      const list = item.closest('.side-navigation__list');
+
+      if (list && willOpen) {
+        list.querySelectorAll(':scope > li.is-open').forEach((openItem) => {
+          if (openItem === item) return;
+          openItem.classList.remove('is-open');
+          const otherBtn = openItem.querySelector('.side-navigation__group');
+          if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+        });
+      }
+
       item.classList.toggle('is-open', willOpen);
       btn.setAttribute('aria-expanded', String(willOpen));
     });
@@ -61,6 +74,7 @@ function initFaqNav() {
 
       setActiveFilter(filterTriggers, trigger);
       applyFaqFilter(board, filter);
+      closeSideNavMobilePanel(nav);
     });
   });
 }

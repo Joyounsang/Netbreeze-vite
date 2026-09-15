@@ -248,7 +248,7 @@
                 <div class="app-inner">
                     <div class="headline" data-aos="fade-up" data-aos-delay="100">
                         <h4 class="app-title">
-                            복잡한 과정 없이 간편한 입주민 관리
+                            복잡한 과정 없이 <br class="only-mo">간편한 입주민 관리
                         </h4>
                         <p>
                             관리사무소는 입주민 정보만 등록하면 됩니다.<br>
@@ -257,31 +257,33 @@
                     </div>
 
                     <div class="screen-layout">
-                        <div class="box" style="left: 10%; top: 0%;" data-aos="fade-up" data-aos-delay="100">
-                            <span class="label">조회</span>
-                            <div class="title">입주민(세대) 목록 조회</div>
-                            <p>
-                                동·호수별 입주 현황을 한눈에 확인합니다.
-                            </p>
-                        </div>
-                        <div class="box" style="left: 0%; bottom: -3%;" data-aos="fade-up" data-aos-delay="100">
-                            <span class="label blue">공지</span>
-                            <div class="title">입주민 게시판</div>
-                            <p>
-                                단지 공지와 소식을 입주민에게
-                                바로 전달합니다.
-                            </p>
-                            <img src="assets/images/boximg-notice.png" alt="">
-                        </div>
+                        <div class="list-box">
+                            <div class="box" style="left: 10%; top: 0%;" data-aos="fade-up" data-aos-delay="100">
+                                <span class="label">조회</span>
+                                <div class="title">입주민(세대) 목록 조회</div>
+                                <p>
+                                    동·호수별 입주 현황을 한눈에 확인합니다.
+                                </p>
+                            </div>
+                            <div class="box" style="left: 0%; bottom: -3%;" data-aos="fade-up" data-aos-delay="100">
+                                <span class="label blue">공지</span>
+                                <div class="title">입주민 게시판</div>
+                                <p>
+                                    단지 공지와 소식을 입주민에게
+                                    바로 전달합니다.
+                                </p>
+                                <img src="assets/images/boximg-notice.png" alt="">
+                            </div>
 
-                        <div class="box" style="right: 0%; top: 40%;" data-aos="fade-up" data-aos-delay="100">
-                            <span class="label">관리</span>
-                            <div class="title">입주민 등록 · 수정 · 삭제</div>
-                            <p>
-                                이사·전출입만 반영하면 출입 권한은
-                                자동으로 정리됩니다.
-                            </p>
-                            <img src="assets/images/boximg-rfcard.png" alt="">
+                            <div class="box" style="right: 0%; top: 40%;" data-aos="fade-up" data-aos-delay="100">
+                                <span class="label">관리</span>
+                                <div class="title">입주민 등록 · 수정 · 삭제</div>
+                                <p>
+                                    이사·전출입만 반영하면 출입 권한은
+                                    자동으로 정리됩니다.
+                                </p>
+                                <img src="assets/images/boximg-rfcard.png" alt="">
+                            </div>
                         </div>
                         <img src="assets/images/screen-bluetooth-onepass.png" alt="">
                     </div>
@@ -303,9 +305,16 @@
                                 원패스를 도입하는 단지에는 입주민용<br>
                                 플랫패스 앱을 무료로 제공합니다.
                             </p>
-                            <div class="btn-group left">
-                                <img src="assets/images/QR-flatpass-googlePlay-min.png" alt="">
-                                <img src="assets/images/QR-flatpass-appStore-min.png" alt="">
+                            <div class=" only-mo">
+                                <div class="btn-group left">
+                                    <a href="#" class="btn "><span>앱 다운로드</span></a>
+                                </div>
+                            </div>
+                            <div class="only-pc">
+                                <div class="btn-group left">
+                                    <img src="assets/images/QR-flatpass-googlePlay-min.png" alt="">
+                                    <img src="assets/images/QR-flatpass-appStore-min.png" alt="">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -349,7 +358,41 @@
                                 </p>
                             </li>
                         </ul>
-                        <img src="assets/images/img-system-prosess.png" alt="">
+                        <div class="system-process-map" role="group">
+                            <ul class="system-process-map__list">
+                                <li class="system-process-map__item">
+                                    <span class="system-process-map__icon" aria-hidden="true">
+                                        <img src="assets/images/ico-line-onepass.png" alt="">
+                                    </span>
+                                    <span class="system-process-map__label">블루투스 원패스</span>
+                                </li>
+                                <li class="system-process-map__item">
+                                    <span class="system-process-map__icon" aria-hidden="true">
+                                        <img src="assets/images/ico-line-cloudlobbyphone.png" alt="">
+                                    </span>
+                                    <span class="system-process-map__label">클라우드 로비폰</span>
+                                </li>
+                                <li class="system-process-map__item is-core">
+                                    <span class="system-process-map__icon" aria-hidden="true">
+                                        <img src="assets/images/ico-system.png" alt="" class="core-img">
+                                    </span>
+                                    <span class="system-process-map__label">통합관리 시스템</span>
+                                    <span class="system-process-map__desc">단지 전체를 한 곳에서</span>
+                                </li>
+                                <li class="system-process-map__item">
+                                    <span class="system-process-map__icon" aria-hidden="true">
+                                        <img src="assets/images/ico-line-parking.png" alt="">
+                                    </span>
+                                    <span class="system-process-map__label">주차관제</span>
+                                </li>
+                                <li class="system-process-map__item">
+                                    <span class="system-process-map__icon" aria-hidden="true">
+                                        <img src="assets/images/ico-line-security.png" alt="">
+                                    </span>
+                                    <span class="system-process-map__label">경비실기</span>
+                                </li>
+                            </ul>
+                        </div>
                     </article>
 
                     <article class="faq">
@@ -413,6 +456,8 @@
     <include src="src/includes/md-플랫홈다운로드.html"></include>
     <include src="src/includes/md-플랫패스다운로드.html"></include>
     <include src="src/includes/md-플랫매니저다운로드.html"></include>
+    <include src="src/includes/md-개인정보수집및이용동의.html"></include>
+    <include src="src/includes/md-마케팅정보수신동의.html"></include>
     <script type="module" src="/src/js/main.js"></script>
 </body>
 

@@ -45,7 +45,7 @@
   border: 1px solid #55CCDF;
   background: linear-gradient(270deg, #62BBC9 41.84%, #5680EB 100%);
   box-shadow: 0 12px 14px 0 rgba(98, 187, 201, 0.20);
-  color: #fff;
+  color: var(--white);
   font-family: Pretendard, $base-font-system;
   display: inline-flex;
   min-width: 160px;
@@ -56,14 +56,24 @@
   transition: outline 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   outline: 1px solid transparent;
 
+
+
   span {
-    color: #FFF;
+    color: var(--white);
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
     font-size: 1.8rem;
     font-style: normal;
     font-weight: 700;
     line-height: 1;
     letter-spacing: -0.5px;
+  }
+
+  @include mobile {
+    min-width: 130px;
+
+    span {
+      font-size: 1.6rem;
+    }
   }
 
   &:hover {
@@ -74,7 +84,7 @@
 
   &.white {
     color: var(--rec-primary);
-    background-color: #fff;
+    background-color: var(--white);
 
   }
 
@@ -96,7 +106,7 @@
     padding: 10px 10px 10px 20px;
 
     span {
-      font-size: 1.6rem;
+      font-size: clamp(1.41rem, 2vw + 1.05rem, 1.6rem);
       font-weight: 600;
     }
   }
@@ -144,7 +154,7 @@
 
   li {
     color: var(--text-gray);
-    font-size: 1.5rem;
+    font-size: clamp(1.32rem, 2vw + 0.99rem, 1.5rem);
     font-weight: 500;
     line-height: 180%;
     letter-spacing: -0.5px;
@@ -181,7 +191,7 @@
 
     .tit {
       color: #3617CE;
-      font-size: 2rem;
+      font-size: clamp(1.7rem, 2.5vw + 1.3rem, 2rem);
       font-weight: 800;
       line-height: 140%;
       letter-spacing: -1px;
@@ -216,7 +226,7 @@
 
     .col-tit {
       color: #293443;
-      font-size: 1.9rem;
+      font-size: clamp(1.62rem, 2.5vw + 1.23rem, 1.9rem);
       font-weight: 800;
       line-height: 140%;
       letter-spacing: -0.5px;
@@ -225,14 +235,14 @@
 
     .list-dot {
       li {
-        font-size: 1.4rem;
+        font-size: clamp(1.23rem, 2vw + 0.92rem, 1.4rem);
       }
     }
   }
 
   .tit {
     color: var(--text-gray);
-    font-size: 1.6rem;
+    font-size: clamp(1.41rem, 2vw + 1.05rem, 1.6rem);
     font-weight: 800;
     line-height: 180%;
     letter-spacing: -0.5px;
@@ -245,7 +255,7 @@
 
   .list-dot {
     li {
-      font-size: 1.6rem;
+      font-size: clamp(1.41rem, 2vw + 1.05rem, 1.6rem);
 
       &+li {
         margin-top: 4px;
@@ -258,7 +268,7 @@
       position: relative;
 
       .tit {
-        font-size: 1.4rem;
+        font-size: clamp(1.23rem, 2vw + 0.92rem, 1.4rem);
       }
 
 
@@ -286,13 +296,13 @@
       }
 
       .col-tit {
-        font-size: 1.5rem;
+        font-size: clamp(1.32rem, 2vw + 0.99rem, 1.5rem);
         margin-bottom: 6px;
       }
 
       .list-dot {
         li {
-          font-size: 1.4rem;
+          font-size: clamp(1.23rem, 2vw + 0.92rem, 1.4rem);
         }
       }
     }
@@ -306,12 +316,12 @@
     }
 
     .tit {
-      font-size: 1.4rem;
+      font-size: clamp(1.23rem, 2vw + 0.92rem, 1.4rem);
     }
 
     .list-dot {
       li {
-        font-size: 1.3rem;
+        font-size: clamp(1.2rem, 2vw + 0.88rem, 1.3rem);
       }
     }
   }
@@ -325,7 +335,7 @@
   .list-dot {
     li {
       color: var(--text);
-      font-size: 1.8rem;
+      font-size: clamp(1.53rem, 2.5vw + 1.17rem, 1.8rem);
       font-weight: 600;
       line-height: 30px;
       letter-spacing: -0.5px;
@@ -353,7 +363,7 @@
 
         .device-name {
           display: block;
-          font-size: 1.6rem;
+          font-size: clamp(1.41rem, 2vw + 1.05rem, 1.6rem);
           font-weight: 800;
           line-height: 140%;
           letter-spacing: -0.5px;
@@ -361,7 +371,7 @@
       }
 
       td {
-        font-size: 1.5rem;
+        font-size: clamp(1.32rem, 2vw + 0.99rem, 1.5rem);
         font-weight: 600;
         letter-spacing: -0.5px;
         padding: 16px 14px;
@@ -377,7 +387,7 @@
     .list-dot {
       li {
         color: var(--text-gray);
-        font-size: 1.5rem;
+        font-size: clamp(1.32rem, 2vw + 0.99rem, 1.5rem);
         line-height: 155%;
       }
     }
@@ -394,7 +404,7 @@
       th {
         background: #F7F7FB;
         color: var(--text);
-        font-size: 1.6rem;
+        font-size: clamp(1.41rem, 2vw + 1.05rem, 1.6rem);
         font-weight: 700;
         letter-spacing: -1px;
         height: 50px;
@@ -480,7 +490,7 @@
     th {
       background: #F7F7FB;
       color: #454545;
-      font-size: 1.6rem;
+      font-size: clamp(1.41rem, 2vw + 1.05rem, 1.6rem);
       font-weight: 800;
       letter-spacing: -1px;
       height: 60px;
@@ -493,7 +503,7 @@
 
     td,
     th {
-      font-size: 1.8rem;
+      font-size: clamp(1.53rem, 2.5vw + 1.17rem, 1.8rem);
       font-weight: 600;
       line-height: 30px;
       letter-spacing: -0.5px;
@@ -549,7 +559,7 @@
     del {
       display: block;
       color: var(--text-light);
-      font-size: 1.6rem;
+      font-size: clamp(1.41rem, 2vw + 1.05rem, 1.6rem);
       font-weight: 500;
       text-decoration: line-through;
     }
@@ -584,7 +594,7 @@
 
     .list-dot {
       li {
-        font-size: 1.5rem;
+        font-size: clamp(1.32rem, 2vw + 0.99rem, 1.5rem);
         line-height: 140%;
       }
     }
@@ -593,7 +603,7 @@
 
       .list-dot {
         li {
-          font-size: 1.4rem;
+          font-size: clamp(1.23rem, 2vw + 0.92rem, 1.4rem);
         }
       }
 
@@ -603,7 +613,7 @@
 
         td,
         th {
-          font-size: 1.4rem;
+          font-size: clamp(1.23rem, 2vw + 0.92rem, 1.4rem);
           height: 44px;
 
 
@@ -618,7 +628,7 @@
 
     thead {
       th {
-        font-size: 1.4rem;
+        font-size: clamp(1.23rem, 2vw + 0.92rem, 1.4rem);
         height: 44px;
         padding: 10px;
       }
@@ -628,7 +638,7 @@
 
       td,
       th {
-        font-size: 1.5rem;
+        font-size: clamp(1.32rem, 2vw + 0.99rem, 1.5rem);
         line-height: 1.4;
         padding: 18px 14px;
 
@@ -657,7 +667,7 @@
 
 
       del {
-        font-size: 1.4rem;
+        font-size: clamp(1.23rem, 2vw + 0.92rem, 1.4rem);
       }
     }
   }
@@ -721,7 +731,7 @@
   .modal-header {
     position: relative;
     color: var(--text);
-    background: #fff;
+    background: var(--white);
     padding: 0 32px;
 
 
@@ -791,12 +801,12 @@
       }
 
       h3.app-title {
-        font-size: 3rem;
+        font-size: clamp(2.16rem, 5vw + 1.81rem, 3rem);
         margin-bottom: 14px;
       }
 
       p {
-        font-size: 1.8rem;
+        font-size: clamp(1.53rem, 2.5vw + 1.17rem, 1.8rem);
       }
     }
 
@@ -850,51 +860,54 @@
     }
 
     .modal-header {
-      padding: 0 24px;
-
-      .name {
-        line-height: 60px;
-        font-size: 2rem;
-      }
+      position: relative;
+      color: var(--text);
+      background: var(--white);
+      padding: 0 32px;
 
       .modalClose {
-        width: 26px;
-        height: 26px;
-        right: 14px;
+        right: 20px;
+        top: 36px;
+
+        &:after {
+          width: 16px;
+          height: 16px;
+        }
       }
     }
 
     .modal-body {
-      padding: 20px;
-      min-width: 0;
-      max-width: 100%;
-      width: 100%;
-      box-sizing: border-box;
+      padding: 30px;
 
-      .tbl {
-        max-width: 100%;
+      max-height: calc(100vh - 60px);
+      overflow: auto;
+      min-width: 100%;
 
-        table {
-          table-layout: auto;
+      .terms {
+        padding: 0;
+      }
+
+      .app-download {
+        padding: 50px 100px 40px;
+      }
+
+      .headline {
+
+
+        h3.app-title {
+          font-size: 2rem;
         }
 
-        thead {
-          th {
-            padding: 0 10px;
-          }
-        }
-
-        tbody {
-
-          td,
-          th {
-            padding: 10px;
-            font-size: 1.5rem;
-            word-break: keep-all;
-            overflow-wrap: anywhere;
-          }
+        p {
+          font-size: 1.5rem;
         }
       }
+
+      .qr {
+        max-width: 100%;
+      }
+
+
 
     }
 
@@ -970,14 +983,13 @@
           gap: 20px;
           min-height: 86px;
           padding: 0;
-          color: var(--text);
-          font-size: 2rem;
-          font-weight: 700;
-          line-height: 150%;
-          letter-spacing: -0.5px;
+
+
           min-width: 0;
           box-sizing: border-box;
           transition: all 0.2s ease;
+
+
 
           .text {
             display: flex;
@@ -986,6 +998,11 @@
             gap: 10px;
             flex: 1;
             min-width: 0;
+            color: var(--text);
+            font-size: clamp(1.6rem, 2.5vw + 1.3rem, 2rem);
+            font-weight: 700;
+            line-height: 150%;
+            letter-spacing: -0.5px;
           }
 
           &::after {
@@ -1015,7 +1032,7 @@
           }
 
           p {
-            font-size: 1.9rem;
+            font-size: clamp(1.62rem, 2.5vw + 1.23rem, 1.9rem);
             font-weight: 400;
             line-height: 160%;
             letter-spacing: -0.5px;
@@ -1037,6 +1054,11 @@
             padding: 0;
             list-style: none;
 
+            @include mobile {
+              flex-direction: column;
+              gap: 10px;
+            }
+
             li {
               flex: 1;
               position: relative;
@@ -1045,7 +1067,7 @@
               gap: 8px;
               padding: 20px;
               border-radius: 8px;
-              background: #fff;
+              background: var(--white);
               box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
             }
 
@@ -1054,7 +1076,7 @@
               top: 22px;
               right: 16px;
               color: var(--rec-secondary);
-              font-size: 1.6rem;
+              font-size: clamp(1.41rem, 2vw + 1.05rem, 1.6rem);
               font-weight: 700;
               line-height: 1;
               letter-spacing: -0.5px;
@@ -1063,7 +1085,7 @@
             &__tit {
               padding-right: 28px;
               color: var(--text);
-              font-size: 1.6rem;
+              font-size: clamp(1.41rem, 2vw + 1.05rem, 1.6rem);
               font-weight: 700;
               line-height: 140%;
               letter-spacing: -0.5px;
@@ -1072,7 +1094,7 @@
             &__desc {
               margin: 0;
               color: var(--text-gray);
-              font-size: 1.4rem;
+              font-size: clamp(1.23rem, 2vw + 0.92rem, 1.4rem);
               font-weight: 400;
               line-height: 150%;
               letter-spacing: -0.5px;
@@ -1089,7 +1111,7 @@
 
             .tit {
               color: #7F6AFF;
-              font-size: 1.7rem;
+              font-size: clamp(1.5rem, 2vw + 1.12rem, 1.7rem);
               font-weight: 900;
               line-height: 180%;
               letter-spacing: -0.5px;
@@ -1098,7 +1120,7 @@
 
             p {
               color: #7F6AFF;
-              font-size: 1.8rem;
+              font-size: clamp(1.53rem, 2.5vw + 1.17rem, 1.8rem);
               font-weight: 600;
               line-height: 180%;
               letter-spacing: -0.5px;
@@ -1114,7 +1136,7 @@
 
             li {
               color: var(--text-gray);
-              font-size: 1.7rem;
+              font-size: clamp(1.5rem, 2vw + 1.12rem, 1.7rem);
               font-weight: 400;
               line-height: 160%;
               letter-spacing: -0.5px;
@@ -1193,7 +1215,7 @@
 
         .date {
           margin-left: 0;
-          font-size: 1.6rem;
+          font-size: clamp(1.41rem, 2vw + 1.05rem, 1.6rem);
           font-weight: 400;
           line-height: 140%;
         }
@@ -1220,7 +1242,7 @@
         align-items: center;
         gap: 6px;
         color: #293443;
-        font-size: 2.2rem;
+        font-size: clamp(1.72rem, 3.5vw + 1.37rem, 2.2rem);
         font-weight: 800;
         line-height: 1.5;
         letter-spacing: -0.5px;
@@ -1239,7 +1261,7 @@
         }
 
         .text {
-          font-size: 2.2rem;
+          font-size: clamp(1.72rem, 3.5vw + 1.37rem, 2.2rem);
           font-weight: 600;
           display: flex;
           flex-direction: column;
@@ -1250,7 +1272,7 @@
           overflow: hidden;
 
           .date {
-            font-size: 1.9rem;
+            font-size: clamp(1.62rem, 2.5vw + 1.23rem, 1.9rem);
             color: var(--text-light);
           }
 
@@ -1262,7 +1284,7 @@
           .cate {
             display: block;
             color: var(--rec-secondary);
-            font-size: 1.6rem;
+            font-size: clamp(1.41rem, 2vw + 1.05rem, 1.6rem);
             font-weight: 600;
             line-height: 1;
             letter-spacing: -0.5px;
@@ -1273,12 +1295,21 @@
           }
         }
 
+
+
         .date {
           font-weight: 400;
         }
 
         img {
           width: 38px;
+        }
+
+        @include mobile {
+          .text {
+            font-size: 1.8rem;
+
+          }
         }
       }
 
@@ -1289,7 +1320,7 @@
         .list-dot {
           li {
             color: #293443;
-            font-size: 1.8rem;
+            font-size: clamp(1.53rem, 2.5vw + 1.17rem, 1.8rem);
             font-weight: 500;
             line-height: 180%;
             letter-spacing: -0.5px;
@@ -1302,7 +1333,7 @@
 
         p {
           color: #293443;
-          font-size: 1.8rem;
+          font-size: clamp(1.53rem, 2.5vw + 1.17rem, 1.8rem);
           font-weight: 500;
           line-height: 180%;
           letter-spacing: -0.5px;
@@ -1329,23 +1360,22 @@
       }
 
       >ul {
-        gap: 10px;
+        // gap: 10px;
 
         >li {
-          padding: 0 20px;
+          padding: 4px 20px;
           min-height: 86px;
 
           .board-tit {
             align-items: center;
-            min-height: 86px;
-            padding: 0;
-            font-size: 1.8rem;
+            min-height: inherit;
             line-height: 140%;
 
             .text {
               flex-direction: column;
               align-items: flex-start;
               gap: 6px;
+              font-size: 1.8rem;
 
               .cate {
                 font-size: 1.4rem;
@@ -1376,17 +1406,17 @@
           .board-content {
             .after {
               .tit {
-                font-size: 1.6rem;
+                font-size: clamp(1.41rem, 2vw + 1.05rem, 1.6rem);
               }
 
               p {
-                font-size: 1.6rem;
+                font-size: clamp(1.41rem, 2vw + 1.05rem, 1.6rem);
               }
             }
 
             p,
             .list-dot li {
-              font-size: 1.6rem;
+              font-size: clamp(1.41rem, 2vw + 1.05rem, 1.6rem);
             }
           }
         }
@@ -1396,7 +1426,7 @@
     >ul {
       >li {
         .board-tit {
-          font-size: 1.8rem;
+          font-size: clamp(1.53rem, 2.5vw + 1.17rem, 1.8rem);
           line-height: 140%;
 
           .text {
@@ -1405,12 +1435,12 @@
             gap: 6px;
 
             .cate {
-              font-size: 1.4rem;
+              font-size: clamp(1.23rem, 2vw + 0.92rem, 1.4rem);
             }
           }
 
           .date {
-            font-size: 1.4rem;
+            font-size: clamp(1.23rem, 2vw + 0.92rem, 1.4rem);
           }
 
           img {
@@ -1421,12 +1451,12 @@
         .board-content {
           .list-dot {
             li {
-              font-size: 1.6rem;
+              font-size: clamp(1.41rem, 2vw + 1.05rem, 1.6rem);
             }
           }
 
           p {
-            font-size: 1.6rem;
+            font-size: clamp(1.41rem, 2vw + 1.05rem, 1.6rem);
           }
         }
       }
@@ -1443,7 +1473,7 @@
       flex-direction: column;
       gap: 6px;
       color: #293443;
-      font-size: 2.2rem;
+      font-size: clamp(1.72rem, 3.5vw + 1.37rem, 2.2rem);
       font-weight: 800;
       line-height: 40px;
       letter-spacing: -0.5px;
@@ -1451,7 +1481,7 @@
 
       .cate {
         color: #3617CE;
-        font-size: 1.6rem;
+        font-size: clamp(1.41rem, 2vw + 1.05rem, 1.6rem);
         font-weight: 600;
         line-height: 1;
         letter-spacing: -0.5px;
@@ -1459,7 +1489,7 @@
 
       .date {
         color: var(--text-gray);
-        font-size: 1.7rem;
+        font-size: clamp(1.5rem, 2vw + 1.12rem, 1.7rem);
         font-weight: 400;
       }
     }
@@ -1471,7 +1501,7 @@
 
       p {
         font-family: Pretendard, $base-font-system;
-        font-size: 1.8rem;
+        font-size: clamp(1.53rem, 2.5vw + 1.17rem, 1.8rem);
         font-style: normal;
         font-weight: 400;
         line-height: 180%;
@@ -1507,7 +1537,7 @@
 
 
         .board-tit {
-          font-size: 2rem;
+          font-size: clamp(1.7rem, 2.5vw + 1.3rem, 2rem);
           font-weight: 500;
 
 
@@ -1521,7 +1551,7 @@
 
           p {
             color: #293443;
-            font-size: 1.8rem;
+            font-size: clamp(1.53rem, 2.5vw + 1.17rem, 1.8rem);
             font-weight: 500;
             line-height: 180%;
             letter-spacing: -0.5px;
@@ -1554,7 +1584,7 @@
   }
 
   h3 {
-    font-size: 1.6rem;
+    font-size: clamp(1.41rem, 2vw + 1.05rem, 1.6rem);
     font-weight: 500;
     // color: #000;
     margin-bottom: 2px;
@@ -1563,7 +1593,7 @@
 
   p {
     color: var(--text-gray);
-    font-size: 1.4rem;
+    font-size: clamp(1.23rem, 2vw + 0.92rem, 1.4rem);
     margin: 0 0 10px;
   }
 
@@ -1571,7 +1601,7 @@
     color: var(--text-gray);
 
     >li {
-      font-size: 1.4rem;
+      font-size: clamp(1.23rem, 2vw + 0.92rem, 1.4rem);
       font-weight: 500;
 
       ol {

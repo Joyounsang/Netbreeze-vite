@@ -1,30 +1,52 @@
 .app-section {
   padding: 140px 0;
 
+  @include mobile {
+    padding: 60px 0;
+  }
+
   &.main-intro {
     padding-top: 370px;
     padding-bottom: 0;
-    // height: 1080px;
-    // position: relative;
     background: url('../images/bg-main-section02.png') no-repeat right top / 50%;
 
 
 
     .main-intro-gallery {
       width: 100%;
-      // position: absolute;
       bottom: 0;
       left: 0;
       z-index: 1;
       display: flex;
       gap: 0;
 
-
       li {
         flex: 1;
 
         img {
           width: 100%;
+        }
+      }
+    }
+
+    @include mobile {
+      padding-top: 140px;
+      padding-bottom: 60px;
+      background-size: 100%;
+      background-position: center top;
+
+      .headline {
+        text-align: center;
+      }
+
+      .main-intro-gallery {
+
+        li {
+          flex: 1;
+
+          img {
+            width: 100%;
+          }
         }
       }
     }
@@ -36,6 +58,7 @@
 
     .headline {
       margin-bottom: 56px;
+
     }
 
     .main-app-showcase {
@@ -57,7 +80,7 @@
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        font-size: 2.4rem;
+        font-size: clamp(1.87rem, 3.5vw + 1.49rem, 2.4rem);
         font-weight: 600;
         line-height: 140%;
         letter-spacing: -1.5px;
@@ -209,7 +232,7 @@
 
         .main-app-nav__label {
           color: var(--text-light);
-          font-size: 2.4rem;
+          font-size: clamp(1.87rem, 3.5vw + 1.49rem, 2.4rem);
           letter-spacing: -0.5px;
           font-weight: 700;
         }
@@ -281,7 +304,7 @@
             display: flex;
             align-items: center;
             gap: 4px;
-            font-size: 1.6rem;
+            font-size: clamp(1.41rem, 2vw + 1.05rem, 1.6rem);
             font-weight: 700;
             line-height: 140%;
             /* 22.4px */
@@ -298,7 +321,7 @@
         }
 
         p {
-          font-size: 2rem;
+          font-size: clamp(1.7rem, 2.5vw + 1.3rem, 2rem);
           font-weight: 400;
           line-height: 160%;
           letter-spacing: -0.5px;
@@ -322,7 +345,82 @@
 
     }
 
+    @include mobile {
+      padding: 60px 0 60px;
 
+      &.illegalParking {
+        .main-app-showcase {
+          flex-direction: column;
+        }
+      }
+
+      .headline {
+        margin-bottom: 0;
+        text-align: center;
+
+        p {
+          text-align: center;
+        }
+      }
+
+      .main-app-showcase {
+        flex-direction: column-reverse;
+        gap: 40px;
+      }
+
+      .main-apps {
+        // flex-wrap: wrap;
+        // flex-direction: row;
+        // justify-content: center;
+
+
+        .main-app-nav {
+          width: 100%;
+
+          .main-app-nav__item {
+            width: 100%;
+            padding: 24px 0;
+
+            .main-app-nav__label {
+              &:before {
+                width: 24px;
+                height: 24px;
+              }
+            }
+          }
+
+          .main-app-nav__label {
+            font-size: 1.8rem;
+          }
+        }
+
+      }
+
+      .main-apps-preview {
+        flex: 1;
+        width: 100%;
+
+        .main-app__item {
+          width: 100%;
+
+          .app-keypoint {
+            bottom: 90px;
+
+            span {
+              font-size: 1.4rem;
+            }
+          }
+
+          p {
+            font-size: 1.6rem
+          }
+
+          .main-app-swiper {
+            max-width: 320px;
+          }
+        }
+      }
+    }
 
     @media (prefers-reduced-motion: reduce) {
 
@@ -335,11 +433,13 @@
 
 
 
+
+
   }
 
   &.main-service {
     position: relative;
-    background: linear-gradient(180deg, #FFF 75%, #F8FBFF 100%);
+    background: linear-gradient(180deg, var(--white) 75%, #F8FBFF 100%);
 
     .main-service-list {
       display: grid;
@@ -393,8 +493,8 @@
           padding: 14px 20px;
           align-items: center;
           gap: 10px;
-          color: #FFF;
-          font-size: 1.7rem;
+          color: var(--white);
+          font-size: clamp(1.5rem, 2vw + 1.12rem, 1.7rem);
           font-weight: 700;
           line-height: 1;
           letter-spacing: -1.5px;
@@ -412,7 +512,7 @@
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        font-size: clamp(1.8rem, 5vw, 2.8rem);
+        font-size: clamp(2rem, 5vw, 2.8rem);
         font-weight: 700;
         line-height: 100%;
         letter-spacing: -0.5px;
@@ -421,7 +521,7 @@
       .main-service-title {
         display: block;
         color: var(--text);
-        font-size: clamp(2.2rem, 5vw, 4rem);
+        font-size: clamp(2.8rem, 5vw, 4rem);
         font-weight: 700;
         line-height: 140%;
         letter-spacing: -0.5px;
@@ -429,10 +529,46 @@
 
       p {
         color: var(--text-gray);
-        font-size: clamp(1.4rem, 3vw, 1.8rem);
+        font-size: clamp(1.6rem, 3vw, 1.8rem);
         font-weight: 400;
         line-height: 160%;
         letter-spacing: -0.5px;
+      }
+    }
+
+    @include mobile {
+      .headline {
+        br {
+          display: none;
+        }
+      }
+
+      .main-service-list {
+        display: flex;
+        flex-direction: column;
+        gap: 60px;
+      }
+
+      .main-service-item {
+        display: flex;
+        flex-direction: column;
+        gap: 26px;
+
+        &:nth-child(even) {
+          margin-top: 0;
+        }
+      }
+
+      .main-service-copy {
+        gap: 10px;
+
+        br {
+          display: none;
+        }
+
+        .btn {
+          margin-left: auto;
+        }
       }
     }
 
@@ -455,7 +591,7 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font-style: normal;
-        font-size: 1.4rem;
+        font-size: clamp(1.23rem, 2vw + 0.92rem, 1.4rem);
         font-weight: 700;
         line-height: 140%;
         letter-spacing: -1px;
@@ -593,7 +729,7 @@
       }
 
       .add-service-label {
-        font-size: 2.2rem;
+        font-size: clamp(1.72rem, 3.5vw + 1.37rem, 2.2rem);
         font-weight: 700;
         line-height: 1;
         letter-spacing: -0.5px;
@@ -601,14 +737,133 @@
 
       span {
         color: var(--text-gray);
-        font-size: 1.6rem;
+        font-size: clamp(1.41rem, 2vw + 1.05rem, 1.6rem);
         font-weight: 700;
         line-height: 140%;
         letter-spacing: -0.5px;
       }
     }
 
+    @include mobile {
+      .row {
+        .col {
+          width: 100%;
 
+        }
+      }
+
+      .add-service-slide {
+        margin-top: 24px;
+        padding-bottom: 8px;
+
+        .add-service-list.swiper-wrapper {
+          flex-wrap: nowrap;
+          justify-content: flex-start;
+          gap: 0;
+        }
+
+        .swiper-slide {
+          width: min(260px, 78vw);
+
+          &+.swiper-slide::before {
+            content: none;
+          }
+
+          .add-service-item {
+            align-items: flex-start;
+            text-align: left;
+            padding: 0 30px;
+
+            >span:not(.label) {
+              font-weight: 400;
+              font-size: 1.4rem;
+
+              br {
+                // display: none;
+              }
+            }
+
+            .add-service-label {
+              font-size: 1.8rem;
+              line-height: 130%;
+            }
+          }
+        }
+      }
+
+      ul.add-service-list {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+
+        li {
+          flex: none;
+          width: 100px;
+
+          &+li {
+            &:before {
+              content: none;
+            }
+          }
+
+
+        }
+
+        &.type-light {
+          padding: 0 34px;
+          margin-bottom: 40px;
+
+          li {
+
+            padding: 0;
+            width: calc(50% - 10px);
+
+            &:first-child {
+              padding-left: 0;
+            }
+
+            .add-service-item {
+              width: 100%;
+              align-items: flex-start;
+            }
+
+            .add-service-label {
+              text-align: left;
+
+              &+span {
+                text-align: left;
+                font-size: 1.3rem;
+                font-weight: 400;
+
+                br {
+                  display: none;
+                }
+              }
+
+            }
+          }
+        }
+      }
+
+      .add-service-item {
+        gap: 10px;
+        width: auto;
+        text-align: center;
+
+        img {
+          width: 40px;
+        }
+
+        .add-service-label {
+          font-size: 1.7rem;
+        }
+
+        span {
+          font-size: 1.4rem;
+          font-weight: 600;
+        }
+      }
+    }
   }
 
   &.main-reason {
@@ -630,7 +885,7 @@
         border-radius: 50px;
         background: #F5F6F8;
         color: var(--text-gray);
-        font-size: 1.8rem;
+        font-size: clamp(1.53rem, 2.5vw + 1.17rem, 1.8rem);
         font-weight: 700;
         line-height: 140%;
         background-color: var(--gray);
@@ -639,9 +894,9 @@
 
       &.is-active {
         a {
-          border-color: #fff;
+          border-color: var(--white);
           background: var(--text);
-          color: #fff;
+          color: var(--white);
         }
       }
     }
@@ -691,7 +946,7 @@
 
         .title {
           color: var(--text);
-          font-size: 2.6rem;
+          font-size: clamp(2.03rem, 3.5vw + 1.62rem, 2.6rem);
           font-weight: 700;
           line-height: 140%;
           letter-spacing: -1px;
@@ -699,7 +954,7 @@
 
         span {
           color: var(--text-gray);
-          font-size: 1.8rem;
+          font-size: clamp(1.53rem, 2.5vw + 1.17rem, 1.8rem);
           font-weight: 400;
           line-height: 100%;
           letter-spacing: -1px;
@@ -735,7 +990,49 @@
     }
 
 
+    @include mobile {
+      .main-reason-tabs {
+        margin-bottom: 40px;
+        gap: 10px;
 
+        li {
+          // width: 33.33%;
+        }
+      }
+
+      .main-reason-tabs__btn {
+        a {
+          font-size: 1.4rem;
+        }
+
+
+      }
+
+
+
+      .main-reason-slider {
+        padding: 0 0 0 30px;
+
+        .main-reason-controls {
+          display: none;
+        }
+
+        .main-reason-card__copy {
+          margin-top: 14px;
+          gap: 14px;
+
+          .title {
+            font-size: 2rem;
+          }
+
+          span {
+            font-size: 1.4rem;
+          }
+        }
+
+
+      }
+    }
 
   }
 
@@ -766,8 +1063,8 @@
 
     .main-smartlife-circle {
       position: relative;
-      width: clamp(340px, 100vw, 1230px);
-      height: clamp(340px, 100vw, 1230px);
+      width: clamp(300px, 100vw, 1230px);
+      height: clamp(300px, 100vw, 1230px);
       border-radius: 50%;
       overflow: hidden;
       transform: scale(var(--smartlife-progress, 0));
@@ -809,12 +1106,45 @@
       pointer-events: none;
 
       .app-title {
-        color: #FFF;
+        color: var(--white);
         text-align: center;
         font-size: clamp(2.6rem, 5vw, 5rem);
         font-weight: 600;
         line-height: 140%;
         letter-spacing: -1.5px;
+      }
+    }
+
+    @include mobile {
+      height: auto;
+      overflow: hidden;
+      padding-top: 0;
+
+      .main-smartlife-inner {
+        min-height: 0;
+      }
+
+      .main-smartlife-visual {
+        position: relative;
+        top: auto;
+        height: auto;
+        padding: 32px 20px 40px;
+      }
+
+      .main-smartlife-circle {
+        width: clamp(260px, 82vw, 360px);
+        height: clamp(260px, 82vw, 360px);
+        transform: scale(calc(0.35 + 0.65 * var(--smartlife-progress, 0)));
+      }
+
+      .main-smartlife-copy {
+        bottom: 10%;
+
+        .app-title {
+          font-size: 1.6rem;
+          // transform: translateY(0px);
+          letter-spacing: -0.8px;
+        }
       }
     }
   }
@@ -835,23 +1165,53 @@
       gap: 40px;
 
       .app-title {
-        color: #FFF;
+        color: var(--white);
         text-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
-        font-size: 3.6rem;
+        font-size: clamp(2.59rem, 5vw + 2.17rem, 3.6rem);
         font-weight: 700;
         line-height: 140%;
         letter-spacing: -0.5px;
       }
 
       p {
-        color: #FFF;
-        font-size: 2.2rem;
+        color: var(--white);
+        font-size: clamp(1.72rem, 3.5vw + 1.37rem, 2.2rem);
         font-weight: 300;
         line-height: 140%;
         letter-spacing: -0.5px;
       }
     }
-  }
-}
 
-@include mobile {}
+    @include mobile {
+      padding: 30px 0;
+
+      &:after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+      // background-position: right center;
+      .main-cta-copy {
+        gap: 20px;
+
+        .app-title {
+          font-size: 2.2rem;
+        }
+
+        p {
+          color: rgba(255, 255, 255, 0.8);
+          font-weight: 500;
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+
+
+}

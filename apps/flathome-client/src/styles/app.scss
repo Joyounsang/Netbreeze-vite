@@ -74,7 +74,7 @@ em {
 %common-inputStyle {
   font-family: $base-font-system;
   color: var(--text);
-  font-size: 1.7rem;
+  font-size: clamp(1.5rem, 2vw + 1.12rem, 1.7rem);
   font-weight: 400;
   letter-spacing: -0.5px;
   border: 1px solid var(--border-light);
@@ -147,7 +147,7 @@ select {
     text-align: center;
     padding: 0 6px;
     border-radius: 10px;
-    font-size: 1.5rem;
+    font-size: clamp(1.32rem, 2vw + 0.99rem, 1.5rem);
   }
 }
 
@@ -247,7 +247,7 @@ select {
 
   span {
     display: block;
-    font-size: 1.9rem;
+    font-size: clamp(1.62rem, 2.5vw + 1.23rem, 1.9rem);
     letter-spacing: 0;
     padding-left: 30px;
     line-height: 30px;
@@ -330,7 +330,7 @@ select {
     span {
       padding-left: 26px;
       line-height: 24px;
-      font-size: 1.6rem;
+      font-size: clamp(1.41rem, 2vw + 1.05rem, 1.6rem);
       font-weight: 500;
       color: var(--text);
 
@@ -358,6 +358,10 @@ select {
 .multi-select {
   position: relative;
   width: 100%;
+
+  .multi-select__trigger {
+    background-color: var(--white);
+  }
 
   &__native {
     position: absolute;
@@ -399,12 +403,18 @@ select {
   }
 
   &__value {
+    width: 160px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    font-size: clamp(1.5rem, 2vw + 1.12rem, 1.7rem);
 
     &.is-placeholder {
       color: var(--text-light);
+    }
+
+    @include mobile {
+      width: 100%;
     }
   }
 
@@ -525,7 +535,7 @@ textarea:invalid {
 
   .like-label {
     color: var(--text-light);
-    font-size: 1.5rem;
+    font-size: clamp(1.32rem, 2vw + 0.99rem, 1.5rem);
     font-weight: 500;
   }
 }

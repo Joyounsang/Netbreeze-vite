@@ -11,7 +11,7 @@
   border-radius: 34px;
   background: rgba(42, 46, 55, 0.90);
   color: var(--white);
-  font-size: 1.8rem;
+  font-size: clamp(1.53rem, 2.5vw + 1.17rem, 1.8rem);
   font-weight: 700;
   left: -10px;
 }
@@ -23,7 +23,7 @@
   border-radius: 34px;
   background: rgba(42, 46, 55, 0.90);
   color: var(--white);
-  font-size: 1.8rem;
+  font-size: clamp(1.53rem, 2.5vw + 1.17rem, 1.8rem);
   font-weight: 700;
 }
 
@@ -42,7 +42,7 @@
     border-radius: 34px;
     background: rgba(42, 46, 55, 0.90);
     color: var(--white);
-    font-size: 1.3rem;
+    font-size: clamp(1.2rem, 2vw + 0.88rem, 1.3rem);
     font-weight: 400;
     letter-spacing: 1.5px;
   }
@@ -118,7 +118,7 @@ html .ui-button.ui-state-disabled:active {
     .ui-datepicker-title,
     .ui-datepicker-title span {
       color: var(--text);
-      font-size: 1.5rem;
+      font-size: clamp(1.32rem, 2vw + 0.99rem, 1.5rem);
       font-weight: 700;
       // padding-left: 8px;
     }
@@ -159,7 +159,7 @@ html .ui-button.ui-state-disabled:active {
   }
 
   th {
-    font-size: 1.4rem;
+    font-size: clamp(1.23rem, 2vw + 0.92rem, 1.4rem);
     font-weight: 400;
     opacity: 0.8;
     // background: var(--gray-light);
@@ -169,7 +169,7 @@ html .ui-button.ui-state-disabled:active {
   .ui-state-default {
     display: inline-block;
     padding: 0;
-    font-size: 1.5rem;
+    font-size: clamp(1.32rem, 2vw + 0.99rem, 1.5rem);
     width: 30px;
     height: 30px;
     line-height: 23px;
@@ -212,7 +212,7 @@ html .ui-button.ui-state-disabled:active {
     padding-left: 0;
     padding-right: 30px;
     margin-right: 10px;
-    font-size: 1.8rem;
+    font-size: clamp(1.53rem, 2.5vw + 1.17rem, 1.8rem);
     position: relative;
     z-index: 2;
   }
@@ -299,7 +299,7 @@ html .ui-button.ui-state-disabled:active {
 
 /* time Picker */
 .ui-timepicker-div.ui-timepicker-oneLine .ui_tpicker_time_label {
-  font-size: 1.4rem;
+  font-size: clamp(1.23rem, 2vw + 0.92rem, 1.4rem);
   font-weight: 600;
   color: var(--text-gray);
 }
@@ -311,7 +311,7 @@ html .ui-button.ui-state-disabled:active {
 }
 
 .ui-datepicker .ui-datepicker-buttonpane button {
-  font-size: 1.4rem;
+  font-size: clamp(1.23rem, 2vw + 0.92rem, 1.4rem);
   font-weight: 600;
   margin: 10px;
   color: var(--rec-primary);
@@ -335,7 +335,7 @@ html .ui-button.ui-state-disabled:active {
 
   .ui-datepicker .ui-widget-header .ui-datepicker-title,
   .ui-datepicker .ui-widget-header .ui-datepicker-title span {
-    font-size: 1.8rem;
+    font-size: clamp(1.53rem, 2.5vw + 1.17rem, 1.8rem);
   }
 
   .ui-datepicker .ui-widget-header .ui-datepicker-next,
@@ -354,7 +354,7 @@ html .ui-button.ui-state-disabled:active {
   }
 
   .ui-state-default {
-    font-size: 1.5rem;
+    font-size: clamp(1.32rem, 2vw + 0.99rem, 1.5rem);
     font-weight: 500;
     color: var(--text);
     max-width: 30px;

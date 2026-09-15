@@ -1,0 +1,37 @@
+/// 최대값(현재 디자인 px/rem) 기준 fluid clamp — _animations 등과 동일 규칙
+@function fs($max) {
+  $unit: unit($max);
+
+  @if $unit != 'rem' and $unit != 'px' {
+    @return $max;
+  }
+
+  $n: if($unit == 'px', $max / 16px, $max / 1rem);
+  $min: null;
+  $vw: null;
+  $mid: null;
+
+  @if $n >= 4 {
+    $min: $n * 0.68;
+    $vw: 5.5;
+  } @else if $n >= 3 {
+    $min: $n * 0.72;
+    $vw: 5;
+  } @else if $n >= 2.2 {
+    $min: $n * 0.78;
+    $vw: 3.5;
+  } @else if $n >= 1.8 {
+    $min: $n * 0.85;
+    $vw: 2.5;
+  } @else {
+    $min: $n * 0.88;
+    @if $n >= 1.2 {
+      $min: max($min, 1.2);
+    }
+  }
+
+  $min: min($min, $n);
+  $mid: ($min + $n) * 0.35;
+
+  @return clamp(#{$min}rem, #{$vw}vw + #{$mid}rem, #{$n}rem);
+}

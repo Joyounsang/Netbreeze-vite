@@ -1,9 +1,9 @@
 @include mobile {
   .only-mo {
-    display: block;
+    display: block !important;
   }
 
   .only-pc {
-    display: none;
+    display: none !important;
   }
 }

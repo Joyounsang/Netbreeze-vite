@@ -24,11 +24,20 @@
                             </div>
 
                             <nav class="side-navigation side-navigation--flat" aria-label="도입사례 카테고리" data-cases-nav>
-                                <ul class="side-navigation__filters">
+                                <div class="only-mo side-navigation__mobile-bar">
+                                    <button type="button" class="side-navigation__mobile-toggle"
+                                        data-side-nav-mobile-toggle aria-expanded="false"
+                                        aria-controls="cases-side-nav-panel">
+                                        분류
+                                    </button>
+                                </div>
+                                <div class="side-navigation__mobile-panel" id="cases-side-nav-panel">
+                                <ul class="side-navigation__list">
                                     <li><a href="#" data-cases-filter="all">전체</a></li>
                                     <li><a href="#" class="is-active" data-cases-filter="apartment">아파트</a></li>
                                     <li><a href="#" data-cases-filter="villa">빌라&amp;주택단지</a></li>
                                 </ul>
+                                </div>
                             </nav>
                         </div>
 

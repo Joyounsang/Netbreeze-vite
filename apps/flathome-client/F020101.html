@@ -10,7 +10,7 @@
         <div class="container">
             <section class="app-section single-page">
                 <div class="app-inner">
-                    <div class="row align-top">
+                    <div class="row align-top faq-page__layout">
                         <div class="col faq-page__side">
                             <div class="headline left">
                                 <h3 class="app-title">
@@ -23,12 +23,20 @@
                             </div>
 
                             <nav class="side-navigation" aria-label="FAQ 카테고리" data-faq-nav>
+                                <div class="only-mo side-navigation__mobile-bar">
+                                    <button type="button" class="side-navigation__mobile-toggle"
+                                        data-side-nav-mobile-toggle aria-expanded="false"
+                                        aria-controls="faq-side-nav-panel">
+                                        카테고리
+                                    </button>
+                                </div>
+                                <div class="side-navigation__mobile-panel" id="faq-side-nav-panel">
                                 <p class="side-navigation__all">
                                     <button type="button" data-faq-filter="all" class="is-active">전체</button>
                                 </p>
                                 <ul class="side-navigation__list">
                                     <li>
-                                        <button type="button" class="side-navigation__group" aria-expanded="true">
+                                        <button type="button" class="side-navigation__group" aria-expanded="false">
                                             질문 TOP
                                         </button>
                                         <ul class="side-navigation__sub">
@@ -37,7 +45,7 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <button type="button" class="side-navigation__group">
+                                        <button type="button" class="side-navigation__group" aria-expanded="false">
                                             서비스 안내
                                         </button>
                                         <ul class="side-navigation__sub">
@@ -48,7 +56,7 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <button type="button" class="side-navigation__group" aria-expanded="true">
+                                        <button type="button" class="side-navigation__group" aria-expanded="false">
                                             앱 이용 도움말
                                         </button>
                                         <ul class="side-navigation__sub">
@@ -58,6 +66,7 @@
                                         </ul>
                                     </li>
                                 </ul>
+                                </div>
                             </nav>
                         </div>
 

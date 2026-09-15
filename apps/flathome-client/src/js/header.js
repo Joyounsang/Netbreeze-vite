@@ -77,6 +77,8 @@ function initGnbMenu() {
       toggle.setAttribute('aria-label', '전체 메뉴 열기');
     }
     if (backdrop) backdrop.hidden = true;
+    const nav = document.getElementById('gnb-nav');
+    if (nav && isMobile()) nav.setAttribute('aria-hidden', 'true');
   };
 
   const openItem = (item) => {
@@ -126,6 +128,8 @@ function initGnbMenu() {
   const openMobileNav = () => {
     header.classList.add('is-mobile-nav-open', 'is-menu-open');
     document.body.classList.add('is-gnb-locked');
+    const nav = document.getElementById('gnb-nav');
+    if (nav) nav.removeAttribute('aria-hidden');
     if (toggle) {
       toggle.setAttribute('aria-expanded', 'true');
       toggle.setAttribute('aria-label', '전체 메뉴 닫기');
@@ -156,6 +160,16 @@ function initGnbMenu() {
   if (backdrop) {
     backdrop.addEventListener('click', closeAll);
   }
+
+  header.querySelectorAll('.gnb-list .gnb-link').forEach((link) => {
+    const item = link.closest('.gnb-item');
+    const panel = item?.querySelector('.gnb-panel');
+    if (panel) return;
+
+    link.addEventListener('click', () => {
+      if (isMobile()) closeAll();
+    });
+  });
 
   items.forEach((item) => {
     const trigger = item.querySelector('.gnb-link');
@@ -224,8 +238,11 @@ function initGnbMenu() {
   });
 
   const handleViewportChange = () => {
+    const nav = document.getElementById('gnb-nav');
+
     if (!isMobile()) {
       closeAll();
+      nav?.removeAttribute('aria-hidden');
       return;
     }
 
@@ -234,6 +251,9 @@ function initGnbMenu() {
 
     if (header.classList.contains('is-mobile-nav-open')) {
       activateMobileItem(getDefaultMobileItem());
+      nav?.removeAttribute('aria-hidden');
+    } else {
+      nav?.setAttribute('aria-hidden', 'true');
     }
   };
 
@@ -244,6 +264,11 @@ function initGnbMenu() {
   }
 
   window.addEventListener('resize', handleViewportChange, { passive: true });
+
+  const nav = document.getElementById('gnb-nav');
+  if (nav && isMobile()) {
+    nav.setAttribute('aria-hidden', 'true');
+  }
 }
 
 $(document).ready(initGnbMenu);

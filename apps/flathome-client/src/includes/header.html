@@ -10,7 +10,7 @@
                 <a href="A010101.html">FLAT home</a>
             </h1>
 
-            <nav class="gnb-nav" id="gnb-nav" aria-label="주 메뉴" tabindex="-1">
+            <nav class="gnb-nav gnb-mobile-nav" id="gnb-nav" aria-label="주 메뉴" tabindex="-1">
                 <ul class="gnb-list">
                     <li class="only-mo">
                         <a href="A010101.html" class="gnb-link">홈</a>
@@ -28,7 +28,7 @@
                                     </div>
                                     <div class="gnb-mega-body">
                                         <div class="gnb-mega-group">
-                                            <a href="B010101.html" class="gnb-mega-group-link">
+                                            <a href="B010101.html" class="gnb-mega-group-link only-pc">
                                                 <strong class="gnb-mega-title">공동현관 출입</strong>
                                                 <p>스마트폰으로 출입하는 모바일 출입</p>
                                             </a>
@@ -100,52 +100,47 @@
                                         <img src="assets/images/icon-3d-cs.png" alt="" class="gnb-mega-icon">
                                         <p class="gnb-mega-category">고객지원</p>
                                     </div>
-                                    <ul class="gnb-mega-links">
-                                        <li>
-                                            <a class="gnb-mega-group-link" href="F010101.html">
-                                                <strong class="gnb-mega-title">공지사항</strong>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="gnb-mega-group-link" href="F020101.html">
-                                                <strong class="gnb-mega-title">자주 묻는 질문</strong>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="gnb-mega-group-link" href="F010101.html">
-                                                <strong class="gnb-mega-title">업데이트 노트</strong>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="gnb-mega-group-link" href="#" target="_blank"
-                                                rel="noopener noreferrer">
-                                                <strong class="gnb-mega-title">공식 블로그</strong>
-                                            </a>
-                                        </li>
-                                    </ul>
+                                    <div class="gnb-mega-body">
+                                        <div class="gnb-mega-group">
+                                            <ul class="gnb-mega-sub">
+                                                <li><a href="F010101.html"><strong
+                                                            class="gnb-mega-title">공지사항</strong></a></li>
+                                                <li><a href="F020101.html"><strong class="gnb-mega-title">자주 묻는
+                                                            질문</strong></a></li>
+                                                <li><a href="F010101.html"><strong class="gnb-mega-title">업데이트
+                                                            노트</strong></a></li>
+                                                <li><a href="#" target="_blank" rel="noopener noreferrer"><strong
+                                                            class="gnb-mega-title">공식 블로그</strong></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="gnb-mega-col">
                                     <div class="gnb-mega-col-head">
                                         <img src="assets/images/icon-3d-qr.png" alt="" class="gnb-mega-icon">
                                         <p class="gnb-mega-category">다운로드</p>
                                     </div>
-                                    <ul class="gnb-mega-links">
-                                        <li>
-                                            <a class="gnb-mega-group-link modalLoad" href="#mdFlathome">
-                                                <strong class="gnb-mega-title">플랫홈</strong>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="gnb-mega-group-link modalLoad" href="#mdFlatpass">
-                                                <strong class="gnb-mega-title">플랫패스</strong>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="gnb-mega-group-link modalLoad" href="#mdFlatmanager">
-                                                <strong class="gnb-mega-title">플랫매니저</strong>
-                                            </a>
-                                        </li>
-                                    </ul>
+                                    <div class="gnb-mega-body">
+                                        <!-- 피시전용 메뉴 팝업형태 -->
+                                        <div class="gnb-mega-group only-pc">
+                                            <ul class="gnb-mega-sub">
+                                                <li><a class="modalLoad" href="#mdFlathome"><strong
+                                                            class="gnb-mega-title">플랫홈</strong></a></li>
+                                                <li><a class="modalLoad" href="#mdFlatpass"><strong
+                                                            class="gnb-mega-title">플랫패스</strong></a></li>
+                                                <li><a class="modalLoad" href="#mdFlatmanager"><strong
+                                                            class="gnb-mega-title">플랫매니저</strong></a></li>
+                                            </ul>
+                                        </div>
+                                        <!-- 모바일전용 메뉴 링크이동 -->
+                                        <div class="gnb-mega-group only-mo">
+                                            <ul class="gnb-mega-sub">
+                                                <li><a href="#"><strong class="gnb-mega-title">플랫홈</strong></a></li>
+                                                <li><a href="#"><strong class="gnb-mega-title">플랫패스</strong></a></li>
+                                                <li><a chref="#"><strong class="gnb-mega-title">플랫매니저</strong></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="gnb-mega-col gnb-mega-col--banner">
                                     <a href="G010101.html" class="gnb-mega-banner">

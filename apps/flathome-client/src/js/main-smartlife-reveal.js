@@ -1,5 +1,7 @@
 'use strict';
 
+const SMARTLIFE_MOBILE_MQ = window.matchMedia('(max-width: 720px)');
+
 function initMainSmartlifeReveal() {
   const section = document.querySelector('[data-main-smartlife]');
   if (!section) return;
@@ -13,10 +15,25 @@ function initMainSmartlifeReveal() {
   const update = () => {
     const rect = section.getBoundingClientRect();
     const viewport = window.innerHeight;
-    const scrollable = Math.max(1, section.offsetHeight - viewport);
-    const progress = clamp01(-rect.top / scrollable);
-    const phoneReveal = clamp01((progress - 0.52) / 0.22);
-    const copyReveal = clamp01((progress - 0.64) / 0.22);
+    const isMobile = SMARTLIFE_MOBILE_MQ.matches;
+
+    let progress;
+    let phoneReveal;
+    let copyReveal;
+
+    if (isMobile) {
+      // 섹션이 올라오는 동안만 연출 (sticky·240vh 없이, 빈 화면 구간 제거)
+      const enterStart = viewport * 0.92;
+      const enterEnd = viewport * 0.28;
+      progress = clamp01((enterStart - rect.top) / (enterStart - enterEnd));
+      phoneReveal = clamp01((progress - 0.45) / 0.35);
+      copyReveal = clamp01((progress - 0.58) / 0.35);
+    } else {
+      const scrollable = Math.max(1, section.offsetHeight - viewport);
+      progress = clamp01(-rect.top / scrollable);
+      phoneReveal = clamp01((progress - 0.52) / 0.22);
+      copyReveal = clamp01((progress - 0.64) / 0.22);
+    }
 
     section.style.setProperty('--smartlife-progress', `${progress}`);
     section.style.setProperty('--smartlife-phone-reveal', `${phoneReveal}`);
