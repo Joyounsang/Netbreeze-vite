@@ -2,6 +2,25 @@
 
 const SIDE_NAV_MOBILE_MQ = window.matchMedia('(max-width: 720px)');
 
+/** 사이드 네비 카테고리·필터 클릭 시 공통 스크롤 (FAQ, 도입사례 등) */
+const SIDE_NAV_MENU_SELECTOR =
+  '.side-navigation [data-faq-filter], .side-navigation [data-cases-filter]';
+
+export function scrollPageToTop() {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.scrollTo({ top: 0, left: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+}
+
+function initSideNavMenuScrollTop() {
+  document.querySelectorAll('.side-navigation').forEach((nav) => {
+    nav.addEventListener('click', (event) => {
+      const menu = event.target.closest(SIDE_NAV_MENU_SELECTOR);
+      if (!menu || !nav.contains(menu)) return;
+      scrollPageToTop();
+    });
+  });
+}
+
 function getSideNavPanel(toggle) {
   const panelId = toggle.getAttribute('aria-controls');
   return panelId ? document.getElementById(panelId) : null;
@@ -67,8 +86,13 @@ function initSideNavMobileDrawer() {
   });
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initSideNavMobileDrawer);
-} else {
+function initSideNav() {
   initSideNavMobileDrawer();
+  initSideNavMenuScrollTop();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initSideNav);
+} else {
+  initSideNav();
 }

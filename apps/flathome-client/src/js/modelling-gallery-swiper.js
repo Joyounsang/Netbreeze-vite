@@ -26,6 +26,19 @@ const autoplayOptions = {
   waitForTransition: true,
 };
 
+/** autoplay 전용 — 사용자 드래그·스와이프·키보드 조작 불가 */
+const readOnlyInteraction = {
+  allowTouchMove: false,
+  simulateTouch: false,
+  grabCursor: false,
+  preventClicks: true,
+  preventClicksPropagation: true,
+  noSwiping: true,
+  keyboard: {
+    enabled: false,
+  },
+};
+
 function bindAutoplayRecovery(swiper) {
   swiper.on('slideChangeTransitionEnd', (s) => {
     if (s.destroyed || !s.autoplay) return;
@@ -48,6 +61,7 @@ function bindAutoplayRecovery(swiper) {
 function createModellingGallerySwiper(swiperEl) {
   const swiper = new Swiper(swiperEl, {
     modules: [Autoplay],
+    ...readOnlyInteraction,
     loop: true,
     // loopAdditionalSlides: 3,
     loopPreventsSliding: false,
@@ -82,6 +96,7 @@ function createModellingGallerySwiper(swiperEl) {
 function createModellingGalleryDeviceSwiper(swiperEl) {
   const swiper = new Swiper(swiperEl, {
     modules: [Autoplay, EffectFade],
+    ...readOnlyInteraction,
     effect: 'fade',
     fadeEffect: {
       crossFade: true,
@@ -91,7 +106,6 @@ function createModellingGalleryDeviceSwiper(swiperEl) {
     loopPreventsSliding: false,
     slidesPerView: 1,
     speed: 800,
-    allowTouchMove: false,
     observer: true,
     observeParents: true,
     watchOverflow: false,

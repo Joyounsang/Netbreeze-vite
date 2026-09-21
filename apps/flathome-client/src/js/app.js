@@ -4,6 +4,7 @@ import '@/js/header.js';
 import '@/js/location-menu.js';
 import '@/js/footer-related.js';
 import '@/js/scroll-to-top.js';
+import '@/js/scroll-to-contact.js';
 import '@/js/banner-swiper.js';
 import '@/js/main-app-swiper.js';
 import '@/js/main-service-sticky.js';
@@ -17,6 +18,7 @@ import '@/js/board-faq.js';
 import '@/js/side-nav-mobile.js';
 import '@/js/faq-page.js';
 import '@/js/cases-page.js';
+import '@/js/pagination-ui.js';
 import '@/js/contact-service-select.js';
 import '@/js/contact-file-field.js';
 

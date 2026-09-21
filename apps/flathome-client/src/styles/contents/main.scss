@@ -1,21 +1,24 @@
 main {
-  min-height: calc(100dvh - #{$gnb-header-height});
-
+  // min-height: calc(100dvh - #{$gnb-header-height});
+  min-height: 1080px;
 
   .banner-main-swiper {
     position: relative;
     height: 100%;
-    min-height: calc(100dvh - #{$gnb-header-height});
+    min-height: 1080px;
+    // min-height: calc(100dvh - #{$gnb-header-height});
   }
 
   .main-hero {
     position: relative;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    min-height: calc(100dvh - #{$gnb-header-height});
+    min-height: 1080px;
+    // min-height: calc(100dvh - #{$gnb-header-height});
     overflow: hidden;
-    padding: 30px;
+    box-sizing: border-box;
+    padding: 200px 30px 30px;
   }
 
   .main-hero-bg {
@@ -32,9 +35,10 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 60px;
     width: 100%;
+    max-width: 100%;
     text-align: center;
   }
 
@@ -109,7 +113,7 @@ main {
   @include mobile {
 
     .main-hero {
-      padding-top: 100px;
+      padding: 100px 20px 40px;
     }
 
     .main-hero-frame {
@@ -152,11 +156,11 @@ main {
 }
 
 body.is-main main {
-  min-height: 100dvh;
+  // min-height: 100dvh;
 
   .banner-main-swiper,
   .main-hero {
-    min-height: 100dvh;
+    // min-height: 100dvh;
   }
 
 

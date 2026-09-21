@@ -5,6 +5,8 @@ import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 
 const swiperMap = new WeakMap();
+const ADD_SERVICE_SPEED = 400;
+const ADD_SERVICE_AUTOPLAY_DELAY = 1700;
 
 function fixLoop(swiper) {
   if (!swiper?.params?.loop) return;
@@ -16,20 +18,61 @@ function fixLoop(swiper) {
   }
 }
 
+function bindAddServiceVisibilityAutoplay(swiperEl, swiper) {
+  const observeTarget = swiperEl.closest('.add-service-slide') || swiperEl;
+
+  if (!('IntersectionObserver' in window)) {
+    swiper.autoplay?.start();
+    return;
+  }
+
+  let hasStartedInView = false;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          swiper.autoplay?.stop();
+          return;
+        }
+
+        fixLoop(swiper);
+
+        if (!hasStartedInView) {
+          hasStartedInView = true;
+          swiper.autoplay?.stop();
+          requestAnimationFrame(() => {
+            swiper.slideNext(ADD_SERVICE_SPEED);
+            swiper.autoplay?.start();
+          });
+          return;
+        }
+
+        swiper.autoplay?.start();
+      });
+    },
+    {
+      threshold: 0.12,
+      rootMargin: '0px 0px -4% 0px',
+    },
+  );
+
+  observer.observe(observeTarget);
+}
+
 function createAddServiceSwiper(swiperEl) {
   const swiper = new Swiper(swiperEl, {
     modules: [Autoplay],
     loop: true,
-    // loopAdditionalSlides: 5,
     loopPreventsSliding: false,
     slidesPerView: 'auto',
     spaceBetween: 0,
-    speed: 600,
+    speed: ADD_SERVICE_SPEED,
     observer: true,
     observeParents: true,
     watchOverflow: false,
     autoplay: {
-      delay: 2500,
+      delay: ADD_SERVICE_AUTOPLAY_DELAY,
       disableOnInteraction: false,
       pauseOnMouseEnter: true,
       stopOnLastSlide: false,
@@ -37,7 +80,10 @@ function createAddServiceSwiper(swiperEl) {
     },
     on: {
       init(s) {
-        requestAnimationFrame(() => fixLoop(s));
+        requestAnimationFrame(() => {
+          fixLoop(s);
+          s.autoplay?.stop();
+        });
       },
       resize(s) {
         fixLoop(s);
@@ -57,6 +103,7 @@ function createAddServiceSwiper(swiperEl) {
     },
   });
 
+  bindAddServiceVisibilityAutoplay(swiperEl, swiper);
   swiperMap.set(swiperEl, swiper);
   return swiper;
 }
@@ -75,7 +122,6 @@ function refreshAddServiceSwiper() {
     if (!swiper) return;
 
     fixLoop(swiper);
-    swiper.autoplay?.start();
   });
 }
 

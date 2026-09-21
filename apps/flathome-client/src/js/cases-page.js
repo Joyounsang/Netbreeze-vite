@@ -24,10 +24,13 @@ function initCasesPage() {
   if (!nav || !board) return;
 
   const filterLinks = nav.querySelectorAll('[data-cases-filter]');
-  const defaultLink = nav.querySelector('[data-cases-filter].is-active')
+  const defaultLink = nav.querySelector('[data-cases-filter="all"].is-active')
+    || nav.querySelector('[data-cases-filter="all"]')
+    || nav.querySelector('[data-cases-filter].is-active')
     || filterLinks[0];
 
   if (defaultLink) {
+    setActiveCasesFilter(filterLinks, defaultLink);
     applyCasesFilter(board, defaultLink.dataset.casesFilter);
   }
 

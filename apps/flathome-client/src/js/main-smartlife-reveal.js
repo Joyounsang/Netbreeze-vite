@@ -1,48 +1,61 @@
 'use strict';
 
-const SMARTLIFE_MOBILE_MQ = window.matchMedia('(max-width: 720px)');
-
 function initMainSmartlifeReveal() {
   const section = document.querySelector('[data-main-smartlife]');
   if (!section) return;
 
-  const copy = section.querySelector('.main-smartlife-copy');
-  const circle = section.querySelector('.main-smartlife-circle');
-  if (!copy || !circle) return;
+  if (section.dataset.mainSmartlifeInit === 'true') return;
+  section.dataset.mainSmartlifeInit = 'true';
 
-  const clamp01 = (value) => Math.min(1, Math.max(0, value));
+  const target = section.querySelector('.main-smartlife-circle');
+  if (!target) return;
 
-  const update = () => {
-    const rect = section.getBoundingClientRect();
-    const viewport = window.innerHeight;
-    const isMobile = SMARTLIFE_MOBILE_MQ.matches;
-
-    let progress;
-    let phoneReveal;
-    let copyReveal;
-
-    if (isMobile) {
-      // 섹션이 올라오는 동안만 연출 (sticky·240vh 없이, 빈 화면 구간 제거)
-      const enterStart = viewport * 0.92;
-      const enterEnd = viewport * 0.28;
-      progress = clamp01((enterStart - rect.top) / (enterStart - enterEnd));
-      phoneReveal = clamp01((progress - 0.45) / 0.35);
-      copyReveal = clamp01((progress - 0.58) / 0.35);
-    } else {
-      const scrollable = Math.max(1, section.offsetHeight - viewport);
-      progress = clamp01(-rect.top / scrollable);
-      phoneReveal = clamp01((progress - 0.52) / 0.22);
-      copyReveal = clamp01((progress - 0.64) / 0.22);
-    }
-
-    section.style.setProperty('--smartlife-progress', `${progress}`);
-    section.style.setProperty('--smartlife-phone-reveal', `${phoneReveal}`);
-    section.style.setProperty('--smartlife-copy-reveal', `${copyReveal}`);
+  const reveal = () => {
+    section.classList.add('is-visible');
   };
 
-  update();
-  window.addEventListener('scroll', update, { passive: true });
-  window.addEventListener('resize', update, { passive: true });
+  const isInRevealZone = (entry) => {
+    if (!entry.isIntersecting) return false;
+    // 원이 화면에 충분히 들어온 뒤에만 시작 (섹션 패딩만 보일 때 트리거 방지)
+    return entry.intersectionRatio >= 0.45;
+  };
+
+  if (!('IntersectionObserver' in window)) {
+    const onScroll = () => {
+      const rect = target.getBoundingClientRect();
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      const visibleHeight = Math.min(rect.bottom, vh) - Math.max(rect.top, 0);
+      const ratio = visibleHeight / Math.max(rect.height, 1);
+
+      if (ratio < 0.45) return;
+
+      reveal();
+      window.removeEventListener('scroll', onScroll, { passive: true });
+      window.removeEventListener('resize', onScroll);
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    onScroll();
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!isInRevealZone(entry)) return;
+
+        reveal();
+        observer.disconnect();
+      });
+    },
+    {
+      threshold: [0, 0.25, 0.45, 0.6, 0.75, 1],
+      rootMargin: '0px 0px -10% 0px',
+    },
+  );
+
+  observer.observe(target);
 }
 
 $(document).ready(initMainSmartlifeReveal);
