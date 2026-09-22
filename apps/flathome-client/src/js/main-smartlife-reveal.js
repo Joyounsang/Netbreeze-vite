@@ -7,8 +7,9 @@ function initMainSmartlifeReveal() {
   if (section.dataset.mainSmartlifeInit === 'true') return;
   section.dataset.mainSmartlifeInit = 'true';
 
-  const target = section.querySelector('.main-smartlife-circle');
-  if (!target) return;
+  // scale(0)인 원은 교차 영역이 0으로 잡혀 IO가 동작하지 않음 → 레이아웃 박스가 유지되는 래퍼 관찰
+  const target =
+    section.querySelector('.main-smartlife-visual') || section;
 
   const reveal = () => {
     section.classList.add('is-visible');

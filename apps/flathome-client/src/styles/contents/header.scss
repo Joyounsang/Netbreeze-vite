@@ -408,7 +408,7 @@ header {
     padding: 16px 20px;
     border-radius: 12px;
     margin-bottom: 10px;
-    background: var(--gray);
+    background: #fafafa;
 
     &__text {
       flex: 1;
@@ -417,7 +417,8 @@ header {
 
     &__title {
       display: block;
-      color: var(--rec-secondary);
+      // color: var(--rec-secondary);
+      color: var(--text-gray);
       font-size: clamp(1.41rem, 2vw + 1.05rem, 1.6rem);
       font-weight: 700;
       line-height: 1.35;
@@ -444,7 +445,7 @@ header {
 
   .gnb-mega-menu {
     margin: 0;
-    padding: 4px 0 0 15px;
+    padding: 4px 0 0 10px;
     list-style: none;
 
     li+li {
@@ -452,7 +453,7 @@ header {
     }
 
     a {
-      display: inline-block;
+      display: block;
       color: var(--text);
       font-size: 1.6rem;
       font-weight: 600;
@@ -460,6 +461,25 @@ header {
       letter-spacing: -0.5px;
       text-decoration: none;
       transition: color 0.2s ease;
+      position: relative;
+
+      &:after {
+        content: '';
+        display: block;
+        width: 16px;
+        height: 16px;
+        background: transparent url('../images/ico-crud-arrows.png') no-repeat;
+        background-size: contain;
+        opacity: 0.3;
+        transition: opacity 0.2s ease;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        margin: auto;
+        transform: rotate(-90deg);
+      }
+
 
       &:hover,
       &:focus-visible {
@@ -627,13 +647,13 @@ body.is-gnb-locked {
         position: relative;
         width: 100%;
         height: auto;
-        min-height: 56px;
-        padding: 24px 30px;
-        font-size: 2rem;
+        min-height: inherit;
+        padding: 22px 10px 22px 30px;
+        font-size: 1.8rem;
         font-weight: 700;
         line-height: 1.5;
         white-space: normal;
-        letter-spacing: -0.5px;
+        letter-spacing: -0.75px;
 
         &::after {
           content: '';
@@ -701,7 +721,7 @@ body.is-gnb-locked {
         min-width: 0;
         min-height: 100%;
         max-width: 100%;
-        padding: 0 20px;
+        padding: 0 20px 20px;
       }
     }
 
@@ -709,21 +729,56 @@ body.is-gnb-locked {
       padding: 0;
       border-left: 0;
 
+      &+.gnb-mega-col {
+        margin-top: 40px;
+      }
+
       &--banner {
         padding: 0;
       }
     }
 
     .gnb-mega-head {
-      display: none;
+      // display: none;
+      // flex-direction: column;
+      margin-bottom: 0;
+      padding: 10px 0 10px 10px;
+      background-color: transparent;
+      // padding: 0;
+      border-bottom: 1px solid var(--border-light);
+      border-radius: 0;
+      // padding-bottom: 10px;
+      align-items: center;
+      justify-content: center;
+
+      &__title {
+        font-size: 1.4rem;
+        color: var(--text-light);
+      }
+
+      &__desc {
+        display: none;
+        font-size: 1.2rem;
+        letter-spacing: -1px;
+      }
+
+      &__icon {
+        height: 32px !important;
+      }
     }
 
     .gnb-mega-body {
       gap: 0;
+      // align-items: flex-start;
+      // justify-content: flex-start;
     }
 
     .gnb-mega-group {
-      padding: 0 20px;
+
+      // padding: 0 20px;
+      &+.gnb-mega-group {
+        margin-top: 40px;
+      }
 
       &:first-child {
         margin: 0;
@@ -732,7 +787,7 @@ body.is-gnb-locked {
 
     .gnb-mega-menu {
       margin: 0;
-      padding: 0;
+      // padding: 0;
 
       li+li {
         margin: 0;
@@ -740,18 +795,19 @@ body.is-gnb-locked {
 
       a {
         display: block;
-        padding: 20px 0;
-        font-size: 1.75rem;
-        font-weight: 700;
+        padding: 14px 0;
+        font-size: 1.65rem;
+        font-weight: 600;
         line-height: 1.4;
       }
     }
 
     .gnb-mega-banner {
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      min-height: inherit;
+      display: none;
+      // position: fixed;
+      // left: 0;
+      // bottom: 0;
+      // min-height: inherit;
       border-radius: 0;
 
       .gnb-mega-banner-copy {

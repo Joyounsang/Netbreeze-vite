@@ -125,6 +125,7 @@
             line-height: 1;
             color: rgba(255, 255, 255, 0.5);
             font-weight: 700;
+            font-size: 1.5rem;
 
             &.active-value {
               display: flex;
@@ -195,6 +196,7 @@
                 height: 100%;
                 color: var(--white);
                 opacity: 0.7;
+                font-size: 1.5rem;
                 font-weight: 400;
               }
             }
@@ -242,34 +244,54 @@
     }
 
     @include mobile {
-      height: 40vh;
+      height: 44vh;
+      padding-bottom: 40px;
+
+      .headline {
+        >span {
+          font-size: 1.5rem;
+        }
+
+        h3 {
+          font-size: 2.6rem;
+          letter-spacing: -0.5px;
+        }
+      }
 
       &.bluetooth-onepass {
         // background-position: right bottom;
+        background: url(../images/bg-bluetooth-onepass-mo.jpg) no-repeat center center / cover;
       }
 
       &.face-onepass {
-        background-position: 60% bottom;
+        // background-position: 60% bottom;
+        background: url(../images/bg-face-onepass-mo.jpg) no-repeat center center / cover;
       }
 
       &.cloud-lobbyphone {
-        background-position: 75% bottom
+        // background-position: 65% bottom;
+        background: url(../images/bg-cloud-lobbyphone-mo.jpg) no-repeat center center / cover;
       }
 
       &.community {
-        background-position: 60% bottom;
+        // background-position: 55% center / cover;
+        background: url(../images/bg-community-mo.jpg) no-repeat center center / cover;
+
       }
 
       &.paring-control {
-        background-position: 30% bottom;
+        // background-position: 35% bottom;
+        background: url(../images/bg-paring-control-mo.jpg) no-repeat center center / cover;
       }
 
       &.vote-on-offline {
-        background-position: 40% bottom;
+        // background-position: 40% bottom;
+        background: url(../images/bg-vote-on-offline-mo.jpg) no-repeat center center / cover;
       }
 
       &.complex-management {
-        background-position: 68% bottom;
+        // background-position: 68% bottom;
+        background: url(../images/bg-complex-management-mo.jpg) no-repeat center center / cover;
       }
 
       .app-inner {
@@ -426,7 +448,7 @@
 
         .main-service-media {
           left: 0;
-          margin-top: -55px;
+          // margin-top: -55px;
 
           img,
           video {
@@ -1135,8 +1157,8 @@
       }
 
       .dl-group {
-        gap: 14px;
-        margin-top: 40px;
+        // gap: 14px;
+        margin-top: 24px;
 
         dl {
           width: calc(50% - 15px);
@@ -1310,8 +1332,8 @@
         }
 
         img {
-          box-shadow: 0 14px 44px 0 rgba(0, 0, 0, 0.10);
-          border-radius: 20px;
+          // box-shadow: 0 14px 44px 0 rgba(0, 0, 0, 0.10);
+          // border-radius: 20px;
         }
 
         &--pill {
@@ -1442,9 +1464,10 @@
         .screen-layout__device {
           flex: none;
           align-self: center;
-          width: auto;
-          max-width: min(320px, 78vw);
+          // width: auto;
+          // max-width: min(320px, 78vw);
           height: auto;
+          width: 100%;
         }
 
         .box {
@@ -1476,7 +1499,7 @@
           img {
             width: 100%;
             height: auto;
-            border-radius: 8px;
+            // border-radius: 8px;
           }
 
 
@@ -1834,9 +1857,10 @@
           &__name {
             flex: 1;
             min-width: 0;
-            border-radius: 10px;
+            border-radius: 6px;
             cursor: default;
             background: var(--white);
+            font-weight: 400;
 
             &:not(:placeholder-shown) {
               color: var(--text);
@@ -1851,7 +1875,7 @@
             min-width: 120px;
             height: 54px;
             padding: 0 24px;
-            border-radius: 10px;
+            border-radius: 6px;
             background: var(--text);
             color: var(--white);
             font-size: clamp(1.5rem, 2vw + 1.12rem, 1.7rem);
@@ -1863,6 +1887,16 @@
 
             &:hover {
               opacity: 0.88;
+            }
+          }
+
+
+
+          @include mobile {
+            flex-direction: column;
+
+            &__name {
+              flex: none;
             }
           }
         }
@@ -2007,6 +2041,17 @@
         .form-submit {
           width: 100%;
         }
+
+        .contact-complete-card {
+          padding: 24px 20px;
+          background: var(--white);
+          box-shadow: 0 -6px 24px 0 rgba(0, 0, 0, 0.10);
+
+          &__row {
+            grid-template-columns: 64px 1fr;
+            gap: 12px;
+          }
+        }
       }
 
       .contact-form {
@@ -2015,14 +2060,8 @@
         }
       }
 
-      .contact-complete-card {
-        padding: 24px 20px;
 
-        &__row {
-          grid-template-columns: 64px 1fr;
-          gap: 12px;
-        }
-      }
+
     }
   }
 
@@ -2371,6 +2410,8 @@
             align-items: center;
             padding: 14px;
 
+
+
             strong {
               text-align: center;
               font-size: 1.4rem;
@@ -2378,6 +2419,8 @@
 
             p {
               text-align: center;
+
+
             }
           }
         }
@@ -2386,7 +2429,7 @@
 
         li {
           align-items: flex-start;
-          width: 140px;
+          width: calc(50% - 10px);
           gap: 14px;
           flex: none;
           text-align: left;
@@ -2402,7 +2445,7 @@
           }
 
           p {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
 
             br {
               display: none;
@@ -2597,7 +2640,14 @@
       transform: scale(1);
     }
 
+    @include mobile {
+      background-color: var(--gray);
+      border-radius: 20px;
+    }
+
     @media (prefers-reduced-motion: reduce) {
+
+
       .strong-item {
         transition: none;
         transform: scale(1);
@@ -3300,6 +3350,11 @@
       &.search::before {
         background-image: url('../images/ico-search.png');
       }
+    }
+
+    @include mobile {
+      margin: 0 0 20px;
+      max-width: 100%;
     }
   }
 
