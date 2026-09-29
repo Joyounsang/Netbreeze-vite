@@ -124,7 +124,7 @@ main {
         display: block;
         width: 100%;
         height: auto;
-        aspect-ratio: 3 / 4;
+        aspect-ratio: 3.3 / 3.8;
         object-fit: cover;
       }
     }
@@ -145,14 +145,10 @@ main {
       }
 
       .btn-group {
-        margin-top: 30px;
-        gap: 14px;
-
-        .btn {
-          min-width: 140px;
-        }
+        display: none;
       }
     }
+
   }
 }
 

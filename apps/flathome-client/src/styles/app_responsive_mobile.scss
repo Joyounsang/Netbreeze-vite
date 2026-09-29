@@ -11,4 +11,26 @@
     width: 100% !important;
     padding: 0 30px;
   }
+
+  .mo-center {
+
+    .headline {
+      text-align: center;
+
+      .app-title {
+        text-align: center;
+      }
+    }
+  }
+
+  .app-section {
+    &.modelling {
+      .app-title {
+        &+.dl-group {
+          margin-top: 44px;
+        }
+      }
+    }
+  }
+
 }

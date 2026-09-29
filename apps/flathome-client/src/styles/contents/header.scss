@@ -130,8 +130,10 @@ header {
       }
 
       &.brochure {
+
+
         &:before {
-          background-image: url('../images/ico-guide.png');
+          // background-image: url('../images/ico-guide.png');
         }
       }
 
@@ -206,10 +208,19 @@ header {
     span {
       color: var(--white);
       font-size: clamp(1.2rem, 2vw + 0.88rem, 1.3rem);
-      font-weight: 500;
+      font-weight: 600;
     }
 
     &.brochure {
+      background: linear-gradient(270deg, #62BBC9 10.84%, #5680EB 100%);
+      border: none;
+      // border-color: #6c86c8;
+
+      span {
+        color: var(--white) !important;
+
+      }
+
       &:before {
         content: '';
         display: block;
@@ -803,15 +814,19 @@ body.is-gnb-locked {
     }
 
     .gnb-mega-banner {
-      display: none;
+      // display: none;
       // position: fixed;
       // left: 0;
       // bottom: 0;
       // min-height: inherit;
       border-radius: 0;
 
+      .gnb-mega-banner-bg {
+        height: 100%;
+      }
+
       .gnb-mega-banner-copy {
-        padding: 30px;
+        padding: 10px;
       }
 
       .gnb-mega-banner-title {

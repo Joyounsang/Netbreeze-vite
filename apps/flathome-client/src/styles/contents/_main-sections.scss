@@ -2,7 +2,7 @@
   padding: 140px 0;
 
   @include mobile {
-    padding: 60px 0;
+    padding: 80px 0;
   }
 
   &.main-intro {
@@ -12,19 +12,63 @@
 
 
 
-    .main-intro-gallery {
+    .main-intro-gallery-wrap {
       width: 100%;
       bottom: 0;
       left: 0;
       z-index: 1;
-      display: flex;
-      gap: 0;
+    }
+
+    .main-intro-gallery-swiper {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .main-intro-gallery {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      list-style: none;
 
       li {
-        flex: 1;
-
         img {
+          display: block;
           width: 100%;
+          height: auto;
+        }
+      }
+    }
+
+    .main-intro-gallery-wrap:not(.is-slider) {
+      .main-intro-gallery {
+        display: flex;
+        gap: 0;
+
+        li {
+          flex: 1;
+        }
+      }
+    }
+
+    .main-intro-gallery-wrap.is-slider {
+      .main-intro-gallery-swiper {
+        overflow: hidden;
+
+        @include mobile {
+          padding: 0 30px;
+        }
+      }
+
+      .main-intro-gallery li {
+        flex: none;
+        height: auto;
+      }
+
+      &.is-slider--desktop-static {
+        @media screen and (min-width: 721px) {
+          .main-intro-gallery-swiper {
+            cursor: default;
+          }
         }
       }
     }
@@ -37,17 +81,6 @@
 
       .headline {
         text-align: center;
-      }
-
-      .main-intro-gallery {
-
-        li {
-          flex: 1;
-
-          img {
-            width: 100%;
-          }
-        }
       }
     }
   }
@@ -85,6 +118,11 @@
         line-height: 140%;
         letter-spacing: -1.5px;
         margin-bottom: 24px;
+
+        @include mobile {
+          font-size: 1.6rem;
+          margin-top: -20px;
+        }
       }
 
       .main-app-nav {
@@ -338,6 +376,10 @@
             display: block;
             width: 100%;
             height: auto;
+
+            @include mobile {
+              transform: scale(1.1);
+            }
           }
         }
       }
@@ -560,10 +602,20 @@
         }
       }
 
+      .main-service-stage {
+        height: auto;
+      }
+
       .main-service-list {
         display: flex;
         flex-direction: column;
-        gap: 60px;
+        gap: 0;
+
+        .main-service-item {
+          &+.main-service-item {
+            margin-top: 60px;
+          }
+        }
       }
 
       .main-service-item {
@@ -1132,7 +1184,7 @@
         color: var(--white);
         text-align: center;
         margin: 0;
-        font-size: clamp(1.45rem, 10cqw + 0.35rem, 4rem);
+        font-size: clamp(1.45rem, 3vw, 4rem);
         font-weight: 600;
         line-height: 1.35;
         letter-spacing: clamp(-0.5px, -0.14cqw, -1.5px);
@@ -1177,8 +1229,8 @@
     }
 
     @include mobile {
-      padding-top: 60px;
-      padding-bottom: 60px;
+      padding-top: 120px;
+      padding-bottom: 150px;
 
       .main-smartlife-visual {
         padding: 32px 20px 40px;
@@ -1267,7 +1319,7 @@
 
         p {
           color: rgba(255, 255, 255, 0.8);
-          font-weight: 500;
+          font-weight: 400;
           font-size: 1.5rem;
         }
       }

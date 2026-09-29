@@ -107,6 +107,7 @@
 
     h3.app-title {
       font-size: 2.5rem;
+      margin-bottom: 12px;
     }
 
     h4.app-title {
@@ -134,5 +135,38 @@
 
   @include mobile {
     flex-direction: column;
+  }
+}
+
+// 메인·서브 공통: viewport 하단 고정 CTA (Swiper/히어로 섹션 밖에 두어 footer와 레이어 분리)
+@include mobile {
+  .viewport-fixed-cta {
+    position: fixed;
+    z-index: 8;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    background-color: #fff;
+    padding: 14px;
+    padding-bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+
+    .btn-group {
+      margin: 0;
+      gap: 10px;
+
+      .btn {
+        flex: 1;
+
+        &.black {
+          background-color: var(--black);
+          box-shadow: none;
+        }
+      }
+    }
+  }
+
+  body:has(.viewport-fixed-cta) {
+    padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px));
   }
 }

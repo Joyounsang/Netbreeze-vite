@@ -305,7 +305,7 @@ footer.site-footer {
   }
 
   @include mobile {
-    padding: 30px 0;
+    padding: 30px 0 50px;
 
     .footer-inner {
       max-width: 100%;
@@ -342,6 +342,7 @@ footer.site-footer {
     }
 
     .footer-actions {
+      display: none;
       margin-bottom: 30px;
       width: 290px;
       margin: 24px auto 24px auto;
@@ -397,6 +398,14 @@ footer.site-footer {
 
 
     .fnb {
+      gap: 0;
+
+      >li {
+        &+li {
+          margin-left: 20px;
+        }
+      }
+
       >li>a {
         font-size: 1.4rem;
       }
@@ -437,9 +446,16 @@ footer.site-footer {
     ul {
       li {
         a {
-          width: 50px;
+          width: 36px;
         }
       }
     }
+  }
+}
+
+// 하단 고정 CTA(.viewport-fixed-cta) 위로 플로팅 메뉴 올림
+@include mobile {
+  body:has(.viewport-fixed-cta) .quick-menu {
+    bottom: calc(86px + env(safe-area-inset-bottom, 0px));
   }
 }
