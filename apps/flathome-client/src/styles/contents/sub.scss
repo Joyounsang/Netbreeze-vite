@@ -311,9 +311,9 @@
       }
 
       .app-inner {
-        align-items: flex-end;
-        // align-items: flex-start;
-        // padding-top: 100px;
+        // align-items: flex-end;
+        align-items: flex-start;
+        padding-top: 100px;
 
         .headline {
           margin: 0;
@@ -2543,7 +2543,9 @@
           width: calc(50% - 10px);
           gap: 14px;
           flex: none;
-          text-align: left;
+          // text-align: left;
+          align-items: center;
+          text-align: center;
 
           img {
             width: 50px;
