@@ -46,7 +46,7 @@ $gnb-header-height-mobile: 60px;
       outline-offset: 2px;
     }
 
-    &+.skip-link:focus-visible {
+    & + .skip-link:focus-visible {
       left: auto;
       right: 16px;
     }
@@ -73,14 +73,14 @@ header {
   z-index: 100;
   width: 100%;
   background-color: transparent;
-  border-bottom: 1px solid rgba(235, 236, 242, 0.20);
+  border-bottom: 1px solid rgba(235, 236, 242, 0.2);
   transition:
     background-color 0.25s ease,
     border-color 0.2s ease,
     box-shadow 0.2s ease;
 
   .logo a {
-    background-image: url('../images/logo-white.png');
+    background-image: url("../images/logo-white.png");
   }
 
   .gnb-nav .gnb-link {
@@ -106,7 +106,7 @@ header {
     background-color: var(--white);
 
     .logo a {
-      background-image: url('../images/logo.png');
+      background-image: url("../images/logo.png");
     }
 
     .gnb-nav .gnb-link {
@@ -130,21 +130,18 @@ header {
       }
 
       &.brochure {
-
-
         &:before {
           // background-image: url('../images/ico-guide.png');
         }
       }
-
     }
 
     .gnb-toggle__bar {
       background-color: var(--text);
     }
 
-    .gnb-nav .gnb-item>.gnb-link::after {
-      background-image: url('../images/ico-crud-arrows.png');
+    .gnb-nav .gnb-item > .gnb-link::after {
+      background-image: url("../images/ico-crud-arrows.png");
     }
   }
 
@@ -194,7 +191,7 @@ header {
     gap: 8px;
     height: 36px;
     padding: 0 14px;
-    border: 1px solid rgba(255, 255, 255, 0.50);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 999px;
     line-height: 1;
     letter-spacing: -1px;
@@ -212,28 +209,25 @@ header {
     }
 
     &.brochure {
-      background: linear-gradient(270deg, #62BBC9 10.84%, #5680EB 100%);
+      background: linear-gradient(270deg, #62bbc9 10.84%, #5680eb 100%);
       border: none;
       // border-color: #6c86c8;
 
       span {
         color: var(--white) !important;
-
       }
 
       &:before {
-        content: '';
+        content: "";
         display: block;
         width: 18px;
         height: 18px;
-        background-image: url('../images/ico-guide-white.png');
+        background-image: url("../images/ico-guide-white.png");
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
       }
     }
-
-
   }
 
   .gnb-toggle {
@@ -314,8 +308,8 @@ header {
       justify-content: flex-start;
       gap: 60px;
 
-      >li {
-        &+li {
+      > li {
+        & + li {
           // margin-left: 60px;
         }
       }
@@ -339,12 +333,12 @@ header {
       white-space: nowrap;
     }
 
-    .gnb-item>.gnb-link {
+    .gnb-item > .gnb-link {
       gap: 6px;
 
       &::after {
         @include ico-crud-arrow(14px);
-        background-image: url('../images/ico-crud-arrows-w.png');
+        background-image: url("../images/ico-crud-arrows-w.png");
         flex-shrink: 0;
         transition:
           opacity 0.2s ease,
@@ -353,7 +347,7 @@ header {
       }
     }
 
-    .gnb-item.is-hover>.gnb-link::after {
+    .gnb-item.is-hover > .gnb-link::after {
       opacity: 1;
     }
   }
@@ -459,7 +453,7 @@ header {
     padding: 4px 0 0 10px;
     list-style: none;
 
-    li+li {
+    li + li {
       margin-top: 14px;
     }
 
@@ -475,11 +469,11 @@ header {
       position: relative;
 
       &:after {
-        content: '';
+        content: "";
         display: block;
         width: 16px;
         height: 16px;
-        background: transparent url('../images/ico-crud-arrows.png') no-repeat;
+        background: transparent url("../images/ico-crud-arrows.png") no-repeat;
         background-size: contain;
         opacity: 0.3;
         transition: opacity 0.2s ease;
@@ -490,7 +484,6 @@ header {
         margin: auto;
         transform: rotate(-90deg);
       }
-
 
       &:hover,
       &:focus-visible {
@@ -634,7 +627,9 @@ body.is-gnb-locked {
       transform: translateX(100%);
       visibility: hidden;
       pointer-events: none;
-      transition: transform 0.28s ease, visibility 0.28s ease;
+      transition:
+        transform 0.28s ease,
+        visibility 0.28s ease;
 
       .gnb-list {
         flex: 0 0 var(--gnb-mobile-side-width);
@@ -667,7 +662,7 @@ body.is-gnb-locked {
         letter-spacing: -0.75px;
 
         &::after {
-          content: '';
+          content: "";
           position: absolute;
           top: 0;
           bottom: 0;
@@ -676,14 +671,14 @@ body.is-gnb-locked {
           width: 20px;
           height: 12px;
           transform: rotate(-90deg);
-          background: transparent url('../images/ico-crud-arrows.png') no-repeat;
+          background: transparent url("../images/ico-crud-arrows.png") no-repeat;
           background-size: contain;
           opacity: 0.3;
           transition: opacity 0.2s ease;
         }
       }
 
-      >.gnb-list>li:not(.gnb-item) .gnb-link::after {
+      > .gnb-list > li:not(.gnb-item) .gnb-link::after {
         display: none;
       }
 
@@ -740,7 +735,7 @@ body.is-gnb-locked {
       padding: 0;
       border-left: 0;
 
-      &+.gnb-mega-col {
+      & + .gnb-mega-col {
         margin-top: 40px;
       }
 
@@ -785,9 +780,8 @@ body.is-gnb-locked {
     }
 
     .gnb-mega-group {
-
       // padding: 0 20px;
-      &+.gnb-mega-group {
+      & + .gnb-mega-group {
         margin-top: 40px;
       }
 
@@ -800,7 +794,7 @@ body.is-gnb-locked {
       margin: 0;
       // padding: 0;
 
-      li+li {
+      li + li {
         margin: 0;
       }
 

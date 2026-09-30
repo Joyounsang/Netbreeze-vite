@@ -69,7 +69,7 @@ function initBannerSwiper() {
   let rafId = 0;
   let cycleIndex = -1;
 
-  const startCycle = (swiper) => {
+  const startCycle = swiper => {
     if (rafId) cancelAnimationFrame(rafId);
 
     const ring = swiper.slides[swiper.activeIndex]?.querySelector(PROGRESS_RING_SELECTOR);
@@ -80,7 +80,7 @@ function initBannerSwiper() {
 
     const startedAt = performance.now();
 
-    const tick = (now) => {
+    const tick = now => {
       const progress = Math.min(1, (now - startedAt) / SLIDE_DURATION_MS);
       setRingProgress(ring, progress);
 
@@ -144,7 +144,7 @@ function initBannerSwiper() {
         syncAllHeroProgressFrames(swiperEl);
       });
     },
-    { passive: true },
+    { passive: true }
   );
 }
 

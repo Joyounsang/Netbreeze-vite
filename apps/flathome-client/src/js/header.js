@@ -8,10 +8,7 @@ function isHeaderInitialWhite() {
   const header = document.getElementById('site-header');
   if (!header) return false;
 
-  return (
-    document.body.classList.contains('is-header-white')
-    || header.classList.contains('white')
-  );
+  return document.body.classList.contains('is-header-white') || header.classList.contains('white');
 }
 
 function initHeaderScrollTheme() {
@@ -57,7 +54,7 @@ function initGnbMenu() {
   };
 
   const closeMobilePanels = () => {
-    items.forEach((item) => {
+    items.forEach(item => {
       item.classList.remove('is-mobile-open');
       const trigger = item.querySelector('.gnb-link');
       const panel = item.querySelector('.gnb-panel');
@@ -68,7 +65,7 @@ function initGnbMenu() {
 
   const closeAll = () => {
     clearCloseTimer();
-    items.forEach((item) => {
+    items.forEach(item => {
       item.classList.remove('is-hover', 'is-mobile-open');
       const trigger = item.querySelector('.gnb-link');
       const panel = item.querySelector('.gnb-panel');
@@ -86,12 +83,12 @@ function initGnbMenu() {
     if (nav && isMobile()) nav.setAttribute('aria-hidden', 'true');
   };
 
-  const openItem = (item) => {
+  const openItem = item => {
     if (isMobile()) return;
 
     clearCloseTimer();
 
-    items.forEach((other) => {
+    items.forEach(other => {
       if (other === item) return;
       other.classList.remove('is-hover');
       const otherTrigger = other.querySelector('.gnb-link');
@@ -108,12 +105,12 @@ function initGnbMenu() {
     header.classList.add('is-menu-open');
   };
 
-  const activateMobileItem = (item) => {
+  const activateMobileItem = item => {
     const trigger = item.querySelector('.gnb-link');
     const panel = item.querySelector('.gnb-panel');
     if (!trigger || !panel) return;
 
-    items.forEach((other) => {
+    items.forEach(other => {
       other.classList.remove('is-mobile-open');
       const otherTrigger = other.querySelector('.gnb-link');
       const otherPanel = other.querySelector('.gnb-panel');
@@ -126,9 +123,7 @@ function initGnbMenu() {
     panel.hidden = false;
   };
 
-  const getDefaultMobileItem = () => (
-    header.querySelector('.gnb-item.on') || items[0]
-  );
+  const getDefaultMobileItem = () => header.querySelector('.gnb-item.on') || items[0];
 
   const openMobileNav = () => {
     header.classList.add('is-mobile-nav-open', 'is-menu-open');
@@ -166,7 +161,7 @@ function initGnbMenu() {
     backdrop.addEventListener('click', closeAll);
   }
 
-  header.querySelectorAll('.gnb-list .gnb-link').forEach((link) => {
+  header.querySelectorAll('.gnb-list .gnb-link').forEach(link => {
     const item = link.closest('.gnb-item');
     const panel = item?.querySelector('.gnb-panel');
     if (panel) return;
@@ -176,7 +171,7 @@ function initGnbMenu() {
     });
   });
 
-  items.forEach((item) => {
+  items.forEach(item => {
     const trigger = item.querySelector('.gnb-link');
     const panel = item.querySelector('.gnb-panel');
     if (!trigger || !panel) return;
@@ -190,7 +185,7 @@ function initGnbMenu() {
       if (!isMobile()) openItem(item);
     });
 
-    trigger.addEventListener('click', (event) => {
+    trigger.addEventListener('click', event => {
       if (!isMobile()) {
         if (panel && trigger.getAttribute('href') === '#') {
           event.preventDefault();
@@ -201,7 +196,7 @@ function initGnbMenu() {
       activateMobileItem(item);
     });
 
-    trigger.addEventListener('keydown', (event) => {
+    trigger.addEventListener('keydown', event => {
       if (event.key === 'Escape') {
         event.preventDefault();
         closeAll();
@@ -209,7 +204,7 @@ function initGnbMenu() {
       }
     });
 
-    panel.addEventListener('keydown', (event) => {
+    panel.addEventListener('keydown', event => {
       if (event.key === 'Escape') {
         event.preventDefault();
         closeAll();
@@ -217,14 +212,14 @@ function initGnbMenu() {
       }
     });
 
-    panel.querySelectorAll('a[href]').forEach((link) => {
+    panel.querySelectorAll('a[href]').forEach(link => {
       link.addEventListener('click', () => {
         if (isMobile()) closeAll();
       });
     });
   });
 
-  header.addEventListener('focusout', (event) => {
+  header.addEventListener('focusout', event => {
     if (isMobile()) return;
     const nextTarget = event.relatedTarget;
     if (!nextTarget || !header.contains(nextTarget)) {
@@ -232,7 +227,7 @@ function initGnbMenu() {
     }
   });
 
-  document.addEventListener('keydown', (event) => {
+  document.addEventListener('keydown', event => {
     if (event.key !== 'Escape') return;
     if (!header.classList.contains('is-menu-open')) return;
 

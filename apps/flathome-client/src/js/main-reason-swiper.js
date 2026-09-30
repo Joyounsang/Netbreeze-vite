@@ -49,8 +49,8 @@ function initMainReasonSwiper() {
 
   const tabButtons = Array.from(tabsRoot.querySelectorAll('[data-reason-filter]'));
 
-  const applyFilter = (filter) => {
-    tabButtons.forEach((btn) => {
+  const applyFilter = filter => {
+    tabButtons.forEach(btn => {
       btn.classList.toggle('is-active', btn.dataset.reasonFilter === filter);
     });
 
@@ -58,13 +58,11 @@ function initMainReasonSwiper() {
     swiperInstance.slideTo(targetIndex);
   };
 
-  tabButtons.forEach((btn) => {
+  tabButtons.forEach(btn => {
     btn.addEventListener('click', () => applyFilter(btn.dataset.reasonFilter));
   });
 
-  applyFilter(
-    tabButtons.find((btn) => btn.classList.contains('is-active'))?.dataset.reasonFilter || 'resident',
-  );
+  applyFilter(tabButtons.find(btn => btn.classList.contains('is-active'))?.dataset.reasonFilter || 'resident');
 }
 
 $(document).ready(initMainReasonSwiper);

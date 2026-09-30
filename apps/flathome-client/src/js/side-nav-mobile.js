@@ -3,8 +3,7 @@
 const SIDE_NAV_MOBILE_MQ = window.matchMedia('(max-width: 720px)');
 
 /** 사이드 네비 카테고리·필터 클릭 시 공통 스크롤 (FAQ, 도입사례 등) */
-const SIDE_NAV_MENU_SELECTOR =
-  '.side-navigation [data-faq-filter], .side-navigation [data-cases-filter]';
+const SIDE_NAV_MENU_SELECTOR = '.side-navigation [data-faq-filter], .side-navigation [data-cases-filter]';
 
 export function scrollPageToTop() {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -12,8 +11,8 @@ export function scrollPageToTop() {
 }
 
 function initSideNavMenuScrollTop() {
-  document.querySelectorAll('.side-navigation').forEach((nav) => {
-    nav.addEventListener('click', (event) => {
+  document.querySelectorAll('.side-navigation').forEach(nav => {
+    nav.addEventListener('click', event => {
       const menu = event.target.closest(SIDE_NAV_MENU_SELECTOR);
       if (!menu || !nav.contains(menu)) return;
       scrollPageToTop();
@@ -30,7 +29,7 @@ export function closeSideNavMobilePanel(navRoot) {
   if (!SIDE_NAV_MOBILE_MQ.matches) return;
 
   const root = navRoot || document;
-  root.querySelectorAll('[data-side-nav-mobile-toggle]').forEach((toggle) => {
+  root.querySelectorAll('[data-side-nav-mobile-toggle]').forEach(toggle => {
     const panel = getSideNavPanel(toggle);
     const nav = toggle.closest('.side-navigation');
     toggle.setAttribute('aria-expanded', 'false');
@@ -56,7 +55,7 @@ function syncSideNavMobilePanel(toggle, panel) {
 }
 
 function initSideNavMobileDrawer() {
-  document.querySelectorAll('[data-side-nav-mobile-toggle]').forEach((toggle) => {
+  document.querySelectorAll('[data-side-nav-mobile-toggle]').forEach(toggle => {
     const panel = getSideNavPanel(toggle);
     if (!panel) return;
 

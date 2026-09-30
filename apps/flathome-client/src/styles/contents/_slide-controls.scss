@@ -52,7 +52,7 @@
   height: 34px;
   padding: 0;
   border: 0;
-  background: transparent url('../images/ico-slide-arrows.png') no-repeat center center / 34px 34px;
+  background: transparent url("../images/ico-slide-arrows.png") no-repeat center center / 34px 34px;
   cursor: pointer;
   transition: opacity 0.2s ease;
 
@@ -65,7 +65,7 @@
   }
 
   &.swiper-button-disabled {
-    background: transparent url('../images/ico-slide-arrows.png') no-repeat center center / 34px 34px !important;
+    background: transparent url("../images/ico-slide-arrows.png") no-repeat center center / 34px 34px !important;
     cursor: pointer;
     opacity: 0.3;
     cursor: default;

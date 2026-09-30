@@ -29,7 +29,7 @@ function initMultiSelect(root) {
 
   const options = Array.from(select.options);
 
-  options.forEach((option) => {
+  options.forEach(option => {
     const li = document.createElement('li');
     const label = document.createElement('label');
     label.className = 'checkbox min';
@@ -54,7 +54,7 @@ function initMultiSelect(root) {
   });
 
   const updateDisplay = () => {
-    const selected = options.filter((option) => option.selected);
+    const selected = options.filter(option => option.selected);
 
     if (!selected.length) {
       valueEl.textContent = select.dataset.placeholder || '선택해주세요';
@@ -62,7 +62,7 @@ function initMultiSelect(root) {
       return;
     }
 
-    valueEl.textContent = selected.map((option) => option.textContent.trim()).join(', ');
+    valueEl.textContent = selected.map(option => option.textContent.trim()).join(', ');
     valueEl.classList.remove('is-placeholder');
   };
 
@@ -78,7 +78,7 @@ function initMultiSelect(root) {
     panel.hidden = false;
   };
 
-  trigger.addEventListener('click', (event) => {
+  trigger.addEventListener('click', event => {
     event.preventDefault();
     event.stopPropagation();
 
@@ -90,7 +90,7 @@ function initMultiSelect(root) {
     open();
   });
 
-  panel.addEventListener('click', (event) => {
+  panel.addEventListener('click', event => {
     event.stopPropagation();
   });
 
@@ -98,7 +98,7 @@ function initMultiSelect(root) {
     close();
   });
 
-  document.addEventListener('keydown', (event) => {
+  document.addEventListener('keydown', event => {
     if (event.key === 'Escape') close();
   });
 

@@ -1,6 +1,5 @@
 @charset "UTF-8";
 
-
 @import "@repo/styles/abstracts/variables";
 @import "@repo/styles/abstracts/functions";
 @import "@repo/styles/abstracts/mixins";
@@ -19,7 +18,6 @@
 
 @import "app";
 
-
 @import "contents/layout-base";
 @import "contents/header";
 @import "contents/footer";
@@ -27,6 +25,5 @@
 @import "contents/custom-components";
 @import "contents/main";
 @import "contents/sub";
-
 
 @import "app_responsive_mobile";

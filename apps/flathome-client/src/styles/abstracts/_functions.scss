@@ -2,11 +2,11 @@
 @function fs($max) {
   $unit: unit($max);
 
-  @if $unit != 'rem' and $unit != 'px' {
+  @if $unit != "rem" and $unit != "px" {
     @return $max;
   }
 
-  $n: if($unit == 'px', $max / 16px, $max / 1rem);
+  $n: if($unit == "px", $max / 16px, $max / 1rem);
   $min: null;
   $vw: null;
   $mid: null;

@@ -31,7 +31,7 @@ footer.site-footer {
       display: block;
       width: 137px;
       height: 32px;
-      background: url('../images/logo-white.png') no-repeat center / contain;
+      background: url("../images/logo-white.png") no-repeat center / contain;
       text-indent: -9999rem;
       overflow: hidden;
     }
@@ -61,12 +61,12 @@ footer.site-footer {
     align-items: center;
     gap: 10px;
     border-radius: 6px;
-    border: 1px solid rgba(102, 111, 123, 0.50);
-    background: rgba(255, 255, 255, 0.00);
+    border: 1px solid rgba(102, 111, 123, 0.5);
+    background: rgba(255, 255, 255, 0);
 
     &.primary {
       span {
-        background: linear-gradient(270deg, #62BBC9 0%, #5680EB 100%);
+        background: linear-gradient(270deg, #62bbc9 0%, #5680eb 100%);
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -114,7 +114,7 @@ footer.site-footer {
       min-width: 0;
 
       li {
-        &+li {
+        & + li {
           margin-top: 10px;
           line-height: 1;
         }
@@ -166,7 +166,7 @@ footer.site-footer {
     p {
       margin: 0;
 
-      &+p {
+      & + p {
         margin-top: 4px;
       }
     }
@@ -191,7 +191,7 @@ footer.site-footer {
     align-items: center;
     gap: 20px;
 
-    >li>a {
+    > li > a {
       font-size: clamp(1.2rem, 2vw + 0.88rem, 1.3rem);
       color: rgba(255, 255, 255, 0.55);
       text-decoration: none;
@@ -268,7 +268,7 @@ footer.site-footer {
     z-index: 10;
 
     li {
-      &+li {
+      & + li {
         border-top: 1px solid var(--border-light);
       }
 
@@ -358,12 +358,10 @@ footer.site-footer {
         font-size: 1.3rem;
         font-weight: 600;
       }
-
     }
 
     .footer-phone {
       a {
-
         font-size: 2.2rem;
       }
     }
@@ -386,7 +384,7 @@ footer.site-footer {
       p {
         width: 320px;
 
-        &+p {
+        & + p {
           margin-top: 0;
         }
       }
@@ -396,17 +394,16 @@ footer.site-footer {
       flex-direction: column-reverse;
     }
 
-
     .fnb {
       gap: 0;
 
-      >li {
-        &+li {
+      > li {
+        & + li {
           margin-left: 20px;
         }
       }
 
-      >li>a {
+      > li > a {
         font-size: 1.4rem;
       }
     }

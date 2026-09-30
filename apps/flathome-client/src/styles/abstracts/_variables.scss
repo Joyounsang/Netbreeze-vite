@@ -24,22 +24,21 @@ $selection-color: transparent !default;
 $color-white: white !default;
 $color-black: #000 !default;
 
-
-
 // -----------------------------------------------------------------------------
 // Typography
 // -----------------------------------------------------------------------------
 $base-font-size: 16px !default;
 $base-letter-spacing: 0;
 // !default 제외: @repo 변수보다 뒤에서 import되어 Suit 스택으로 덮어씀
-$base-font-system: Pretendard,
+$base-font-system:
+  Pretendard,
   -apple-system,
   BlinkMacSystemFont,
-  'Apple SD Gothic Neo',
-  'Noto Sans KR',
-  'Helvetica Neue',
+  "Apple SD Gothic Neo",
+  "Noto Sans KR",
+  "Helvetica Neue",
   Helvetica,
   Arial,
-  'Malgun Gothic',
-  '맑은 고딕',
+  "Malgun Gothic",
+  "맑은 고딕",
   sans-serif;

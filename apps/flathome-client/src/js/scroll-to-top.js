@@ -1,8 +1,8 @@
 'use strict';
 
 function initScrollToTop() {
-  document.querySelectorAll('.js-scroll-top').forEach((link) => {
-    link.addEventListener('click', (event) => {
+  document.querySelectorAll('.js-scroll-top').forEach(link => {
+    link.addEventListener('click', event => {
       event.preventDefault();
 
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

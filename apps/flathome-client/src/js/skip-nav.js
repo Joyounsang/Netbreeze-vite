@@ -38,8 +38,8 @@ function focusSkipTarget(target) {
 function initSkipNav() {
   ensureMainContentTarget();
 
-  document.querySelectorAll('.skip-nav a[href^="#"]').forEach((link) => {
-    link.addEventListener('click', (event) => {
+  document.querySelectorAll('.skip-nav a[href^="#"]').forEach(link => {
+    link.addEventListener('click', event => {
       const id = link.getAttribute('href')?.slice(1);
       if (!id) return;
 

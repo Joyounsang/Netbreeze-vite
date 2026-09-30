@@ -191,7 +191,6 @@
 
 // Scale 펄스 애니메이션 키프레임
 @keyframes scalePulse {
-
   0%,
   100% {
     transform: scale(1);
@@ -215,7 +214,6 @@
 
 // 무작위 움직임 애니메이션 키프레임
 @keyframes atomMove1 {
-
   0%,
   100% {
     transform: translate(0, 0);
@@ -235,7 +233,6 @@
 }
 
 @keyframes atomMove2 {
-
   0%,
   100% {
     transform: translate(0, 0);
@@ -255,7 +252,6 @@
 }
 
 @keyframes atomMove3 {
-
   0%,
   100% {
     transform: translate(0, 0);
@@ -275,7 +271,6 @@
 }
 
 @keyframes atomMove4 {
-
   0%,
   100% {
     transform: translate(0, 0);
@@ -315,7 +310,6 @@
 }
 
 @keyframes loading-longtime-core {
-
   0%,
   100% {
     transform: scale(0.92) rotate(0deg);
@@ -327,7 +321,6 @@
 }
 
 @keyframes loading-dot-seq {
-
   0%,
   65%,
   100% {
@@ -366,7 +359,6 @@
 
 // sub.scss — modelling gallery
 @keyframes deviceScanLineMove {
-
   0%,
   100% {
     top: 0;
@@ -380,7 +372,6 @@
 }
 
 @keyframes deviceScanMeshPulse {
-
   0%,
   100% {
     filter: brightness(1);
@@ -392,7 +383,6 @@
 }
 
 @keyframes deviceScanCornerPulse {
-
   0%,
   100% {
     opacity: 0.55;
@@ -404,7 +394,6 @@
 }
 
 @keyframes deviceErrorShake {
-
   0%,
   100% {
     transform: translateX(0);
@@ -429,7 +418,6 @@
 
 // sub.scss — smart-choice (B020101)
 @keyframes smartChoiceCornerScan {
-
   0%,
   20%,
   100% {
@@ -444,7 +432,6 @@
 }
 
 @keyframes smartChoiceGraphicPulse {
-
   0%,
   100% {
     opacity: 0.5;
@@ -458,7 +445,6 @@
 }
 
 @keyframes smartChoiceBleSignal {
-
   0%,
   100% {
     opacity: 0.5;
@@ -477,7 +463,6 @@
 }
 
 @keyframes smartChoiceCameraFocus {
-
   0%,
   72%,
   100% {

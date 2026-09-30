@@ -15,7 +15,6 @@ html {
 }
 
 * {
-
   -webkit-tap-highlight-color: transparent;
   word-break: keep-all;
 
@@ -63,7 +62,6 @@ em {
     color: var(--rec-secondary);
   }
 }
-
 
 // 공통 focus 스타일
 %common-focus {
@@ -120,8 +118,6 @@ select {
   min-width: 140px;
   height: 54px;
   padding: 0 16px;
-
-
 
   &.center {
     text-align: center;
@@ -225,8 +221,8 @@ select {
   overflow: hidden;
   text-align: left;
 
-  &+.checkbox,
-  &+.radio {
+  & + .checkbox,
+  & + .radio {
     margin-left: 8px;
   }
 
@@ -240,7 +236,7 @@ select {
     white-space: nowrap;
     border: 0;
 
-    &:checked+span {
+    &:checked + span {
       color: var(--rec-primary);
     }
   }
@@ -282,7 +278,7 @@ select {
   border-radius: 6px;
 
   input {
-    &:focus-visible+span {
+    &:focus-visible + span {
       color: var(--text);
       border-radius: 6px;
       box-shadow: 0 0 0 3px var(--rec-primary-bg);
@@ -290,19 +286,19 @@ select {
       outline-offset: 3px;
     }
 
-    &:focus-visible:checked+span {
+    &:focus-visible:checked + span {
       box-shadow: 0 0 0 3px rgba(54, 23, 206, 0.16);
       outline-color: var(--rec-primary);
     }
 
-    &:checked+span {
+    &:checked + span {
       &:before {
         background: url("../images/crud-check-checked.png") no-repeat center;
         background-size: contain;
       }
     }
 
-    &:disabled+span {
+    &:disabled + span {
       &:before {
         // opacity: 0.5;
         // background: url("../images/check-disabled.png") no-repeat center;
@@ -313,7 +309,10 @@ select {
 
   span {
     border-radius: 6px;
-    transition: box-shadow 0.2s ease, color 0.2s ease, outline 0.2s ease;
+    transition:
+      box-shadow 0.2s ease,
+      color 0.2s ease,
+      outline 0.2s ease;
 
     &:before {
       background: url("../images/crud-check.png") no-repeat center;
@@ -322,7 +321,7 @@ select {
     }
   }
 
-  input:focus-visible:checked+span:before {
+  input:focus-visible:checked + span:before {
     transform: scale(1.05);
   }
 
@@ -343,7 +342,7 @@ select {
     }
 
     input {
-      &:checked+span {
+      &:checked + span {
         color: var(--text);
 
         &:before {
@@ -388,7 +387,7 @@ select {
     @extend %common-inputStyle;
 
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       right: 18px;
       top: 50%;
@@ -470,14 +469,14 @@ select {
   }
 
   input {
-    &:checked+span {
+    &:checked + span {
       &:before {
         background: url("../images/radio-checked.png") no-repeat center;
         background-size: contain;
       }
     }
 
-    &:disabled+span:before {
+    &:disabled + span:before {
       background: url("../images/radio-disabled.png") no-repeat center;
       background-size: contain;
     }
@@ -497,8 +496,8 @@ option[disabled],
 textarea[disabled],
 button[disabled] {
   opacity: 0.5;
-  background: #DBE1E6 !important;
-  border-color: #DBE1E6 !important;
+  background: #dbe1e6 !important;
+  border-color: #dbe1e6 !important;
   color: var(--text-gray) !important;
   pointer-events: none !important;
   background-image: none !important;
@@ -557,7 +556,7 @@ textarea:invalid {
     right: 0;
     bottom: 0;
     border-radius: 42px;
-    background: #D4D4D4;
+    background: #d4d4d4;
     box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.25) inset;
     transition: 0.2s;
     cursor: pointer;
@@ -572,7 +571,7 @@ textarea:invalid {
       background-color: var(--white);
       border-radius: 50%;
       transition: 0.2s;
-      content: '';
+      content: "";
       box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.25);
     }
   }
@@ -586,14 +585,12 @@ textarea:invalid {
       }
     }
 
-    &+.labelname {
+    & + .labelname {
       color: var(--text);
     }
 
-    &+.like-label {
+    & + .like-label {
       color: var(--text);
     }
   }
-
-
 }

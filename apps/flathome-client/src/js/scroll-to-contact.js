@@ -24,11 +24,7 @@ export function scrollToContactSection(trigger) {
   if (!contact) return false;
 
   const extraOffset = Number(trigger?.dataset?.scrollContactOffset) || 0;
-  const top =
-    contact.getBoundingClientRect().top
-    + window.scrollY
-    - getFixedHeaderOffset()
-    - extraOffset;
+  const top = contact.getBoundingClientRect().top + window.scrollY - getFixedHeaderOffset() - extraOffset;
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   window.scrollTo({
@@ -41,7 +37,7 @@ export function scrollToContactSection(trigger) {
 }
 
 function initScrollToContact() {
-  document.addEventListener('click', (event) => {
+  document.addEventListener('click', event => {
     const trigger = event.target.closest(SCROLL_TRIGGER_SELECTOR);
     if (!trigger) return;
 

@@ -5,31 +5,23 @@
 }
 
 @mixin screen($size) {
-  @if ($size =="mobile-small") {
+  @if ($size == "mobile-small") {
     @media screen and (max-width: #{$breakpoint-mobile - 1px}) {
       @content;
     }
-  }
-
-  @else if ($size =="mobile") {
+  } @else if ($size == "mobile") {
     @include mobile {
       @content;
     }
-  }
-
-  @else if ($size =="tablet") {
+  } @else if ($size == "tablet") {
     @media screen and (min-width: #{$breakpoint-tablet}) and (max-width: #{$breakpoint-desktop - 1px}) {
       @content;
     }
-  }
-
-  @else if ($size =="desktop") {
+  } @else if ($size == "desktop") {
     @media screen and (min-width: #{$breakpoint-desktop}) {
       @content;
     }
-  }
-
-  @else if ($size =="mobile-large") {
+  } @else if ($size == "mobile-large") {
     @media screen and (min-width: #{$breakpoint-tablet}) {
       @content;
     }
@@ -72,11 +64,11 @@
 // 기본 방향: 아래(chevron down). rotate로 방향 조절
 @mixin ico-crud-arrow($size: 12px) {
   flex: none;
-  content: '';
+  content: "";
   display: block;
   width: $size;
   height: $size;
   border: none;
-  background: url('../images/ico-crud-arrows.png') no-repeat center center / contain;
+  background: url("../images/ico-crud-arrows.png") no-repeat center center / contain;
   transition: transform 0.2s ease;
 }

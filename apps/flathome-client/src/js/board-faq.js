@@ -4,8 +4,8 @@ function initBoardDropdown(root) {
   const items = root.querySelectorAll(':scope > ul > li');
   const buttons = root.querySelectorAll(':scope > ul > li > .dropdown-btn');
 
-  buttons.forEach((btn) => {
-    btn.addEventListener('click', (event) => {
+  buttons.forEach(btn => {
+    btn.addEventListener('click', event => {
       event.preventDefault();
 
       const item = btn.closest('li');
@@ -13,7 +13,7 @@ function initBoardDropdown(root) {
 
       const willOpen = !item.classList.contains('is-open');
 
-      items.forEach((li) => li.classList.remove('is-open'));
+      items.forEach(li => li.classList.remove('is-open'));
 
       if (willOpen) {
         item.classList.add('is-open');

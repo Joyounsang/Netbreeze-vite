@@ -3,7 +3,7 @@
 import { closeSideNavMobilePanel } from '@/js/side-nav-mobile.js';
 
 function setActiveFilter(triggers, activeTrigger) {
-  triggers.forEach((trigger) => {
+  triggers.forEach(trigger => {
     trigger.classList.toggle('is-active', trigger === activeTrigger);
   });
 }
@@ -11,7 +11,7 @@ function setActiveFilter(triggers, activeTrigger) {
 function applyFaqFilter(board, filter) {
   if (!board) return;
 
-  board.querySelectorAll('li[data-faq-category]').forEach((item) => {
+  board.querySelectorAll('li[data-faq-category]').forEach(item => {
     const category = item.dataset.faqCategory;
     const show = filter === 'all' || category === filter;
     item.hidden = !show;
@@ -20,7 +20,7 @@ function applyFaqFilter(board, filter) {
     }
   });
 
-  board.querySelectorAll('.list-board.dropdown > ul').forEach((list) => {
+  board.querySelectorAll('.list-board.dropdown > ul').forEach(list => {
     const hasVisible = list.querySelector('li[data-faq-category]:not([hidden])');
     list.hidden = !hasVisible;
   });
@@ -31,7 +31,7 @@ function initFaqNav() {
   const board = document.querySelector('[data-faq-board]');
   if (!nav || !board) return;
 
-  nav.querySelectorAll('.side-navigation__group').forEach((btn) => {
+  nav.querySelectorAll('.side-navigation__group').forEach(btn => {
     const item = btn.closest('li');
     if (item) {
       btn.setAttribute('aria-expanded', item.classList.contains('is-open') ? 'true' : 'false');
@@ -44,7 +44,7 @@ function initFaqNav() {
       const list = item.closest('.side-navigation__list');
 
       if (list && willOpen) {
-        list.querySelectorAll(':scope > li.is-open').forEach((openItem) => {
+        list.querySelectorAll(':scope > li.is-open').forEach(openItem => {
           if (openItem === item) return;
           openItem.classList.remove('is-open');
           const otherBtn = openItem.querySelector('.side-navigation__group');
@@ -58,15 +58,15 @@ function initFaqNav() {
   });
 
   const filterTriggers = nav.querySelectorAll('[data-faq-filter]');
-  const defaultTrigger = nav.querySelector('[data-faq-filter="all"].is-active')
-    || nav.querySelector('[data-faq-filter="all"]');
+  const defaultTrigger =
+    nav.querySelector('[data-faq-filter="all"].is-active') || nav.querySelector('[data-faq-filter="all"]');
 
   if (defaultTrigger) {
     applyFaqFilter(board, defaultTrigger.dataset.faqFilter);
   }
 
-  filterTriggers.forEach((trigger) => {
-    trigger.addEventListener('click', (event) => {
+  filterTriggers.forEach(trigger => {
+    trigger.addEventListener('click', event => {
       event.preventDefault();
 
       const filter = trigger.dataset.faqFilter;

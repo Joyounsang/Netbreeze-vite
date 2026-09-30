@@ -26,7 +26,7 @@ function destroyShell(shell) {
   const { swiper, track } = record;
   swiper.destroy(true, false);
 
-  [...track.querySelectorAll(':scope > .box')].forEach((box) => {
+  [...track.querySelectorAll(':scope > .box')].forEach(box => {
     box.classList.remove('swiper-slide');
   });
 
@@ -39,7 +39,7 @@ function destroyShell(shell) {
 }
 
 function destroyAllScreenLayoutSwipers() {
-  [...activeShells].forEach((shell) => destroyShell(shell));
+  [...activeShells].forEach(shell => destroyShell(shell));
 }
 
 function bindVisibilityAutoplay(shell, swiper) {
@@ -49,13 +49,13 @@ function bindVisibilityAutoplay(shell, swiper) {
   }
 
   const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
+    entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) swiper.autoplay?.start();
         else swiper.autoplay?.stop();
       });
     },
-    { threshold: 0.08 },
+    { threshold: 0.08 }
   );
 
   observer.observe(shell);
@@ -76,7 +76,7 @@ function createScreenLayoutSwiper(shell) {
   track.classList.add('swiper-wrapper');
   shell.dataset.screenLayoutSliderInit = 'true';
 
-  boxes.forEach((box) => box.classList.add('swiper-slide'));
+  boxes.forEach(box => box.classList.add('swiper-slide'));
 
   const swiper = new Swiper(shell, {
     modules: [Autoplay],
@@ -121,7 +121,7 @@ function syncScreenLayoutSwipers() {
     return;
   }
 
-  getMobileSlideShells().forEach((shell) => {
+  getMobileSlideShells().forEach(shell => {
     if (instanceMap.has(shell)) return;
     createScreenLayoutSwiper(shell);
   });

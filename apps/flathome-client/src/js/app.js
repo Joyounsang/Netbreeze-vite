@@ -51,12 +51,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // window.addEventListener('orientationchange', handleResize, { passive: true });
 });
 
-
 function modalSize() {
   $('.modal').each(function () {
     const layerHeight = $(this).outerHeight();
     $(this).css({
-      marginTop: -layerHeight / 2
+      marginTop: -layerHeight / 2,
     });
   });
 }
@@ -73,7 +72,7 @@ function clickModal() {
     // option
     modalSize();
 
-    $target.find(".modalClose").on('click', function (e) {
+    $target.find('.modalClose').on('click', function (e) {
       e.preventDefault();
       $target.addClass('hide-animation');
       // hide
@@ -84,7 +83,7 @@ function clickModal() {
       $(this).off('click');
     });
 
-    $(".modalCloseAll").on('click', function (e) {
+    $('.modalCloseAll').on('click', function (e) {
       e.preventDefault();
       $('.modal').addClass('hide-animation');
       // hide

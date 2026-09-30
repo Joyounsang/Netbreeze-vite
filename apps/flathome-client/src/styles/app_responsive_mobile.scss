@@ -13,7 +13,6 @@
   }
 
   .mo-center {
-
     .headline {
       text-align: center;
 
@@ -26,11 +25,10 @@
   .app-section {
     &.modelling {
       .app-title {
-        &+.dl-group {
+        & + .dl-group {
           margin-top: 44px;
         }
       }
     }
   }
-
 }

@@ -48,8 +48,8 @@ function bindVisibilityAutoplay(swiperEl, swiper, slideCount) {
   }
 
   const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
+    entries => {
+      entries.forEach(entry => {
         if (!entry.isIntersecting) {
           swiper.autoplay?.stop();
           return;
@@ -59,7 +59,7 @@ function bindVisibilityAutoplay(swiperEl, swiper, slideCount) {
         syncSliderMode(swiper, slideCount);
       });
     },
-    { threshold: 0.15 },
+    { threshold: 0.15 }
   );
 
   observer.observe(swiperEl);
@@ -82,7 +82,7 @@ function initMainIntroGallerySwiper() {
   wrap.classList.add('is-slider');
   wrap.classList.toggle('is-slider--desktop-static', slideCount < DESKTOP_SLIDE_MIN);
   list.classList.add('swiper-wrapper');
-  slides.forEach((slide) => slide.classList.add('swiper-slide'));
+  slides.forEach(slide => slide.classList.add('swiper-slide'));
 
   const swiper = new Swiper(swiperEl, {
     modules: [Autoplay],

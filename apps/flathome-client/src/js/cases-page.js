@@ -3,7 +3,7 @@
 import { closeSideNavMobilePanel } from '@/js/side-nav-mobile.js';
 
 function setActiveCasesFilter(links, activeLink) {
-  links.forEach((link) => {
+  links.forEach(link => {
     link.classList.toggle('is-active', link === activeLink);
   });
 }
@@ -11,7 +11,7 @@ function setActiveCasesFilter(links, activeLink) {
 function applyCasesFilter(board, filter) {
   if (!board) return;
 
-  board.querySelectorAll('[data-cases-category]').forEach((item) => {
+  board.querySelectorAll('[data-cases-category]').forEach(item => {
     const category = item.dataset.casesCategory;
     const show = filter === 'all' || category === filter;
     item.hidden = !show;
@@ -24,18 +24,19 @@ function initCasesPage() {
   if (!nav || !board) return;
 
   const filterLinks = nav.querySelectorAll('[data-cases-filter]');
-  const defaultLink = nav.querySelector('[data-cases-filter="all"].is-active')
-    || nav.querySelector('[data-cases-filter="all"]')
-    || nav.querySelector('[data-cases-filter].is-active')
-    || filterLinks[0];
+  const defaultLink =
+    nav.querySelector('[data-cases-filter="all"].is-active') ||
+    nav.querySelector('[data-cases-filter="all"]') ||
+    nav.querySelector('[data-cases-filter].is-active') ||
+    filterLinks[0];
 
   if (defaultLink) {
     setActiveCasesFilter(filterLinks, defaultLink);
     applyCasesFilter(board, defaultLink.dataset.casesFilter);
   }
 
-  filterLinks.forEach((link) => {
-    link.addEventListener('click', (event) => {
+  filterLinks.forEach(link => {
+    link.addEventListener('click', event => {
       event.preventDefault();
 
       const filter = link.dataset.casesFilter;

@@ -4,8 +4,8 @@ function initFooterRelated() {
   const menus = Array.from(document.querySelectorAll('[data-footer-related]'));
   if (!menus.length) return;
 
-  const closeAll = (except) => {
-    menus.forEach((menu) => {
+  const closeAll = except => {
+    menus.forEach(menu => {
       if (menu === except) return;
 
       menu.classList.remove('is-open');
@@ -13,11 +13,11 @@ function initFooterRelated() {
     });
   };
 
-  menus.forEach((menu) => {
+  menus.forEach(menu => {
     const trigger = menu.querySelector('.footer-related');
     if (!trigger) return;
 
-    trigger.addEventListener('click', (event) => {
+    trigger.addEventListener('click', event => {
       event.preventDefault();
       event.stopPropagation();
 
@@ -28,8 +28,8 @@ function initFooterRelated() {
     });
   });
 
-  document.addEventListener('click', (event) => {
-    menus.forEach((menu) => {
+  document.addEventListener('click', event => {
+    menus.forEach(menu => {
       if (!menu.classList.contains('is-open')) return;
       if (menu.contains(event.target)) return;
 
@@ -38,7 +38,7 @@ function initFooterRelated() {
     });
   });
 
-  document.addEventListener('keydown', (event) => {
+  document.addEventListener('keydown', event => {
     if (event.key !== 'Escape') return;
     closeAll();
   });

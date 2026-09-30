@@ -29,8 +29,8 @@ function bindAddServiceVisibilityAutoplay(swiperEl, swiper) {
   let hasStartedInView = false;
 
   const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
+    entries => {
+      entries.forEach(entry => {
         if (!entry.isIntersecting) {
           swiper.autoplay?.stop();
           return;
@@ -54,7 +54,7 @@ function bindAddServiceVisibilityAutoplay(swiperEl, swiper) {
     {
       threshold: 0.12,
       rootMargin: '0px 0px -4% 0px',
-    },
+    }
   );
 
   observer.observe(observeTarget);
@@ -109,7 +109,7 @@ function createAddServiceSwiper(swiperEl) {
 }
 
 function initAddServiceSwiper() {
-  document.querySelectorAll('.add-service-swiper').forEach((swiperEl) => {
+  document.querySelectorAll('.add-service-swiper').forEach(swiperEl => {
     if (swiperMap.has(swiperEl)) return;
 
     createAddServiceSwiper(swiperEl);
@@ -117,7 +117,7 @@ function initAddServiceSwiper() {
 }
 
 function refreshAddServiceSwiper() {
-  document.querySelectorAll('.add-service-swiper').forEach((swiperEl) => {
+  document.querySelectorAll('.add-service-swiper').forEach(swiperEl => {
     const swiper = swiperMap.get(swiperEl);
     if (!swiper) return;
 

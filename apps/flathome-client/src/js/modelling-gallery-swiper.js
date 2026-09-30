@@ -40,7 +40,7 @@ const readOnlyInteraction = {
 };
 
 function bindAutoplayRecovery(swiper) {
-  swiper.on('slideChangeTransitionEnd', (s) => {
+  swiper.on('slideChangeTransitionEnd', s => {
     if (s.destroyed || !s.autoplay) return;
 
     const galleryEl = s.el.closest('.modelling-gallery');
@@ -135,9 +135,7 @@ function getOrCreateSwiper(swiperEl, galleryEl) {
   }
 
   const isDeviceType = galleryEl?.classList.contains('type-device');
-  return isDeviceType
-    ? createModellingGalleryDeviceSwiper(swiperEl)
-    : createModellingGallerySwiper(swiperEl);
+  return isDeviceType ? createModellingGalleryDeviceSwiper(swiperEl) : createModellingGallerySwiper(swiperEl);
 }
 
 function setupGalleryObserver(galleryEl) {
@@ -169,8 +167,8 @@ function setupGalleryObserver(galleryEl) {
   }
 
   const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
+    entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           startSwiper();
         } else {
@@ -181,7 +179,7 @@ function setupGalleryObserver(galleryEl) {
     {
       threshold: 0.25,
       rootMargin: '0px 0px -5% 0px',
-    },
+    }
   );
 
   observer.observe(galleryEl);
@@ -192,7 +190,7 @@ function initModellingGallerySwiper() {
 }
 
 function refreshVisibleGalleries() {
-  document.querySelectorAll('.modelling-gallery').forEach((galleryEl) => {
+  document.querySelectorAll('.modelling-gallery').forEach(galleryEl => {
     const swiperEl = galleryEl.querySelector('.modelling-gallery-swiper');
     if (!swiperEl || !swiperMap.has(swiperEl)) return;
 

@@ -8,9 +8,7 @@
   &.main-intro {
     padding-top: 370px;
     padding-bottom: 0;
-    background: url('../images/bg-main-section02.png') no-repeat right top / 50%;
-
-
+    background: url("../images/bg-main-section02.png") no-repeat right top / 50%;
 
     .main-intro-gallery-wrap {
       width: 100%;
@@ -91,7 +89,6 @@
 
     .headline {
       margin-bottom: 56px;
-
     }
 
     .main-app-showcase {
@@ -109,7 +106,7 @@
 
       .gradient {
         display: block;
-        background: linear-gradient(270deg, #62BBC9 0%, #5680EB 100%);
+        background: linear-gradient(270deg, #62bbc9 0%, #5680eb 100%);
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -148,7 +145,7 @@
               transform var(--main-app-preview-duration, 0.55s) ease;
 
             &:before {
-              content: '';
+              content: "";
               width: 40px;
               height: 40px;
               background-size: contain;
@@ -159,41 +156,34 @@
           &.app--ev {
             .main-app-nav__label {
               &:before {
-                background-image: url('../images/ico-app-ev.png');
+                background-image: url("../images/ico-app-ev.png");
               }
             }
-
           }
 
           &.app--community {
             .main-app-nav__label {
               &:before {
-                background-image: url('../images/ico-app-community.png');
+                background-image: url("../images/ico-app-community.png");
               }
             }
-
           }
 
           &.app--videocall {
             .main-app-nav__label {
               &:before {
-                background-image: url('../images/ico-app-videocall.png');
+                background-image: url("../images/ico-app-videocall.png");
               }
             }
-
           }
 
           &.app--parking {
             .main-app-nav__label {
               &:before {
-                background-image: url('../images/ico-app-parking.png');
+                background-image: url("../images/ico-app-parking.png");
               }
             }
-
           }
-
-
-
 
           &.is-active {
             .main-app-nav__label {
@@ -209,37 +199,33 @@
             &.app--ev {
               .main-app-nav__label {
                 &:before {
-                  background-image: url('../images/ico-app-ev-active.png');
+                  background-image: url("../images/ico-app-ev-active.png");
                 }
               }
-
             }
 
             &.app--community {
               .main-app-nav__label {
                 &:before {
-                  background-image: url('../images/ico-app-community-active.png');
+                  background-image: url("../images/ico-app-community-active.png");
                 }
               }
-
             }
 
             &.app--videocall {
               .main-app-nav__label {
                 &:before {
-                  background-image: url('../images/ico-app-videocall-active.png');
+                  background-image: url("../images/ico-app-videocall-active.png");
                 }
               }
-
             }
 
             &.app--parking {
               .main-app-nav__label {
                 &:before {
-                  background-image: url('../images/ico-app-parking-active.png');
+                  background-image: url("../images/ico-app-parking-active.png");
                 }
               }
-
             }
           }
         }
@@ -275,7 +261,6 @@
           font-weight: 700;
         }
       }
-
     }
 
     .main-apps-preview {
@@ -310,7 +295,7 @@
         }
 
         .app-keypoint,
-        >p {
+        > p {
           opacity: 0;
           transform: translateY(12px);
           transition:
@@ -319,9 +304,8 @@
         }
 
         &.is-active {
-
           .app-keypoint,
-          >p {
+          > p {
             opacity: 1;
             transform: translateY(0);
           }
@@ -347,7 +331,7 @@
             line-height: 140%;
             /* 22.4px */
             letter-spacing: -0.5px;
-            background: linear-gradient(270deg, #73E7FA 0%, #00D1FF 46.63%, #6BC0FF 100%);
+            background: linear-gradient(270deg, #73e7fa 0%, #00d1ff 46.63%, #6bc0ff 100%);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -383,8 +367,6 @@
           }
         }
       }
-
-
     }
 
     @include mobile {
@@ -415,7 +397,6 @@
         // flex-direction: row;
         // justify-content: center;
 
-
         .main-app-nav {
           width: 100%;
 
@@ -439,7 +420,6 @@
             font-size: 1.7rem;
           }
         }
-
       }
 
       .main-apps-preview {
@@ -458,7 +438,7 @@
           }
 
           p {
-            font-size: 1.6rem
+            font-size: 1.6rem;
           }
 
           .main-app-swiper {
@@ -469,23 +449,17 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-
       .main-app-nav__label,
       .main-app__item {
         transition: none;
         transform: none;
       }
     }
-
-
-
-
-
   }
 
   &.main-service {
     position: relative;
-    background: linear-gradient(180deg, var(--white) 75%, #F8FBFF 100%);
+    background: linear-gradient(180deg, var(--white) 75%, #f8fbff 100%);
 
     .main-service-list {
       display: grid;
@@ -528,12 +502,12 @@
         gap: 14px;
         align-items: flex-end;
         height: 160px;
-        background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.50) 100%);
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
 
         span {
           border-radius: 52px;
-          border: 1px solid rgba(224, 232, 255, 0.50);
-          background: rgba(255, 255, 255, 0.20);
+          border: 1px solid rgba(224, 232, 255, 0.5);
+          background: rgba(255, 255, 255, 0.2);
           backdrop-filter: blur(5px);
           display: flex;
           padding: 14px 20px;
@@ -554,7 +528,7 @@
       gap: 20px;
 
       .main-service-cate {
-        background: linear-gradient(270deg, #62BBC9 0%, #5680EB 100%);
+        background: linear-gradient(270deg, #62bbc9 0%, #5680eb 100%);
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -590,10 +564,7 @@
       }
 
       .main-service-media {
-
-
         .main-service-tag {
-
           span {
             padding: 10px 16px;
             font-size: 1.4rem;
@@ -612,7 +583,7 @@
         gap: 0;
 
         .main-service-item {
-          &+.main-service-item {
+          & + .main-service-item {
             margin-top: 60px;
           }
         }
@@ -640,9 +611,6 @@
         }
       }
     }
-
-
-
   }
 
   &.add-service {
@@ -655,7 +623,7 @@
       gap: 10px;
 
       i {
-        background: linear-gradient(270deg, #73E7FA 0%, #00D1FF 46.63%, #6BC0FF 100%);
+        background: linear-gradient(270deg, #73e7fa 0%, #00d1ff 46.63%, #6bc0ff 100%);
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -692,12 +660,12 @@
         box-sizing: border-box;
         position: relative;
 
-        &+.swiper-slide {
+        & + .swiper-slide {
           &:before {
-            content: '';
+            content: "";
             width: 1px;
             height: 100%;
-            background: linear-gradient(180deg, #AFF4FF 0%, #5680EB 80%);
+            background: linear-gradient(180deg, #aff4ff 0%, #5680eb 80%);
             position: absolute;
             left: 0;
             top: 0;
@@ -715,7 +683,7 @@
           align-items: flex-start;
           text-align: left;
 
-          >span:not(.label) {
+          > span:not(.label) {
             font-weight: 400;
           }
         }
@@ -734,14 +702,12 @@
         justify-content: center;
         position: relative;
 
-
-
-        &+li {
+        & + li {
           &:before {
-            content: '';
+            content: "";
             width: 1px;
             height: 100%;
-            background: linear-gradient(180deg, #AFF4FF 0%, #5680EB 80%);
+            background: linear-gradient(180deg, #aff4ff 0%, #5680eb 80%);
             position: absolute;
             left: 0;
             top: 0;
@@ -750,8 +716,6 @@
             opacity: 0.6;
           }
         }
-
-
       }
 
       &.type-light {
@@ -775,10 +739,9 @@
             letter-spacing: 0px;
             line-height: 130%;
 
-            &+span {
+            & + span {
               font-weight: 500;
             }
-
           }
         }
       }
@@ -821,7 +784,6 @@
       .row {
         .col {
           width: 100%;
-
         }
       }
 
@@ -838,7 +800,7 @@
         .swiper-slide {
           width: min(260px, 78vw);
 
-          &+.swiper-slide::before {
+          & + .swiper-slide::before {
             content: none;
           }
 
@@ -847,7 +809,7 @@
             text-align: left;
             padding: 0 30px;
 
-            >span:not(.label) {
+            > span:not(.label) {
               font-weight: 400;
               font-size: 1.4rem;
 
@@ -873,13 +835,11 @@
           flex: none;
           width: 100px;
 
-          &+li {
+          & + li {
             &:before {
               content: none;
             }
           }
-
-
         }
 
         &.type-light {
@@ -887,7 +847,6 @@
           margin-bottom: 40px;
 
           li {
-
             padding: 0;
             width: calc(50% - 10px);
 
@@ -903,7 +862,7 @@
             .add-service-label {
               text-align: left;
 
-              &+span {
+              & + span {
                 text-align: left;
                 font-size: 1.3rem;
                 font-weight: 400;
@@ -912,7 +871,6 @@
                   display: none;
                 }
               }
-
             }
           }
         }
@@ -940,9 +898,6 @@
   }
 
   &.main-reason {
-
-
-
     .main-reason-tabs {
       display: flex;
       gap: 20px;
@@ -956,7 +911,7 @@
         align-items: center;
         gap: 10px;
         border-radius: 50px;
-        background: #F5F6F8;
+        background: #f5f6f8;
         color: var(--text-gray);
         font-size: clamp(1.53rem, 2.5vw + 1.17rem, 1.8rem);
         font-weight: 700;
@@ -1010,7 +965,6 @@
         }
       }
 
-
       .main-reason-card__copy {
         margin-top: 20px;
         display: flex;
@@ -1045,7 +999,7 @@
         width: 21px;
         height: 39px;
         background-color: transparent !important;
-        background-image: url('../images/ico-slide-arrows.png') !important;
+        background-image: url("../images/ico-slide-arrows.png") !important;
         background-repeat: no-repeat !important;
         background-position: center !important;
         background-size: contain !important;
@@ -1062,7 +1016,6 @@
       }
     }
 
-
     @include mobile {
       .main-reason-tabs {
         margin-bottom: 40px;
@@ -1077,11 +1030,7 @@
         a {
           font-size: 1.4rem;
         }
-
-
       }
-
-
 
       .main-reason-slider {
         padding: 0 0 0 30px;
@@ -1102,11 +1051,8 @@
             font-size: 1.4rem;
           }
         }
-
-
       }
     }
-
   }
 
   &.main-smartlife {
@@ -1152,7 +1098,7 @@
     .main-smartlife-circle__bg {
       position: absolute;
       inset: 0;
-      background: url('../images/bg-smartlife.png') no-repeat center / cover;
+      background: url("../images/bg-smartlife.png") no-repeat center / cover;
     }
 
     .main-smartlife-circle__phone {
@@ -1162,7 +1108,7 @@
       width: 100%;
       height: 100%;
       transform: translateX(-50%);
-      background: url('../images/bg-smartlife-phone.png') no-repeat center bottom / contain;
+      background: url("../images/bg-smartlife-phone.png") no-repeat center bottom / contain;
       pointer-events: none;
     }
 
@@ -1212,7 +1158,6 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-
       .main-smartlife-circle,
       .main-smartlife-copy {
         transition: none;
@@ -1265,7 +1210,7 @@
   &.main-cta {
     position: relative;
     overflow: hidden;
-    background: url('../images/bg-flathome.jpg') no-repeat center / cover;
+    background: url("../images/bg-flathome.jpg") no-repeat center / cover;
 
     .app-inner {
       position: relative;
@@ -1299,7 +1244,7 @@
       padding: 30px 0;
 
       &:after {
-        content: '';
+        content: "";
         display: block;
         width: 100%;
         height: 100%;
@@ -1325,6 +1270,4 @@
       }
     }
   }
-
-
 }

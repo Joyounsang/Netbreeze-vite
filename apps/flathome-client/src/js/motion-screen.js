@@ -1,7 +1,7 @@
 'use strict';
 
 function initMotionScreen() {
-  document.querySelectorAll('.motion-screen').forEach((screen) => {
+  document.querySelectorAll('.motion-screen').forEach(screen => {
     if (screen.dataset.motionScreenInit === 'true') return;
 
     screen.dataset.motionScreenInit = 'true';
@@ -22,8 +22,8 @@ function initMotionScreen() {
     }
 
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
+      entries => {
+        entries.forEach(entry => {
           if (!entry.isIntersecting) return;
 
           reveal();
@@ -33,7 +33,7 @@ function initMotionScreen() {
       {
         threshold: 0.35,
         rootMargin: '0px 0px -10% 0px',
-      },
+      }
     );
 
     observer.observe(screen);

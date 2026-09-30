@@ -35,7 +35,7 @@ function initMainAppSection(section) {
   section.style.setProperty('--main-app-nav-duration', `${NAV_DURATION_MS}ms`);
   section.style.setProperty('--main-app-preview-duration', `${PREVIEW_TRANSITION_MS}ms`);
 
-  const swipers = previewItems.map((item) => {
+  const swipers = previewItems.map(item => {
     const swiperEl = item.querySelector('.main-app-swiper');
     if (!swiperEl || swiperEl.dataset.mainAppSwiperInit === 'true') return null;
 
@@ -86,7 +86,7 @@ function initMainAppSection(section) {
     }
   };
 
-  const activate = (index) => {
+  const activate = index => {
     clearTimers();
     cycleToken += 1;
     const token = cycleToken;

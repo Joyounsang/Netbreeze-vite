@@ -8,14 +8,13 @@ function initMainSmartlifeReveal() {
   section.dataset.mainSmartlifeInit = 'true';
 
   // scale(0)인 원은 교차 영역이 0으로 잡혀 IO가 동작하지 않음 → 레이아웃 박스가 유지되는 래퍼 관찰
-  const target =
-    section.querySelector('.main-smartlife-visual') || section;
+  const target = section.querySelector('.main-smartlife-visual') || section;
 
   const reveal = () => {
     section.classList.add('is-visible');
   };
 
-  const isInRevealZone = (entry) => {
+  const isInRevealZone = entry => {
     if (!entry.isIntersecting) return false;
     // 원이 화면에 충분히 들어온 뒤에만 시작 (섹션 패딩만 보일 때 트리거 방지)
     return entry.intersectionRatio >= 0.45;
@@ -42,8 +41,8 @@ function initMainSmartlifeReveal() {
   }
 
   const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
+    entries => {
+      entries.forEach(entry => {
         if (!isInRevealZone(entry)) return;
 
         reveal();
@@ -53,7 +52,7 @@ function initMainSmartlifeReveal() {
     {
       threshold: [0, 0.25, 0.45, 0.6, 0.75, 1],
       rootMargin: '0px 0px -10% 0px',
-    },
+    }
   );
 
   observer.observe(target);
